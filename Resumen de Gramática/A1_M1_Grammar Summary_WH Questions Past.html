@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Wh-questions in the Past | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+--aux:#5E35B1;--aux-bg:#EDE7F6;
+--wh:#6A1B9A;--wh-bg:#F3E5F5;--wh-border:#CE93D8;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-aux{background:var(--aux-bg);color:var(--aux);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--aux)}
+.g-wh{background:var(--wh-bg);color:var(--wh);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--wh-border)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--wh-bg);border:2px solid var(--wh-border)}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.9rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--wh)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.07)}
+.compare-card li:last-child{border-bottom:none}
+
+.wh-grid{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.8rem 0}
+.wh-item{padding:.7rem .8rem;border-radius:10px;background:var(--card);border:1.5px solid var(--wh-border);display:flex;align-items:flex-start;gap:.6rem}
+.wh-item .wh-word{font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--wh);font-weight:600;min-width:54px;flex-shrink:0}
+.wh-item .wh-info{font-size:.78rem;color:var(--text-soft);line-height:1.5}
+.wh-item .wh-info strong{color:var(--text)}
+
+.formula-strip{display:flex;gap:.3rem;flex-wrap:wrap;align-items:center;background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:.8rem 1rem;margin:.8rem 0}
+.fs-block{padding:4px 10px;border-radius:6px;font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:600;white-space:nowrap}
+.fs-block.wh{background:var(--wh-bg);color:var(--wh);border:1.5px solid var(--wh-border)}
+.fs-block.did{background:var(--aux-bg);color:var(--aux);border:1.5px solid #9575CD}
+.fs-block.subj{background:var(--subj-bg);color:var(--subj);border:1.5px solid #90CAF9}
+.fs-block.verb{background:var(--verb-bg);color:var(--verb);border:1.5px solid #EF9A9A}
+.fs-block.comp{background:var(--comp-bg);color:var(--comp);border:1.5px solid #80CBC4}
+.fs-sep{color:var(--text-soft);font-size:1.1rem;font-weight:700}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.92rem;color:var(--ld);line-height:2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.6}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.qa-pair{background:#F8F9FA;border-radius:10px;padding:.7rem .9rem;margin:.4rem 0;border:1.5px solid var(--border)}
+.qa-pair .qa-q{font-size:.83rem;font-weight:700;color:var(--wh);margin-bottom:.2rem}
+.qa-pair .qa-a{font-size:.82rem;color:var(--text-soft);font-family:'Lora',serif;font-style:italic}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left;line-height:1.4}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .compare-grid,.wh-grid{grid-template-columns:1fr}
+  .formula-strip{gap:.2rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life — Wh-questions in the Past</div>
+  <p class="subtitle">What · Where · When · Who · Why · How · Past Simple &amp; Continuous · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: Wh-questions in the Past</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>Estructura PS:</b> Wh- + did + subject + base verb? → <i>What did you do?</i>",
+    "<b>Estructura PC:</b> Wh- + was/were + subject + verb-ing? → <i>What were you doing?</i>",
+    "<b>¡No dobles auxiliares!</b> ❌ What did you did? → ✅ What did you <b>do</b>?",
+    "<b>Who como sujeto:</b> Who + verb-ed? (sin did) → <i>Who called you?</i>",
+    "<b>Las 6 Wh-:</b> What=qué · Where=dónde · When=cuándo · Who=quién · Why=por qué · How=cómo",
+    "El orden es siempre: Wh- → auxiliar → sujeto → verbo base (PS) / -ing (PC)"
+  ],
+  steps: [
+    /* ── PASO 1 ── */
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español formamos preguntas con palabras interrogativas (¿qué?, ¿dónde?, ¿quién?...) y el orden verbo-sujeto puede cambiar. En inglés el orden es fijo y siempre necesitamos el auxiliar "did".</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Preguntas en Español</h4><ul>' +
+            '<li>¿<b>Qué</b> hiciste ayer?</li>' +
+            '<li>¿<b>Dónde</b> estuviste?</li>' +
+            '<li>¿<b>Cuándo</b> llegaste?</li>' +
+            '<li>¿<b>Por qué</b> te fuiste?</li>' +
+            '<li>¿<b>Cómo</b> lo hiciste?</li>' +
+          '</ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 Wh-questions in English</h4><ul>' +
+            '<li><b>What</b> did you do yesterday?</li>' +
+            '<li><b>Where</b> were you?</li>' +
+            '<li><b>When</b> did you arrive?</li>' +
+            '<li><b>Why</b> did you leave?</li>' +
+            '<li><b>How</b> did you do it?</li>' +
+          '</ul></div>' +
+        '</div>' +
+        '<div class="section-label">Las 6 palabras Wh-</div>' +
+        '<div class="wh-grid">' +
+          '<div class="wh-item"><div class="wh-word">What</div><div class="wh-info"><strong>¿Qué? / ¿Cuál?</strong><br>What did you eat?</div></div>' +
+          '<div class="wh-item"><div class="wh-word">Where</div><div class="wh-info"><strong>¿Dónde?</strong><br>Where did she go?</div></div>' +
+          '<div class="wh-item"><div class="wh-word">When</div><div class="wh-info"><strong>¿Cuándo?</strong><br>When did they arrive?</div></div>' +
+          '<div class="wh-item"><div class="wh-word">Who</div><div class="wh-info"><strong>¿Quién?</strong><br>Who did you see?</div></div>' +
+          '<div class="wh-item"><div class="wh-word">Why</div><div class="wh-info"><strong>¿Por qué?</strong><br>Why did he leave?</div></div>' +
+          '<div class="wh-item"><div class="wh-word">How</div><div class="wh-info"><strong>¿Cómo?</strong><br>How did you cook it?</div></div>' +
+        '</div>',
+      exercises: [
+        {q: '"¿Qué?" en inglés es:', a: 'a', o: ['What', 'Where'], fc: '"What" = ¿Qué? / ¿Cuál? Se usa para preguntar sobre cosas o acciones.', fi: '"Where" = ¿Dónde? Se usa para preguntar sobre lugares.', ex: 'What did you do? → ¿Qué hiciste?', tip: 'What = qué · Where = dónde'},
+        {q: '"¿Dónde fuiste?" en inglés:', a: 'b', o: ['When did you go?', 'Where did you go?'], fc: '"Where" = ¿Dónde? Where did you go?', fi: '"When" = ¿Cuándo? Pregunta sobre tiempo, no lugar.', ex: 'Where did you go? → ¿Dónde fuiste?', tip: 'Where = dónde (lugar)'},
+        {q: '"¿Cuándo llegaste?" en inglés:', a: 'a', o: ['When did you arrive?', 'Why did you arrive?'], fc: '"When" = ¿Cuándo? When did you arrive?', fi: '"Why" = ¿Por qué? Pregunta sobre razón, no tiempo.', ex: 'When did you arrive? → ¿Cuándo llegaste?', tip: 'When = cuándo (tiempo)'},
+        {q: '"¿Por qué te fuiste?" en inglés:', a: 'b', o: ['How did you leave?', 'Why did you leave?'], fc: '"Why" = ¿Por qué? Why did you leave?', fi: '"How" = ¿Cómo? Pregunta sobre manera, no razón.', ex: 'Why did you leave? → ¿Por qué te fuiste?', tip: 'Why = por qué (razón)'},
+        {q: '"¿Cómo lo hiciste?" en inglés:', a: 'a', o: ['How did you do it?', 'Who did you do it?'], fc: '"How" = ¿Cómo? How did you do it?', fi: '"Who" = ¿Quién? Pregunta sobre persona, no manera.', ex: 'How did you do it? → ¿Cómo lo hiciste?', tip: 'How = cómo (manera)'}
+      ]
+    },
+
+    /* ── PASO 2 ── */
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">Las preguntas Wh- en español e inglés comparten la misma lógica: la palabra interrogativa va primero y pide información específica.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Wh- va al inicio</td><td>¿<b>Qué</b> hiciste?</td><td><span class="g-wh">What</span> did you do?</td></tr>' +
+          '<tr><td>Piden info específica</td><td>¿Dónde? → lugar</td><td><span class="g-wh">Where</span> → place</td></tr>' +
+          '<tr><td>No se responde Yes/No</td><td>¿Qué hiciste? → "Cociné"</td><td>What did you do? → "I cooked"</td></tr>' +
+          '<tr><td>Inversión verbo-sujeto</td><td>¿Cuándo <b>llegaste</b> <b>tú</b>?</td><td>When <span class="g-aux">did</span> <span class="g-subj">you</span> arrive?</td></tr>' +
+          '<tr><td>Tono descendente</td><td>¿Qué? ↘</td><td>What? ↘</td></tr>' +
+        '</table>' +
+        '<div class="section-label">Estructura visual — Past Simple</div>' +
+        '<div class="formula-strip">' +
+          '<div class="fs-block wh">Wh-</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block did">did</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block subj">subject</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block verb">base verb</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block comp">complement?</div>' +
+        '</div>' +
+        '<div class="qa-pair"><div class="qa-q">What did you cook yesterday?</div><div class="qa-a">I cooked pasta. → Cociné pasta.</div></div>' +
+        '<div class="qa-pair"><div class="qa-q">Where did she go last night?</div><div class="qa-a">She went to the cinema. → Fue al cine.</div></div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> En inglés el orden es FIJO: Wh- → did → sujeto → verbo base. Nunca cambia.</div>',
+      exercises: [
+        {q: 'El orden correcto para Wh-question (PS) es:', a: 'b', o: ['Wh- + subject + did + verb', 'Wh- + did + subject + base verb'], fc: 'Wh- + did + subject + base verb. El auxiliar "did" va ANTES del sujeto.', fi: '"Subject + did" invierte el orden. El auxiliar siempre va antes del sujeto en preguntas.', ex: 'What did you do? → ¿Qué hiciste?', tip: 'Wh- → did → subject → base verb'},
+        {q: '"What did you ___?" (cocinar)', a: 'a', o: ['cook', 'cooked'], fc: 'Después de "did" siempre va la forma BASE del verbo, no la forma pasada.', fi: '"Cooked" ya es pasado. Con "did" el verbo vuelve a su forma base.', ex: 'What did you cook? → ¿Qué cocinaste?', tip: 'did + base verb (sin -ed)'},
+        {q: '"Where ___ she go last night?"', a: 'b', o: ['does', 'did'], fc: '"Did" es el auxiliar del pasado. Where did she go?', fi: '"Does" es auxiliar del presente. Para pasado se usa "did".', ex: 'Where did she go? → ¿Dónde fue ella?', tip: 'Pasado → did'},
+        {q: '"When did they ___?" (llegar)', a: 'a', o: ['arrive', 'arrived'], fc: 'Después de "did" siempre va la forma base: arrive.', fi: '"Arrived" es la forma pasada. Con "did" se usa la forma base.', ex: 'When did they arrive? → ¿Cuándo llegaron?', tip: 'did + base verb (sin -ed)'},
+        {q: 'Las Wh-questions se responden con:', a: 'b', o: ['Yes o No', 'Información específica'], fc: 'Wh-questions piden información: What → cosa · Where → lugar · When → tiempo.', fi: 'Yes/No son respuestas para preguntas de inversión (Did you...? Were you...?).', ex: 'What did you do? → I cooked pasta. (no Yes/No)'}
+      ]
+    },
+
+    /* ── PASO 3 ── */
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>¿Qué hiciste? (sin aux.)</td><td><span class="g-wh">What</span> <span class="g-aux">did</span> you do?</td><td>Inglés requiere auxiliar "did"</td></tr>' +
+          '<tr><td>¿Quién te llamó? (sin aux.)</td><td><span class="g-wh">Who</span> called you? (sin did)</td><td>Who como sujeto: no necesita did</td></tr>' +
+          '<tr><td>¿Qué estabas haciendo?</td><td><span class="g-wh">What</span> <span class="g-aux">were</span> you doing?</td><td>PC: was/were reemplaza a did</td></tr>' +
+          '<tr><td>¿Dónde ibas? (2 signos)</td><td>Where did you go? (1 signo)</td><td>Solo "?" al final en inglés</td></tr>' +
+          '<tr><td>Verbo conjugado</td><td>Base verb después de did</td><td>❌ did you went? → ✅ did you go?</td></tr>' +
+        '</table>' +
+        '<div class="section-label">Who como sujeto — caso especial</div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Who como sujeto: no usa "did"</div>' +
+          '<p>Cuando <b>Who</b> es el sujeto de la pregunta (pregunta por la persona que hace la acción), NO se usa "did":<br><br>' +
+          '✅ <b>Who called you?</b> → ¿Quién te llamó? (Who = sujeto)<br>' +
+          '✅ <b>Who cooked dinner?</b> → ¿Quién cocinó la cena?<br>' +
+          '❌ <b>Who did called you?</b> → incorrecto</p></div>' +
+        '<div class="section-label">Wh- en Past Continuous</div>' +
+        '<div class="formula-strip">' +
+          '<div class="fs-block wh">Wh-</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block did">was/were</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block subj">subject</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block verb">verb-ing</div><div class="fs-sep">+</div>' +
+          '<div class="fs-block comp">complement?</div>' +
+        '</div>' +
+        '<div class="qa-pair"><div class="qa-q">What were you doing at 8pm?</div><div class="qa-a">I was cooking dinner. → Estaba cocinando la cena.</div></div>' +
+        '<div class="qa-pair"><div class="qa-q">Where was she going when you saw her?</div><div class="qa-a">She was going to work. → Iba al trabajo.</div></div>',
+      exercises: [
+        {q: '"What ___ you do yesterday?"', a: 'b', o: ['were', 'did'], fc: '"What did you do?" → Past Simple. "Did" es el auxiliar del PS.', fi: '"Were" es auxiliar del Past Continuous. Para PS se usa "did".', ex: 'What did you do yesterday? → ¿Qué hiciste ayer?', tip: 'PS → did · PC → was/were'},
+        {q: '"What ___ you doing at 8pm?"', a: 'a', o: ['were', 'did'], fc: '"What were you doing?" → Past Continuous. "Were" + -ing.', fi: '"Did" es auxiliar de PS. Para PC se usa was/were.', ex: 'What were you doing at 8pm? → ¿Qué estabas haciendo a las 8pm?', tip: 'PC → was/were + -ing'},
+        {q: '"Who ___ dinner last night?" (¿Quién cocinó? = sujeto)', a: 'b', o: ['did cook', 'cooked'], fc: '"Who" como sujeto no usa "did". Who cooked dinner?', fi: '"Did cook" duplica el auxiliar innecesariamente cuando Who es sujeto.', ex: 'Who cooked dinner? → ¿Quién cocinó la cena?', tip: 'Who = sujeto → sin did'},
+        {q: '"Where did she ___?" (ir)', a: 'a', o: ['go', 'went'], fc: 'Después de "did" siempre forma BASE: go (no went).', fi: '"Went" es la forma pasada irregular de go. Con "did" se usa la base "go".', ex: 'Where did she go? → ¿Dónde fue ella?', tip: 'did + base verb: go (no went)'},
+        {q: '"Why ___ he leave so early?"', a: 'a', o: ['did', 'was'], fc: '"Why did he leave?" → PS. "Leave" es base verb.', fi: '"Why was he leave" no es correcto. "Was" + leaving (PC) sería otra estructura.', ex: 'Why did he leave so early? → ¿Por qué se fue tan temprano?'}
+      ]
+    },
+
+    /* ── PASO 4 ── */
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1 — El orden nunca cambia:</strong> <b>Wh- → did/was/were → sujeto → verbo</b>. Memoriza este tren de 4 vagones y no lo cambies.</div>' +
+        '<div class="tip-card"><strong>Tip 2 — did mata el pasado:</strong> Después de "did" el verbo VUELVE a la forma base. ❌ did you went → ✅ did you go. "Did" ya lleva el pasado.</div>' +
+        '<div class="tip-card"><strong>Tip 3 — Who sujeto, excepción especial:</strong> Si "who" pregunta por quien HACE la acción → no uses "did". Who called? Who cooked? Who arrived?</div>' +
+        '<div class="tip-card"><strong>Tip 4 — PS vs PC con Wh-:</strong> PS → <b>did + base verb</b>. PC → <b>was/were + -ing</b>. La Wh- es la misma, solo cambia el auxiliar.</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-wh">Wh-</span> + <span class="g-aux">did</span> + <span class="g-subj">subject</span> + <span class="g-verb">base verb</span>? (PS)<br>' +
+          '<span class="g-wh">Wh-</span> + <span class="g-aux">was/were</span> + <span class="g-subj">subject</span> + <span class="g-verb">verb-ing</span>? (PC)<br>' +
+          '<span class="g-wh">Who</span> + <span class="g-verb">verb-ed</span>? (Who = sujeto, sin did)' +
+        '</div>',
+      exercises: [
+        {q: '"What did you ___?" — verbo correcto:', a: 'b', o: ['cooked', 'cook'], fc: 'Después de "did" → forma base: cook. "Did" ya lleva el pasado.', fi: '"Cooked" duplica el pasado. Con "did" el verbo va en forma base.', ex: 'What did you cook? → ¿Qué cocinaste?', tip: 'did + base verb'},
+        {q: '"Where ___ they working when you arrived?"', a: 'a', o: ['were', 'did'], fc: '"Where were they working?" → PC. Were + subject + -ing.', fi: '"Did" es auxiliar de PS. Para PC se usa were.', ex: 'Where were they working? → ¿Dónde estaban trabajando?'},
+        {q: '"Who ___ you?" (¿Quién te llamó? — sujeto)', a: 'b', o: ['did call', 'called'], fc: '"Who" como sujeto → Who called you? Sin "did".', fi: '"Did call" es redundante cuando Who es sujeto de la pregunta.', ex: 'Who called you? → ¿Quién te llamó?', tip: 'Who sujeto → sin did'},
+        {q: '"How did you ___?" (llegar)', a: 'a', o: ['get there', 'got there'], fc: 'Después de "did" → base verb: get (no got). How did you get there?', fi: '"Got" es el pasado irregular de "get". Con "did" se usa la forma base.', ex: 'How did you get there? → ¿Cómo llegaste ahí?', tip: 'did + base verb: get (no got)'},
+        {q: '"When ___ she cooking when you arrived?"', a: 'b', o: ['did', 'was'], fc: '"When was she cooking?" → PC. Was + subject + -ing.', fi: '"Did" + "cooking" no forma PC. Para PC se usa was/were.', ex: 'When was she cooking? → ¿Cuándo estaba cocinando?'}
+      ]
+    },
+
+    /* ── PASO 5 ── */
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-wh">What/Where/When/Who/Why/How</span><br>' +
+          '+ <span class="g-aux">did</span> + <span class="g-subj">subject</span> + <span class="g-verb">base verb</span>? &nbsp;(Past Simple)<br>' +
+          '+ <span class="g-aux">was/were</span> + <span class="g-subj">subject</span> + <span class="g-verb">verb-ing</span>? &nbsp;(Past Continuous)' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🍳</div><div><div class="en"><span class="g-wh">What</span> <span class="g-aux">did</span> <span class="g-subj">she</span> <span class="g-verb">cook</span> <span class="g-comp">for dinner</span>?</div><div class="es">¿Qué cocinó ella para la cena?</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🏃</div><div><div class="en"><span class="g-wh">Where</span> <span class="g-aux">were</span> <span class="g-subj">you</span> <span class="g-verb">going</span> <span class="g-comp">so fast</span>?</div><div class="es">¿A dónde ibas tan rápido?</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">📞</div><div><div class="en"><span class="g-wh">Who</span> <span class="g-verb">called</span> <span class="g-comp">you last night</span>?</div><div class="es">¿Quién te llamó anoche? (who = sujeto)</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "What did you <b>went</b>?" → ✅ "What did you <b>go</b>?" (base verb después de did)<br>' +
+          '❌ "Where you did go?" → ✅ "Where <b>did you</b> go?" (auxiliar antes del sujeto)<br>' +
+          '❌ "Who did called you?" → ✅ "Who <b>called</b> you?" (Who sujeto: sin did)' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ did you cook for dinner?"', a: 'b', o: ['Where', 'What'], fc: '"What did you cook?" pregunta sobre la comida (cosa/acción).', fi: '"Where" pregunta sobre lugar. "¿Dónde cocinaste?" sería Where did you cook?', ex: 'What did you cook for dinner? → ¿Qué cocinaste para la cena?', tip: 'What = qué (cosa/acción)'},
+        {q: '"Where ___ you going when I saw you?"', a: 'a', o: ['were', 'did'], fc: '"Where were you going?" → PC. Were + -ing. Proceso en curso cuando te vi.', fi: '"Did" es auxiliar de PS y no combina con -ing.', ex: 'Where were you going? → ¿A dónde ibas?', tip: 'PC → were + -ing'},
+        {q: '"Why did she ___ so early?"', a: 'b', o: ['left', 'leave'], fc: 'Después de "did" → base verb: leave. Why did she leave?', fi: '"Left" es el pasado irregular de "leave". Con "did" se usa la forma base.', ex: 'Why did she leave so early? → ¿Por qué se fue tan temprano?', tip: 'did + base verb: leave (no left)'},
+        {q: '"___ arrived first?" (¿Quién llegó primero? — sujeto)', a: 'a', o: ['Who arrived', 'Who did arrive'], fc: '"Who arrived first?" → Who es sujeto, no se necesita "did".', fi: '"Who did arrive" es incorrecto. Cuando Who es sujeto, va directamente con el verbo pasado.', ex: 'Who arrived first? → ¿Quién llegó primero?', tip: 'Who sujeto → sin did'},
+        {q: '"How ___ you get to work yesterday?"', a: 'b', o: ['were', 'did'], fc: '"How did you get to work?" → PS con "did". Pregunta sobre método/manera pasado.', fi: '"How were you getting?" sería PC, inusual para preguntar sobre transporte habitual.', ex: 'How did you get to work? → ¿Cómo llegaste al trabajo?', tip: 'How + PS → did'}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

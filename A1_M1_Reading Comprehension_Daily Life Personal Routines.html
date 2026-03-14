@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprensión Lectora Módulo 1 Daily Life & Personal Routines</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Lora:ital,wght@0,400;0,600;1,400&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --level-primary: #2196F3;
+  --level-dark:    #0D47A1;
+  --level-mid:     #BBDEFB;
+  --level-light:   #E3F2FD;
+  --level-gradient: linear-gradient(135deg, #1565C0 0%, #2196F3 60%, #64B5F6 100%);
+  --level-glow:    rgba(33,150,243,0.10);
+  --level-badge-text: #0A3470;
+  --rv-bg: #F3E5F5;
+  --rv-text: #7B1FA2;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#E3F2FD 0%,#BBDEFB 100%);min-height:100vh;padding:15px;padding-bottom:40px;-webkit-font-smoothing:antialiased}
+.container{max-width:600px;margin:0 auto}
+
+.header{background:var(--level-gradient);border-radius:20px;padding:28px 20px;text-align:center;margin-bottom:20px;box-shadow:0 8px 25px rgba(21,101,192,0.35);position:relative;overflow:hidden}
+.header::before{content:'';position:absolute;top:-40%;right:-10%;width:260px;height:260px;background:rgba(255,255,255,0.1);border-radius:50%;pointer-events:none}
+.header h1{font-family:'Fredoka',sans-serif;color:white;font-size:1.9rem;margin-bottom:6px;text-shadow:2px 2px 4px rgba(0,0,0,0.18);position:relative;z-index:1}
+.header .subtitle{color:rgba(255,255,255,0.92);font-size:1rem;margin-bottom:12px;position:relative;z-index:1}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:0.73rem;font-weight:800;letter-spacing:0.1em;text-transform:uppercase;background:var(--level-light);color:var(--level-badge-text);padding:5px 14px;border-radius:20px;border:1.5px solid var(--level-mid);position:relative;z-index:1}
+.level-indicator{font-size:2rem;margin-top:10px;position:relative;z-index:1}
+
+.mode-section{background:white;border-radius:15px;padding:18px 20px;margin-bottom:18px;box-shadow:0 4px 15px rgba(0,0,0,0.07)}
+.mode-section h3{text-align:center;color:#666;font-size:0.92rem;margin-bottom:13px}
+.mode-buttons{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.mode-btn{padding:16px 14px;border:2.5px solid var(--level-primary);border-radius:14px;background:white;cursor:pointer;transition:all 0.3s;text-align:center;font-family:'Nunito',sans-serif}
+.mode-btn:hover{transform:translateY(-3px);box-shadow:0 6px 18px rgba(33,150,243,0.25)}
+.mode-btn.active{background:var(--level-gradient);border-color:#1565C0}
+.mode-btn .flags{font-size:1.4rem;margin-bottom:6px}
+.mode-btn .mode-title{font-weight:800;color:var(--level-dark);font-size:0.88rem;margin-bottom:3px}
+.mode-btn.active .mode-title,.mode-btn.active .mode-desc{color:white}
+.mode-btn .mode-desc{font-size:0.73rem;color:#999}
+
+.krashen-box{background:linear-gradient(135deg,#E3F2FD 0%,#BBDEFB 100%);border-radius:15px;padding:18px;margin-bottom:18px;border-left:5px solid #2196F3}
+.krashen-box .icon-title{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.krashen-box h4{color:#1565C0;font-size:1rem;font-family:'Fredoka',sans-serif}
+.krashen-box p{color:#555;font-size:0.84rem;line-height:1.6}
+
+.achievements-section{background:white;border-radius:15px;padding:18px 20px;margin-bottom:18px;box-shadow:0 4px 15px rgba(0,0,0,0.07)}
+.achievements-section h3{text-align:center;color:var(--level-dark);font-size:1rem;margin-bottom:4px;font-family:'Fredoka',sans-serif}
+.achievements-section .sub{text-align:center;color:#aaa;font-size:0.78rem;margin-bottom:14px}
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px}
+.achievement{text-align:center;padding:12px 6px;border-radius:12px;background:#f5f5f5;opacity:0.45;transition:all 0.3s}
+.achievement.unlocked{background:linear-gradient(135deg,var(--level-light) 0%,var(--level-mid) 100%);opacity:1;box-shadow:0 3px 10px rgba(33,150,243,0.25)}
+.achievement .icon{font-size:1.45rem;margin-bottom:4px}
+.achievement .name{font-size:0.62rem;color:#888;line-height:1.3}
+.achievement.unlocked .name{color:var(--level-dark);font-weight:700}
+
+.story-selector{background:white;border-radius:15px;padding:18px 20px;margin-bottom:18px;box-shadow:0 4px 15px rgba(0,0,0,0.07)}
+.story-selector h3{text-align:center;color:var(--level-dark);font-size:0.95rem;margin-bottom:13px;font-family:'Fredoka',sans-serif}
+.story-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.story-tab{padding:12px 10px;border:2px solid var(--level-primary);border-radius:12px;background:white;cursor:pointer;transition:all 0.25s;text-align:left;font-family:'Nunito',sans-serif}
+.story-tab:hover{background:var(--level-light)}
+.story-tab.active{background:var(--level-gradient);border-color:#1565C0}
+.story-tab .tab-num{font-size:0.68rem;font-weight:800;color:var(--level-dark);margin-bottom:3px}
+.story-tab.active .tab-num,.story-tab.active .tab-title,.story-tab.active .tab-done{color:white}
+.story-tab .tab-title{font-size:0.82rem;font-weight:700;color:#444;line-height:1.3}
+.story-tab .tab-done{font-size:0.65rem;color:#aaa;margin-top:3px}
+
+.story-section{background:white;border-radius:15px;margin-bottom:18px;box-shadow:0 4px 15px rgba(0,0,0,0.07);overflow:hidden}
+.story-header{background:var(--level-gradient);padding:15px 20px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+.story-header h3{color:white;font-size:1rem;display:flex;align-items:center;gap:10px;font-family:'Fredoka',sans-serif}
+.story-toggle{color:white;font-size:1.2rem;transition:transform 0.3s}
+.story-toggle.open{transform:rotate(180deg)}
+.story-content{max-height:0;overflow:hidden;transition:max-height 0.5s ease}
+.story-content.open{max-height:9000px}
+.story-inner{padding:16px;max-height:420px;overflow-y:auto}
+.story-inner::-webkit-scrollbar{width:6px}
+.story-inner::-webkit-scrollbar-track{background:#f5f5f5;border-radius:3px}
+.story-inner::-webkit-scrollbar-thumb{background:var(--level-primary);border-radius:3px}
+.story-block{margin-bottom:14px;padding:12px 14px;background:#F5FAFF;border-radius:10px;border-left:4px solid var(--level-primary)}
+.story-block .en{font-family:'Lora',serif;color:#2A2A2A;font-size:0.94rem;margin-bottom:5px;line-height:1.8}
+.global-toggle{display:flex;justify-content:flex-end;margin-bottom:10px}
+.global-btn{background:none;border:1.5px solid var(--level-primary);border-radius:20px;padding:5px 14px;font-size:0.78rem;cursor:pointer;color:var(--level-dark);font-weight:700;transition:all 0.2s;font-family:'Nunito',sans-serif}
+.global-btn:hover{background:var(--level-light)}
+.reveal-btn{display:inline-flex;align-items:center;gap:4px;font-family:'Nunito',sans-serif;font-size:0.76rem;font-weight:600;color:var(--rv-text);background:var(--rv-bg);border:none;padding:3px 10px;border-radius:6px;cursor:pointer;transition:all 0.2s;margin-top:6px}
+.reveal-btn:hover{background:#E1BEE7}
+.reveal-btn .arrow{transition:transform 0.25s;font-size:0.7rem}
+.reveal-btn.open .arrow{transform:rotate(90deg)}
+.story-block .es{font-family:'Lora',serif;font-style:italic;font-size:0.86rem;color:#777;margin-top:6px;padding-left:13px;border-left:2.5px solid #CE93D8;display:none;animation:fadeSlide 0.25s ease;line-height:1.7}
+.story-block .es.show{display:block}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-5px)}to{opacity:1;transform:translateY(0)}}
+
+.quiz-section{background:white;border-radius:15px;padding:20px;box-shadow:0 4px 15px rgba(0,0,0,0.07)}
+.quiz-header{text-align:center;margin-bottom:18px}
+.quiz-header h3{color:var(--level-dark);font-size:1.1rem;margin-bottom:4px;font-family:'Fredoka',sans-serif}
+.quiz-header .mode-ind{color:#888;font-size:0.83rem}
+.progress-container{margin-bottom:18px}
+.progress-bar{height:10px;background:#e0e0e0;border-radius:5px;overflow:hidden}
+.progress-fill{height:100%;background:var(--level-gradient);border-radius:5px;transition:width 0.5s;width:0%}
+.progress-text{text-align:center;font-size:0.78rem;color:#999;margin-top:7px}
+
+.question-card{background:#FAFAFA;border-radius:14px;padding:18px;margin-bottom:14px;border:2.5px solid #e0e0e0;transition:all 0.3s}
+.question-card.correct{border-color:#4caf50;background:linear-gradient(135deg,#e8f5e9,#c8e6c9)}
+.question-card.incorrect{border-color:#f44336;background:linear-gradient(135deg,#ffebee,#ffcdd2)}
+.question-badge{display:inline-block;background:var(--level-gradient);color:white;padding:5px 12px;border-radius:14px;font-size:0.73rem;font-weight:800;margin-bottom:11px}
+.question-text{font-size:0.97rem;color:#333;margin-bottom:13px;line-height:1.5}
+.options-grid{display:flex;flex-direction:column;gap:9px}
+.option-btn{padding:13px 16px;border:2px solid #e0e0e0;border-radius:12px;background:white;color:#555;font-size:0.88rem;cursor:pointer;transition:all 0.2s;text-align:left;font-family:'Nunito',sans-serif}
+.option-btn:hover:not(:disabled){border-color:var(--level-primary);background:var(--level-light);transform:translateX(4px)}
+.option-btn:disabled{cursor:not-allowed}
+.option-btn.selected-correct{background:linear-gradient(135deg,#4caf50,#66bb6a);color:white;border-color:#4caf50}
+.option-btn.selected-wrong{background:linear-gradient(135deg,#f44336,#ef5350);color:white;border-color:#f44336}
+.option-btn.show-correct{background:linear-gradient(135deg,#4caf50,#66bb6a);color:white;border-color:#4caf50}
+
+.feedback{margin-top:13px;padding:14px;border-radius:12px;display:none;animation:fadeIn 0.3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.feedback.show{display:block}
+.feedback.correct-fb{background:#e8f5e9;border:2px solid #a5d6a7}
+.feedback.incorrect-fb{background:#ffebee;border:2px solid #ef9a9a}
+.feedback-title{font-weight:800;font-size:0.95rem;margin-bottom:6px}
+.correct-fb .feedback-title{color:#2e7d32}
+.incorrect-fb .feedback-title{color:#c62828}
+.feedback-text{color:#555;font-size:0.83rem;line-height:1.5}
+.feedback-tip{color:#666;font-size:0.8rem;margin-top:7px;padding-top:7px;border-top:1px dashed #ccc}
+
+.submit-section{text-align:center;margin-top:20px;display:none}
+.submit-btn{background:var(--level-gradient);color:white;border:none;padding:16px 40px;border-radius:30px;font-size:1rem;font-weight:800;cursor:pointer;transition:all 0.3s;box-shadow:0 4px 15px rgba(21,101,192,0.35);font-family:'Fredoka',sans-serif}
+.submit-btn:hover{transform:scale(1.05)}
+
+.completion-card{display:none;background:var(--level-gradient);border-radius:20px;padding:30px;text-align:center;margin-top:20px;box-shadow:0 8px 25px rgba(21,101,192,0.4);animation:bounceIn 0.5s ease}
+@keyframes bounceIn{0%{transform:scale(0.5);opacity:0}70%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+.completion-card.show{display:block}
+.completion-icon{font-size:4rem;margin-bottom:14px}
+.completion-title{color:white;font-size:1.5rem;margin-bottom:8px;font-family:'Fredoka',sans-serif}
+.completion-score{font-size:3rem;font-weight:800;color:white;text-shadow:2px 2px 4px rgba(0,0,0,0.2)}
+.completion-message{color:rgba(255,255,255,0.92);font-size:0.97rem;margin:14px 0}
+.stats-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:18px 0}
+.stat-box{background:rgba(255,255,255,0.2);border-radius:12px;padding:14px 10px;text-align:center}
+.stat-label{font-size:0.72rem;color:rgba(255,255,255,0.85);margin-bottom:4px}
+.stat-value{font-size:1.5rem;font-weight:800;color:white}
+.completion-krashen{background:rgba(255,255,255,0.15);border-radius:12px;padding:14px;margin:18px 0;color:white}
+.completion-krashen h4{font-size:0.88rem;margin-bottom:7px}
+.completion-krashen p{font-size:0.79rem;opacity:0.92;line-height:1.5}
+.reset-btn{background:white;color:var(--level-dark);border:none;padding:14px 38px;border-radius:30px;font-size:0.97rem;font-weight:800;cursor:pointer;transition:all 0.3s;margin-top:8px;font-family:'Fredoka',sans-serif}
+.reset-btn:hover{transform:scale(1.05);box-shadow:0 5px 18px rgba(0,0,0,0.18)}
+
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center}
+.modal-overlay.show{display:flex}
+.modal-content{background:white;border-radius:20px;padding:30px;text-align:center;max-width:310px;margin:20px;animation:bounceIn 0.4s ease;border-top:4px solid var(--level-primary)}
+.modal-icon{font-size:3.8rem;margin-bottom:12px}
+.modal-title{color:var(--level-dark);font-size:1.25rem;margin-bottom:8px;font-family:'Fredoka',sans-serif}
+.modal-text{color:#666;font-size:0.88rem;margin-bottom:18px}
+.modal-btn{background:var(--level-gradient);color:white;border:none;padding:12px 32px;border-radius:24px;font-size:0.95rem;font-weight:800;cursor:pointer;font-family:'Fredoka',sans-serif}
+
+footer.footer{text-align:center;margin-top:22px;color:var(--level-dark);font-size:0.78rem;opacity:0.65;line-height:1.7}
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="header">
+  <h1>📚 Reading Comprehension</h1>
+  <div class="subtitle">Daily Life &amp; Personal Routines</div>
+  <div class="level-badge">🔵 A1</div>
+  <div class="level-indicator">🔵</div>
+</header>
+
+<div class="mode-section">
+  <h3>Selecciona el modo de práctica</h3>
+  <div class="mode-buttons">
+    <button class="mode-btn active" id="btn-es" onclick="setMode('es')">
+      <div class="flags">🇪🇸➡️🇪🇸</div>
+      <div class="mode-title">Español → Español</div>
+      <div class="mode-desc">Comprensión total</div>
+    </button>
+    <button class="mode-btn" id="btn-en" onclick="setMode('en')">
+      <div class="flags">🇪🇸➡️🇬🇧</div>
+      <div class="mode-title">Español → English</div>
+      <div class="mode-desc">Desafío bilingüe</div>
+    </button>
+  </div>
+</div>
+
+<div class="krashen-box">
+  <div class="icon-title">
+    <span style="font-size:1.5rem">🧠</span>
+    <h4>Input Comprensible (Krashen)</h4>
+  </div>
+  <p>Según el lingüista Stephen Krashen, adquirimos un idioma cuando entendemos mensajes en contexto. Lee cada historia con calma — tu cerebro absorbe patrones del inglés naturalmente. ¡Este es el "input comprensible" en acción!</p>
+</div>
+
+<div class="achievements-section">
+  <h3>🏆 Logros por Desbloquear</h3>
+  <p class="sub">Responde correctamente para ganar insignias</p>
+  <div class="achievements-grid">
+    <div class="achievement" id="ach-first"><div class="icon">🌱</div><div class="name">Primera Respuesta</div></div>
+    <div class="achievement" id="ach-streak"><div class="icon">🔥</div><div class="name">Racha de Fuego</div></div>
+    <div class="achievement" id="ach-literal"><div class="icon">📖</div><div class="name">Comprensión Literal</div></div>
+    <div class="achievement" id="ach-inferential"><div class="icon">🔍</div><div class="name">Detective del Texto</div></div>
+    <div class="achievement" id="ach-critical"><div class="icon">🎓</div><div class="name">Pensamiento Crítico</div></div>
+    <div class="achievement" id="ach-perfect"><div class="icon">⭐</div><div class="name">Perfección</div></div>
+    <div class="achievement" id="ach-theme"><div class="icon">☀️</div><div class="name">Rutinas Diarias</div></div>
+    <div class="achievement" id="ach-bonus"><div class="icon">🕐</div><div class="name">Maestro del Tiempo</div></div>
+  </div>
+</div>
+
+<div class="story-selector">
+  <h3>📖 Elige una Historia</h3>
+  <div class="story-tabs">
+    <button class="story-tab active" id="tab-1" onclick="selectStory(1)">
+      <div class="tab-num">Historia 1</div>
+      <div class="tab-title">The Hour Before School</div>
+      <div class="tab-done" id="done-1"></div>
+    </button>
+    <button class="story-tab" id="tab-2" onclick="selectStory(2)">
+      <div class="tab-num">Historia 2</div>
+      <div class="tab-title">The Cookbook</div>
+      <div class="tab-done" id="done-2"></div>
+    </button>
+    <button class="story-tab" id="tab-3" onclick="selectStory(3)">
+      <div class="tab-num">Historia 3</div>
+      <div class="tab-title">The House on Calle Verde</div>
+      <div class="tab-done" id="done-3"></div>
+    </button>
+    <button class="story-tab" id="tab-4" onclick="selectStory(4)">
+      <div class="tab-num">Historia 4</div>
+      <div class="tab-title">A Day Well Used</div>
+      <div class="tab-done" id="done-4"></div>
+    </button>
+  </div>
+</div>
+
+<div class="story-section">
+  <div class="story-header" onclick="toggleStory()">
+    <h3 id="story-header-title">📖 The Hour Before School</h3>
+    <span class="story-toggle open" id="story-toggle">▼</span>
+  </div>
+  <div class="story-content open" id="story-content">
+    <div class="story-inner" id="story-inner"></div>
+  </div>
+</div>
+
+<div class="quiz-section">
+  <div class="quiz-header">
+    <h3>✏️ Quiz de Comprensión</h3>
+    <div class="mode-ind" id="mode-display">Modo: Español → Español</div>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text" id="progress-text">0 de 7 preguntas</div>
+  </div>
+  <div id="quiz-container"></div>
+  <div class="submit-section" id="submit-section">
+    <button class="submit-btn" onclick="showCompletion()">📊 Ver Resultados</button>
+  </div>
+  <div class="completion-card" id="completion-card">
+    <div class="completion-icon">🏆</div>
+    <div class="completion-title">¡Completado!</div>
+    <div class="completion-score" id="final-score">0/7</div>
+    <div class="completion-message" id="completion-message"></div>
+    <div class="stats-grid">
+      <div class="stat-box"><div class="stat-label">Literal</div><div class="stat-value" id="stat-lit">0/3</div></div>
+      <div class="stat-box"><div class="stat-label">Inferencial</div><div class="stat-value" id="stat-inf">0/3</div></div>
+    </div>
+    <div class="completion-krashen">
+      <h4>🧠 ¿Sabías que...?</h4>
+      <p>Al completar este ejercicio, has expuesto tu cerebro a patrones naturales del inglés. Según Krashen, <strong>la adquisición ocurre inconscientemente</strong> cuando entendemos mensajes. ¡Cada historia que lees construye tu competencia lingüística!</p>
+    </div>
+    <button class="reset-btn" onclick="resetQuiz()">🔄 Intentar de Nuevo</button>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>Daily Life &amp; Personal Routines • 🔵 A1 • JUCUM English Center</p>
+</footer>
+</div>
+
+<div class="modal-overlay" id="achievement-modal">
+  <div class="modal-content">
+    <div class="modal-icon" id="modal-icon">🏆</div>
+    <h3 class="modal-title">¡Logro Desbloqueado!</h3>
+    <p class="modal-text" id="modal-text">Has completado algo increíble</p>
+    <button class="modal-btn" onclick="closeModal()">¡Genial!</button>
+  </div>
+</div>
+
+<script>
+// ── STORY DATA (plain text, no markup) ──────────────────────
+const STORY_META = {
+  1:{t:"The Hour Before School"},
+  2:{t:"The Cookbook"},
+  3:{t:"The House on Calle Verde"},
+  4:{t:"A Day Well Used"}
+};
+
+const BLOCKS = {
+  1:[
+    ["Ana wakes up at half past six every morning. She doesn't use an alarm — her body just knows when it's time. She lies in bed for a few minutes and then she gets up.",
+     "Ana se despierta a las seis y media cada mañana. No usa despertador — su cuerpo simplemente sabe cuándo es el momento. Se queda en cama unos minutos y luego se levanta."],
+    ["The first thing she does is open the window in her room. She likes to feel the morning air, even if it's a little cold. After that, she gets dressed and goes to the kitchen to help her father with breakfast.",
+     "Lo primero que hace es abrir la ventana de su cuarto. Le gusta sentir el aire de la mañana, aunque haga un poco de frío. Después de eso, se viste y va a la cocina a ayudar a su padre con el desayuno."],
+    ["Her father always wakes up before her. He puts water on for tea and cuts some fruit. Some days he also makes toast or eggs if they have time. Ana pours the tea and sets the cups on the table.",
+     "Su padre siempre se despierta antes que ella. Él pone agua para el té y corta fruta. Algunos días también hace tostadas o huevos si tienen tiempo. Ana sirve el té y pone las tazas en la mesa."],
+    ["They eat together and talk about the day. Sometimes her father asks what she is studying at school. It is a short time, but Ana really likes it. It helps her feel good before she goes to class.",
+     "Comen juntos y hablan del día. A veces su padre pregunta qué está estudiando en la escuela. Es un momento corto, pero a Ana le gusta mucho. La ayuda a sentirse bien antes de ir a clases."],
+    ["After breakfast, she washes the dishes quickly and goes back to her room to get her bag. She makes sure she has her books, her notebook, and her bus card before she leaves the house.",
+     "Después del desayuno, lava los platos rápido y vuelve a su cuarto a buscar su bolsa. Se asegura de tener sus libros, su cuaderno y su tarjeta del autobús antes de salir de casa."],
+    ["The walk to the bus stop takes about five minutes. She usually listens to music or just looks at the street. This small, quiet time helps her feel calm and ready for the day.",
+     "La caminata hasta la parada del autobús tarda unos cinco minutos. Generalmente escucha música o simplemente mira la calle. Este momento tranquilo la ayuda a sentirse serena y lista para el día."],
+    ["Sometimes her brother is still asleep when she leaves. She tries not to make noise in the hallway. She closes the front door slowly and steps outside.",
+     "A veces su hermano todavía está dormido cuando ella sale. Intenta no hacer ruido en el pasillo. Cierra la puerta principal despacio y sale."],
+    ["At school, she goes to her classroom and puts her bag on her chair. She takes out her notebook and her pen. She likes to be ready before the teacher arrives.",
+     "En la escuela, va a su salón y pone su bolsa en su silla. Saca su cuaderno y su bolígrafo. Le gusta estar lista antes de que llegue la maestra."],
+    ["After school, Ana comes home and has a snack. She eats some bread or a piece of fruit. Then she does her homework at the kitchen table. Her father is usually nearby.",
+     "Después de clases, Ana llega a casa y come algo. Come pan o una fruta. Luego hace su tarea en la mesa de la cocina. Su padre generalmente está cerca."]
+  ],
+  2:[
+    ["David did not cook much before his second year at university. He usually ate bread or whatever his roommates made. One day, his mother came to visit and gave him a small cookbook. That was the beginning of something new.",
+     "David no cocinaba mucho antes de su segundo año en la universidad. Generalmente comía pan o lo que sus compañeros de cuarto hacían. Un día, su mamá vino a visitarlo y le dio un pequeño libro de cocina. Eso fue el comienzo de algo nuevo."],
+    ["The book was old and the pages were soft. His mother had marked her favorite recipes with small pieces of paper. She sat with him and showed him how to make a simple rice dish. It was not hard, but David had to pay attention.",
+     "El libro era viejo y las páginas eran suaves. Su mamá había marcado sus recetas favoritas con pequeños papeles. Ella se sentó con él y le mostró cómo hacer un plato de arroz sencillo. No era difícil, pero David tenía que prestar atención."],
+    ["He burned the first attempt. He put the heat too high and did not add enough water. His mother did not say anything bad — she just smiled and said, 'Again.' So he tried a second time and it came out much better.",
+     "Quemó el primer intento. Puso el fuego muy alto y no agregó suficiente agua. Su mamá no dijo nada malo — solo sonrió y dijo: 'Otra vez.' Entonces lo intentó por segunda vez y le salió mucho mejor."],
+    ["He started to cook every day after that. He would come home from class and open the book. Some of the food was not very good. But some of it was really nice. He learned from every meal, good or bad.",
+     "Después de eso, empezó a cocinar todos los días. Llegaba a casa de clases y abría el libro. Algo de la comida no era muy buena. Pero algo era realmente rico. Aprendía de cada comida, buena o mala."],
+    ["His roommates began to notice. They would ask if he had enough for two, or three. Before long, David was cooking dinner for all of them several nights a week. He liked the company. Eating together felt good.",
+     "Sus compañeros de cuarto empezaron a notar. Preguntaban si tenía suficiente para dos, o tres. En poco tiempo, David cocinaba la cena para todos ellos varias noches a la semana. Le gustaba la compañía. Comer juntos se sentía bien."],
+    ["Now, several years later, cooking is one of the things David enjoys most. After a long day, making a good meal feels like a reward. He still uses his mother's old cookbook. The pages are even softer now.",
+     "Ahora, varios años después, cocinar es una de las cosas que David más disfruta. Después de un día largo, preparar una buena comida se siente como una recompensa. Todavía usa el viejo libro de cocina de su mamá. Las páginas están aún más suaves ahora."],
+    ["David did not know many recipes at first. He started with the easy ones. He made rice, soup, and eggs. These were simple but good.",
+     "David no sabía muchas recetas al principio. Empezó con las fáciles. Hacía arroz, sopa y huevos. Eran sencillos pero buenos."],
+    ["He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken. He tried to spend only a little money. His mother had taught him to plan before buying.",
+     "Iba al mercado cada sábado por la mañana. Compraba verduras, huevos y a veces pollo. Intentaba gastar solo un poco de dinero. Su madre le había enseñado a planificar antes de comprar."],
+    ["David also called his mother on weekends. He told her what he made during the week. She gave him tips and sometimes a new recipe. He wrote them down in a small notebook next to the cookbook.",
+     "David también llamaba a su mamá los fines de semana. Le contaba lo que había hecho durante la semana. Ella le daba consejos y a veces una receta nueva. Él las anotaba en un pequeño cuaderno junto al libro de cocina."]
+  ],
+  3:[
+    ["Elena grew up in a small house with a large garden. The house had three bedrooms and one bathroom. Elena shared a room with her sister. They had two beds, one near the window and one close to the door.",
+     "Elena creció en una casa pequeña con un jardín grande. La casa tenía tres dormitorios y un baño. Elena compartía un cuarto con su hermana. Tenían dos camas, una cerca de la ventana y una cerca de la puerta."],
+    ["The kitchen was the most important room in the house. Her mother cooked there every day. The family ate all their meals at the big old table. The table was a little uneven, but nobody wanted to get a new one.",
+     "La cocina era el cuarto más importante de la casa. Su mamá cocinaba ahí todos los días. La familia comía todas sus comidas en la gran mesa vieja. La mesa estaba un poco dispareja, pero nadie quería conseguir una nueva."],
+    ["In the mornings, Elena's father woke up early. He opened the door to the garden and drank his coffee outside. He said the morning air helped him feel awake. Elena liked to watch him from the kitchen window.",
+     "En las mañanas, el padre de Elena se despertaba temprano. Abría la puerta al jardín y tomaba su café afuera. Decía que el aire de la mañana lo ayudaba a sentirse despierto. A Elena le gustaba mirarlo desde la ventana de la cocina."],
+    ["Her grandmother lived in the house too. She had the room next to Elena's. She was a quiet woman who woke up very early and sat in the garden before breakfast. Every morning, Elena gave her a cup of tea.",
+     "Su abuela también vivía en la casa. Tenía el cuarto al lado del de Elena. Era una mujer tranquila que se despertaba muy temprano y se sentaba en el jardín antes del desayuno. Cada mañana, Elena le daba una taza de té."],
+    ["The evenings were always lively. Elena's father came home from work at around six. Then everyone ate together. They talked about their days — what was good, what was hard. Her mother said that talking over dinner was important for the family.",
+     "Las tardes siempre eran animadas. El padre de Elena llegaba del trabajo alrededor de las seis. Luego todos comían juntos. Hablaban de sus días — qué fue bueno, qué fue difícil. Su mamá decía que hablar durante la cena era importante para la familia."],
+    ["Elena learned many things in that house. She learned to cook by watching her mother. She learned to read by sitting on her bed with a book and a lamp. She learned that a home does not need to be large. It just needs to feel good.",
+     "Elena aprendió muchas cosas en esa casa. Aprendió a cocinar observando a su mamá. Aprendió a leer sentada en su cama con un libro y una lámpara. Aprendió que un hogar no necesita ser grande. Solo necesita sentirse bien."],
+    ["When Elena moved to the city for university, she missed that house a lot. She found a small apartment and tried to make it feel like home. She put a chair near the window. She cooked the food her mother had taught her. It was not the same, but it helped.",
+     "Cuando Elena se mudó a la ciudad para la universidad, extrañó mucho esa casa. Encontró un pequeño apartamento e intentó que se sintiera como un hogar. Puso una silla cerca de la ventana. Cocinó la comida que su mamá le había enseñado. No era lo mismo, pero ayudaba."],
+    ["On weekends, the whole family worked in the garden together. Her father cut the grass. Her sister watered the plants. Elena picked up leaves from the floor. Everyone had a job to do.",
+     "Los fines de semana, toda la familia trabajaba en el jardín juntos. Su padre cortaba el pasto. Su hermana regaba las plantas. Elena recogía hojas del suelo. Todos tenían un trabajo que hacer."],
+    ["In the afternoons, Elena and her sister did homework on their beds. The room was small but they each had their own space. Sometimes they helped each other with difficult problems.",
+     "Por las tardes, Elena y su hermana hacían la tarea en sus camas. El cuarto era pequeño pero cada una tenía su propio espacio. A veces se ayudaban la una a la otra con los problemas difíciles."],
+    ["Before bed, her mother came to say good night. She turned off the big light and left the small lamp on. Elena read for a little while and then closed her book. She put it on the floor next to her bed.",
+     "Antes de dormir, su mamá venía a dar las buenas noches. Apagaba la luz grande y dejaba encendida la lámpara pequeña. Elena leía un rato y luego cerraba su libro. Lo ponía en el suelo junto a su cama."]
+  ],
+  4:[
+    ["Carlos's days start early. He wakes up at six and goes for a short run before the city wakes up. He likes the streets when they are quiet — just a few people and the smell of bread from the bakery on the corner.",
+     "Los días de Carlos empiezan temprano. Se despierta a las seis y sale a correr un poco antes de que la ciudad despierte. Le gustan las calles cuando están tranquilas — solo unas pocas personas y el olor a pan de la panadería en la esquina."],
+    ["Back home, he showers and drinks his coffee standing at the kitchen window. He eats something quick — usually toast with an egg or yogurt with fruit. He is at school by eight. He says that being on time is important.",
+     "De regreso en casa, se ducha y toma su café parado en la ventana de la cocina. Come algo rápido — generalmente tostadas con un huevo o yogur con fruta. Está en la escuela a las ocho. Dice que llegar a tiempo es importante."],
+    ["He teaches four classes in the morning. Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions. He never says a question is bad or unimportant.",
+     "Enseña cuatro clases en la mañana. Entre clases, repasa sus notas y se prepara para la siguiente lección. También ayuda a los estudiantes que tienen preguntas. Nunca dice que una pregunta es mala o sin importancia."],
+    ["At midday, he eats lunch in the teachers' room. He likes to eat with other teachers and talk about the morning. He feels it is good to share how things are going — both the hard days and the good ones.",
+     "Al mediodía, almuerza en la sala de profesores. Le gusta comer con otros maestros y hablar sobre la mañana. Siente que es bueno compartir cómo van las cosas — tanto los días difíciles como los buenos."],
+    ["The afternoons are for a special group of students. These students missed a lot of school the year before. Carlos goes slowly with them. He puts the most important ideas on the board and goes over them many times.",
+     "Las tardes son para un grupo especial de estudiantes. Estos estudiantes faltaron mucho a la escuela el año anterior. Carlos va despacio con ellos. Pone las ideas más importantes en la pizarra y las repasa muchas veces."],
+    ["He gets home around five and changes his clothes. Then he cooks. This is the part of the day he likes most. He opens the window, puts on music, and takes his time. He drinks a glass of water while he cooks and tries not to rush.",
+     "Llega a casa alrededor de las cinco y se cambia de ropa. Luego cocina. Esta es la parte del día que más le gusta. Abre la ventana, pone música y se toma su tiempo. Toma un vaso de agua mientras cocina e intenta no apresurarse."],
+    ["After dinner, he reads for about an hour. He usually reads history books — not for work, but because he enjoys it. He goes to bed at ten. He falls asleep quickly. He feels that if a day was long and full, it was also a good day.",
+     "Después de cenar, lee durante aproximadamente una hora. Generalmente lee libros de historia — no por trabajo, sino porque lo disfruta. Se va a dormir a las diez. Se queda dormido rápidamente. Siente que si un día fue largo y lleno, también fue un buen día."],
+    ["Carlos does not think his life is exciting or special. But it feels right to him. Every day has a beginning and an end. Every day he learns something — from his students, from his books, from the small things around him.",
+     "Carlos no cree que su vida sea emocionante o especial. Pero para él se siente correcta. Cada día tiene un principio y un final. Cada día aprende algo — de sus estudiantes, de sus libros, de las pequeñas cosas a su alrededor."],
+    ["On Fridays, Carlos stays a little later at school. He talks with students who need extra help. He never says he is too busy. He knows that one good conversation can make a big difference.",
+     "Los viernes, Carlos se queda un poco más tarde en la escuela. Habla con los estudiantes que necesitan ayuda extra. Nunca dice que está demasiado ocupado. Sabe que una buena conversación puede hacer una gran diferencia."],
+    ["On Saturdays, he goes to the market early. He buys fresh vegetables and sometimes fish. He takes his time and talks to the sellers. He feels good when he cooks with fresh food.",
+     "Los sábados, va al mercado temprano. Compra verduras frescas y a veces pescado. Se toma su tiempo y habla con los vendedores. Se siente bien cuando cocina con comida fresca."]
+  ]
+};
+
+// ── QUESTIONS (plain text, no markup) ──────────────────────
+// Each question: { b, t, q, o:[opt0,opt1,opt2,opt3], c (correct index), ok, no, tip }
+// Randomization is handled at render time.
+const S = {
+  1:{t:"The Hour Before School",
+    ee:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿A qué hora se despierta Ana?",o:["A las siete de la mañana","A las seis y media","A las cinco y cuarto","A las ocho en punto"],c:1,ok:"La historia dice: 'Ana wakes up at half past six.' Half past six = las seis y media.",no:"Revisa la primera línea: 'Ana wakes up at half past six every morning.'",tip:"💡 Half past six = 6:30. 'Half past' significa 'y media'."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Qué es lo primero que hace Ana al levantarse?",o:["Desayunar con su padre","Lavar los platos","Abrir la ventana de su cuarto","Buscar su bolsa"],c:2,ok:"La historia dice: 'The first thing she does is open the window in her room.'",no:"Revisa la línea 2: 'The first thing she does is open the window in her room.'",tip:"💡 'First thing' = lo primero. Window = ventana."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Qué hace el padre de Ana antes de que ella se despierte?",o:["Camina al mercado","Prepara el desayuno","Lleva a su hermano al colegio","Duerme hasta tarde"],c:1,ok:"La historia dice: 'Her father always wakes up before her. He puts water on for tea and cuts some fruit.'",no:"Revisa: el padre siempre se despierta antes y prepara el desayuno.",tip:"💡 'Wakes up before her' = se despierta antes que ella."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué a Ana le gusta desayunar con su padre?",o:["Porque el desayuno es muy rico","Porque es un momento para hablar y conectar","Porque su padre le enseña inglés","Porque la cocina está cerca de su cuarto"],c:1,ok:"La historia dice: 'They eat together and talk about the day... It helps her feel good before she goes to class.' Es un momento de conexión.",no:"Ana dice que desayunar juntos la ayuda a sentirse bien. Es un momento de conexión familiar.",tip:"💡 'Talk about the day' = hablar sobre el día."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué nos dice el hecho de que Ana revise su bolsa antes de salir?",o:["Que es olvidadiza","Que es responsable y organizada","Que tiene mucha tarea","Que su madre la ayuda"],c:1,ok:"Revisar que tiene sus libros, cuaderno y tarjeta de bus antes de salir muestra que Ana es responsable y organizada.",no:"Revisar la bolsa demuestra organización, no olvido.",tip:"💡 'Makes sure she has' = se asegura de tener."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué Ana quiere llegar al salón antes que la maestra?",o:["Para hablar con sus amigos","Porque le gusta estar preparada","Para copiar la tarea","Porque la maestra llega muy temprano"],c:1,ok:"La historia dice: 'She likes to be ready before the teacher arrives.' Le gusta estar preparada.",no:"La historia dice 'she likes to be ready before the teacher arrives.'",tip:"💡 'Be ready' = estar lista/preparada."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es el mensaje principal de la historia de Ana?",o:["Las mañanas son difíciles para todos","Las rutinas ordenadas ayudan a empezar bien el día","Es importante tener un buen desayuno","El transporte público es útil"],c:1,ok:"Ana tiene una rutina clara cada mañana. La historia muestra que una rutina ordenada ayuda a comenzar el día con calma y propósito.",no:"El mensaje es sobre el valor de las rutinas diarias para comenzar bien el día.",tip:"💡 'Routine' = rutina. Una rutina ordenada da estructura y tranquilidad."}
+    ],
+    en:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿A qué hora se despierta Ana?",o:["At seven in the morning","At half past six","At a quarter past five","At eight o'clock"],c:1,ok:"The story says: 'Ana wakes up at half past six.'",no:"Check the first line: 'Ana wakes up at half past six every morning.'",tip:"💡 Half past six = 6:30."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Qué es lo primero que hace Ana al levantarse?",o:["Have breakfast with her father","Wash the dishes","Open the window in her room","Get her bag"],c:2,ok:"The story says: 'The first thing she does is open the window in her room.'",no:"Check: 'The first thing she does is open the window in her room.'",tip:"💡 'Open the window' = abrir la ventana."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Qué hace el padre de Ana antes de que ella se despierte?",o:["Walk to the market","Prepare breakfast","Take her brother to school","Sleep late"],c:1,ok:"The story says: 'Her father always wakes up before her. He puts water on for tea and cuts some fruit.'",no:"The father prepares breakfast. Check the morning routine lines.",tip:"💡 'Put water on for tea' = poner agua para el té."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué a Ana le gusta desayunar con su padre?",o:["Because the food is delicious","Because it is a time to talk and connect","Because her father teaches her English","Because the kitchen is close to her room"],c:1,ok:"The story says: 'They eat together and talk about the day... It helps her feel good before she goes to class.'",no:"The correct answer is about connection. Ana says it helps her feel good.",tip:"💡 'Talk about the day' = hablar sobre el día."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué nos dice el hecho de que Ana revise su bolsa antes de salir?",o:["She is forgetful","She is responsible and organized","She has a lot of homework","Her mother helps her"],c:1,ok:"Checking her books, notebook, and bus card before leaving shows Ana is responsible and organized.",no:"Checking the bag shows organization and responsibility.",tip:"💡 'Makes sure she has' = se asegura de tener."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué Ana quiere llegar al salón antes que la maestra?",o:["To talk with her friends","Because she likes to be prepared","To copy homework","Because the teacher arrives very early"],c:1,ok:"The story says: 'She likes to be ready before the teacher arrives.'",no:"'She likes to be ready before the teacher arrives.'",tip:"💡 'Be ready' = estar lista."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es el mensaje principal de la historia de Ana?",o:["Mornings are difficult for everyone","Organized routines help you start the day well","It is important to have a good breakfast","Public transport is useful"],c:1,ok:"Ana's clear morning routine shows that an organized routine helps start the day with calm and purpose.",no:"The central message is about the value of daily routines.",tip:"💡 'Routine' = rutina."}
+    ]
+  },
+  2:{t:"The Cookbook",
+    ee:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿Qué le regaló la madre de David?",o:["Un delantal de cocina","Un libro de recetas","Una olla nueva","Un teléfono"],c:1,ok:"La historia dice: 'his mother came to visit and gave him a small cookbook.' Cookbook = libro de recetas.",no:"Revisa: la madre le trajo un libro de recetas.",tip:"💡 Cookbook = libro de recetas."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Qué pasó con el primer intento de David al cocinar?",o:["Salió muy bien","Se lo comieron sus compañeros","Lo quemó","Le quedó sin sal"],c:2,ok:"La historia dice: 'He burned the first attempt. He put the heat too high and did not add enough water.'",no:"Revisa: 'He burned the first attempt.'",tip:"💡 Burn = quemar. Burned = quemó."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Cómo reaccionó la madre de David cuando él quemó la comida?",o:["Se enojó mucho","Sonrió y dijo 'Otra vez'","Se fue a casa","Llamó a un restaurante"],c:1,ok:"La historia dice: 'His mother did not say anything bad — she just smiled and said, Again.'",no:"La madre reaccionó positivamente: sonrió y dijo 'Again'.",tip:"💡 'She just smiled' = solo sonrió."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué los compañeros de cuarto empezaron a comer con David?",o:["Porque la cocina estaba sucia","Porque la comida era buena y había suficiente para compartir","Porque David les pedía ayuda","Porque no tenían dinero"],c:1,ok:"Los compañeros preguntaban si había suficiente para dos o tres, y pronto David cocinaba para todos. La comida era buena y abundante.",no:"Los compañeros notaron que la comida era buena y había suficiente para todos.",tip:"💡 'Enough for two or three' = suficiente para ellos también."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué enseñó cocinar a David, según la historia?",o:["A ser más ordenado","A aprender de los errores y mejorar","A ahorrar dinero","A hacer nuevos amigos"],c:1,ok:"La historia dice: 'He learned from every meal, good or bad.' Aprendió de cada experiencia.",no:"'He learned from every meal, good or bad.'",tip:"💡 'Learn from' = aprender de."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hacía David cada sábado por la mañana para cocinar mejor?",o:["Cocinaba con sus compañeros de cuarto","Llamaba a su madre para pedir recetas","Iba al mercado a comprar verduras y huevos","Leía libros de cocina en la biblioteca"],c:2,ok:"La historia dice: 'He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken.' Ir al mercado le ayudaba a tener ingredientes frescos.",no:"La respuesta correcta es que iba al mercado cada sábado. Revisa: 'He went to the market every Saturday morning.'",tip:"💡 Market = mercado. Every Saturday = cada sábado."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es el mensaje principal de la historia de David?",o:["Aprender a cocinar es muy difícil","Con práctica y apoyo podemos aprender cosas nuevas","Vivir en la universidad es complicado","Los libros viejos son mejores"],c:1,ok:"David empezó sin saber cocinar, pero con práctica y el apoyo de su madre se convirtió en buen cocinero. El mensaje es sobre el aprendizaje y la perseverancia.",no:"El mensaje es sobre el aprendizaje a través de la práctica y el apoyo familiar.",tip:"💡 'Practice' = práctica."}
+    ],
+    en:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿Qué le regaló la madre de David?",o:["A cooking apron","A small cookbook","A new pot","A phone"],c:1,ok:"The story says: 'his mother came to visit and gave him a small cookbook.'",no:"His mother brought him a cookbook.",tip:"💡 Cookbook = libro de recetas."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Qué pasó con el primer intento de David al cocinar?",o:["It turned out great","His roommates ate it","He burned it","It was not salty enough"],c:2,ok:"The story says: 'He burned the first attempt. He put the heat too high.'",no:"Check: 'He burned the first attempt.'",tip:"💡 Burn = quemar."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Cómo reaccionó la madre de David cuando él quemó la comida?",o:["She got very angry","She smiled and said 'Again'","She went home","She called a restaurant"],c:1,ok:"The story says: 'His mother did not say anything bad — she just smiled and said, Again.'",no:"His mother reacted positively: she smiled and said 'Again'.",tip:"💡 'She just smiled' = solo sonrió."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué los compañeros de cuarto empezaron a comer con David?",o:["Because the kitchen was dirty","Because the food was good and there was enough to share","Because David asked for help","Because they had no money"],c:1,ok:"The roommates asked 'if he had enough for two, or three' — the food was good and plentiful.",no:"The roommates noticed because the food was good and there was enough for everyone.",tip:"💡 'Enough for two or three' = suficiente para todos."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué enseñó cocinar a David, según la historia?",o:["To be more organized","To learn from mistakes and improve","To save money","To make new friends"],c:1,ok:"The story says: 'He learned from every meal, good or bad.'",no:"'He learned from every meal, good or bad.'",tip:"💡 'Learn from' = aprender de."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hacía David cada sábado por la mañana para cocinar mejor?",o:["He cooked with his roommates","He called his mother for recipes","He went to the market to buy vegetables and eggs","He read cookbooks at the library"],c:2,ok:"The story says: 'He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken.'",no:"The correct answer is that he went to the market every Saturday. Check: 'He went to the market every Saturday morning.'",tip:"💡 Market = mercado. Every Saturday = cada sábado."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es el mensaje principal de la historia de David?",o:["Learning to cook is very difficult","With practice and support we can learn new things","Living at university is complicated","Old books are better"],c:1,ok:"David started without knowing how to cook, but with daily practice and his mother's support he became a good cook.",no:"The central message is about learning through practice and family support.",tip:"💡 'Practice' = práctica."}
+    ]
+  },
+  3:{t:"The House on Calle Verde",
+    ee:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿Cuántos dormitorios tenía la casa donde creció Elena?",o:["Uno","Dos","Tres","Cuatro"],c:2,ok:"La historia dice: 'The house had three bedrooms and one bathroom.' Three bedrooms = tres dormitorios.",no:"Revisa la primera línea: 'The house had three bedrooms and one bathroom.'",tip:"💡 Bedroom = dormitorio. Three = tres."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Cuál era el cuarto más importante de la casa?",o:["La sala","La cocina","El jardín","El dormitorio de Elena"],c:1,ok:"La historia dice: 'The kitchen was the most important room in the house.'",no:"Revisa: 'The kitchen was the most important room in the house.'",tip:"💡 Kitchen = cocina. 'Most important' = más importante."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Quién más vivía en la casa además de la familia inmediata de Elena?",o:["Un tío","Una amiga de la familia","La abuela","Un primo"],c:2,ok:"La historia dice: 'Her grandmother lived in the house too.' Grandmother = abuela.",no:"La abuela también vivía en la casa: 'Her grandmother lived in the house too.'",tip:"💡 Grandmother = abuela."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué nadie quería reemplazar la mesa vieja y desigual?",o:["Porque no tenían dinero","Porque tenía un valor sentimental para la familia","Porque era difícil moverla","Porque era muy grande y cómoda"],c:1,ok:"La historia dice: 'nobody wanted to get a new one' — la mesa tenía valor sentimental, era parte de la vida familiar.",no:"'Nobody wanted to get a new one' — tenía valor sentimental para la familia.",tip:"💡 'Nobody wanted to' = nadie quería. El valor sentimental supera al material."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Cómo aprendió Elena a cocinar?",o:["En clases de cocina","Observando a su madre","Leyendo libros de recetas","Viendo videos"],c:1,ok:"La historia dice: 'She learned to cook by watching her mother.' By watching = observando.",no:"'She learned to cook by watching her mother.'",tip:"💡 'By watching' = observando."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hizo Elena para que su apartamento en la ciudad se sintiera como un hogar?",o:["Compró muebles nuevos","Puso una silla cerca de la ventana y cocinó la comida de su madre","Invitó a muchos amigos","Decoró con muchas plantas"],c:1,ok:"La historia dice: 'She put a chair near the window. She cooked the food her mother had taught her.' Recreó elementos de su hogar de infancia.",no:"Elena puso una silla cerca de la ventana y cocinó la comida de su madre.",tip:"💡 'Make it feel like home' = hacer que se sintiera como un hogar."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es la lección principal que aprendió Elena en su casa de infancia?",o:["Una casa grande es más cómoda","Un hogar no necesita ser grande; necesita sentirse bien","Es importante tener un jardín","Compartir cuarto con un hermano es difícil"],c:1,ok:"La historia termina: 'a home does not need to be large. It just needs to feel good.' El hogar es sobre conexión y amor, no tamaño.",no:"'A home does not need to be large. It just needs to feel good.'",tip:"💡 'Feel good' = sentirse bien."}
+    ],
+    en:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿Cuántos dormitorios tenía la casa donde creció Elena?",o:["One","Two","Three","Four"],c:2,ok:"The story says: 'The house had three bedrooms and one bathroom.'",no:"Check: 'The house had three bedrooms and one bathroom.'",tip:"💡 Bedroom = dormitorio."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Cuál era el cuarto más importante de la casa?",o:["The living room","The kitchen","The garden","Elena's bedroom"],c:1,ok:"The story says: 'The kitchen was the most important room in the house.'",no:"'The kitchen was the most important room in the house.'",tip:"💡 Kitchen = cocina."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Quién más vivía en la casa además de la familia inmediata de Elena?",o:["An uncle","A family friend","The grandmother","A cousin"],c:2,ok:"The story says: 'Her grandmother lived in the house too.'",no:"The grandmother also lived there.",tip:"💡 Grandmother = abuela."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué nadie quería reemplazar la mesa vieja y desigual?",o:["Because they had no money","Because it had sentimental value for the family","Because it was hard to move","Because it was very comfortable"],c:1,ok:"The story says: 'nobody wanted to get a new one' — it had sentimental value.",no:"Nobody wanted to replace it — it had sentimental value.",tip:"💡 'Nobody wanted to' = nadie quería."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Cómo aprendió Elena a cocinar?",o:["In cooking classes","By watching her mother","By reading recipe books","By watching videos"],c:1,ok:"The story says: 'She learned to cook by watching her mother.'",no:"'She learned to cook by watching her mother.'",tip:"💡 'By watching' = observando."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hizo Elena para que su apartamento se sintiera como un hogar?",o:["She bought new furniture","She put a chair near the window and cooked her mother's food","She invited many friends","She decorated with plants"],c:1,ok:"The story says: 'She put a chair near the window. She cooked the food her mother had taught her.'",no:"Elena put a chair near the window and cooked her mother's food.",tip:"💡 'Make it feel like home' = hacerlo sentir como hogar."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Cuál es la lección principal que aprendió Elena en su casa de infancia?",o:["A big house is more comfortable","A home doesn't need to be large; it just needs to feel good","It is important to have a garden","Sharing a room with a sibling is hard"],c:1,ok:"The story ends: 'a home does not need to be large. It just needs to feel good.'",no:"'A home does not need to be large. It just needs to feel good.'",tip:"💡 'Feel good' = sentirse bien."}
+    ]
+  },
+  4:{t:"A Day Well Used",
+    ee:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿A qué hora se despierta Carlos?",o:["A las cinco","A las seis","A las siete","A las ocho"],c:1,ok:"La historia dice: 'He wakes up at six.' Six = seis.",no:"Revisa la primera línea: 'He wakes up at six.'",tip:"💡 'Wakes up at six' = se despierta a las seis."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Cuántas clases da Carlos por la mañana?",o:["Dos","Tres","Cuatro","Cinco"],c:2,ok:"La historia dice: 'He teaches four classes in the morning.' Four = cuatro.",no:"Revisa: 'He teaches four classes in the morning.'",tip:"💡 Four = cuatro. Teaches = enseña."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Dónde almuerza Carlos al mediodía?",o:["En su casa","En la cafetería de los estudiantes","En la sala de profesores","En un restaurante"],c:2,ok:"La historia dice: 'he eats lunch in the teachers' room.' Teachers' room = sala de profesores.",no:"Carlos almuerza en la sala de profesores.",tip:"💡 Teachers' room = sala de profesores."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hace Carlos entre sus clases de la mañana?",o:["Descansa en la sala de profesores","Repasa sus notas y ayuda a estudiantes con preguntas","Come su almuerzo","Llama a los padres de familia"],c:1,ok:"La historia dice: 'Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions.'",no:"Revisa: 'He goes over his notes... He also helps students who have questions.'",tip:"💡 'Goes over his notes' = repasa sus notas."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué tipo de profesor es Carlos, según la historia?",o:["Estricto y exigente","Paciente, dedicado y accesible","Muy popular y divertido","Estricto pero justo"],c:1,ok:"Carlos ayuda a estudiantes con preguntas, trabaja pacientemente con un grupo especial y nunca dice que una pregunta es mala. Es paciente, dedicado y accesible.",no:"Carlos ayuda con preguntas y nunca rechaza a un estudiante — es dedicado y accesible.",tip:"💡 'Never says a question is bad' = nunca dice que una pregunta es mala."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué cocinar es la parte del día que Carlos más disfruta?",o:["Porque es chef profesional","Porque es un momento de calma y placer personal","Porque sus estudiantes le traen recetas","Porque cocinar es muy rápido"],c:1,ok:"La historia dice: 'He opens the window, puts on music, and takes his time... tries not to rush.' Para Carlos, cocinar es un ritual de relajación y disfrute.",no:"Carlos abre la ventana, pone música y no se apresura — es su momento de calma.",tip:"💡 'Takes his time' = se toma su tiempo."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Qué significa para Carlos que 'un día fue largo y lleno'?",o:["Que el día tuvo muchos problemas","Que fue un día bien aprovechado y satisfactorio","Que no tuvo tiempo para comer","Que necesita vacaciones"],c:1,ok:"La historia termina: 'if a day was long and full, it was also a good day.' Para Carlos, largo y lleno = bien aprovechado y satisfactorio. Es su filosofía de vida.",no:"Para Carlos, largo y lleno = bien aprovechado y satisfactorio.",tip:"💡 'Long and full' = largo y lleno. Plenitud, no agotamiento."}
+    ],
+    en:[
+      {b:"Pregunta 1/7 · Literal 📖",t:"literal",q:"¿A qué hora se despierta Carlos?",o:["At five","At six","At seven","At eight"],c:1,ok:"The story says: 'He wakes up at six.'",no:"Check: 'He wakes up at six.'",tip:"💡 Six = seis."},
+      {b:"Pregunta 2/7 · Literal 📖",t:"literal",q:"¿Cuántas clases da Carlos por la mañana?",o:["Two","Three","Four","Five"],c:2,ok:"The story says: 'He teaches four classes in the morning.'",no:"Check: 'He teaches four classes in the morning.'",tip:"💡 Four = cuatro."},
+      {b:"Pregunta 3/7 · Literal 📖",t:"literal",q:"¿Dónde almuerza Carlos al mediodía?",o:["At home","In the student cafeteria","In the teachers' room","At a restaurant"],c:2,ok:"The story says: 'he eats lunch in the teachers' room.'",no:"Carlos eats in the teachers' room.",tip:"💡 Teachers' room = sala de profesores."},
+      {b:"Pregunta 4/7 · Inferencial 🔍",t:"inferential",q:"¿Qué hace Carlos entre sus clases de la mañana?",o:["He rests in the teachers' room","He goes over his notes and helps students with questions","He eats his lunch","He calls parents"],c:1,ok:"The story says: 'Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions.'",no:"Check: 'He goes over his notes... He also helps students who have questions.'",tip:"💡 'Goes over his notes' = repasa sus notas."},
+      {b:"Pregunta 5/7 · Inferencial 🔍",t:"inferential",q:"¿Qué tipo de profesor es Carlos, según la historia?",o:["Strict and demanding","Patient, dedicated and approachable","Very popular and fun","Strict but fair"],c:1,ok:"Carlos helps students with questions, works patiently with a special group, and never says a question is bad.",no:"Carlos helps with questions and never rejects a student — he is dedicated and approachable.",tip:"💡 'Never says a question is bad' = nunca dice que una pregunta es mala."},
+      {b:"Pregunta 6/7 · Inferencial 🔍",t:"inferential",q:"¿Por qué cocinar es la parte del día que Carlos más disfruta?",o:["Because he is a professional chef","Because it is a moment of calm and personal pleasure","Because his students bring him recipes","Because cooking is very quick"],c:1,ok:"The story says: 'He opens the window, puts on music, and takes his time... tries not to rush.' Cooking is his ritual of relaxation.",no:"Carlos opens the window, puts on music, and doesn't rush — it is his moment of calm.",tip:"💡 'Takes his time' = se toma su tiempo."},
+      {b:"Pregunta 7/7 · Pensamiento Crítico 🎓",t:"critical",q:"¿Qué significa para Carlos que 'un día fue largo y lleno'?",o:["That the day had many problems","That it was a well-used and satisfying day","That he had no time to eat","That he needs a vacation"],c:1,ok:"The story ends: 'if a day was long and full, it was also a good day.' For Carlos, long and full = well-used and satisfying.",no:"For Carlos, long and full = well-used and satisfying. It is his life philosophy.",tip:"💡 'Long and full' = largo y lleno."}
+    ]
+  }
+};
+
+// ── HELPERS ──────────────────────────────────────────────────
+function shuffle(arr) {
+  const a = [...arr];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// Randomize options while tracking new correct index
+function randomizeQuestion(q) {
+  const indexed = q.o.map((opt, i) => ({ opt, orig: i }));
+  const shuffled = shuffle(indexed);
+  const newCorrect = shuffled.findIndex(x => x.orig === q.c);
+  return { ...q, o: shuffled.map(x => x.opt), c: newCorrect };
+}
+
+// ── STATE ────────────────────────────────────────────────────
+let currentMode = 'es', currentStory = 1;
+let score = 0, answered = new Set(), streak = 0;
+let literalCorrect = 0, inferentialCorrect = 0, criticalCorrect = false;
+let modalQueue = [], modalOpen = false;
+const totalQ = 7;
+let renderedQuestions = []; // store randomized questions for current render
+
+// ── STORY ────────────────────────────────────────────────────
+function renderStory(n) {
+  const blocks = BLOCKS[n];
+  let allES = false;
+  document.getElementById('story-inner').innerHTML =
+    `<div class="global-toggle"><button class="global-btn" id="global-btn" onclick="toggleAllES()">🇪🇸 Ver todas las traducciones</button></div>` +
+    blocks.map(b =>
+      `<div class="story-block">
+        <div class="en">${b[0]}</div>
+        <button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+        <div class="es">${b[1]}</div>
+      </div>`
+    ).join('');
+}
+
+function toggleReveal(btn) {
+  btn.nextElementSibling.classList.toggle('show');
+  btn.classList.toggle('open');
+}
+
+let allESVisible = false;
+function toggleAllES() {
+  allESVisible = !allESVisible;
+  document.querySelectorAll('.story-block .es').forEach(el => el.classList.toggle('show', allESVisible));
+  document.querySelectorAll('.story-block .reveal-btn').forEach(b => b.classList.toggle('open', allESVisible));
+  document.getElementById('global-btn').textContent = allESVisible ? '🇪🇸 Ocultar todas' : '🇪🇸 Ver todas las traducciones';
+}
+
+function toggleStory() {
+  document.getElementById('story-content').classList.toggle('open');
+  document.getElementById('story-toggle').classList.toggle('open');
+}
+
+function selectStory(n) {
+  currentStory = n;
+  for (let i = 1; i <= 4; i++) document.getElementById('tab-' + i).classList.toggle('active', i === n);
+  document.getElementById('story-header-title').textContent = '📖 ' + STORY_META[n].t;
+  allESVisible = false;
+  renderStory(n);
+  document.getElementById('story-content').classList.add('open');
+  document.getElementById('story-toggle').classList.add('open');
+  renderQuiz();
+}
+
+// ── QUIZ ─────────────────────────────────────────────────────
+function renderQuiz() {
+  const raw = S[currentStory][currentMode === 'es' ? 'ee' : 'en'];
+  renderedQuestions = raw.map(q => randomizeQuestion(q));
+
+  document.getElementById('quiz-container').innerHTML = renderedQuestions.map((q, i) => {
+    const qid = `q${currentStory}_${i}`;
+    const letters = ['a','b','c','d'];
+    return `<div class="question-card" id="${qid}">
+      <span class="question-badge">${q.b}</span>
+      <div class="question-text">${q.q}</div>
+      <div class="options-grid">
+        ${q.o.map((opt, j) =>
+          `<button class="option-btn" onclick="checkAnswer('${qid}',${j},${q.c},'${q.t}',${i})">${letters[j]}) ${opt}</button>`
+        ).join('')}
+      </div>
+      <div class="feedback correct-fb" id="fb-${qid}-ok">
+        <div class="feedback-title">✅ ¡Correcto!</div>
+        <div class="feedback-text">${q.ok}</div>
+        <div class="feedback-tip">${q.tip}</div>
+      </div>
+      <div class="feedback incorrect-fb" id="fb-${qid}-no">
+        <div class="feedback-title">❌ Incorrecto</div>
+        <div class="feedback-text">${q.no}</div>
+        <div class="feedback-tip">${q.tip}</div>
+      </div>
+    </div>`;
+  }).join('');
+  updateProgress();
+}
+
+function checkAnswer(qid, sel, correct, type) {
+  if (answered.has(qid)) return;
+  answered.add(qid);
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+  btns.forEach(b => b.disabled = true);
+  const isOk = sel === correct;
+  btns[sel].classList.add(isOk ? 'selected-correct' : 'selected-wrong');
+  if (!isOk) btns[correct].classList.add('show-correct');
+  document.getElementById(`fb-${qid}-${isOk ? 'ok' : 'no'}`).classList.add('show');
+  card.classList.add(isOk ? 'correct' : 'incorrect');
+  if (isOk) {
+    score++; streak++;
+    if (type === 'literal') literalCorrect++;
+    if (type === 'inferential') inferentialCorrect++;
+    if (type === 'critical') criticalCorrect = true;
+    checkAchievements();
+  } else { streak = 0; }
+  updateProgress();
+  if (answered.size === totalQ) {
+    document.getElementById('done-' + currentStory).textContent = '✓ Completada';
+    setTimeout(() => {
+      const s = document.getElementById('submit-section');
+      s.style.display = 'block';
+      s.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 600);
+  }
+}
+
+function updateProgress() {
+  document.getElementById('progress-fill').style.width = (answered.size / totalQ * 100) + '%';
+  document.getElementById('progress-text').textContent = `${answered.size} de ${totalQ} preguntas`;
+}
+
+// ── ACHIEVEMENTS ─────────────────────────────────────────────
+function checkAchievements() {
+  if (answered.size === 1 && score === 1) queueAch('ach-first', '🌱', '¡Primera Respuesta Correcta!');
+  if (streak === 3) queueAch('ach-streak', '🔥', '¡Racha de Fuego: 3 correctas seguidas!');
+  if (literalCorrect >= 3) queueAch('ach-literal', '📖', '¡Comprensión Literal Dominada!');
+  if (inferentialCorrect >= 3) queueAch('ach-inferential', '🔍', '¡Detective del Texto!');
+  if (criticalCorrect) {
+    queueAch('ach-critical', '🎓', '¡Pensamiento Crítico Activado!');
+    queueAch('ach-theme', '☀️', '¡Rutinas Diarias Completadas!');
+    queueAch('ach-bonus', '🕐', '¡Maestro del Tiempo!');
+  }
+}
+function queueAch(id, icon, text) {
+  const el = document.getElementById(id);
+  if (el && !el.classList.contains('unlocked')) {
+    el.classList.add('unlocked');
+    modalQueue.push({ icon, text });
+    if (!modalOpen) processQueue();
+  }
+}
+function processQueue() {
+  if (!modalQueue.length) { modalOpen = false; return; }
+  modalOpen = true;
+  const { icon, text } = modalQueue.shift();
+  document.getElementById('modal-icon').textContent = icon;
+  document.getElementById('modal-text').textContent = text;
+  document.getElementById('achievement-modal').classList.add('show');
+}
+function closeModal() {
+  document.getElementById('achievement-modal').classList.remove('show');
+  setTimeout(processQueue, 300);
+}
+
+// ── COMPLETION ───────────────────────────────────────────────
+function showCompletion() {
+  document.getElementById('submit-section').style.display = 'none';
+  const card = document.getElementById('completion-card');
+  card.classList.add('show');
+  document.getElementById('final-score').textContent = `${score}/${totalQ}`;
+  document.getElementById('stat-lit').textContent = `${literalCorrect}/3`;
+  document.getElementById('stat-inf').textContent = `${inferentialCorrect}/3`;
+  document.getElementById('completion-message').textContent =
+    score === 7 ? '¡Perfecto! 🌟 Dominas esta historia.' :
+    score >= 5  ? '¡Muy bien! Buena comprensión. 👍' :
+    score >= 3  ? 'Buen intento. Lee la historia otra vez. 📖' :
+                  'Sigue practicando. ¡Tú puedes! 💪';
+  if (score === 7) queueAch('ach-perfect', '⭐', '¡Puntuación Perfecta!');
+  card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+function resetQuiz() {
+  score = 0; answered.clear(); streak = 0;
+  literalCorrect = 0; inferentialCorrect = 0; criticalCorrect = false;
+  document.getElementById('completion-card').classList.remove('show');
+  document.getElementById('submit-section').style.display = 'none';
+  renderQuiz();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ── MODE ─────────────────────────────────────────────────────
+function setMode(m) {
+  currentMode = m;
+  document.getElementById('btn-es').classList.toggle('active', m === 'es');
+  document.getElementById('btn-en').classList.toggle('active', m === 'en');
+  document.getElementById('mode-display').textContent = m === 'es' ? 'Modo: Español → Español' : 'Modo: Español → English';
+  resetQuiz();
+}
+
+// ── INIT ─────────────────────────────────────────────────────
+renderStory(1);
+renderQuiz();
+</script>
+</body>
+</html>

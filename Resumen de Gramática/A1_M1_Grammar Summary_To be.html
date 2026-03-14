@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — To Be | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+/* TOPIC TABS */
+.topic-tabs{display:flex;gap:.4rem;margin-bottom:1.2rem;padding:.4rem;background:var(--card);border-radius:14px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.topic-tab{flex:1;text-align:center;padding:.65rem .4rem;border-radius:10px;font-size:.78rem;font-weight:700;cursor:pointer;transition:.25s;border:2px solid transparent;background:transparent;font-family:'Nunito',sans-serif}
+.topic-tab:hover{background:#F0F7FF}
+.topic-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld);box-shadow:0 2px 8px var(--lglow)}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#E8F5E9;border:2px solid #A5D6A7}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--ok)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .topic-tabs{flex-wrap:wrap}
+  .topic-tab{font-size:.7rem;padding:.5rem .3rem}
+  .card{padding:1.2rem}
+  .compare-grid,.conj-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life &amp; Personal Routines — To Be</div>
+  <p class="subtitle">Afirmativo · Negativo · Preguntas · 5 pasos × 5 ejercicios por subtema</p>
+</div>
+
+<div class="topic-tabs" id="topicTabs">
+  <button class="topic-tab active" onclick="switchTopic(0,this)">✅ To Be +</button>
+  <button class="topic-tab" onclick="switchTopic(1,this)">❌ To Be −</button>
+  <button class="topic-tab" onclick="switchTopic(2,this)">❓ To Be ?</button>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen del Subtema</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var DATA = [
+
+/* ══════════════════════════════════════════
+   TOPIC 0 — TO BE AFFIRMATIVE
+══════════════════════════════════════════ */
+{
+  name: "To Be +",
+  summary: [
+    "<b>I am</b> · <b>You/We/They are</b> · <b>He/She/It is</b>",
+    "To be = <b>ser Y estar</b> en un solo verbo: I am a teacher. / I am tired.",
+    "Contracciones: I'm · you're · he's · she's · it's · we're · they're",
+    "El sujeto es <b>obligatorio</b>: siempre escríbelo antes del verbo",
+    "Adjetivos van <b>después</b> del verbo: She is <i>happy</i> ✅ — She happy ❌",
+    "Everyone/someone/nobody + <b>is</b> (singular siempre)"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español usamos "ser" para identidad y "estar" para estados o ubicación. En inglés, un solo verbo hace ambas funciones: <strong>to be</strong>.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Ser / Estar</h4><ul><li>Yo <b>soy</b> estudiante</li><li>Tú <b>eres</b> amable</li><li>Él <b>es</b> médico</li><li>Ella <b>está</b> cansada</li><li>Nosotros <b>somos</b> peruanos</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 To Be</h4><ul><li>I <b>am</b> a student</li><li>You <b>are</b> kind</li><li>He <b>is</b> a doctor</li><li>She <b>is</b> tired</li><li>We <b>are</b> Peruvian</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> "Soy médico" y "Estoy cansado" → ambas usan <strong>am/is/are</strong> en inglés. ¡Un verbo para todo!</div>' +
+        '<div class="ex-row"><div class="icon">🏠</div><div><div class="en">Soy de Lima. → <b>Estoy</b> en casa. → <b>Soy</b> cocinero.</div><div class="es">En inglés: I am from Lima. I am at home. I am a cook. — siempre "am"</div></div></div>',
+      exercises: [
+        {q: '"Soy médico" y "Estoy cansado" en inglés usan:', a: 'a', o: ['El mismo verbo: am/is/are', 'Verbos diferentes'], fc: 'To be = ser Y estar. Un solo verbo para identidad y estado.', fi: 'En inglés no existe distinción entre "ser" y "estar".', ex: 'I am a doctor. / I am tired.', tip: 'To be = ser + estar'},
+        {q: '"Ella es profesora." — verbo correcto:', a: 'b', o: ['She am a teacher.', 'She is a teacher.'], fc: 'She → is. Tercera persona singular.', fi: '"Am" solo va con "I".', ex: 'She is a teacher. → Ella es profesora.'},
+        {q: '"Nosotros somos estudiantes." en inglés:', a: 'a', o: ['We are students.', 'We is students.'], fc: 'We → are. Plural = are.', fi: '"Is" es solo para He/She/It.', ex: 'We are students. → Somos estudiantes.'},
+        {q: '"Estoy cansado." — ¿cuál es correcto?', a: 'b', o: ['I are tired.', 'I am tired.'], fc: 'I → am. Siempre: I + am.', fi: '"Are" es para You/We/They.', ex: 'I am tired. → Estoy cansado.', tip: 'I + am — siempre juntos'},
+        {q: '"Él está en casa." y "Él es médico." en inglés usan:', a: 'a', o: ['He is (en ambos casos)', 'Verbos diferentes'], fc: 'He is at home. / He is a doctor. — siempre "is".', fi: 'To be no cambia según el significado (ser/estar).', ex: 'He is at home. / He is a doctor.'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">To be comparte muchas características con ser/estar en español.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Cambia según persona</td><td>soy / eres / es / somos</td><td><span class="g-verb">am</span> / <span class="g-verb">are</span> / <span class="g-verb">is</span></td></tr>' +
+          '<tr><td>Describe identidad</td><td>Soy estudiante</td><td>I <span class="g-verb">am</span> a student</td></tr>' +
+          '<tr><td>Describe estado</td><td>Estoy feliz</td><td>I <span class="g-verb">am</span> happy</td></tr>' +
+          '<tr><td>Describe origen</td><td>Soy de Lima</td><td>I <span class="g-verb">am</span> from Lima</td></tr>' +
+          '<tr><td>Tiene contracciones</td><td>soy → —</td><td>I am → <span class="g-verb">I\'m</span></td></tr>' +
+        '</table>' +
+        '<div class="section-label">Conjugación visual</div>' +
+        '<div class="conj-grid">' +
+          '<div class="conj-item"><div class="pron">I</div><div class="vrb">am</div><div class="meaning">soy / estoy</div></div>' +
+          '<div class="conj-item"><div class="pron">You</div><div class="vrb">are</div><div class="meaning">eres / estás</div></div>' +
+          '<div class="conj-item"><div class="pron">He/She/It</div><div class="vrb">is</div><div class="meaning">es / está</div></div>' +
+          '<div class="conj-item"><div class="pron">We</div><div class="vrb">are</div><div class="meaning">somos / estamos</div></div>' +
+          '<div class="conj-item"><div class="pron">You (pl.)</div><div class="vrb">are</div><div class="meaning">son / están</div></div>' +
+          '<div class="conj-item"><div class="pron">They</div><div class="vrb">are</div><div class="meaning">son / están</div></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> Solo hay 3 formas: <b>am</b> (solo con I) · <b>is</b> (He/She/It) · <b>are</b> (todos los demás).</div>',
+      exercises: [
+        {q: '"I ___" — forma correcta de to be:', a: 'a', o: ['am', 'are'], fc: 'I + am. Única combinación posible.', fi: '"Are" es para You, We, They.', ex: "I am a student. → Soy estudiante.", tip: 'I + am — solo estos dos'},
+        {q: '"She ___" — forma correcta:', a: 'b', o: ['are', 'is'], fc: 'He/She/It → is.', fi: '"Are" es para personas múltiples o "you".', ex: 'She is kind. → Ella es amable.'},
+        {q: '"They ___" — forma correcta:', a: 'a', o: ['are', 'is'], fc: 'They → are. Plural = are.', fi: '"Is" es solo para He/She/It.', ex: 'They are from Peru. → Son de Perú.'},
+        {q: 'Contracción de "She is":', a: 'b', o: ["She'is", "She's"], fc: "She's = She is. El apóstrofo reemplaza la 'i' de 'is'.", fi: '"She\'is" no es una contracción válida.', ex: "She's a doctor. → Ella es médica.", tip: "She's / He's / It's → quita la 'i' de is"},
+        {q: '"Everyone ___ happy." — forma correcta:', a: 'b', o: ['are', 'is'], fc: '"Everyone" es singular en inglés → is.', fi: 'Aunque suene plural, everyone/somebody/nobody usan "is".', ex: 'Everyone is happy. → Todos están felices.', tip: 'Everyone/someone/nobody → is (singular)'}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>Soy / Estoy (2 verbos)</td><td><span class="g-verb">am / is / are</span> (1 verbo)</td><td>To be cubre ser y estar</td></tr>' +
+          '<tr><td>(Yo) soy feliz — sin sujeto</td><td><span class="g-subj">I</span> am happy — con sujeto</td><td>Sujeto OBLIGATORIO en inglés</td></tr>' +
+          '<tr><td>Soy feliz → adjetivo libre</td><td>I am <span class="g-comp">happy</span> — después del verbo</td><td>Adjetivo SIEMPRE después de to be</td></tr>' +
+          '<tr><td>El médico soy yo</td><td><span class="g-subj">I</span> <span class="g-verb">am</span> the doctor</td><td>Orden fijo: sujeto + to be</td></tr>' +
+          '<tr><td>Ellos son estudiantes</td><td><span class="g-subj">They</span> <span class="g-verb">are</span> students (sin artículo)</td><td>Profesión en plural → sin "a"</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Sujeto obligatorio</div><p>Español: "(Estoy) cansado" ✅ sin pronombre.<br>Inglés: "<b>I</b> am tired" ✅ — "Am tired" ❌ — el sujeto nunca se omite.</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-subj">She</span> <span class="g-verb">is</span> <span class="g-comp">a nurse</span>.</div><div class="es">Ella es enfermera.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">Is a nurse.</div><div class="es">Falta el sujeto — ¿quién?</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-subj">They</span> <span class="g-verb">are</span> <span class="g-comp">teachers</span>.</div><div class="es">Ellos son profesores. (sin "a")</div></div></div>',
+      exercises: [
+        {q: '"Am tired." — ¿qué falta?', a: 'b', o: ['Nada, es correcto', 'El sujeto (I)'], fc: 'En inglés el sujeto es obligatorio: "I am tired."', fi: 'En español se puede omitir, pero en inglés no.', ex: 'I am tired. → Estoy cansado.', tip: 'Sujeto siempre obligatorio en inglés'},
+        {q: '"She happy." — ¿qué falta?', a: 'a', o: ['El verbo: She IS happy.', 'Un adjetivo diferente'], fc: 'El verbo "is" es obligatorio. No se puede omitir.', fi: 'El problema no es el adjetivo, sino que falta el verbo.', ex: 'She is happy. → Ella está feliz.'},
+        {q: '"They are doctor." (ellos son médicos) — ¿error?', a: 'b', o: ['No, está bien', 'Sí: They are doctors. (plural)'], fc: 'Con "they", la profesión va en plural: doctors.', fi: 'Con "they are" se necesita plural del sustantivo.', ex: 'They are doctors. → Ellos son médicos.'},
+        {q: '"Estoy en casa." en inglés:', a: 'a', o: ['I am at home.', 'I is at home.'], fc: 'I → am. Siempre: I am...', fi: '"Is" nunca va con "I".', ex: 'I am at home. → Estoy en casa.'},
+        {q: '"He a student." — ¿qué falta?', a: 'b', o: ['El artículo "an"', 'El verbo: He IS a student.'], fc: 'El verbo "is" es obligatorio. No puede faltar.', fi: 'El artículo "a" ya está. El problema es la ausencia del verbo.', ex: 'He is a student. → Él es estudiante.'}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Memoriza los 3 grupos: <b>I → am</b> · <b>He/She/It → is</b> · <b>You/We/They → are</b></div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> To be = ser + estar. No busques dos verbos — solo uno: <em>I am a cook. I am hungry.</em></div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Contracciones en conversación: I\'m · you\'re · he\'s · she\'s · it\'s · we\'re · they\'re. ¡Más natural!</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Profesión singular → "a/an": <em>She is <b>a</b> nurse.</em> · Plural → sin artículo: <em>They are nurses.</em></div>' +
+        '<div class="formula-box">' +
+          '<span class="g-subj">Subject</span> + <span class="g-verb">am / is / are</span> + <span class="g-comp">complement</span><br>' +
+          'I\'m · You\'re · He\'s · She\'s · It\'s · We\'re · They\'re' +
+        '</div>',
+      exercises: [
+        {q: 'Contracción de "I am":', a: 'a', o: ["I'm", "Im"], fc: "I'm — con apóstrofo entre I y m.", fi: '"Im" sin apóstrofo no es contracción válida.', ex: "I'm a student. → Soy estudiante.", tip: "Apóstrofo = letra omitida"},
+        {q: '"___ a nurse." (Ella)', a: 'b', o: ["She are", "She is"], fc: "She is a nurse. — She → is.", fi: '"Are" es para You/We/They.', ex: "She is a nurse. → Ella es enfermera."},
+        {q: '"___ from Lima." (Nosotros)', a: 'a', o: ["We're", "We's"], fc: "We're = We are. Contracción correcta.", fi: '"We\'s" no existe como contracción.', ex: "We're from Lima. → Somos de Lima.", tip: "We + are = We're"},
+        {q: '"He is a cook." — ¿por qué "a"?', a: 'a', o: ['Profesión singular → necesita "a"', 'Es un error'], fc: 'Profesión en singular: He is <b>a</b> cook. / She is <b>a</b> teacher.', fi: 'El artículo "a" es obligatorio con profesión singular.', ex: 'He is a cook. → Él es cocinero.', tip: 'Profesión singular → a/an'},
+        {q: '"They are ___." (enfermeras)', a: 'b', o: ['a nurse', 'nurses'], fc: 'They → plural sin "a": They are nurses.', fi: '"A nurse" es singular. Con "they" → plural.', ex: 'They are nurses. → Ellas son enfermeras.'}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-subj">I</span> <span class="g-verb">am</span> / <span class="g-subj">He·She·It</span> <span class="g-verb">is</span> / <span class="g-subj">You·We·They</span> <span class="g-verb">are</span> + <span class="g-comp">complement</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🧑‍🍳</div><div><div class="en"><span class="g-subj">He</span> <span class="g-verb">is</span> <span class="g-comp">a cook</span>.</div><div class="es">Él es cocinero.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">😴</div><div><div class="en"><span class="g-subj">I</span> <span class="g-verb">am</span> <span class="g-comp">tired</span>.</div><div class="es">Estoy cansado.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🌍</div><div><div class="en"><span class="g-subj">We</span> <span class="g-verb">are</span> <span class="g-comp">from Peru</span>.</div><div class="es">Somos de Perú.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "I is happy" → ✅ "<b>I am</b> happy"<br>' +
+          '❌ "She are a nurse" → ✅ "She <b>is</b> a nurse"<br>' +
+          '❌ "Am tired" → ✅ "<b>I am</b> tired" (sujeto obligatorio)' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ a cook." (Él)', a: 'b', o: ['He are', 'He is'], fc: 'He is a cook. — He → is.', fi: '"Are" es para You/We/They.', ex: 'He is a cook. → Él es cocinero.'},
+        {q: '"___ tired." (Yo)', a: 'a', o: ["I'm", "I's"], fc: "I'm tired. = I am tired.", fi: '"I\'s" no existe.', ex: "I'm tired. → Estoy cansado.", tip: "I'm = I am"},
+        {q: '"___ from Lima." (Ellos)', a: 'a', o: ["They're", "They's"], fc: "They're from Lima. = They are.", fi: '"They\'s" no existe como forma del inglés.', ex: "They're from Lima. → Son de Lima."},
+        {q: '"She is nurse." — ¿error?', a: 'b', o: ['No, correcto', 'Sí: She is A nurse.'], fc: 'Profesión singular necesita artículo: She is <b>a</b> nurse.', fi: 'Sin "a" la frase es incompleta.', ex: 'She is a nurse. → Ella es enfermera.', tip: 'Profesión singular → a/an obligatorio'},
+        {q: '"Is happy." — ¿cuál es el error?', a: 'a', o: ['Falta sujeto: He/She IS happy.', 'El verbo debe ser "are"'], fc: 'El sujeto es obligatorio en inglés.', fi: 'El verbo "is" está bien, pero falta saber de quién hablamos.', ex: 'She is happy. → Ella está feliz.'}
+      ]
+    }
+  ]
+},
+
+/* ══════════════════════════════════════════
+   TOPIC 1 — TO BE NEGATIVE
+══════════════════════════════════════════ */
+{
+  name: "To Be −",
+  summary: [
+    "<b>I am not</b> · <b>He/She/It is not</b> · <b>You/We/They are not</b>",
+    "Contracciones negativas: isn't · aren't (más naturales en conversación)",
+    "<b>I'm not</b> — NO existe 'amn't'. Solo I'm not.",
+    "Orden: Sujeto + <b>am/is/are</b> + <b>not</b> + complemento",
+    "Not va DESPUÉS del verbo to be, nunca antes",
+    "isn't = is not · aren't = are not"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">Para negar en español, colocamos "no" <strong>antes</strong> del verbo. En inglés, "not" va <strong>después</strong>.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Negativo en Español</h4><ul><li>Yo <b>no soy</b> médico</li><li>Tú <b>no eres</b> tarde</li><li>Él <b>no está</b> cansado</li><li>Nosotros <b>no somos</b> de aquí</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 Negativo en Inglés</h4><ul><li>I <b>am not</b> a doctor</li><li>You <b>are not</b> late</li><li>He <b>is not</b> tired</li><li>We <b>are not</b> from here</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> Español → "NO" + verbo. Inglés → verbo + "NOT". El orden es opuesto.</div>' +
+        '<div class="ex-row"><div class="icon">🔄</div><div><div class="en">No soy feliz → I am <b>not</b> happy</div><div class="es">"No" antes del verbo en español · "not" después en inglés</div></div></div>',
+      exercises: [
+        {q: 'En español "no" va ___ del verbo:', a: 'a', o: ['Antes', 'Después'], fc: '"No soy" — "no" antes del verbo.', fi: 'En inglés es al revés: "am not".', ex: 'No soy médico → I am not a doctor.'},
+        {q: 'En inglés "not" va ___ del verbo to be:', a: 'b', o: ['Antes', 'Después'], fc: '"am not / is not / are not" — not después.', fi: 'Antes sería el orden español, no el inglés.', ex: 'I am not tired. → No estoy cansado.', tip: 'To be + not (después)'},
+        {q: '"No estoy cansado." en inglés:', a: 'a', o: ['I am not tired.', 'Not I am tired.'], fc: '"I am not tired." — not después de am.', fi: '"Not I am..." es el orden incorrecto.', ex: 'I am not tired. → No estoy cansado.'},
+        {q: '"Ella no es médica." en inglés:', a: 'b', o: ['She not is a doctor.', 'She is not a doctor.'], fc: 'She is not a doctor. — not después de is.', fi: '"She not is" invierte el orden correcto.', ex: 'She is not a doctor. → Ella no es médica.'},
+        {q: '"No somos de Lima." en inglés:', a: 'a', o: ['We are not from Lima.', 'We not are from Lima.'], fc: '"We are not from Lima." — not después de are.', fi: '"We not are" no es el orden correcto.', ex: 'We are not from Lima. → No somos de Lima.'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Una palabra niega</td><td><b>no</b> soy</td><td>am <span class="g-neg">not</span></td></tr>' +
+          '<tr><td>Sujeto + verbo + negación</td><td>Yo <b>no</b> soy</td><td>I am <span class="g-neg">not</span></td></tr>' +
+          '<tr><td>Existen contracciones</td><td>—</td><td>isn\'t / aren\'t</td></tr>' +
+          '<tr><td>Misma estructura base</td><td>No soy médico</td><td>I am <span class="g-neg">not</span> a doctor</td></tr>' +
+          '<tr><td>Cambia según persona</td><td>no soy / no eres / no es</td><td>am not / isn\'t / aren\'t</td></tr>' +
+        '</table>' +
+        '<div class="conj-grid">' +
+          '<div class="conj-item"><div class="pron">I</div><div class="vrb">am not</div><div class="meaning">no soy/estoy</div></div>' +
+          '<div class="conj-item"><div class="pron">He/She/It</div><div class="vrb">isn\'t</div><div class="meaning">no es/está</div></div>' +
+          '<div class="conj-item"><div class="pron">You/We/They</div><div class="vrb">aren\'t</div><div class="meaning">no son/están</div></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> <b>isn\'t</b> = is not · <b>aren\'t</b> = are not. Para "I" no hay contracción: solo <b>I\'m not</b>.</div>',
+      exercises: [
+        {q: '"She is not a doctor." — contracción:', a: 'b', o: ["She isn'ot", "She isn't"], fc: "She isn't a doctor. — is + not = isn't.", fi: '"isn\'ot" no existe.', ex: "She isn't a doctor. → Ella no es médica.", tip: "is + not = isn't"},
+        {q: '"They are not from here." — contracción:', a: 'a', o: ["They aren't", "They amn't"], fc: "They aren't from here. — are + not = aren't.", fi: '"amn\'t" no existe en inglés estándar.', ex: "They aren't from here. → No son de aquí."},
+        {q: '"I am not tired." — contracción:', a: 'b', o: ["I amn't", "I'm not"], fc: "I'm not tired. — No existe 'amn't'. Solo I'm not.", fi: '"amn\'t" no existe. La única forma es I\'m not.', ex: "I'm not tired. → No estoy cansado.", tip: "I'm not — única forma negativa de I"},
+        {q: '"___ late." (Tú no estás)', a: 'a', o: ["You aren't", "You isn't"], fc: "You aren't late. — You → aren't.", fi: '"You isn\'t" es incorrecto. "Isn\'t" es para He/She/It.', ex: "You aren't late. → No llegas tarde."},
+        {q: '"He ___ a cook." (no es)', a: 'b', o: ["aren't", "isn't"], fc: "He isn't a cook. — He → isn't.", fi: '"Aren\'t" es para You/We/They.', ex: "He isn't a cook. → Él no es cocinero."}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td><b>No</b> soy (antes)</td><td>am <span class="g-neg">not</span> (después)</td><td>Posición opuesta</td></tr>' +
+          '<tr><td>No soy / No estoy</td><td>am not (ambos)</td><td>Un verbo para ser y estar</td></tr>' +
+          '<tr><td>No existe "amn\'t"</td><td><span class="g-neg">I\'m not</span> (única forma)</td><td>Solo I\'m not para I</td></tr>' +
+          '<tr><td>Contracciones: soy → —</td><td>isn\'t / aren\'t</td><td>Inglés tiene contracciones negativas</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ "Amn\'t" no existe</div><p>Para negar con "I", la única forma es <b>I\'m not</b>.<br>❌ "I amn\'t tired" → ✅ "<b>I\'m not</b> tired"</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-subj">I</span> <span class="g-verb">\'m not</span> <span class="g-comp">a nurse</span>.</div><div class="es">No soy enfermera.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">I amn\'t a nurse.</div><div class="es">Esta forma NO existe.</div></div></div>',
+      exercises: [
+        {q: '"I ___ tired." (negativo)', a: 'b', o: ["amn't", "'m not"], fc: "I'm not tired. — Solo I'm not, nunca amn't.", fi: '"amn\'t" no existe en inglés estándar.', ex: "I'm not tired. → No estoy cansado.", tip: "I'm not — la única opción"},
+        {q: '"Not she is a teacher." — ¿error?', a: 'a', o: ['Sí: She is NOT a teacher.', 'No, correcto'], fc: '"Not" debe ir después de "is": She is not a teacher.', fi: '"Not" antes del verbo es el orden español, no inglés.', ex: 'She is not a teacher. → Ella no es profesora.'},
+        {q: '"He isn\'t" = He ___ not:', a: 'a', o: ['is', 'are'], fc: "He isn't = He is not. isn't contrae 'is not'.", fi: '"He aren\'t" no es correcto.', ex: "He isn't a doctor. → Él no es médico.", tip: "isn't = is not"},
+        {q: '"We ___ from here." (negativo)', a: 'b', o: ["isn't", "aren't"], fc: "We aren't from here. — We → aren't.", fi: '"Isn\'t" es solo para He/She/It.', ex: "We aren't from here. → No somos de aquí."},
+        {q: '"She is not" y "She isn\'t" son:', a: 'a', o: ['Lo mismo (formas equivalentes)', 'Diferentes significados'], fc: "She is not = She isn't. Son equivalentes, isn't es contracción.", fi: 'Ambas formas significan lo mismo.', ex: "She isn't tired. = She is not tired."}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> "Not" siempre va DESPUÉS del verbo to be: am not · is not · are not. Nunca antes.</div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> En conversación usa contracciones: <em>She isn\'t late. / We aren\'t ready.</em> Suenan más naturales.</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Para "I" — solo <b>I\'m not</b>. No existe "amn\'t". Memoriza esta excepción.</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Truco visual: afirmativo → I\'m / She\'s / We\'re. Negativo → I\'m not / She isn\'t / We aren\'t.</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-subj">Subject</span> + <span class="g-verb">am/is/are</span> + <span class="g-neg">not</span> + <span class="g-comp">complement</span><br>' +
+          "I'm not · He/She/It isn't · You/We/They aren't" +
+        '</div>',
+      exercises: [
+        {q: '"She ___ ready." (no está)', a: 'b', o: ["She not is", "She isn't"], fc: "She isn't ready. — not después de is.", fi: '"She not is" invierte el orden correcto.', ex: "She isn't ready. → Ella no está lista."},
+        {q: '"___ late." (Yo no estoy)', a: 'a', o: ["I'm not", "I not am"], fc: "I'm not late. — forma correcta.", fi: '"I not am" es orden incorrecto.', ex: "I'm not late. → No llego tarde."},
+        {q: '"They ___ from here." (no son)', a: 'a', o: ["aren't", "isn't"], fc: "They aren't from here. — They → aren't.", fi: '"Isn\'t" es para He/She/It.', ex: "They aren't from here. → No son de aquí."},
+        {q: '"It ___ cold today." (no está)', a: 'b', o: ["aren't", "isn't"], fc: "It isn't cold today. — It → isn't.", fi: '"Aren\'t" es para You/We/They.', ex: "It isn't cold today. → No hace frío hoy."},
+        {q: 'Forma negativa más natural para conversación:', a: 'b', o: ['He is not here.', "He isn't here."], fc: "He isn't here. — contracción = más natural en conversación.", fi: '"He is not here" es correcto pero más formal.', ex: "He isn't here. → Él no está aquí.", tip: "Contracción = más natural hablando"}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '✅ <span class="g-subj">I</span> <span class="g-neg">\'m not</span> <span class="g-comp">late.</span><br>' +
+          '✅ <span class="g-subj">She</span> <span class="g-neg">isn\'t</span> <span class="g-comp">a nurse.</span><br>' +
+          '✅ <span class="g-subj">They</span> <span class="g-neg">aren\'t</span> <span class="g-comp">from here.</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🧑‍🍳</div><div><div class="en"><span class="g-subj">He</span> <span class="g-neg">isn\'t</span> <span class="g-comp">a cook</span>.</div><div class="es">Él no es cocinero.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">😎</div><div><div class="en"><span class="g-subj">I</span> <span class="g-neg">\'m not</span> <span class="g-comp">tired</span>.</div><div class="es">No estoy cansado.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🌍</div><div><div class="en"><span class="g-subj">We</span> <span class="g-neg">aren\'t</span> <span class="g-comp">from Lima</span>.</div><div class="es">No somos de Lima.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "I amn\'t tired" → ✅ "<b>I\'m not</b> tired"<br>' +
+          '❌ "She not is a nurse" → ✅ "She <b>isn\'t</b> a nurse"<br>' +
+          '❌ "They isn\'t here" → ✅ "They <b>aren\'t</b> here"' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ a doctor." (Él no es)', a: 'a', o: ["He isn't", "He aren't"], fc: "He isn't a doctor. — He → isn't.", fi: '"He aren\'t" es incorrecto.', ex: "He isn't a doctor. → Él no es médico."},
+        {q: '"___ tired." (Yo no estoy)', a: 'b', o: ["I amn't", "I'm not"], fc: "I'm not tired. — No existe amn't.", fi: '"amn\'t" no existe.', ex: "I'm not tired. → No estoy cansado.", tip: "I'm not — única forma para I"},
+        {q: '"___ from Peru." (Ellos no son)', a: 'a', o: ["They aren't", "They isn't"], fc: "They aren't from Peru. — They → aren't.", fi: '"They isn\'t" es incorrecto.', ex: "They aren't from Peru. → No son de Perú."},
+        {q: '"It ___ cold." (no está)', a: 'b', o: ["aren't", "isn't"], fc: "It isn't cold. — It → isn't.", fi: '"Aren\'t" no combina con It.', ex: "It isn't cold. → No hace frío."},
+        {q: '"You ___ late." (no estás)', a: 'a', o: ["aren't", "isn't"], fc: "You aren't late. — You → aren't.", fi: '"Isn\'t" es solo para He/She/It.', ex: "You aren't late. → No llegas tarde."}
+      ]
+    }
+  ]
+},
+
+/* ══════════════════════════════════════════
+   TOPIC 2 — TO BE QUESTIONS
+══════════════════════════════════════════ */
+{
+  name: "To Be ?",
+  summary: [
+    "<b>Sí/No:</b> Am/Is/Are + subject + complement? → Are you a nurse?",
+    "<b>Wh-:</b> Wh-word + is/are + subject? → Where are you from?",
+    "Inversión OBLIGATORIA: el verbo va ANTES del sujeto",
+    "<b>Respuesta corta:</b> Yes, I am. / No, she isn't. — repite el verbo to be",
+    "Solo un signo '?' al final — no '¿' en inglés",
+    "<b>What, Where, Who, How</b> son las Wh-words más comunes con to be"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español preguntamos cambiando la entonación o invirtiendo el orden. En inglés <strong>siempre</strong> invertimos: verbo + sujeto.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Preguntar en Español</h4><ul><li>¿<b>Eres</b> enfermera?</li><li>¿<b>Está</b> cansado?</li><li>¿De dónde <b>eres</b>?</li><li>¿<b>Son</b> de Lima?</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 To Be Questions</h4><ul><li><b>Are</b> you a nurse?</li><li><b>Is</b> he tired?</li><li>Where <b>are</b> you from?</li><li><b>Are</b> they from Lima?</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> Inglés → el verbo to be "salta" al inicio de la pregunta. Siempre: Am/Is/Are + sujeto.</div>' +
+        '<div class="ex-row"><div class="icon">🔄</div><div><div class="en">She IS a nurse. → <b>IS she</b> a nurse?</div><div class="es">El verbo salta al frente: afirmativo → pregunta</div></div></div>',
+      exercises: [
+        {q: '"¿Eres enfermero?" en inglés:', a: 'b', o: ['You are a nurse?', 'Are you a nurse?'], fc: '"Are you a nurse?" — Are salta al inicio.', fi: 'Solo subir el tono no es suficiente en inglés. Hay que invertir.', ex: 'Are you a nurse? → ¿Eres enfermero?'},
+        {q: 'Para preguntar en inglés con to be:', a: 'a', o: ['Invertimos: verbo + sujeto', 'Solo cambiamos el tono'], fc: 'En inglés SIEMPRE invertimos el orden: Is he? / Are you?', fi: 'Solo el tono no es suficiente en inglés formal.', ex: 'Is he a cook? → ¿Él es cocinero?'},
+        {q: '"He is tired." → pregunta:', a: 'b', o: ['He is tired?', 'Is he tired?'], fc: '"Is he tired?" — Is va primero.', fi: 'Cambiar solo el tono no forma correctamente la pregunta.', ex: 'Is he tired? → ¿Está él cansado?'},
+        {q: '"¿De dónde eres?" — palabra clave:', a: 'a', o: ['Where (dónde)', 'When (cuándo)'], fc: '"Where are you from?" — Where = dónde.', fi: '"When" = cuándo, no dónde.', ex: 'Where are you from? → ¿De dónde eres?'},
+        {q: 'En inglés, la pregunta usa:', a: 'b', o: ['¿...? (dos signos)', '...? (un signo al final)'], fc: 'En inglés solo "?" al final. No existe "¿".', fi: '"¿" es signo de apertura del español, no del inglés.', ex: 'Are you ready? → ¿Estás listo?'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Inversión verbo-sujeto</td><td>¿<b>Es</b> él médico?</td><td><span class="g-quest">Is</span> he a doctor?</td></tr>' +
+          '<tr><td>Palabras interrogativas</td><td>¿Dónde? ¿Quién? ¿Qué?</td><td><span class="g-quest">Where? Who? What?</span></td></tr>' +
+          '<tr><td>Respuesta corta posible</td><td>Sí / No</td><td>Yes, I am. / No, I\'m not.</td></tr>' +
+          '<tr><td>Sí/No questions</td><td>¿Eres feliz?</td><td>Are you happy?</td></tr>' +
+          '<tr><td>Wh- questions</td><td>¿Cómo estás?</td><td>How are you?</td></tr>' +
+        '</table>' +
+        '<div class="formula-box">' +
+          '<span class="g-quest">What</span> = ¿Qué? · <span class="g-quest">Where</span> = ¿Dónde? · <span class="g-quest">Who</span> = ¿Quién? · <span class="g-quest">How</span> = ¿Cómo?' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Similitud clave:</strong> Ambos idiomas invierten el orden para preguntar. La diferencia: en inglés la inversión es SIEMPRE obligatoria.</div>',
+      exercises: [
+        {q: '"¿Qué?" en inglés:', a: 'a', o: ['What', 'Where'], fc: '"What" = ¿Qué?', fi: '"Where" = ¿Dónde?', ex: 'What is your name? → ¿Cuál es tu nombre?'},
+        {q: '"¿Dónde?" en inglés:', a: 'b', o: ['Who', 'Where'], fc: '"Where" = ¿Dónde?', fi: '"Who" = ¿Quién?', ex: 'Where are you from? → ¿De dónde eres?'},
+        {q: '"Are you a nurse?" es pregunta:', a: 'a', o: ['Sí/No', 'Wh-'], fc: 'Se responde Yes/No. No empieza con palabra Wh-.', fi: 'Wh- empieza con What/Where/Who/How.', ex: 'Are you a nurse? → Yes, I am. / No, I\'m not.'},
+        {q: '"Where are you from?" es pregunta:', a: 'b', o: ['Sí/No', 'Wh-'], fc: 'Empieza con "Where" (Wh-word) → necesita información.', fi: 'No se responde con solo Yes/No.', ex: 'Where are you from? → I\'m from Lima.'},
+        {q: '"¿Cómo estás?" en inglés:', a: 'a', o: ['How are you?', 'How is you?'], fc: '"How are you?" — You → are.', fi: '"How is you" es incorrecto. You siempre usa are.', ex: 'How are you? → ¿Cómo estás?', tip: 'You siempre → are'}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>¿Eres médico? (solo tono)</td><td><span class="g-quest">Are you</span> a doctor? (inversión)</td><td>Inglés: inversión obligatoria</td></tr>' +
+          '<tr><td>¿...? (dos signos)</td><td>...? (un signo)</td><td>No existe "¿" en inglés</td></tr>' +
+          '<tr><td>¿Sí? — respuesta sola</td><td>Yes, <span class="g-verb">I am</span>. (repite verbo)</td><td>Respuesta corta repite to be</td></tr>' +
+          '<tr><td>¿Quién eres tú?</td><td><span class="g-quest">Who</span> are <span class="g-subj">you</span>?</td><td>Wh + verbo + sujeto</td></tr>' +
+          '<tr><td>¿Son ellas médicas?</td><td><span class="g-quest">Are</span> they doctors? (sin "a")</td><td>Plural → sin artículo</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Respuesta corta: repite el verbo</div><p>' +
+          '"Are you a nurse?" → ✅ "Yes, <b>I am</b>." · ✅ "No, <b>I\'m not</b>."<br>' +
+          '❌ "Yes, I." / ❌ "Yes." solo — siempre repite el verbo to be.' +
+        '</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-quest">Is</span> <span class="g-subj">she</span> a cook? — Yes, she <span class="g-verb">is</span>.</div><div class="es">¿Es ella cocinera? — Sí, lo es.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">Is she a cook? — Yes, she.</div><div class="es">Falta el verbo en la respuesta corta.</div></div></div>',
+      exercises: [
+        {q: '"Is she a doctor?" → "Yes, ___"', a: 'b', o: ['Yes, she.', 'Yes, she is.'], fc: '"Yes, she is." — repite el verbo to be.', fi: '"Yes, she." sola no es respuesta completa en inglés.', ex: 'Is she a doctor? → Yes, she is.', tip: 'Respuesta corta → repite to be'},
+        {q: '"Are you tired?" → "No, ___"', a: 'a', o: ["No, I'm not.", "No, I amn't."], fc: "No, I'm not. — única forma negativa de I.", fi: '"amn\'t" no existe.', ex: "Are you tired? → No, I'm not."},
+        {q: '"___ he a nurse?"', a: 'b', o: ['Are', 'Is'], fc: '"Is he a nurse?" — He → Is.', fi: '"Are" es para You/We/They.', ex: 'Is he a nurse? → ¿Es él enfermero?'},
+        {q: '"Where ___ you from?"', a: 'a', o: ['are', 'is'], fc: '"Where are you from?" — You → are.', fi: '"Where is you" es incorrecto.', ex: 'Where are you from? → ¿De dónde eres?'},
+        {q: '"Are they doctors?" → "No, ___"', a: 'b', o: ["No, they isn't.", "No, they aren't."], fc: "No, they aren't. — They → aren't.", fi: '"They isn\'t" es incorrecto.', ex: "Are they doctors? → No, they aren't."}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Pregunta Sí/No → Invierte: <em>She is →</em> <b>Is she?</b> · <em>You are →</em> <b>Are you?</b></div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Pregunta Wh- → Wh-word + verbo + sujeto: <b>Where</b> are you? · <b>Who</b> is she? · <b>What</b> is it?</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Respuesta corta → repite solo el verbo to be: Yes, I <b>am</b>. / No, she <b>isn\'t</b>. / Yes, they <b>are</b>.</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Truco: afirmativa → sujeto + verbo. Pregunta → verbo + sujeto. Solo inviertes el orden.</div>' +
+        '<div class="formula-box">' +
+          '❓ Sí/No: <span class="g-quest">Am/Is/Are</span> + <span class="g-subj">subject</span> + <span class="g-comp">complement</span>?<br>' +
+          '❓ Wh-: <span class="g-quest">Wh-word</span> + <span class="g-verb">am/is/are</span> + <span class="g-subj">subject</span>?' +
+        '</div>',
+      exercises: [
+        {q: '"___ you a student?"', a: 'a', o: ['Are', 'Is'], fc: '"Are you a student?" — You → Are.', fi: '"Is you" es incorrecto.', ex: 'Are you a student? → ¿Eres estudiante?'},
+        {q: '"Who ___ she?"', a: 'b', o: ['are', 'is'], fc: '"Who is she?" — She → is.', fi: '"Who are she" es incorrecto.', ex: 'Who is she? → ¿Quién es ella?'},
+        {q: '"Is it cold?" → "Yes, ___"', a: 'b', o: ['Yes, it.', 'Yes, it is.'], fc: '"Yes, it is." — repite el verbo.', fi: '"Yes, it." sola no es respuesta correcta.', ex: 'Is it cold? → Yes, it is.'},
+        {q: '"What ___ your name?"', a: 'a', o: ['is', 'are'], fc: '"What is your name?" — "your name" → singular → is.', fi: '"What are your name" es incorrecto.', ex: 'What is your name? → ¿Cuál es tu nombre?', tip: 'Your name = singular → is'},
+        {q: '"___ they from Lima?"', a: 'b', o: ['Is', 'Are'], fc: '"Are they from Lima?" — They → Are.', fi: '"Is they" es incorrecto.', ex: 'Are they from Lima? → ¿Son de Lima?'}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '❓ <span class="g-quest">Are</span> <span class="g-subj">you</span> <span class="g-comp">a nurse?</span> → Yes, <span class="g-verb">I am.</span> / No, <span class="g-neg">I\'m not.</span><br>' +
+          '❓ <span class="g-quest">Where</span> <span class="g-verb">are</span> <span class="g-subj">you</span> <span class="g-comp">from?</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">❓</div><div><div class="en"><span class="g-quest">Is</span> <span class="g-subj">she</span> <span class="g-comp">a cook</span>?</div><div class="es">¿Es ella cocinera?</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">❓</div><div><div class="en"><span class="g-quest">Are</span> <span class="g-subj">they</span> <span class="g-comp">from here</span>?</div><div class="es">¿Son ellos de aquí?</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">❓</div><div><div class="en"><span class="g-quest">How</span> <span class="g-verb">are</span> <span class="g-subj">you</span>?</div><div class="es">¿Cómo estás?</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "You are tired?" → ✅ "<b>Are you</b> tired?"<br>' +
+          '❌ "Is she a nurse? → Yes, she." → ✅ "Yes, she <b>is</b>."<br>' +
+          '❌ "Where is you from?" → ✅ "Where <b>are</b> you from?"' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ he a doctor?"', a: 'b', o: ['Are', 'Is'], fc: '"Is he a doctor?" — He → Is.', fi: '"Are he" es incorrecto.', ex: 'Is he a doctor? → ¿Es él médico?'},
+        {q: '"Is she tired?" → "No, ___"', a: 'a', o: ["No, she isn't.", "No, she aren't."], fc: "No, she isn't. — She → isn't.", fi: '"She aren\'t" es incorrecto.', ex: "Is she tired? → No, she isn't."},
+        {q: '"Where ___ they from?"', a: 'a', o: ['are', 'is'], fc: '"Where are they from?" — They → are.', fi: '"Where is they" es incorrecto.', ex: 'Where are they from? → ¿De dónde son?'},
+        {q: '"Are you a cook?" → "Yes, ___"', a: 'b', o: ['Yes, you are.', 'Yes, I am.'], fc: '"Yes, I am." — respuesta desde mi perspectiva (I).', fi: '"Yes, you are" respondería desde afuera. La pregunta es para ti.', ex: 'Are you a cook? → Yes, I am.', tip: 'La respuesta corta usa el pronombre correcto del contexto'},
+        {q: '"___ is your name?"', a: 'a', o: ['What', 'Where'], fc: '"What is your name?" — What = ¿Qué/Cuál?', fi: '"Where" = lugar, no nombre.', ex: 'What is your name? → ¿Cuál es tu nombre?'}
+      ]
+    }
+  ]
+}
+
+]; // end DATA
+
+var curTopic = 0;
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function switchTopic(idx, btn) {
+  curTopic = idx;
+  curStep = 0;
+  document.querySelectorAll('.topic-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('summaryFinal').classList.remove('show');
+  renderStepTabs();
+  renderCard();
+}
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  DATA[curTopic].steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 't' + curTopic + 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = DATA[curTopic].steps[curStep];
+  var k = 't' + curTopic + 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/t\d+s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = DATA[curTopic].summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Articles | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.topic-tabs{display:flex;gap:.4rem;margin-bottom:1.2rem;padding:.4rem;background:var(--card);border-radius:14px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,.04)}
+.topic-tab{flex:1;text-align:center;padding:.65rem .4rem;border-radius:10px;font-size:.78rem;font-weight:700;cursor:pointer;transition:.25s;border:2px solid transparent;background:transparent;font-family:'Nunito',sans-serif}
+.topic-tab:hover{background:#F0F7FF}
+.topic-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld);box-shadow:0 2px 8px var(--lglow)}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-art{background:#FFF3E0;color:#E65100;padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid #FF8F00}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#E8F5E9;border:2px solid #A5D6A7}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--ok)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.art-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;margin:.8rem 0}
+.art-card{padding:.9rem .7rem;border-radius:12px;text-align:center}
+.art-card.a-card{background:#FFF3E0;border:2px solid #FFB74D}
+.art-card.an-card{background:#F3E5F5;border:2px solid #CE93D8}
+.art-card.the-card{background:#E8F5E9;border:2px solid #A5D6A7}
+.art-card h4{font-family:'Fredoka',sans-serif;font-size:.9rem;margin-bottom:.3rem}
+.art-card.a-card h4{color:#E65100}
+.art-card.an-card h4{color:#7B1FA2}
+.art-card.the-card h4{color:var(--ok)}
+.art-card p{font-size:.78rem;color:var(--text-soft);line-height:1.5}
+
+.count-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.count-card{padding:1rem;border-radius:12px}
+.count-card.cnt{background:#E3F2FD;border:2px solid #90CAF9}
+.count-card.unc{background:#FCE4EC;border:2px solid #F48FB1}
+.count-card h4{font-family:'Fredoka',sans-serif;font-size:.83rem;margin-bottom:.5rem}
+.count-card.cnt h4{color:var(--subj)}
+.count-card.unc h4{color:var(--neg)}
+.count-card ul{list-style:none;font-size:.8rem;color:var(--text-soft)}
+.count-card li{padding:2px 0}
+.count-card li::before{margin-right:4px}
+.count-card.cnt li::before{content:"✔";color:var(--subj)}
+.count-card.unc li::before{content:"∞";color:var(--neg)}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:#E65100}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .topic-tabs{flex-wrap:wrap}
+  .topic-tab{font-size:.7rem;padding:.5rem .3rem}
+  .card{padding:1.2rem}
+  .compare-grid,.art-grid,.count-grid,.conj-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life &amp; Personal Routines — Articles</div>
+  <p class="subtitle">a / an / the · contables e incontables · 5 pasos × 5 ejercicios por subtema</p>
+</div>
+
+<div class="topic-tabs" id="topicTabs">
+  <button class="topic-tab active" onclick="switchTopic(0,this)">🔤 a / an</button>
+  <button class="topic-tab" onclick="switchTopic(1,this)">📌 the</button>
+  <button class="topic-tab" onclick="switchTopic(2,this)">🔢 Count / Uncount</button>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen del Subtema</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var DATA = [
+
+/* ═══════════════════════════════════════
+   TOPIC 0 — A / AN
+═══════════════════════════════════════ */
+{
+  name: "a / an",
+  summary: [
+    "<b>a</b> → antes de consonante: a book, a nurse, a university",
+    "<b>an</b> → antes de vocal (a, e, i, o, u): an apple, an egg, an hour",
+    "Solo con sustantivos <b>contables singulares</b>: a cat ✅ — a water ❌",
+    "Primer mención de algo desconocido: <i>I saw a dog.</i> (uno cualquiera)",
+    "<b>an hour</b> → la 'h' es muda, suena vocal → an",
+    "<b>a university</b> → suena 'yu-ni...' → consonante → a, no an"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español usamos "un/una" para referirnos a algo de forma general o por primera vez. En inglés funciona igual con "a/an".</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Español: un / una</h4><ul><li>un libro</li><li>una manzana</li><li>un enfermero</li><li>una hora</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 English: a / an</h4><ul><li>a book</li><li>an apple</li><li>a nurse</li><li>an hour</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> "Un/una" → "a/an". La diferencia en inglés no es masculino/femenino sino si la siguiente palabra empieza con <strong>vocal o consonante</strong>.</div>' +
+        '<div class="ex-row"><div class="icon">📖</div><div><div class="en">un libro → <b>a</b> book · una manzana → <b>an</b> apple</div><div class="es">No es género (masc./fem.) — es el sonido inicial de la siguiente palabra</div></div></div>' +
+        '<div class="ex-row"><div class="icon">👩‍⚕️</div><div><div class="en">una enfermera → <b>a</b> nurse · un huevo → <b>an</b> egg</div><div class="es">"nurse" empieza con consonante → a · "egg" empieza con vocal → an</div></div></div>',
+      exercises: [
+        {q: 'En inglés, la elección entre "a" y "an" depende de:', a: 'b', o: ['El género del sustantivo (masc./fem.)', 'El sonido inicial de la siguiente palabra'], fc: 'A/an depende del sonido: consonante → a · vocal → an. No hay género en inglés.', fi: 'En inglés los sustantivos no tienen género masculino o femenino.', ex: 'a book (b = consonante) · an apple (a = vocal)', tip: 'Escucha el sonido inicial, no el género'},
+        {q: '"una manzana" en inglés:', a: 'b', o: ['a apple', 'an apple'], fc: '"apple" empieza con vocal "a" → an apple.', fi: '"a apple" choca dos vocales → incómodo → usamos an.', ex: 'an apple → una manzana', tip: 'Vocal inicial → an'},
+        {q: '"un libro" en inglés:', a: 'a', o: ['a book', 'an book'], fc: '"book" empieza con consonante "b" → a book.', fi: '"an book" sería incorrecto. "b" es consonante.', ex: 'a book → un libro', tip: 'Consonante inicial → a'},
+        {q: '"una hora" en inglés:', a: 'b', o: ['a hour', 'an hour'], fc: '"hour" — la "h" es muda. Suena "our" → vocal → an hour.', fi: '"a hour" suena mal. La "h" es silenciosa, se oye la vocal "ou".', ex: 'an hour → una hora', tip: '"hour" → h muda → suena vocal → an'},
+        {q: '"un enfermero" en inglés:', a: 'a', o: ['a nurse', 'an nurse'], fc: '"nurse" empieza con consonante "n" → a nurse.', fi: '"an nurse" es incorrecto. "n" es consonante.', ex: 'a nurse → un enfermero'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">El artículo indefinido funciona de manera muy similar en ambos idiomas.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Primera mención</td><td>Vi <b>un</b> perro</td><td>I saw <span class="g-art">a</span> dog</td></tr>' +
+          '<tr><td>Algo desconocido/general</td><td>Necesito <b>un</b> vaso</td><td>I need <span class="g-art">a</span> glass</td></tr>' +
+          '<tr><td>Profesión u oficio</td><td>Soy <b>una</b> cocinera</td><td>I am <span class="g-art">a</span> cook</td></tr>' +
+          '<tr><td>No se usa con plural</td><td>unos libros (no "un")</td><td>books (sin artículo)</td></tr>' +
+          '<tr><td>No se usa con incontables</td><td>agua (sin "un")</td><td>water (sin "a/an")</td></tr>' +
+        '</table>' +
+        '<div class="art-grid">' +
+          '<div class="art-card a-card"><h4>a</h4><p>Antes de consonante<br>a <b>b</b>ook, a <b>c</b>ook<br>a <b>n</b>urse, a <b>d</b>octor</p></div>' +
+          '<div class="art-card an-card"><h4>an</h4><p>Antes de vocal<br>an <b>a</b>pple, an <b>e</b>gg<br>an <b>i</b>dea, an <b>o</b>range</p></div>' +
+          '<div class="art-card the-card"><h4>❌ sin artículo</h4><p>Plural o incontable<br><b>books</b> (no "a books")<br><b>water</b> (no "a water")</p></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> Prueba leyendo en voz alta. Si suena raro juntar dos vocales (a apple), agrega la "n": <b>an</b> apple.</div>',
+      exercises: [
+        {q: '"___ egg" — artículo correcto:', a: 'b', o: ['a', 'an'], fc: '"egg" empieza con vocal "e" → an egg.', fi: '"a egg" — dos vocales juntas suena incómodo.', ex: 'an egg → un huevo', tip: 'e, a, i, o, u al inicio → an'},
+        {q: '"___ doctor" — artículo correcto:', a: 'a', o: ['a', 'an'], fc: '"doctor" empieza con consonante "d" → a doctor.', fi: '"an doctor" es incorrecto. "d" es consonante.', ex: 'a doctor → un médico'},
+        {q: '"She is ___ nurse." — artículo correcto:', a: 'a', o: ['a', 'an'], fc: '"nurse" empieza con consonante "n" → a nurse.', fi: '"an nurse" es incorrecto. "n" es consonante.', ex: 'She is a nurse. → Ella es enfermera.'},
+        {q: '"___ orange" — artículo correcto:', a: 'b', o: ['a', 'an'], fc: '"orange" empieza con vocal "o" → an orange.', fi: '"a orange" — dos vocales juntas → usamos an.', ex: 'an orange → una naranja', tip: 'o al inicio → an'},
+        {q: '"I need ___ idea." — artículo correcto:', a: 'b', o: ['a', 'an'], fc: '"idea" empieza con vocal "i" → an idea.', fi: '"a idea" — dos vocales juntas suena incómodo.', ex: 'an idea → una idea', tip: 'i al inicio → an'}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>un / una (género)</td><td><span class="g-art">a / an</span> (sonido)</td><td>Inglés: sonido inicial, no género</td></tr>' +
+          '<tr><td>una universidad</td><td><span class="g-art">a</span> university</td><td>"u" suena "yu" → consonante → a</td></tr>' +
+          '<tr><td>una hora</td><td><span class="g-art">an</span> hour</td><td>"h" muda → suena vocal → an</td></tr>' +
+          '<tr><td>Soy cocinera (sin artículo)</td><td>I am <span class="g-art">a</span> cook</td><td>Profesión → obligatorio a/an en inglés</td></tr>' +
+          '<tr><td>unos libros → algunos libros</td><td>books (sin artículo)</td><td>Plural → no usa a/an nunca</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Trampas clásicas</div><p>' +
+          '<b>a university</b> ✅ — suena "yoo-ni..." → consonante "y"<br>' +
+          '<b>an hour</b> ✅ — "h" muda, suena "ow-er" → vocal<br>' +
+          '<b>a European</b> ✅ — suena "yoo-ro..." → consonante "y"' +
+        '</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en">She is <span class="g-art">a</span> <span class="g-comp">cook</span>.</div><div class="es">Ella es cocinera. (profesión → necesita "a")</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">She is cook.</div><div class="es">Profesión singular → siempre necesita "a/an"</div></div></div>',
+      exercises: [
+        {q: '"___ university" — artículo correcto:', a: 'a', o: ['a', 'an'], fc: '"university" suena "yoo-ni..." — la "u" hace sonido consonántico "y" → a.', fi: 'Aunque empiece con "u", el sonido es "y" (consonante) → a university.', ex: 'a university → una universidad', tip: '"university" suena "yu..." → consonante → a'},
+        {q: '"___ hour" — artículo correcto:', a: 'b', o: ['a', 'an'], fc: '"hour" — la "h" es muda. Suena "our" → vocal → an hour.', fi: 'La "h" en "hour" no se pronuncia → el sonido inicial es vocal.', ex: 'an hour → una hora', tip: '"hour" → h muda → vocal → an'},
+        {q: '"I am ___ doctor." — artículo correcto:', a: 'a', o: ['a', 'an'], fc: '"doctor" empieza con "d" → consonante → a doctor.', fi: '"an doctor" es incorrecto. "d" es consonante.', ex: 'I am a doctor. → Soy médico.'},
+        {q: '"Soy cocinero." en inglés:', a: 'b', o: ['I am cook.', 'I am a cook.'], fc: 'Profesión singular en inglés SIEMPRE necesita "a": I am a cook.', fi: 'Sin "a" la frase es incorrecta. El artículo es obligatorio con profesiones.', ex: 'I am a cook. → Soy cocinero.', tip: 'Profesión singular → a/an obligatorio'},
+        {q: '"___ egg and ___ banana" — artículos:', a: 'b', o: ['a egg / a banana', 'an egg / a banana'], fc: '"egg" → vocal → an · "banana" → consonante → a.', fi: '"a egg" es incorrecto. "egg" empieza con vocal.', ex: 'an egg and a banana → un huevo y una banana'}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Regla del SONIDO, no de la letra: "an hour" (h muda → vocal) · "a university" (u suena "yu" → consonante).</div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Vocales: <b>a, e, i, o, u</b> → an. Todo lo demás → a. Memoriza las 5 vocales.</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Profesión singular SIEMPRE necesita artículo en inglés: I am <b>a</b> nurse. / He is <b>a</b> doctor. No hay excepción.</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> A/an solo con sustantivos contables singulares. No: "a water" ❌ · "a books" ❌.</div>' +
+        '<div class="formula-box">' +
+          'Consonante → <span class="g-art">a</span> + noun &nbsp;&nbsp;|&nbsp;&nbsp; Vocal (a,e,i,o,u) → <span class="g-art">an</span> + noun<br>' +
+          'Plural → <span style="color:var(--neg)">✗ a/an</span> &nbsp;&nbsp;|&nbsp;&nbsp; Incontable → <span style="color:var(--neg)">✗ a/an</span>' +
+        '</div>',
+      exercises: [
+        {q: '"___ apple a day keeps the doctor away."', a: 'b', o: ['A', 'An'], fc: '"apple" → vocal "a" → An apple.', fi: '"A apple" suena incómodo. Vocal → an.', ex: 'An apple a day... → Una manzana al día...'},
+        {q: '"She is ___ engineer."', a: 'b', o: ['a', 'an'], fc: '"engineer" empieza con vocal "e" → an engineer.', fi: '"a engineer" es incorrecto. "e" es vocal.', ex: 'She is an engineer. → Ella es ingeniera.', tip: 'e al inicio → an'},
+        {q: '"I want ___ water." — ¿es correcto con "a"?', a: 'b', o: ['Sí: a water', 'No: water es incontable → sin artículo'], fc: '"water" es incontable → no usa "a/an". Solo "water" o "some water".', fi: '"Water" no se puede contar (un agua, dos aguas → no natural) → incontable.', ex: 'I want water. / I want some water.', tip: 'Incontable → sin a/an'},
+        {q: '"He is ___ honest man."', a: 'b', o: ['a', 'an'], fc: '"honest" — la "h" es muda. Suena "o-nest" → vocal → an honest.', fi: '"a honest" es incorrecto. La "h" en "honest" no se pronuncia.', ex: 'He is an honest man. → Él es un hombre honesto.', tip: '"honest" → h muda → vocal → an'},
+        {q: '"I have ___ books." — artículo correcto:', a: 'b', o: ['a', 'sin artículo (books)'], fc: '"books" es plural → no usa a/an nunca. Solo "books" o "some books".', fi: '"a books" es imposible. A/an solo con singular.', ex: 'I have books. / I have some books.', tip: 'Plural → sin a/an'}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-art">a</span> book · <span class="g-art">a</span> nurse · <span class="g-art">a</span> cook · <span class="g-art">a</span> university<br>' +
+          '<span class="g-art">an</span> apple · <span class="g-art">an</span> egg · <span class="g-art">an</span> idea · <span class="g-art">an</span> hour · <span class="g-art">an</span> orange' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🍎</div><div><div class="en">I eat <span class="g-art">an</span> <span class="g-comp">apple</span> every day.</div><div class="es">Como una manzana todos los días.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🧑‍⚕️</div><div><div class="en">He is <span class="g-art">a</span> <span class="g-comp">doctor</span>.</div><div class="es">Él es médico.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🕐</div><div><div class="en">I wait <span class="g-art">an</span> <span class="g-comp">hour</span>.</div><div class="es">Espero una hora.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "a apple" → ✅ "<b>an</b> apple" (vocal)<br>' +
+          '❌ "an nurse" → ✅ "<b>a</b> nurse" (consonante)<br>' +
+          '❌ "I am doctor" → ✅ "I am <b>a</b> doctor" (profesión → obligatorio)' +
+        '</p></div>',
+      exercises: [
+        {q: '"I am ___ engineer."', a: 'b', o: ['a', 'an'], fc: '"engineer" → vocal "e" → an engineer.', fi: '"a engineer" es incorrecto.', ex: 'I am an engineer. → Soy ingeniero.'},
+        {q: '"She has ___ umbrella."', a: 'b', o: ['a', 'an'], fc: '"umbrella" → vocal "u" → an umbrella.', fi: '"a umbrella" es incorrecto. "u" es vocal.', ex: 'She has an umbrella. → Ella tiene un paraguas.', tip: 'u al inicio → an'},
+        {q: '"He is ___ cook."', a: 'a', o: ['a', 'an'], fc: '"cook" → consonante "c" → a cook.', fi: '"an cook" es incorrecto. "c" es consonante.', ex: 'He is a cook. → Él es cocinero.'},
+        {q: '"I have ___ idea."', a: 'b', o: ['a', 'an'], fc: '"idea" → vocal "i" → an idea.', fi: '"a idea" es incorrecto. "i" es vocal.', ex: 'I have an idea. → Tengo una idea.', tip: 'i al inicio → an'},
+        {q: '"It is ___ honest mistake."', a: 'b', o: ['a', 'an'], fc: '"honest" → h muda, suena vocal → an honest.', fi: '"a honest" es incorrecto. La "h" no se pronuncia.', ex: 'It is an honest mistake. → Es un error honesto.', tip: '"honest" → h muda → vocal → an'}
+      ]
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════
+   TOPIC 1 — THE
+═══════════════════════════════════════ */
+{
+  name: "the",
+  summary: [
+    "<b>the</b> = artículo definido: hablamos de algo <b>específico o ya conocido</b>",
+    "Primera mención → <i>a dog</i> · Segunda mención → <i>the dog</i>",
+    "<b>the</b> funciona con singular, plural e incontables: the book / the books / the water",
+    "Con <b>únicos</b>: the sun, the moon, the sky, the internet",
+    "Pronunciación: <b>thuh</b> + consonante · <b>thee</b> + vocal",
+    "No se usa con nombres propios: ❌ the Lima · ❌ the Carlos"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español usamos "el/la/los/las" para referirnos a algo específico o ya conocido. En inglés existe un solo artículo definido: <strong>the</strong> — para todo.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 el / la / los / las</h4><ul><li><b>el</b> libro (masc. sing.)</li><li><b>la</b> manzana (fem. sing.)</li><li><b>los</b> libros (masc. pl.)</li><li><b>las</b> manzanas (fem. pl.)</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 the (siempre igual)</h4><ul><li><b>the</b> book</li><li><b>the</b> apple</li><li><b>the</b> books</li><li><b>the</b> apples</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> El español tiene 4 formas (el/la/los/las). El inglés tiene solo <strong>una</strong>: <b>the</b>. ¡Más fácil!</div>' +
+        '<div class="ex-row"><div class="icon">📚</div><div><div class="en">Vi un perro. <b>El</b> perro era grande.</div><div class="es">I saw a dog. <b>The</b> dog was big. → Segunda mención → "the"</div></div></div>',
+      exercises: [
+        {q: 'En inglés, el artículo definido tiene cuántas formas:', a: 'b', o: ['4 (el/la/los/las)', '1 (the)'], fc: 'Inglés tiene solo "the" para todo — singular, plural, masculino, femenino.', fi: 'Esas 4 formas son del español. Inglés simplifica todo a "the".', ex: 'the book / the apple / the books / the apples', tip: 'The = el/la/los/las (todo en uno)'},
+        {q: '"la manzana" en inglés:', a: 'a', o: ['the apple', 'an apple'], fc: '"the apple" = la manzana (específica/conocida).', fi: '"an apple" = una manzana (primera vez, indefinida).', ex: 'the apple → la manzana (específica)'},
+        {q: '"los libros" en inglés:', a: 'a', o: ['the books', 'a books'], fc: '"the books" — plural definido. "The" no cambia con el número.', fi: '"a books" es imposible — "a/an" no va con plural.', ex: 'the books → los libros'},
+        {q: 'Cuando hablo de algo por segunda vez uso:', a: 'b', o: ['a/an', 'the'], fc: 'Segunda mención → "the". Primera mención → "a/an".', fi: '"a/an" es para la primera mención (algo desconocido).', ex: 'I saw a dog. The dog was big.', tip: '1ra vez → a/an · 2da vez → the'},
+        {q: '"el sol" en inglés:', a: 'a', o: ['the sun', 'a sun'], fc: '"The sun" — el sol es único, siempre "the".', fi: '"a sun" implica que hay varios soles. El sol es único.', ex: 'the sun → el sol (único)', tip: 'Cosas únicas → the'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Algo específico/conocido</td><td><b>El</b> libro está aquí</td><td><span class="g-art">The</span> book is here</td></tr>' +
+          '<tr><td>Segunda mención</td><td>Vi <b>un</b> gato. <b>El</b> gato...</td><td>I saw <span class="g-art">a</span> cat. <span class="g-art">The</span> cat...</td></tr>' +
+          '<tr><td>Cosas únicas</td><td><b>El</b> sol / <b>La</b> luna</td><td><span class="g-art">The</span> sun / <span class="g-art">the</span> moon</td></tr>' +
+          '<tr><td>Con superlativo</td><td><b>El</b> más grande</td><td><span class="g-art">The</span> biggest</td></tr>' +
+          '<tr><td>No con nombres propios</td><td>Lima (sin artículo)</td><td>Lima (sin "the")</td></tr>' +
+        '</table>' +
+        '<div class="conj-grid">' +
+          '<div class="conj-item"><div class="pron">Singular</div><div class="vrb">the book</div><div class="meaning">el libro</div></div>' +
+          '<div class="conj-item"><div class="pron">Plural</div><div class="vrb">the books</div><div class="meaning">los libros</div></div>' +
+          '<div class="conj-item"><div class="pron">Incontable</div><div class="vrb">the water</div><div class="meaning">el agua</div></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> Pregúntate: ¿Los dos sabemos de qué estamos hablando? Si la respuesta es sí → <b>the</b>.</div>',
+      exercises: [
+        {q: '"Close ___ door." (la puerta — ya sabemos cuál)', a: 'b', o: ['a', 'the'], fc: '"Close the door." — ambos saben cuál puerta → the.', fi: '"a door" sería una puerta cualquiera, sin especificar.', ex: 'Close the door. → Cierra la puerta.'},
+        {q: 'I saw a cat. ___ cat was black.', a: 'b', o: ['A', 'The'], fc: '"The cat" — segunda mención, ya sabemos de qué gato hablamos.', fi: '"A cat" sería mencionar un gato diferente.', ex: 'I saw a cat. The cat was black.', tip: '2da mención → the'},
+        {q: '"___ moon is beautiful tonight."', a: 'b', o: ['A', 'The'], fc: '"The moon" — la luna es única → siempre "the".', fi: '"A moon" implica que hay varias lunas.', ex: 'The moon is beautiful. → La luna está hermosa.', tip: 'Único → the'},
+        {q: '"___ Lima is a big city."', a: 'b', o: ['The', 'Sin artículo'], fc: 'Lima es nombre propio → no usa "the". Solo "Lima is a big city."', fi: '"The Lima" es incorrecto. Los nombres propios no llevan artículo.', ex: 'Lima is a big city. → Lima es una ciudad grande.', tip: 'Nombres propios → sin artículo'},
+        {q: '"She is ___ best cook."', a: 'b', o: ['a', 'the'], fc: '"The best cook" — superlativo → siempre "the".', fi: '"A best" es incorrecto. Con superlativo se usa "the".', ex: 'She is the best cook. → Ella es la mejor cocinera.', tip: 'Superlativo → the'}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>el/la/los/las (4 formas)</td><td><span class="g-art">the</span> (1 forma)</td><td>Inglés: sin género ni número</td></tr>' +
+          '<tr><td>Me gusta <b>el</b> café</td><td>I like <span style="color:var(--neg);font-weight:700">∅</span> coffee</td><td>Gusto general → sin "the"</td></tr>' +
+          '<tr><td><b>Los</b> perros son leales</td><td>Dogs are loyal (<span style="color:var(--neg);font-weight:700">sin the</span>)</td><td>Generalización → sin "the"</td></tr>' +
+          '<tr><td>Voy al <b>hospital</b></td><td>I go to <span style="color:var(--neg);font-weight:700">∅</span> hospital</td><td>Algunos lugares → sin "the"</td></tr>' +
+          '<tr><td><b>El</b> doctor Ruiz</td><td>Doctor Ruiz (<span style="color:var(--neg);font-weight:700">sin the</span>)</td><td>Título + nombre → sin "the"</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Generalización → sin "the"</div><p>' +
+          'Español: "<b>Los</b> perros son leales." → "the" en inglés NO.<br>' +
+          'Inglés: "<b>Dogs</b> are loyal." — generalización usa plural sin artículo.' +
+        '</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-art">The</span> <span class="g-comp">dog</span> is in the garden.</div><div class="es">El perro (específico) está en el jardín.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-comp">Dogs</span> are loyal.</div><div class="es">Los perros (en general) son leales. → sin "the"</div></div></div>',
+      exercises: [
+        {q: '"___ dogs are loyal." (generalización)', a: 'b', o: ['The', 'Sin artículo (Dogs)'], fc: 'Generalización en inglés → sin "the": "Dogs are loyal."', fi: '"The dogs" son unos perros específicos, no todos los perros.', ex: 'Dogs are loyal. → Los perros son leales. (general)'},
+        {q: '"I like ___ coffee." (café en general)', a: 'b', o: ['the', 'sin artículo'], fc: 'Gusto general → sin artículo: "I like coffee."', fi: '"The coffee" sería el café específico que tienes ahora.', ex: 'I like coffee. → Me gusta el café. (en general)', tip: 'Gusto general → sin the'},
+        {q: '"___ sun is very hot today."', a: 'b', o: ['A', 'The'], fc: '"The sun" — único. Solo hay un sol.', fi: '"A sun" implica que hay varios soles.', ex: 'The sun is hot today. → El sol está caliente hoy.'},
+        {q: '"I go to ___ school every day."', a: 'b', o: ['the', 'sin artículo'], fc: 'Institución en función → sin "the": "I go to school."', fi: '"The school" sería un edificio específico, no la función de estudiar.', ex: 'I go to school. → Voy a la escuela. (función)', tip: 'Go to school/work/home → sin the'},
+        {q: '"Doctor Ruiz is ___ best doctor."', a: 'b', o: ['a', 'the'], fc: '"The best doctor" — superlativo → "the".', fi: '"A best" es agramatical. Superlativo siempre con "the".', ex: 'Doctor Ruiz is the best doctor. → El Dr. Ruiz es el mejor médico.'}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Primera mención = <b>a/an</b>. Segunda mención y siguientes = <b>the</b>. "I have a dog. The dog is happy."</div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Cosas únicas en el mundo → siempre "the": the sun, the moon, the sky, the internet, the earth.</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Generalización (todos los X) → sin artículo en inglés. "Dogs are loyal." / "I love music."</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Pronunciación: antes de consonante → "thuh" (débil) · antes de vocal → "thee" (fuerte). "thee apple" / "thuh book".</div>' +
+        '<div class="formula-box">' +
+          'Específico/conocido → <span class="g-art">the</span> + noun (sing./pl./incontable)<br>' +
+          'General/todos → <span style="color:var(--neg);font-weight:700">sin artículo</span> + noun plural/incontable' +
+        '</div>',
+      exercises: [
+        {q: '"Pass me ___ salt, please." (la sal que está en la mesa)', a: 'b', o: ['a', 'the'], fc: '"The salt" — ambos sabemos cuál sal → the.', fi: '"A salt" sería indefinido, no tiene sentido aquí.', ex: 'Pass me the salt. → Pásame la sal.'},
+        {q: '"___ water is important for life." (generalización)', a: 'b', o: ['The', 'Sin artículo (Water)'], fc: 'Generalización → sin artículo: "Water is important."', fi: '"The water" sería el agua específica de un vaso o lugar.', ex: 'Water is important for life. → El agua es importante para la vida.'},
+        {q: '"She loves ___ music." (la música en general)', a: 'b', o: ['the', 'sin artículo'], fc: '"She loves music." — gusto general → sin artículo.', fi: '"The music" sería la música específica que suena ahora.', ex: 'She loves music. → Ella ama la música.'},
+        {q: '"I saw a nurse. ___ nurse was kind."', a: 'b', o: ['A', 'The'], fc: '"The nurse" — segunda mención → the.', fi: '"A nurse" sería mencionar una enfermera diferente.', ex: 'I saw a nurse. The nurse was kind.', tip: '2da mención → the'},
+        {q: '"___ internet is useful."', a: 'b', o: ['A', 'The'], fc: '"The internet" — único → siempre "the".', fi: '"A internet" es incorrecto. El internet es único.', ex: 'The internet is useful. → El internet es útil.', tip: 'Único → the'}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '1ra vez → <span class="g-art">a/an</span> · 2da vez → <span class="g-art">the</span> · Único → <span class="g-art">the</span><br>' +
+          'General → <span style="color:var(--neg);font-weight:700">sin artículo</span> · Nombres propios → <span style="color:var(--neg);font-weight:700">sin the</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🐕</div><div><div class="en">I have <span class="g-art">a</span> <span class="g-comp">dog</span>. <span class="g-art">The</span> <span class="g-comp">dog</span> is happy.</div><div class="es">Tengo un perro. El perro está feliz.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">☀️</div><div><div class="en"><span class="g-art">The</span> <span class="g-comp">sun</span> is bright today.</div><div class="es">El sol está brillante hoy.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🎵</div><div><div class="en"><span class="g-comp">Music</span> makes me happy.</div><div class="es">La música me hace feliz. (general → sin artículo)</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "The dogs are loyal." (general) → ✅ "<b>Dogs</b> are loyal."<br>' +
+          '❌ "I like the coffee." (general) → ✅ "I like <b>coffee</b>."<br>' +
+          '❌ "The Lima is beautiful." → ✅ "<b>Lima</b> is beautiful."' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ earth goes around the sun."', a: 'b', o: ['A', 'The'], fc: '"The earth" — la Tierra es única → the.', fi: '"A earth" implica múltiples tierras.', ex: 'The earth goes around the sun. → La Tierra gira alrededor del sol.'},
+        {q: '"I love ___ cooking." (cocinar en general)', a: 'b', o: ['the', 'sin artículo'], fc: '"I love cooking." — actividad/gusto general → sin artículo.', fi: '"The cooking" sería la cocina específica de un evento.', ex: 'I love cooking. → Me encanta cocinar.'},
+        {q: '"She bought a book. ___ book is interesting."', a: 'b', o: ['A', 'The'], fc: '"The book" — segunda mención → the.', fi: '"A book" sería un libro diferente al que compró.', ex: 'She bought a book. The book is interesting.'},
+        {q: '"___ nurses work hard." (las enfermeras en general)', a: 'b', o: ['The', 'Sin artículo (Nurses)'], fc: '"Nurses work hard." — generalización → sin artículo.', fi: '"The nurses" serían enfermeras específicas, no todas en general.', ex: 'Nurses work hard. → Las enfermeras trabajan duro.'},
+        {q: '"Open ___ window, please." (la ventana de esta sala)', a: 'b', o: ['a', 'the'], fc: '"The window" — ambos saben cuál ventana → the.', fi: '"A window" sería cualquier ventana, sin especificar.', ex: 'Open the window, please. → Abre la ventana, por favor.'}
+      ]
+    }
+  ]
+},
+
+/* ═══════════════════════════════════════
+   TOPIC 2 — COUNT / UNCOUNT
+═══════════════════════════════════════ */
+{
+  name: "Count / Uncount",
+  summary: [
+    "<b>Contable (count)</b>: se puede contar → a book, two books, some books",
+    "<b>Incontable (uncount)</b>: no se puede contar individualmente → water, rice, music",
+    "Incontable → <b>sin a/an</b> · sin plural con -s · se usa <b>some</b> para cantidad",
+    "Para medir incontables: <b>a glass of</b> water · <b>a cup of</b> coffee · <b>a piece of</b> bread",
+    "Incontables comunes: water, milk, rice, bread, coffee, music, information, money",
+    "Truco: ¿Puedes decir 'one ___, two ___'? Si sí → contable. Si no → incontable"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español también distinguimos sustantivos que se pueden contar (un libro, dos libros) de los que no (agua, arroz). En inglés esta distinción es muy importante para elegir el artículo.</div>' +
+        '<div class="count-grid">' +
+          '<div class="count-card cnt"><h4>✔ Contables (Countable)</h4><ul><li>un libro, dos libros</li><li>una manzana, tres manzanas</li><li>un enfermero, dos enfermeros</li><li>una idea, cinco ideas</li></ul></div>' +
+          '<div class="count-card unc"><h4>∞ Incontables (Uncountable)</h4><ul><li>agua (no "dos aguas")</li><li>arroz (no "tres arroces")</li><li>música (no "una música")</li><li>información</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> Prueba mental: "un ___, dos ___". Si funciona naturalmente → contable. Si suena raro → incontable.</div>' +
+        '<div class="ex-row"><div class="icon">🧪</div><div><div class="en">"un libro, dos libros" ✅ → contable · "una agua, dos aguas" ❓ → incontable</div><div class="es">El mismo test funciona en inglés: one book ✅ · one water ❌ → water es incontable</div></div></div>',
+      exercises: [
+        {q: '"libro" es:', a: 'a', o: ['Contable (un libro, dos libros)', 'Incontable'], fc: '"Libro" se puede contar: un libro, dos libros → contable.', fi: 'Si puedes contar con números, es contable.', ex: 'a book, two books → un libro, dos libros', tip: 'Contable = puedes contar con números'},
+        {q: '"agua" es:', a: 'b', o: ['Contable', 'Incontable (no "dos aguas")'], fc: '"Agua" no se cuenta individualmente → incontable. Se dice "un vaso de agua".', fi: 'No dices "una agua, dos aguas" de forma natural.', ex: 'water → agua (incontable)', tip: 'Incontable = no se cuenta individualmente'},
+        {q: '"arroz" es:', a: 'b', o: ['Contable', 'Incontable'], fc: '"Arroz" no se cuenta en unidades → incontable. "Un plato de arroz" sí.', fi: 'No dices "un arroz, dos arroces" de forma natural.', ex: 'rice → arroz (incontable)'},
+        {q: '"idea" es:', a: 'a', o: ['Contable (una idea, cinco ideas)', 'Incontable'], fc: '"Idea" se puede contar → contable: an idea, two ideas.', fi: 'Puedes decir "una idea, cinco ideas" → contable.', ex: 'an idea, two ideas → una idea, dos ideas'},
+        {q: '"música" es:', a: 'b', o: ['Contable', 'Incontable'], fc: '"Música" no se cuenta individualmente → incontable.', fi: 'No dices "una música, dos músicas" de forma natural.', ex: 'music → música (incontable)'}
+      ]
+    },
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Contables tienen plural</td><td>libros / manzanas</td><td>books / apples</td></tr>' +
+          '<tr><td>Incontables sin plural normal</td><td>agua / arroz</td><td>water / rice</td></tr>' +
+          '<tr><td>Medir incontables</td><td>un vaso de agua</td><td>a glass of water</td></tr>' +
+          '<tr><td>"Some" para cantidad</td><td>algo de / un poco de</td><td>some water / some rice</td></tr>' +
+          '<tr><td>Contables usan a/an</td><td>un libro</td><td><span class="g-art">a</span> book</td></tr>' +
+        '</table>' +
+        '<div class="count-grid">' +
+          '<div class="count-card cnt"><h4>✔ Contable en inglés</h4><ul><li>a book / books</li><li>an apple / apples</li><li>a nurse / nurses</li><li>an idea / ideas</li></ul></div>' +
+          '<div class="count-card unc"><h4>∞ Incontable en inglés</h4><ul><li>water (no "a water")</li><li>rice (no "a rice")</li><li>coffee (no "a coffee")*</li><li>music (no "a music")</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Para medir incontables:</strong> a <b>glass</b> of water · a <b>cup</b> of coffee · a <b>piece</b> of bread · a <b>bowl</b> of rice</div>',
+      exercises: [
+        {q: '"water" en inglés es:', a: 'b', o: ['Contable', 'Incontable'], fc: '"Water" es incontable → no "a water", no "waters" (en general).', fi: 'No puedes contar "one water, two waters" de forma natural.', ex: 'I want water. / I want some water.', tip: 'water → incontable → sin a/an'},
+        {q: '"book" en inglés es:', a: 'a', o: ['Contable', 'Incontable'], fc: '"Book" es contable → a book, two books.', fi: 'Puedes contar libros: one book, two books.', ex: 'a book, two books → un libro, dos libros'},
+        {q: '"Un vaso de agua" en inglés:', a: 'a', o: ['a glass of water', 'a water'], fc: '"a glass of water" — medimos el agua con el contenedor.', fi: '"a water" es incorrecto. "Water" es incontable.', ex: 'a glass of water → un vaso de agua', tip: 'Medir incontable: a glass/cup/piece of...'},
+        {q: '"some rice" significa:', a: 'b', o: ['Un arroz específico', 'Algo/un poco de arroz'], fc: '"Some rice" = algo de arroz / un poco de arroz. Para incontables.', fi: '"Some" con incontables indica cantidad indeterminada.', ex: 'some rice → un poco de arroz / algo de arroz'},
+        {q: '"nurse" es contable — ¿cuál forma es correcta?', a: 'b', o: ['some nurse', 'a nurse / nurses'], fc: 'Contable → "a nurse" (singular) o "nurses" (plural).', fi: '"Some nurse" no es la forma correcta para contable singular.', ex: 'a nurse, two nurses → un enfermero, dos enfermeros'}
+      ]
+    },
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>un café (en restaurante)</td><td><span class="g-art">a</span> coffee (contexto)</td><td>A veces incontable → contable en contexto</td></tr>' +
+          '<tr><td>información (incontable)</td><td>information (<span style="color:var(--neg);font-weight:700">sin a</span>)</td><td>"information" NUNCA tiene a/an</td></tr>' +
+          '<tr><td>dinero (incontable)</td><td>money (<span style="color:var(--neg);font-weight:700">sin a</span>)</td><td>"money" NUNCA tiene a/an</td></tr>' +
+          '<tr><td>pan / arroz / leche</td><td>bread / rice / milk (<span style="color:var(--neg);font-weight:700">sin a</span>)</td><td>Alimentos básicos = incontables</td></tr>' +
+          '<tr><td>un consejo</td><td>some advice (<span style="color:var(--neg);font-weight:700">no "an advice"</span>)</td><td>"advice" siempre incontable</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Incontables que sorprenden a hispanohablantes</div><p>' +
+          '"información" → <b>information</b> (sin a/an, sin plural)<br>' +
+          '"un consejo" → <b>some advice</b> (no "an advice")<br>' +
+          '"dinero" → <b>money</b> (no "a money")<br>' +
+          '"pan" → <b>bread</b> (no "a bread" → sí "a piece of bread")' +
+        '</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en">I need <span class="g-comp">some information</span>.</div><div class="es">Necesito información. (sin "an")</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">I need an information.</div><div class="es">"information" nunca lleva "an"</div></div></div>',
+      exercises: [
+        {q: '"Necesito información." en inglés:', a: 'b', o: ['I need an information.', 'I need some information.'], fc: '"information" es siempre incontable → "some information", nunca "an information".', fi: '"an information" es incorrecto. "Information" nunca lleva a/an.', ex: 'I need some information. → Necesito información.', tip: '"information" → incontable → some, no an'},
+        {q: '"No tengo dinero." en inglés:', a: 'a', o: ["I don't have money.", "I don't have a money."], fc: '"money" es incontable → sin a/an.', fi: '"a money" es incorrecto. "Money" nunca lleva artículo indefinido.', ex: "I don't have money. → No tengo dinero.", tip: '"money" → incontable → sin a/an'},
+        {q: '"Quiero pan." en inglés:', a: 'a', o: ['I want bread.', 'I want a bread.'], fc: '"bread" es incontable → sin a/an. Para contar: a piece of bread.', fi: '"a bread" es incorrecto. Para decir "un pan": a piece of bread.', ex: 'I want bread. / I want a piece of bread.', tip: '"bread" → incontable → sin a/an'},
+        {q: '"Él me dio un consejo." en inglés:', a: 'b', o: ['He gave me an advice.', 'He gave me some advice.'], fc: '"advice" es incontable → "some advice", nunca "an advice".', fi: '"an advice" es incorrecto. "Advice" no lleva a/an.', ex: 'He gave me some advice. → Él me dio un consejo.', tip: '"advice" → siempre incontable'},
+        {q: '"rice" en inglés es:', a: 'b', o: ['Contable: a rice', 'Incontable: rice / some rice'], fc: '"rice" es incontable → sin a/an. "some rice" para cantidad.', fi: '"a rice" es incorrecto. El arroz no se cuenta individualmente.', ex: 'I want some rice. → Quiero un poco de arroz.'}
+      ]
+    },
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Test numérico: "one ___, two ___". Si funciona → contable. Si no → incontable. <em>one apple ✅ · one water ❌</em></div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Incontables con "some" para indicar cantidad: <em>some water, some rice, some information, some advice.</em></div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Para medir incontables usa contenedores: <em>a glass of water · a cup of coffee · a piece of bread · a bowl of rice</em></div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Lista de incontables comunes: water · milk · rice · bread · coffee · sugar · music · information · money · advice</div>' +
+        '<div class="formula-box">' +
+          'Contable: <span class="g-art">a/an</span> + noun · noun<b>s</b> · <span class="g-art">the</span> + noun<br>' +
+          'Incontable: <span style="color:var(--neg);font-weight:700">∅</span> noun · <span class="g-quest">some</span> + noun · <span class="g-art">the</span> + noun' +
+        '</div>',
+      exercises: [
+        {q: '"I need ___ advice."', a: 'b', o: ['an', 'some'], fc: '"advice" es incontable → some advice.', fi: '"an advice" es incorrecto. "Advice" es siempre incontable.', ex: 'I need some advice. → Necesito un consejo.'},
+        {q: '"She wants ___ cup of coffee."', a: 'a', o: ['a', 'some'], fc: '"a cup of coffee" — aquí "cup" es contable → a cup.', fi: '"some cup" no es idiomático. "Cup" es contable.', ex: 'She wants a cup of coffee. → Ella quiere una taza de café.', tip: 'Contenedor contable → a/an'},
+        {q: '"Can I have ___ water?"', a: 'b', o: ['a', 'some'], fc: '"some water" — "water" incontable → some.', fi: '"a water" es incorrecto en inglés estándar.', ex: 'Can I have some water? → ¿Me puedes dar agua?'},
+        {q: '"I have ___ good news."', a: 'b', o: ['a', 'some'], fc: '"news" es incontable en inglés → some good news.', fi: '"a news" es incorrecto. "News" es siempre incontable.', ex: 'I have some good news. → Tengo buenas noticias.', tip: '"news" → incontable → some'},
+        {q: '"She is ___ nurse." vs. "She drinks ___ milk." — artículos:', a: 'a', o: ['a nurse / milk (sin artículo)', 'a nurse / a milk'], fc: '"nurse" contable → a nurse · "milk" incontable → sin a/an.', fi: '"a milk" es incorrecto. "Milk" es incontable.', ex: 'She is a nurse. She drinks milk.'}
+      ]
+    },
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          'Contable: <span class="g-art">a</span> book · <span class="g-art">an</span> apple · books<br>' +
+          'Incontable: water · <span class="g-quest">some</span> water · <span class="g-art">a glass of</span> water' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🍎</div><div><div class="en">I eat <span class="g-art">an</span> <span class="g-comp">apple</span> and drink <span class="g-comp">water</span>.</div><div class="es">Como una manzana y tomo agua.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">☕</div><div><div class="en">She wants <span class="g-art">a cup of</span> <span class="g-comp">coffee</span>.</div><div class="es">Ella quiere una taza de café.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">💡</div><div><div class="en">I have <span class="g-quest">some</span> <span class="g-comp">information</span> for you.</div><div class="es">Tengo información para ti.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "I need an information" → ✅ "I need <b>some information</b>"<br>' +
+          '❌ "I want a water" → ✅ "I want <b>some water</b> / a glass of water"<br>' +
+          '❌ "She gave me an advice" → ✅ "She gave me <b>some advice</b>"' +
+        '</p></div>',
+      exercises: [
+        {q: '"I drink ___ milk every morning."', a: 'b', o: ['a', 'sin artículo (milk)'], fc: '"milk" es incontable → sin a/an. Solo "milk".', fi: '"a milk" es incorrecto.', ex: 'I drink milk every morning. → Tomo leche cada mañana.'},
+        {q: '"She bought ___ book."', a: 'a', o: ['a', 'some'], fc: '"book" es contable singular → a book.', fi: '"some book" suena a cantidad indeterminada, no un libro específico.', ex: 'She bought a book. → Ella compró un libro.'},
+        {q: '"I need ___ money."', a: 'b', o: ['a', 'sin artículo (money)'], fc: '"money" es incontable → sin a/an. Solo "money" o "some money".', fi: '"a money" es incorrecto. "Money" es incontable.', ex: 'I need money. → Necesito dinero.', tip: '"money" → incontable → sin a/an'},
+        {q: '"Can I have ___ piece of bread?"', a: 'a', o: ['a', 'some'], fc: '"a piece of bread" — "piece" es contable → a piece.', fi: '"some piece" no es natural. "Piece" es contable.', ex: 'Can I have a piece of bread? → ¿Me das un pedazo de pan?'},
+        {q: '"___ rice is a staple food." (generalización)', a: 'b', o: ['A', 'Sin artículo (Rice)'], fc: '"Rice is a staple food." — incontable + generalización → sin artículo.', fi: '"A rice" es incorrecto. "Rice" es incontable.', ex: 'Rice is a staple food. → El arroz es un alimento básico.'}
+      ]
+    }
+  ]
+}
+
+]; // end DATA
+
+var curTopic = 0;
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function switchTopic(idx, btn) {
+  curTopic = idx;
+  curStep = 0;
+  document.querySelectorAll('.topic-tab').forEach(function(t) { t.classList.remove('active'); });
+  btn.classList.add('active');
+  document.getElementById('summaryFinal').classList.remove('show');
+  renderStepTabs();
+  renderCard();
+}
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  DATA[curTopic].steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 't' + curTopic + 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = DATA[curTopic].steps[curStep];
+  var k = 't' + curTopic + 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/t\d+s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = DATA[curTopic].summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A1 M1 Imperatives | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3; --primary-light: #BBDEFB; --primary-dark: #0D47A1;
+            --accent: #64B5F6;
+            --bg-gradient-start: #E3F2FD; --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470; --text-medium: #0D47A1; --text-light: #1565C0;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --purple: #8B5CF6;  --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --shadow-strong: 0 8px 30px rgba(33,150,243,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .imp-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .imp-badge.aff-to-neg { background:#FEE2E2; color:#DC2626; }
+        .imp-badge.neg-to-aff { background:#D1FAE5; color:#059669; }
+        .imp-badge.to-let     { background:#EDE9FE; color:#6D28D9; }
+        .imp-badge.reword     { background:#FFF3E0; color:#C2410C; }
+        .imp-badge.person     { background:#E0F2FE; color:#0369A1; }
+
+        .transform-visual { margin-bottom:1.1rem; display:flex; flex-direction:column; gap:0.5rem; }
+        .transform-box { border-radius:12px; padding:0.8rem 1rem; }
+        .transform-box.base { background:#F0F9FF; border:1.5px solid #BAE6FD; }
+        .transform-box.goal { background:#F5F3FF; border:1.5px solid #DDD6FE; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:#0369A1; }
+        .transform-box.goal .transform-label { color:#6D28D9; }
+        .transform-sentence { font-size:0.97rem; font-weight:600; color:var(--text-dark); line-height:1.5; }
+        .verb-hl { background:#BAE6FD; color:#0369A1; padding:0.05rem 0.35rem; border-radius:4px; font-weight:700; }
+        .transform-arrow { text-align:center; font-size:0.85rem; color:#94A3B8; font-weight:700; }
+
+        .options-container { display:flex; flex-direction:column; gap:0.6rem; margin-bottom:0.5rem; }
+        .option-btn { display:flex; align-items:center; gap:0.8rem; padding:0.85rem 1rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.92rem; font-weight:600; cursor:pointer; transition:all .2s; color:var(--text-dark); text-align:left; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--primary-light); }
+        .option-btn.correct   { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error);   background:var(--error-light);   color:var(--error-dark); }
+        .option-btn.disabled  { cursor:default; }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.78rem; flex-shrink:0; }
+        .option-btn.correct  .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { flex:1; }
+        .verb-past { background:#D1FAE5; color:#059669; padding:0.05rem 0.35rem; border-radius:4px; font-weight:700; }
+
+        .feedback { margin-top:1rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon  { font-size:1.6rem; }
+        .fb-title    { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-signal       { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal       .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-flow { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-flow .fb-block-title { color:#475569; }
+        .flow-row { display:flex; align-items:center; gap:0.5rem; margin:0.3rem 0; flex-wrap:wrap; }
+        .flow-box { padding:0.3rem 0.75rem; border-radius:8px; font-size:0.88rem; font-weight:700; }
+        .flow-present { background:#E0F2FE; color:#0369A1; }
+        .flow-wrong   { background:#FEE2E2; color:#DC2626; text-decoration:line-through; }
+        .flow-right   { background:#D1FAE5; color:#059669; }
+        .flow-arrow   { color:#94A3B8; font-size:1rem; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap  { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.5rem 0; flex-wrap:wrap; }
+        .ws-box  { padding:0.35rem 0.9rem; border-radius:8px; font-weight:700; font-size:0.95rem; }
+        .ws-wrong{ background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow{ font-size:1.2rem; color:#94A3B8; }
+        .ws-right{ background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark); font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji  { font-size:4rem; margin-bottom:1rem; }
+        .results-title  { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score  { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message{ font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container{ display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star           { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned    { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-daily-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">🩵 A1 · Daily Life · Imperatives</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transforma la oración según la instrucción</div>
+                <div class="instructions-text">Lee la oración original y el objetivo de transformación. Elige la opción que realiza el cambio correctamente.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-daily-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // TRANSFORM — Imperatives
+    // Módulo: A1 — Daily Life & Personal Routines
+    // Verbos: pass, pick up, do, leave, follow, remember, use,
+    //         turn on, stop, prepare, stay, eat, check, speak, choose
+    // Transformaciones:
+    //   aff-to-neg  = Afirmativo → Negativo (forma base → Don't + base)
+    //   neg-to-aff  = Negativo → Afirmativo (Don't + base → base)
+    //   to-let      = Imperativo → Let's...
+    //   reword      = Reformular imperativo (mismo tipo, distinta forma)
+    //   person      = Cambio de 3ª persona → imperativo
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            transType: "aff-to-neg",
+            transLabel: "Aff. → Neg.",
+            base: "Pass the notebook to your classmate.",
+            presentVerb: "Pass",
+            goal: "Afirmativo → Negativo",
+            clue: "Don't + forma base",
+            clueExplain: "Para convertir un imperativo afirmativo en negativo, se añade 'Don't' delante de la forma base del verbo. El verbo no cambia.",
+            options: [
+                { text: "Doesn't pass the notebook to your classmate.", correct: false, targetVerb: "Doesn't pass",
+                  errorType: "Presente simple negativo — no es imperativo",
+                  explanation: "'Doesn't pass' es el presente negativo de he/she/it. El imperativo negativo siempre usa 'Don't', nunca 'Doesn't'. 'Don't pass' es la forma correcta." },
+                { text: "Not pass the notebook to your classmate.", correct: false, targetVerb: "Not pass",
+                  errorType: "Forma incompleta — falta 'Don't'",
+                  explanation: "'Not pass' sin 'Don't' no existe como imperativo en inglés. La estructura completa del imperativo negativo es siempre: 'Don't + forma base'." },
+                { text: "Don't pass the notebook to your classmate.", correct: true, targetVerb: "Don't pass" }
+            ],
+            rule: "Aff. imperativo + Don't → Don't + forma base",
+            examples: ["Pass → Don't pass", "Open → Don't open", "Use → Don't use"],
+            correctReason: "<span class='why-hl'>Don't pass</span> — para negar un imperativo, se añade 'Don't' delante. La forma base del verbo ('pass') no cambia. 'Doesn't' es presente simple y 'Not' sin 'Don't' está incompleto."
+        },
+        {
+            id: 2,
+            transType: "neg-to-aff",
+            transLabel: "Neg. → Aff.",
+            base: "Don't pick up your phone during class.",
+            presentVerb: "Don't pick up",
+            goal: "Negativo → Afirmativo",
+            clue: "eliminar 'Don't' → forma base",
+            clueExplain: "Para convertir un imperativo negativo en afirmativo, se elimina 'Don't'. El verbo phrasal 'pick up' queda en su forma base.",
+            options: [
+                { text: "Picked up your phone during class.", correct: false, targetVerb: "Picked up",
+                  errorType: "Pasado simple — no es imperativo",
+                  explanation: "'Picked up' es el pasado del phrasal verb 'pick up'. El imperativo afirmativo usa la forma base: 'Pick up your phone', no 'Picked up your phone'." },
+                { text: "Pick up your phone during class.", correct: true, targetVerb: "Pick up" },
+                { text: "Picks up your phone during class.", correct: false, targetVerb: "Picks up",
+                  errorType: "Tercera persona presente — no es imperativo",
+                  explanation: "'Picks up' es la forma de he/she/it en presente simple. El imperativo no lleva -s: 'Pick up your phone', no 'Picks up your phone'." }
+            ],
+            rule: "Don't + base → forma base (eliminar 'Don't')",
+            examples: ["Don't pick up → Pick up", "Don't open → Open", "Don't leave → Leave"],
+            correctReason: "<span class='why-hl'>Pick up</span> your phone — se elimina 'Don't' y el verbo base 'pick up' permanece sin cambios. 'Picked up' es pasado y 'Picks up' es presente simple."
+        },
+        {
+            id: 3,
+            transType: "aff-to-neg",
+            transLabel: "Aff. → Neg.",
+            base: "Do your homework at the kitchen table like Ana.",
+            presentVerb: "Do",
+            goal: "Afirmativo → Negativo",
+            clue: "Don't + forma base 'do'",
+            clueExplain: "'Do' es la forma base del verbo principal. Para negar el imperativo, se añade 'Don't' delante: 'Don't do'. Aunque 'do' es también auxiliar, aquí es el verbo principal.",
+            options: [
+                { text: "Don't do your homework at the kitchen table like Ana.", correct: true, targetVerb: "Don't do" },
+                { text: "Don't did your homework at the kitchen table like Ana.", correct: false, targetVerb: "Don't did",
+                  errorType: "Don't + pasado — forma incorrecta",
+                  explanation: "'Did' es el pasado de 'do'. Después de 'Don't' siempre va la forma BASE del verbo: 'Don't do', nunca 'Don't did'." },
+                { text: "Doesn't do your homework at the kitchen table like Ana.", correct: false, targetVerb: "Doesn't do",
+                  errorType: "Presente simple negativo — no es imperativo",
+                  explanation: "'Doesn't do' es el presente negativo de he/she/it. El imperativo negativo usa siempre 'Don't', no 'Doesn't': 'Don't do your homework'." }
+            ],
+            rule: "Do (aff. imperativo) → Don't do (neg. imperativo)",
+            examples: ["Do → Don't do", "Go → Don't go", "Be → Don't be"],
+            correctReason: "<span class='why-hl'>Don't do</span> your homework — 'Do' (base) → 'Don't do' (negativo). Después de 'Don't' la forma base 'do' no cambia. 'Don't did' y 'Doesn't do' son incorrectos."
+        },
+        {
+            id: 4,
+            transType: "person",
+            transLabel: "3ª persona → Imperativo",
+            base: "Ana always leaves her bag by the door the night before.",
+            presentVerb: "leaves",
+            goal: "Convertir en instrucción directa (imperativo afirmativo)",
+            clue: "eliminar sujeto + forma base (sin -s)",
+            clueExplain: "Para convertir una oración en tercera persona en un imperativo, se elimina el sujeto ('Ana') y se usa la forma base del verbo sin -s: 'Leave', no 'Leaves'.",
+            options: [
+                { text: "Leaves your bag by the door the night before.", correct: false, targetVerb: "Leaves",
+                  errorType: "Forma de 3ª persona — no es imperativo",
+                  explanation: "'Leaves' es la forma de he/she/it en presente simple. El imperativo no lleva -s: 'Leave your bag', no 'Leaves your bag'." },
+                { text: "Left your bag by the door the night before.", correct: false, targetVerb: "Left",
+                  errorType: "Pasado simple — no es imperativo",
+                  explanation: "'Left' es el pasado de 'leave'. El imperativo afirmativo usa la forma base presente: 'Leave your bag', no 'Left your bag'." },
+                { text: "Leave your bag by the door the night before.", correct: true, targetVerb: "Leave" }
+            ],
+            rule: "She leaves → Leave (eliminar sujeto + forma base sin -s)",
+            examples: ["She leaves → Leave", "He opens → Open", "She writes → Write"],
+            correctReason: "<span class='why-hl'>Leave</span> your bag — se elimina 'Ana' y se usa la forma base 'leave' sin -s. 'Leaves' mantiene la -s del presente simple y 'Left' es pasado."
+        },
+        {
+            id: 5,
+            transType: "to-let",
+            transLabel: "Imperativo → Let's",
+            base: "Follow the recipe step by step.",
+            presentVerb: "Follow",
+            goal: "Imperativo → Propuesta conjunta (Let's...)",
+            clue: "Let's + forma base",
+            clueExplain: "Para convertir un imperativo en una propuesta conjunta, se añade 'Let's' delante y el verbo permanece en forma base.",
+            options: [
+                { text: "Let's follow the recipe step by step.", correct: true, targetVerb: "Let's follow" },
+                { text: "Let follow the recipe step by step.", correct: false, targetVerb: "Let follow",
+                  errorType: "Falta apóstrofe en 'Let's'",
+                  explanation: "'Let follow' está incompleto. La propuesta conjunta requiere 'Let's' (= Let us) con apóstrofe. Sin él, 'Let' funciona como verbo de permiso ('Let him follow'), no como propuesta." },
+                { text: "Let's to follow the recipe step by step.", correct: false, targetVerb: "Let's to follow",
+                  errorType: "Infinitivo con 'to' — incorrecto después de Let's",
+                  explanation: "Después de 'Let's' el verbo va en forma base sin 'to': 'Let's follow', no 'Let's to follow'. El 'to' es un error muy frecuente después de 'Let's'." }
+            ],
+            rule: "Imperativo → Let's + forma base (sin 'to', apóstrofe obligatorio)",
+            examples: ["Follow → Let's follow", "Cook → Let's cook", "Study → Let's study"],
+            correctReason: "<span class='why-hl'>Let's follow</span> the recipe — 'Let's' (= Let us) con apóstrofe + forma base 'follow'. 'Let follow' le falta el apóstrofe y 'Let's to follow' añade un 'to' innecesario."
+        },
+        {
+            id: 6,
+            transType: "neg-to-aff",
+            transLabel: "Neg. → Aff.",
+            base: "Don't remember to check your bag before leaving the house.",
+            presentVerb: "Don't remember",
+            goal: "Negativo → Afirmativo",
+            clue: "eliminar 'Don't' → forma base",
+            clueExplain: "Para pasar de negativo a afirmativo, se elimina 'Don't'. El verbo 'remember' queda en su forma base.",
+            options: [
+                { text: "Remembered to check your bag before leaving the house.", correct: false, targetVerb: "Remembered",
+                  errorType: "Pasado simple — no es imperativo",
+                  explanation: "'Remembered' es el pasado de 'remember'. El imperativo afirmativo usa la forma base presente: 'Remember to check', no 'Remembered to check'." },
+                { text: "Remember to check your bag before leaving the house.", correct: true, targetVerb: "Remember" },
+                { text: "Remembers to check your bag before leaving the house.", correct: false, targetVerb: "Remembers",
+                  errorType: "Tercera persona presente — no es imperativo",
+                  explanation: "'Remembers' es la forma de he/she/it. El imperativo no lleva -s: 'Remember to check your bag', no 'Remembers to check'." }
+            ],
+            rule: "Don't remember → Remember (eliminar 'Don't', forma base)",
+            examples: ["Don't remember → Remember", "Don't use → Use", "Don't stop → Stop"],
+            correctReason: "<span class='why-hl'>Remember</span> to check your bag — se elimina 'Don't' y el verbo base 'remember' queda sin cambios. 'Remembered' es pasado y 'Remembers' es presente simple con -s."
+        },
+        {
+            id: 7,
+            transType: "aff-to-neg",
+            transLabel: "Aff. → Neg.",
+            base: "Use the old cookbook that David's mother gave him.",
+            presentVerb: "Use",
+            goal: "Afirmativo → Negativo",
+            clue: "Don't + forma base 'use'",
+            clueExplain: "El imperativo afirmativo 'Use' se convierte en negativo añadiendo 'Don't': 'Don't use'. El verbo base no cambia.",
+            options: [
+                { text: "Using the old cookbook that David's mother gave him.", correct: false, targetVerb: "Using",
+                  errorType: "Gerundio — no es imperativo",
+                  explanation: "'Using' es el gerundio de 'use'. No es una forma imperativa. Para negar el imperativo: 'Don't use', no 'Using' ni 'Not using'." },
+                { text: "Don't used the old cookbook that David's mother gave him.", correct: false, targetVerb: "Don't used",
+                  errorType: "Don't + pasado — forma incorrecta",
+                  explanation: "'Used' es el pasado de 'use'. Después de 'Don't' siempre va la forma BASE: 'Don't use', nunca 'Don't used'." },
+                { text: "Don't use the old cookbook that David's mother gave him.", correct: true, targetVerb: "Don't use" }
+            ],
+            rule: "Use (aff.) → Don't use (neg.)",
+            examples: ["Use → Don't use", "Take → Don't take", "Open → Don't open"],
+            correctReason: "<span class='why-hl'>Don't use</span> — se añade 'Don't' delante del verbo base 'use'. 'Using' es gerundio y 'Don't used' añade el pasado erróneamente después de 'Don't'."
+        },
+        {
+            id: 8,
+            transType: "person",
+            transLabel: "3ª persona → Imperativo",
+            base: "Elena's father always turns on the light in the garden in the mornings.",
+            presentVerb: "turns on",
+            goal: "Convertir en instrucción directa (imperativo afirmativo)",
+            clue: "eliminar sujeto + forma base del phrasal verb (sin -s)",
+            clueExplain: "Se elimina 'Elena's father' y se convierte 'turns on' en su forma base: 'turn on'. El phrasal verb conserva su partícula.",
+            options: [
+                { text: "Turn on the light in the garden in the mornings.", correct: true, targetVerb: "Turn on" },
+                { text: "Turns on the light in the garden in the mornings.", correct: false, targetVerb: "Turns on",
+                  errorType: "Forma de 3ª persona — mantiene la -s",
+                  explanation: "'Turns on' mantiene la -s del presente simple. Al convertir en imperativo se elimina el sujeto Y la -s del verbo: 'Turn on', no 'Turns on'." },
+                { text: "Turned on the light in the garden in the mornings.", correct: false, targetVerb: "Turned on",
+                  errorType: "Pasado del phrasal verb — no es imperativo",
+                  explanation: "'Turned on' es el pasado de 'turn on'. El imperativo afirmativo usa la forma base: 'Turn on the light', no 'Turned on the light'." }
+            ],
+            rule: "He/She turns on → Turn on (eliminar sujeto + quitar -s del verbo)",
+            examples: ["She turns on → Turn on", "He picks up → Pick up", "She puts away → Put away"],
+            correctReason: "<span class='why-hl'>Turn on</span> the light — se elimina el sujeto y la -s: 'turns on' → 'turn on'. 'Turns on' mantiene la -s y 'Turned on' es pasado."
+        },
+        {
+            id: 9,
+            transType: "aff-to-neg",
+            transLabel: "Aff. → Neg.",
+            base: "Stop and rest on Sundays — it's an important part of the week.",
+            presentVerb: "Stop",
+            goal: "Afirmativo → Negativo",
+            clue: "Don't + forma base 'stop'",
+            clueExplain: "El imperativo afirmativo 'Stop' se convierte en negativo con 'Don't stop'. El verbo en forma base no cambia.",
+            options: [
+                { text: "Not stop and rest on Sundays — it's an important part of the week.", correct: false, targetVerb: "Not stop",
+                  errorType: "Forma incompleta — falta 'Don't'",
+                  explanation: "'Not stop' sin 'Don't' no es un imperativo negativo válido en inglés. La única estructura correcta es 'Don't + forma base': 'Don't stop'." },
+                { text: "Don't stop and rest on Sundays — it's an important part of the week.", correct: true, targetVerb: "Don't stop" },
+                { text: "Don't stopped and rest on Sundays — it's an important part of the week.", correct: false, targetVerb: "Don't stopped",
+                  errorType: "Don't + pasado — forma incorrecta",
+                  explanation: "Después de 'Don't' el verbo siempre va en forma BASE, nunca en pasado. 'Stopped' es el pasado de 'stop' — no puede ir después de 'Don't'." }
+            ],
+            rule: "Stop (aff.) → Don't stop (neg.)",
+            examples: ["Stop → Don't stop", "Work → Don't work", "Rest → Don't rest"],
+            correctReason: "<span class='why-hl'>Don't stop</span> — 'Don't' + forma base 'stop'. 'Not stop' está incompleto sin 'Don't', y 'Don't stopped' usa el pasado erróneamente."
+        },
+        {
+            id: 10,
+            transType: "to-let",
+            transLabel: "Imperativo → Let's",
+            base: "Prepare a simple dish for the roommates tonight.",
+            presentVerb: "Prepare",
+            goal: "Imperativo → Propuesta conjunta (Let's...)",
+            clue: "Let's + forma base",
+            clueExplain: "Se añade 'Let's' delante del verbo base 'prepare'. Así se convierte una instrucción directa en una propuesta que incluye a todos.",
+            options: [
+                { text: "Let's prepare a simple dish for the roommates tonight.", correct: true, targetVerb: "Let's prepare" },
+                { text: "Let's prepares a simple dish for the roommates tonight.", correct: false, targetVerb: "Let's prepares",
+                  errorType: "Let's + -s — forma incorrecta",
+                  explanation: "Después de 'Let's' el verbo va siempre en forma BASE, sin -s. 'Let's prepares' es incorrecto. Lo correcto es 'Let's prepare'." },
+                { text: "Let's prepared a simple dish for the roommates tonight.", correct: false, targetVerb: "Let's prepared",
+                  errorType: "Let's + pasado — forma incorrecta",
+                  explanation: "'Prepared' es el pasado de 'prepare'. Después de 'Let's' siempre va la forma BASE: 'Let's prepare', nunca 'Let's prepared'." }
+            ],
+            rule: "Prepare (imperativo) → Let's prepare (propuesta conjunta)",
+            examples: ["Prepare → Let's prepare", "Cook → Let's cook", "Make → Let's make"],
+            correctReason: "<span class='why-hl'>Let's prepare</span> a simple dish — 'Let's' + forma base 'prepare'. Después de 'Let's' nunca va -s ni pasado: siempre forma base."
+        },
+        {
+            id: 11,
+            transType: "neg-to-aff",
+            transLabel: "Neg. → Aff.",
+            base: "Don't stay up late if you have school tomorrow.",
+            presentVerb: "Don't stay",
+            goal: "Negativo → Afirmativo",
+            clue: "eliminar 'Don't' → forma base 'stay'",
+            clueExplain: "Se elimina 'Don't' y el verbo 'stay' queda en su forma base. El imperativo afirmativo resultante es simplemente 'Stay up late'.",
+            options: [
+                { text: "Stayed up late if you have school tomorrow.", correct: false, targetVerb: "Stayed",
+                  errorType: "Pasado simple — no es imperativo",
+                  explanation: "'Stayed' es el pasado de 'stay'. El imperativo afirmativo usa la forma base presente: 'Stay up late', no 'Stayed up late'." },
+                { text: "Stays up late if you have school tomorrow.", correct: false, targetVerb: "Stays",
+                  errorType: "Tercera persona presente — no es imperativo",
+                  explanation: "'Stays' es la forma de he/she/it. El imperativo no lleva -s: 'Stay up late', no 'Stays up late'." },
+                { text: "Stay up late if you have school tomorrow.", correct: true, targetVerb: "Stay" }
+            ],
+            rule: "Don't stay → Stay (eliminar 'Don't', forma base)",
+            examples: ["Don't stay → Stay", "Don't go → Go", "Don't wait → Wait"],
+            correctReason: "<span class='why-hl'>Stay</span> up late — se elimina 'Don't' y queda la forma base 'stay'. 'Stayed' es pasado y 'Stays' lleva -s del presente simple."
+        },
+        {
+            id: 12,
+            transType: "person",
+            transLabel: "3ª persona → Imperativo",
+            base: "Sofia always eats breakfast before she leaves the house.",
+            presentVerb: "eats",
+            goal: "Convertir en instrucción directa (imperativo afirmativo)",
+            clue: "eliminar sujeto + forma base (sin -s)",
+            clueExplain: "Se elimina 'Sofia' y 'eats' se convierte en su forma base 'eat'. El imperativo es igual para todas las personas.",
+            options: [
+                { text: "Eats breakfast before you leave the house.", correct: false, targetVerb: "Eats",
+                  errorType: "Forma de 3ª persona — mantiene la -s",
+                  explanation: "'Eats' mantiene la -s del presente simple. El imperativo usa siempre la forma base sin -s: 'Eat breakfast', no 'Eats breakfast'." },
+                { text: "Eat breakfast before you leave the house.", correct: true, targetVerb: "Eat" },
+                { text: "Ate breakfast before you leave the house.", correct: false, targetVerb: "Ate",
+                  errorType: "Pasado irregular — no es imperativo",
+                  explanation: "'Ate' es el pasado irregular de 'eat'. El imperativo afirmativo usa la forma base: 'Eat breakfast', no 'Ate breakfast'." }
+            ],
+            rule: "She eats → Eat (eliminar sujeto + quitar -s del verbo)",
+            examples: ["She eats → Eat", "He drinks → Drink", "She reads → Read"],
+            correctReason: "<span class='why-hl'>Eat</span> breakfast — se elimina 'Sofia' y se quita la -s: 'eats' → 'eat'. 'Eats' mantiene la -s y 'Ate' es el pasado irregular."
+        },
+        {
+            id: 13,
+            transType: "aff-to-neg",
+            transLabel: "Aff. → Neg.",
+            base: "Check your notebook before the class ends.",
+            presentVerb: "Check",
+            goal: "Afirmativo → Negativo",
+            clue: "Don't + forma base 'check'",
+            clueExplain: "Para convertir 'Check' en negativo, se añade 'Don't': 'Don't check'. La forma base permanece sin cambios.",
+            options: [
+                { text: "Not check your notebook before the class ends.", correct: false, targetVerb: "Not check",
+                  errorType: "Forma incompleta — 'not' sin 'Don't'",
+                  explanation: "'Not check' sin 'Don't' no funciona como imperativo negativo en inglés. La estructura completa es 'Don't + forma base': 'Don't check your notebook'." },
+                { text: "Don't checking your notebook before the class ends.", correct: false, targetVerb: "Don't checking",
+                  errorType: "Don't + gerundio — forma incorrecta",
+                  explanation: "Después de 'Don't' el verbo va en forma BASE, nunca en gerundio (-ing). 'Don't checking' es incorrecto — la forma correcta es 'Don't check'." },
+                { text: "Don't check your notebook before the class ends.", correct: true, targetVerb: "Don't check" }
+            ],
+            rule: "Check (aff.) → Don't check (neg.)",
+            examples: ["Check → Don't check", "Read → Don't read", "Write → Don't write"],
+            correctReason: "<span class='why-hl'>Don't check</span> — 'Don't' + forma base 'check'. 'Not check' está incompleto y 'Don't checking' usa el gerundio erróneamente después de 'Don't'."
+        },
+        {
+            id: 14,
+            transType: "to-let",
+            transLabel: "Imperativo → Let's",
+            base: "Speak English during the study session tonight.",
+            presentVerb: "Speak",
+            goal: "Imperativo → Propuesta conjunta (Let's...)",
+            clue: "Let's + forma base 'speak'",
+            clueExplain: "Se añade 'Let's' delante del verbo base 'speak'. La propuesta incluye al hablante y a todos los presentes.",
+            options: [
+                { text: "Let's spoke English during the study session tonight.", correct: false, targetVerb: "Let's spoke",
+                  errorType: "Let's + pasado — forma incorrecta",
+                  explanation: "'Spoke' es el pasado irregular de 'speak'. Después de 'Let's' siempre va la forma BASE: 'Let's speak', nunca 'Let's spoke'." },
+                { text: "Let's speak English during the study session tonight.", correct: true, targetVerb: "Let's speak" },
+                { text: "Let's speaking English during the study session tonight.", correct: false, targetVerb: "Let's speaking",
+                  errorType: "Let's + gerundio — forma incorrecta",
+                  explanation: "Después de 'Let's' el verbo va siempre en forma BASE, nunca en gerundio (-ing). 'Let's speaking' es incorrecto — la forma correcta es 'Let's speak'." }
+            ],
+            rule: "Speak (imperativo) → Let's speak (propuesta conjunta)",
+            examples: ["Speak → Let's speak", "Try → Let's try", "Practice → Let's practice"],
+            correctReason: "<span class='why-hl'>Let's speak</span> English — 'Let's' + forma base 'speak'. 'Let's spoke' usa el pasado y 'Let's speaking' usa el gerundio: ambos incorrectos después de 'Let's'."
+        },
+        {
+            id: 15,
+            transType: "neg-to-aff",
+            transLabel: "Neg. → Aff.",
+            base: "Don't choose the hardest recipe for your first try.",
+            presentVerb: "Don't choose",
+            goal: "Negativo → Afirmativo",
+            clue: "eliminar 'Don't' → forma base 'choose'",
+            clueExplain: "Se elimina 'Don't' y el verbo 'choose' queda en su forma base. 'Choose' es irregular (past: chose) pero el imperativo siempre usa la base.",
+            options: [
+                { text: "Choose the hardest recipe for your first try.", correct: true, targetVerb: "Choose" },
+                { text: "Chose the hardest recipe for your first try.", correct: false, targetVerb: "Chose",
+                  errorType: "Pasado irregular — no es imperativo",
+                  explanation: "'Chose' es el pasado irregular de 'choose'. El imperativo afirmativo usa la forma base: 'Choose the hardest recipe', no 'Chose'." },
+                { text: "Choosing the hardest recipe for your first try.", correct: false, targetVerb: "Choosing",
+                  errorType: "Gerundio — no es imperativo",
+                  explanation: "'Choosing' es el gerundio de 'choose'. El imperativo afirmativo no usa -ing. Para instrucciones directas: 'Choose the hardest recipe'." }
+            ],
+            rule: "Don't choose → Choose (eliminar 'Don't', forma base)",
+            examples: ["Don't choose → Choose", "Don't begin → Begin", "Don't take → Take"],
+            correctReason: "<span class='why-hl'>Choose</span> the hardest recipe — se elimina 'Don't' y queda la forma base 'choose'. 'Chose' es el pasado irregular y 'Choosing' es gerundio: ninguno es imperativo."
+        }
+    ];
+
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+        const badge = `<span class="imp-badge ${q.transType}">${q.transLabel}</span>`;
+        const baseHL = q.base.replace(q.presentVerb, `<span class="verb-hl">${q.presentVerb}</span>`);
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span style="font-size:0.88rem;color:var(--text-medium);font-weight:600;flex:1;">Transforma la oración:</span>
+                ${badge}
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">🔶 Oración original</span>
+                    <div class="transform-sentence">${baseHL}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transforma a...</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Objetivo</span>
+                    <div class="transform-sentence">${q.goal}</div>
+                </div>
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => {
+                    const hl = opt.text.replace(opt.targetVerb, `<span class="verb-past">${opt.targetVerb}</span>`);
+                    return `
+                    <button class="option-btn" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${hl}</div>
+                    </button>`;
+                }).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const ruleExamples = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        const flowHTML = `
+            <div class="fb-block fb-flow">
+                <div class="fb-block-title">🔄 Flujo de transformación</div>
+                <div class="flow-row">
+                    <span class="flow-box flow-present">${q.base}</span>
+                    <span class="flow-arrow">→</span>
+                    ${!isCorrect ? `<span class="flow-box flow-wrong">${selected.text}</span><span class="flow-arrow">→</span>` : ''}
+                    <span class="flow-box flow-right">${correctOpt.text}</span>
+                </div>
+            </div>`;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">¡Correcto!</div>
+                        <div class="fb-subtitle">Transformación realizada perfectamente</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 La clave de la transformación</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    ${flowHTML}
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué es correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrecto</div>
+                        <div class="fb-subtitle">Revisemos la transformación</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 La clave que debías aplicar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag red">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    ${flowHTML}
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ Tu error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${selected.targetVerb}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${correctOpt.targetVerb}</span>
+                        </div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué ES correcta la transformación?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Transformas los imperativos con precisión. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa las reglas e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Imperatives | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#E8F5E9;border:2px solid #A5D6A7}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--ok)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.8}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--verb)}
+.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}
+
+.imp-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.8rem 0}
+.imp-card{padding:.8rem 1rem;border-radius:12px;text-align:center}
+.imp-card.aff{background:var(--ok-bg);border:2px solid #A5D6A7}
+.imp-card.neg{background:var(--err-bg);border:2px solid #EF9A9A}
+.imp-card h4{font-family:'Fredoka',sans-serif;font-size:.82rem;margin-bottom:.4rem}
+.imp-card.aff h4{color:var(--ok)}
+.imp-card.neg h4{color:var(--err)}
+.imp-card p{font-size:.85rem;font-weight:700}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:400px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){.level-header h1{font-size:1.4rem}.step-tabs{flex-wrap:wrap}.card{padding:1.2rem}.compare-grid,.conj-grid,.imp-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life &amp; Personal Routines — Imperatives</div>
+  <p class="subtitle">Oraciones imperativas · afirmativo y negativo · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: Imperatives</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>Afirmativo:</b> Base verb sin sujeto — <i>Open the door.</i> (Abre la puerta.)",
+    "<b>Negativo:</b> Don't + base verb — <i>Don't run.</i> (No corras.)",
+    "<b>No hay sujeto</b> visible: se sobreentiende <i>you</i> (tú/usted/ustedes)",
+    "<b>Mismo verbo</b> para una persona o muchas — sin conjugar",
+    "<b>Informal:</b> Please al inicio o final suaviza la orden",
+    "<b>Trampa:</b> No usar 'Don't + to + verb' — solo 'Don't + verb base'"
+  ],
+  steps: [
+    {
+      icon: "🇪🇸",
+      title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">El imperativo es la forma que usamos para dar órdenes, instrucciones o consejos.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Español</h4><ul><li>¡Abre la puerta!</li><li>¡No comas!</li><li>¡Silencio!</li><li>¡Ven aquí!</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 English</h4><ul><li>Open the door!</li><li>Don\'t eat!</li><li>Be quiet!</li><li>Come here!</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> En español, el imperativo cambia según la persona: "habla" (tú), "hable" (usted), "hablen" (ustedes). En inglés es siempre la misma forma.</div>' +
+        '<div class="ex-row"><div class="icon">🗣️</div><div><div class="en">¡Siéntate! → ¡Párate! → ¡Escucha!</div><div class="es">Todos son imperativos: órdenes directas sin "yo", "tú" u otro pronombre</div></div></div>' +
+        '<div class="ex-row"><div class="icon">🚫</div><div><div class="en">¡No toques eso! → ¡No llegues tarde!</div><div class="es">Imperativo negativo: "no" + verbo conjugado</div></div></div>',
+      exercises: [
+        {q: '"¡Abre la ventana!" es un ejemplo de:', a: 'a', o: ['Imperativo (orden directa)', 'Pregunta'], fc: 'Es una orden directa sin sujeto explícito → imperativo.', fi: 'Las preguntas necesitan signo de interrogación y entonación diferente.', ex: 'Open the window! → ¡Abre la ventana!', tip: 'Imperativo = orden, instrucción o consejo'},
+        {q: '"¡No hables!" — ¿qué tipo de imperativo es?', a: 'b', o: ['Afirmativo', 'Negativo'], fc: 'Negativo: tiene "no" antes del verbo.', fi: 'Afirmativo sería solo "¡Habla!"', ex: "Don't talk! → ¡No hables!", tip: 'Negativo = "no" + verbo'},
+        {q: '"¡Escucha!" y "¡Escuchen!" en español son:', a: 'b', o: ['La misma forma', 'Formas diferentes (tú / ustedes)'], fc: 'En español cambia: "escucha" (tú) ≠ "escuchen" (ustedes).', fi: 'En inglés sí es la misma forma, pero en español cambia.', ex: 'Listen! → ¡Escucha! / ¡Escuchen! (mismo en inglés)'},
+        {q: '¿El imperativo en español tiene sujeto visible?', a: 'b', o: ['Sí, siempre', 'No, se sobreentiende'], fc: 'Se sobreentiende "tú/usted". No se dice: "¡Tú abre!"', fi: 'A veces se puede agregar para énfasis, pero no es lo normal.', ex: '¡Abre! = Open! (sujeto implícito: tú)'},
+        {q: '"¡Por favor, cierra la puerta!" — ¿qué hace "por favor"?', a: 'a', o: ['Suaviza la orden', 'Convierte la frase en pregunta'], fc: '"Por favor" = please: suaviza, hace la orden más cortés.', fi: 'La frase sigue siendo imperativo, no pregunta.', ex: 'Please close the door. → Por favor, cierra la puerta.', tip: 'Please / por favor = más amable'}
+      ]
+    },
+    {
+      icon: "🤝",
+      title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">El imperativo funciona de manera muy similar en ambos idiomas.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Sin sujeto visible</td><td>¡Abre!</td><td><span class="g-verb">Open!</span></td></tr>' +
+          '<tr><td>Negativo = "no/don\'t"</td><td>No corras</td><td><span class="g-neg">Don\'t</span> run</td></tr>' +
+          '<tr><td>Verbo en primer lugar</td><td>¡Habla!</td><td><span class="g-verb">Speak!</span></td></tr>' +
+          '<tr><td>"Please/por favor" = cortesía</td><td>Por favor, siéntate</td><td>Please sit down</td></tr>' +
+          '<tr><td>Mismo para 1 o muchos</td><td>¡Calla! (tú) → diferente (ustedes)</td><td><span class="g-verb">Be</span> quiet! (para todos)</td></tr>' +
+        '</table>' +
+        '<div class="imp-grid">' +
+          '<div class="imp-card aff"><h4>✅ Afirmativo</h4><p>Open! / Sit! / Listen!</p></div>' +
+          '<div class="imp-card neg"><h4>❌ Negativo</h4><p>Don\'t open! / Don\'t run!</p></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Similitud clave:</strong> En ambos idiomas, el sujeto (tú / you) no aparece pero se sobreentiende.</div>',
+      exercises: [
+        {q: '"Don\'t run!" corresponde a:', a: 'a', o: ['¡No corras!', '¡Corre!'], fc: '"Don\'t" indica negativo → "No corras".', fi: '"¡Corre!" sería solo "Run!" sin don\'t.', ex: "Don't run! → ¡No corras!"},
+        {q: '"Speak!" corresponde a:', a: 'b', o: ['¡No hables!', '¡Habla!'], fc: '"Speak!" sin "don\'t" = afirmativo.', fi: '"¡No hables!" sería "Don\'t speak!"', ex: 'Speak! → ¡Habla!'},
+        {q: '"Please sit down." — ¿qué indica "please"?', a: 'a', o: ['Cortesía', 'Negación'], fc: '"Please" = "por favor" → hace la orden más amable.', fi: 'La negación es "don\'t", no "please".', ex: 'Please sit down. → Por favor, siéntate.', tip: 'Please = por favor'},
+        {q: 'En inglés, "Listen!" sirve para hablarle a:', a: 'b', o: ['Solo una persona', 'Una o varias personas'], fc: 'En inglés el imperativo es igual para 1 o muchos.', fi: 'En español cambia: "escucha" (tú) / "escuchen" (ustedes).', ex: 'Listen! → ¡Escucha! / ¡Escuchen!'},
+        {q: '¿El sujeto "you" aparece en el imperativo en inglés?', a: 'b', o: ['Sí, siempre', 'No, se sobreentiende'], fc: 'El sujeto "you" está implícito. No se escribe: "You open the door!" es énfasis, no norma.', fi: 'Normalmente no se escribe. Se sobreentiende.', ex: 'Open the door! (= You open the door, implícito)'}
+      ]
+    },
+    {
+      icon: "⚡",
+      title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>¡Abre! (tú) / ¡Abra! (usted)</td><td><span class="g-verb">Open!</span> (siempre igual)</td><td>Inglés: una sola forma</td></tr>' +
+          '<tr><td>No + verbo conjugado</td><td><span class="g-neg">Don\'t</span> + base verb</td><td>"Don\'t" reemplaza al "no"</td></tr>' +
+          '<tr><td>¡No abras! / ¡No abra!</td><td><span class="g-neg">Don\'t open!</span></td><td>Solo una forma negativa</td></tr>' +
+          '<tr><td>¡Sé puntual! (ser)</td><td><span class="g-verb">Be</span> on time!</td><td>"Be" es el imperativo de "to be"</td></tr>' +
+          '<tr><td>¡Estén atentos!</td><td><span class="g-verb">Be</span> attentive!</td><td>"Be" para todos</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ ¡Cuidado!</div><p>En español: ¡<b>No corras</b>! (corras = verbo conjugado subjuntivo)<br>En inglés: <b>Don\'t run!</b> — NUNCA "Don\'t to run" ni "No run"</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-neg">Don\'t</span> <span class="g-verb">eat</span> in class.</div><div class="es">No comas en clase.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">Don\'t to eat in class.</div><div class="es">❌ "to" no va después de "don\'t"</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-verb">Be</span> <span class="g-comp">quiet!</span></div><div class="es">¡Silencio! / ¡Cállense!</div></div></div>',
+      exercises: [
+        {q: '"Don\'t run." — ¿cuál es la estructura correcta?', a: 'a', o: ["Don't + base verb", "Don't + to + verb"], fc: '"Don\'t + base verb": Don\'t run. ✅', fi: '"Don\'t to run" es incorrecto. "To" no va después de "don\'t".', ex: "Don't run! → ¡No corras!", tip: "Don't + verbo base (sin 'to')"},
+        {q: 'Imperativo de "to be" en inglés:', a: 'b', o: ['Is!', 'Be!'], fc: '"Be" es la forma base de "to be" → imperativo.', fi: '"Is" es conjugación, no imperativo.', ex: 'Be careful! → ¡Ten cuidado!', tip: 'Be = imperativo de to be'},
+        {q: '"¡Abre!" para tú y "¡Abran!" para ustedes — en inglés:', a: 'b', o: ['También cambia', 'Es igual: Open!'], fc: 'En inglés "Open!" sirve para uno o muchos.', fi: 'No existe "Opens!" como imperativo plural.', ex: 'Open the door! (tú o todos)'},
+        {q: '"No run!" — ¿es correcto en inglés?', a: 'b', o: ['Sí, correcto', "No, debe ser Don't run!"], fc: '"No" no funciona sola para imperativo negativo en inglés.', fi: 'En español "no" va antes del verbo, pero en inglés necesitamos "don\'t".', ex: "Don't run! → ¡No corras!"},
+        {q: '"Be on time!" significa:', a: 'a', o: ['¡Sé puntual!', '¡No seas puntual!'], fc: '"Be" sin "don\'t" = afirmativo. "Sé puntual".', fi: 'Negativo sería "Don\'t be late!"', ex: 'Be on time! → ¡Sé puntual!'}
+      ]
+    },
+    {
+      icon: "💡",
+      title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Afirmativo = solo el verbo base. Sin pronombre, sin conjugar: <em>Sit down. Close the door. Listen.</em></div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Negativo = Don\'t + verbo base. Truco: "Don\'t" es como decir "¡No!" antes del verbo: <em>Don\'t eat. Don\'t talk. Don\'t be late.</em></div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> "Please" suaviza la orden. Puede ir al inicio o al final: <em>Please sit down.</em> / <em>Sit down, please.</em></div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> "Be" es especial — es el imperativo de "to be". Recuerda: <em>Be careful! Be quiet! Be ready!</em></div>' +
+        '<div class="formula-box">' +
+          '✅ Afirmativo: <span class="g-verb">Base verb</span> + <span class="g-comp">(complement)</span><br>' +
+          '❌ Negativo: <span class="g-neg">Don\'t</span> + <span class="g-verb">base verb</span> + <span class="g-comp">(complement)</span><br>' +
+          '🙏 Cortés: <span class="g-quest">Please</span> + <span class="g-verb">verb</span> — ó — <span class="g-verb">verb</span> + , <span class="g-quest">please</span>' +
+        '</div>' +
+        '<div class="conj-grid">' +
+          '<div class="conj-item"><div class="pron">Open</div><div class="vrb">✅</div><div class="meaning">Abre / Abran</div></div>' +
+          '<div class="conj-item"><div class="pron">Don\'t open</div><div class="vrb">❌</div><div class="meaning">No abras / abran</div></div>' +
+          '<div class="conj-item"><div class="pron">Be quiet</div><div class="vrb">🔇</div><div class="meaning">¡Silencio!</div></div>' +
+        '</div>',
+      exercises: [
+        {q: '"Sit down, ___." (cortés)', a: 'b', o: ['please not', 'please'], fc: '"Sit down, please." Please al final.', fi: '"Please not" no existe.', ex: 'Sit down, please. → Siéntate, por favor.', tip: 'Please: inicio o final'},
+        {q: '"___ the window." (cierra — afirmativo)', a: 'a', o: ['Close', "Don't close"], fc: '"Close the window." Sin don\'t = afirmativo.', fi: '"Don\'t close" sería negativo.', ex: 'Close the window. → Cierra la ventana.'},
+        {q: '"___ late!" (no llegues tarde)', a: 'b', o: ["Be late!", "Don't be late!"], fc: '"Don\'t be late!" — negativo con "be".', fi: '"Be late!" = sé tarde → afirmativo (opuesto).', ex: "Don't be late! → ¡No llegues tarde!", tip: "Don't + be = negativo de to be"},
+        {q: '"___ careful on the stairs." (ten cuidado)', a: 'a', o: ['Be', "Don't be"], fc: '"Be careful." Afirmativo con "be".', fi: '"Don\'t be careful" = no tengas cuidado → opuesto.', ex: 'Be careful! → ¡Ten cuidado!'},
+        {q: '¿Cuál es correcto?', a: 'b', o: ["Don't to run!", "Don't run!"], fc: '"Don\'t run!" — verbo base sin "to".', fi: '"Don\'t to run" es incorrecto. "To" nunca va aquí.', ex: "Don't run! → ¡No corras!", tip: "Don't + base verb (sin 'to')"}
+      ]
+    },
+    {
+      icon: "✨",
+      title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '✅ <span class="g-verb">Open</span> <span class="g-comp">the book.</span><br>' +
+          '❌ <span class="g-neg">Don\'t</span> <span class="g-verb">open</span> <span class="g-comp">the book.</span><br>' +
+          '🙏 <span class="g-quest">Please</span> <span class="g-verb">open</span> <span class="g-comp">the book.</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">📖</div><div><div class="en"><span class="g-verb">Open</span> <span class="g-comp">your notebook.</span></div><div class="es">Abre tu cuaderno.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🚫</div><div><div class="en"><span class="g-neg">Don\'t</span> <span class="g-verb">use</span> <span class="g-comp">your phone.</span></div><div class="es">No uses tu teléfono.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🔇</div><div><div class="en"><span class="g-verb">Be</span> <span class="g-comp">quiet,</span> <span class="g-quest">please.</span></div><div class="es">Silencio, por favor.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "Don\'t to run" → ✅ "<b>Don\'t run</b>" (sin "to")<br>' +
+          '❌ "You open the door!" (como imperativo) → ✅ "<b>Open the door!</b>" (sin sujeto)<br>' +
+          '❌ "No run!" → ✅ "<b>Don\'t run!</b>" ("no" solo no funciona en inglés)' +
+        '</p></div>',
+      exercises: [
+        {q: '"Escucha la música." en inglés (imperativo):', a: 'a', o: ['Listen to the music.', 'You listen to the music.'], fc: '"Listen to the music." Sin sujeto = imperativo correcto.', fi: '"You listen..." es una afirmación, no un imperativo natural.', ex: 'Listen to the music. → Escucha la música.'},
+        {q: '"No uses tu teléfono." en inglés:', a: 'b', o: ["No use your phone.", "Don't use your phone."], fc: '"Don\'t use your phone." — Don\'t + base verb.', fi: '"No use" no es la estructura correcta del imperativo negativo en inglés.', ex: "Don't use your phone. → No uses tu teléfono."},
+        {q: '"Por favor, cierra la puerta." en inglés:', a: 'a', o: ['Please close the door.', 'Please to close the door.'], fc: '"Please close the door." — Please + base verb.', fi: '"Please to close" es incorrecto. "To" no va aquí.', ex: 'Please close the door. → Por favor, cierra la puerta.'},
+        {q: '"¡Ten cuidado!" en inglés:', a: 'b', o: ['Have careful!', 'Be careful!'], fc: '"Be careful!" — "Be" es el imperativo de "to be/estar".', fi: '"Have careful" es incorrecto. "Cuidado" aquí requiere "be".', ex: 'Be careful! → ¡Ten cuidado!', tip: 'Ten cuidado = Be careful (no Have careful)'},
+        {q: '"Don\'t ___ in class." (no comas)', a: 'b', o: ['to eat', 'eat'], fc: '"Don\'t eat in class." — base verb sin "to".', fi: '"Don\'t to eat" es incorrecto. "To" nunca después de "don\'t".', ex: "Don't eat in class. → No comas en clase.", tip: "Don't + base verb (sin 'to')"}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    var k = 's' + i;
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + e.o[e.a === 'a' ? 0 : 1] + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + e.o[e.a === 'a' ? 0 : 1] + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A1 M1 Imperatives | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3; --primary-light: #BBDEFB; --primary-dark: #0D47A1;
+            --accent: #64B5F6;
+            --bg-gradient-start: #E3F2FD; --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470; --text-medium: #0D47A1; --text-light: #1565C0;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --purple: #8B5CF6;  --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --shadow-strong: 0 8px 30px rgba(33,150,243,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .imp-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; }
+        .imp-badge.aff  { background:#D1FAE5; color:#059669; }
+        .imp-badge.neg  { background:#FEE2E2; color:#DC2626; }
+        .imp-badge.both { background:#FFF3E0; color:#C2410C; }
+        .imp-badge.let  { background:#EDE9FE; color:#6D28D9; }
+
+        .hint-box { background:#E3F2FD; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:var(--text-dark); line-height:1.5; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+
+        .question-text { font-size:1.05rem; line-height:1.8; margin-bottom:0.4rem; font-weight:600; background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1.1rem; }
+        .blank { display:inline-block; min-width:100px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-dark); transition:all .3s; }
+        .blank.correct   { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light);   border:2px solid var(--error);   color:var(--error-dark); }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.85rem; margin-bottom:1rem; }
+
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .option-btn { padding:0.9rem 0.5rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.92rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--primary-light); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct   { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error);   background:var(--error-light);   color:var(--error-dark); }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon  { font-size:1.6rem; }
+        .fb-title    { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+
+        .fb-signal       { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal       .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .fb-compare-row { display:flex; align-items:center; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label       { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light);   color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .word-wrong { color:var(--error-dark);   font-weight:800; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:800; }
+
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.5rem 0; flex-wrap:wrap; }
+        .ew-box   { padding:0.35rem 0.9rem; border-radius:8px; font-weight:700; font-size:0.95rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.2rem; color:#94A3B8; }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji   { font-size:4rem; margin-bottom:1rem; }
+        .results-title   { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score   { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star            { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned     { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons  { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn         { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-daily-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">✏️ Fill in the Blanks</div>
+            <div class="header-subtitle">🩵 A1 · Daily Life · Imperatives</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">📋</div>
+            <div>
+                <div class="instructions-title">Completa con la forma imperativa correcta</div>
+                <div class="instructions-text">Elige la opción correcta para completar cada instrucción o mandato. Presta atención al contexto: ¿es afirmativo o negativo?</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-daily-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // FILL IN THE BLANKS — Imperatives
+    // Módulo: A1 — Daily Life & Personal Routines
+    // Story context: Ana, David, Elena, Carlos, Rosa, Sofia
+    // Verbos: open, take out, put, write, read, listen, sit,
+    //         close, bring, wash, check, turn off, ask, pay, finish
+    // Tipos:
+    //   "aff"  = imperativo afirmativo
+    //   "neg"  = imperativo negativo (Don't...)
+    //   "both" = afirmativo vs. negativo (contraste)
+    //   "let"  = Let's...
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "_____ the window every morning, Ana — the fresh air is good for you.",
+            translation: "Abre la ventana cada mañana, Ana — el aire fresco es bueno para ti.",
+            hint: "Es una instrucción directa a Ana. El imperativo afirmativo usa la forma base del verbo, sin sujeto.",
+            clue: "instrucción directa + forma base",
+            clueExplain: "El imperativo afirmativo en inglés es simplemente la forma base del verbo, sin 'to' y sin sujeto. No cambia con he/she/you.",
+            options: ["Opens", "Open", "Don't open"],
+            correct: "Open",
+            feedback: {
+                "Opens": {
+                    errorType: "Presente simple, no imperativo",
+                    explanation: "'Opens' es la tercera persona del presente simple (She opens). El imperativo no lleva -s ni sujeto — es la forma base pura: 'Open'.",
+                    rule: "Imperativo afirmativo = forma base del verbo (sin -s, sin sujeto)"
+                },
+                "Don't open": {
+                    errorType: "Negativo cuando se pide afirmativo",
+                    explanation: "El contexto dice que abrir la ventana es bueno — es una recomendación positiva. 'Don't open' ordenaría lo contrario."
+                }
+            },
+            correctReason: "El imperativo afirmativo usa la <span class='why-hl'>forma base</span> del verbo sin sujeto: <span class='why-hl'>Open</span> the window. No lleva -s ni auxiliar.",
+            examples: ["Open → imperativo", "Close → imperativo", "Read → imperativo"]
+        },
+        {
+            id: 2,
+            impType: "neg",
+            impLabel: "Imperativo Negativo",
+            sentence: "_____ noise in the hallway — Ana's brother is still asleep.",
+            translation: "No hagas ruido en el pasillo — el hermano de Ana todavía está durmiendo.",
+            hint: "Es una prohibición. El imperativo negativo usa 'Don't' + forma base del verbo.",
+            clue: "Don't + forma base",
+            clueExplain: "El imperativo negativo siempre empieza con 'Don't' (= Do not) seguido de la forma base del verbo. Nunca 'Doesn't' ni 'No'.",
+            options: ["Doesn't make", "Not make", "Don't make"],
+            correct: "Don't make",
+            feedback: {
+                "Doesn't make": {
+                    errorType: "Presente simple negativo, no imperativo",
+                    explanation: "'Doesn't make' es el presente simple negativo para he/she/it. El imperativo negativo siempre usa 'Don't', nunca 'Doesn't'.",
+                    rule: "Imperativo negativo = Don't + forma base (nunca Doesn't)"
+                },
+                "Not make": {
+                    errorType: "Forma incompleta — falta 'Don't'",
+                    explanation: "En inglés no se puede poner 'Not' solo para negar el imperativo. La forma completa y correcta es siempre 'Don't + verbo': 'Don't make'.",
+                    rule: "Don't + verbo base = imperativo negativo. 'Not verbo' no existe."
+                }
+            },
+            correctReason: "<span class='why-hl'>Don't make</span> — el imperativo negativo es siempre 'Don't + forma base'. 'Doesn't' es para presente simple y 'Not make' está incompleto.",
+            examples: ["Don't make → neg. imperativo", "Don't run → neg. imperativo", "Don't talk → neg. imperativo"]
+        },
+        {
+            id: 3,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "_____ your notebook and pen before the teacher arrives, like Ana always does.",
+            translation: "Saca tu cuaderno y tu bolígrafo antes de que llegue la maestra, como Ana siempre hace.",
+            hint: "Instrucción en clase. Piensa: ¿qué forma del verbo usas cuando le das una orden directa a alguien?",
+            clue: "instrucción de preparación en clase",
+            clueExplain: "El imperativo afirmativo es la forma base del verbo sin sujeto. 'Take out' = sacar — un phrasal verb muy común en instrucciones de clase.",
+            options: ["She takes out", "Take out", "Taking out"],
+            correct: "Take out",
+            feedback: {
+                "She takes out": {
+                    errorType: "Presente simple — no es imperativo",
+                    explanation: "'She takes out' describe lo que Ana hace, pero la instrucción va dirigida a ti (al estudiante). El imperativo no lleva sujeto: 'Take out your notebook'.",
+                    rule: "Imperativo = forma base sin sujeto (Take out, not She takes out)"
+                },
+                "Taking out": {
+                    errorType: "Gerundio — no es imperativo",
+                    explanation: "'Taking out' es un gerundio. El imperativo no usa -ing. Para dar instrucciones directas, se usa la forma base del verbo: 'Take out'.",
+                    rule: "Imperativo afirmativo = forma base (sin -ing, sin sujeto)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Take out</span> — forma base del phrasal verb, sin sujeto. Así funcionan todas las instrucciones directas en inglés.",
+            examples: ["Take out → imperativo", "Put away → imperativo", "Write down → imperativo"]
+        },
+        {
+            id: 4,
+            impType: "neg",
+            impLabel: "Imperativo Negativo",
+            sentence: "_____ late to class — the teacher always starts on time.",
+            translation: "No llegues tarde a clase — la maestra siempre empieza puntual.",
+            hint: "Es una advertencia. Para prohibiciones e instrucciones negativas usas 'Don't' + verbo base.",
+            clue: "advertencia / prohibición",
+            clueExplain: "'Don't be late' es el imperativo negativo del verbo 'be'. El verbo 'be' en imperativo también usa la forma base — nunca 'are' ni 'is'.",
+            options: ["Aren't", "Not be", "Don't be"],
+            correct: "Don't be",
+            feedback: {
+                "Aren't": {
+                    errorType: "Forma de 'to be' — no es imperativo negativo",
+                    explanation: "'Aren't' es la contracción negativa de 'are' en presente. Para prohibiciones con 'be' se usa 'Don't be', igual que con cualquier otro verbo.",
+                    rule: "Imperativo negativo de 'be': Don't be (nunca Aren't)"
+                },
+                "Not be": {
+                    errorType: "Forma incompleta",
+                    explanation: "'Not be' sin 'Don't' no existe como imperativo en inglés. La estructura completa es siempre: 'Don't + forma base': 'Don't be late'.",
+                    rule: "Don't + be = imperativo negativo de 'to be'"
+                }
+            },
+            correctReason: "<span class='why-hl'>Don't be</span> late — incluso el verbo 'be' usa 'Don't' en el imperativo negativo. Nunca 'Aren't' ni 'Not be'.",
+            examples: ["Don't be late → neg. imperativo de be", "Don't be noisy → neg. imperativo de be", "Don't be afraid → neg. imperativo de be"]
+        },
+        {
+            id: 5,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "David's mother said: '_____ the recipe in your notebook so you don't forget it.'",
+            translation: "La mamá de David dijo: 'Escribe la receta en tu cuaderno para que no la olvides.'",
+            hint: "La mamá de David le da una instrucción directa. Busca la forma base del verbo.",
+            clue: "instrucción directa de la madre",
+            clueExplain: "'Write' es la forma base del verbo. En inglés las instrucciones directas usan exactamente esa forma — sin añadir nada.",
+            options: ["Wrote", "Write", "Don't write"],
+            correct: "Write",
+            feedback: {
+                "Wrote": {
+                    errorType: "Pasado simple — no es imperativo",
+                    explanation: "'Wrote' es el pasado irregular de 'write'. El imperativo siempre usa la forma base, no el pasado: 'Write the recipe', no 'Wrote the recipe'.",
+                    rule: "Imperativo afirmativo = forma base (write), nunca pasado (wrote)"
+                },
+                "Don't write": {
+                    errorType: "Negativo cuando el contexto pide afirmativo",
+                    explanation: "La mamá quiere que David ESCRIBA la receta — es una instrucción positiva. 'Don't write' ordenaría lo contrario."
+                }
+            },
+            correctReason: "<span class='why-hl'>Write</span> — forma base del verbo, imperativo afirmativo. La mamá de David le pide que escriba, no que deje de hacerlo.",
+            examples: ["Write → imperativo", "Read → imperativo", "Copy → imperativo"]
+        },
+        {
+            id: 6,
+            impType: "both",
+            impLabel: "Aff. vs. Neg.",
+            sentence: "_____ attention when David's mother explains a recipe — _____ distracted.",
+            translation: "Presta atención cuando la mamá de David explica una receta — no te distraigas.",
+            hint: "La primera parte es una instrucción positiva y la segunda es una prohibición. Dos imperativos en una oración.",
+            clue: "contraste: instrucción positiva + negativa",
+            clueExplain: "La oración tiene dos partes: primero una instrucción afirmativa ('Pay attention') y luego una negativa ('Don't get distracted'). Son dos imperativos complementarios.",
+            options: ["Pay / Don't get", "Pays / Doesn't get", "Don't pay / Get"],
+            correct: "Pay / Don't get",
+            feedback: {
+                "Pays / Doesn't get": {
+                    errorType: "Presente simple — no es imperativo",
+                    explanation: "'Pays' y 'Doesn't get' son formas del presente simple. Las instrucciones directas usan el imperativo: forma base sin sujeto (Pay) y 'Don't + base' (Don't get).",
+                    rule: "Imperativo: forma base (aff.) / Don't + base (neg.)"
+                },
+                "Don't pay / Get": {
+                    errorType: "Imperativo invertido — sentido opuesto",
+                    explanation: "'Don't pay attention' ordenaría no prestar atención, que es lo contrario del mensaje. El primer hueco pide afirmativo (Pay) y el segundo negativo (Don't get)."
+                }
+            },
+            correctReason: "<span class='why-hl'>Pay</span> attention (afirmativo) + <span class='why-hl'>Don't get</span> distracted (negativo). Las instrucciones usan forma base y 'Don't + base' respectivamente.",
+            examples: ["Pay attention → aff.", "Don't get distracted → neg.", "Listen carefully / Don't talk → aff. + neg."]
+        },
+        {
+            id: 7,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "Before you leave the house, _____ your bag and check that you have everything.",
+            translation: "Antes de salir de casa, cierra tu bolsa y comprueba que tienes todo.",
+            hint: "Ana siempre se asegura de tener todo antes de salir. ¿Qué forma del verbo usas para dar un consejo directo?",
+            clue: "consejo / instrucción de rutina",
+            clueExplain: "'Close your bag' es un imperativo afirmativo — forma base del verbo 'close', sin sujeto ni auxiliar.",
+            options: ["Closes", "Closed", "Close"],
+            correct: "Close",
+            feedback: {
+                "Closes": {
+                    errorType: "Presente simple tercera persona — no es imperativo",
+                    explanation: "'Closes' es la tercera persona del presente simple (She closes). El imperativo no lleva -s: 'Close your bag'.",
+                    rule: "Imperativo = forma base sin -s: Close (no Closes)"
+                },
+                "Closed": {
+                    errorType: "Pasado simple — no es imperativo",
+                    explanation: "'Closed' es el pasado de 'close'. El imperativo siempre usa la forma base presente: 'Close', nunca 'Closed'.",
+                    rule: "Imperativo afirmativo = forma base: Close (no Closed)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Close</span> — forma base del verbo, sin -s y sin sujeto. Así son todos los imperativos afirmativos en inglés.",
+            examples: ["Close → imperativo", "Open → imperativo", "Check → imperativo"]
+        },
+        {
+            id: 8,
+            impType: "neg",
+            impLabel: "Imperativo Negativo",
+            sentence: "_____ your dishes in the sink — wash them right away after eating, like Ana does.",
+            translation: "No dejes tus platos en el fregadero — lávalos de inmediato después de comer, como hace Ana.",
+            hint: "Es una regla de la casa. La instrucción dice lo que NO se debe hacer.",
+            clue: "regla de la casa / prohibición",
+            clueExplain: "El imperativo negativo siempre empieza con 'Don't' seguido de la forma base del verbo. 'Leave' es la forma base de 'dejar'.",
+            options: ["Doesn't leave", "Don't leave", "Left"],
+            correct: "Don't leave",
+            feedback: {
+                "Doesn't leave": {
+                    errorType: "Presente simple negativo — no es imperativo",
+                    explanation: "'Doesn't leave' describe una acción presente de he/she/it. Para prohibiciones dirigidas a alguien, usa el imperativo negativo: 'Don't leave'.",
+                    rule: "Prohibición directa = Don't + forma base (no Doesn't)"
+                },
+                "Left": {
+                    errorType: "Pasado simple — no es imperativo",
+                    explanation: "'Left' es el pasado de 'leave'. Las instrucciones y prohibiciones usan el imperativo, que necesita la forma base: 'Don't leave'.",
+                    rule: "Imperativo negativo = Don't + forma base (no pasado)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Don't leave</span> — prohibición directa con 'Don't + forma base'. 'Doesn't leave' es presente simple y 'Left' es pasado.",
+            examples: ["Don't leave → neg. imperativo", "Don't forget → neg. imperativo", "Don't waste → neg. imperativo"]
+        },
+        {
+            id: 9,
+            impType: "let",
+            impLabel: "Let's...",
+            sentence: "Elena said to her mother: '_____ plan the week together every Sunday evening.'",
+            translation: "Elena le dijo a su madre: 'Planifiquemos la semana juntas cada domingo por la tarde.'",
+            hint: "Elena propone una actividad conjunta — algo que harán las dos. ¿Qué estructura se usa para proponer a un grupo?",
+            clue: "propuesta de actividad conjunta",
+            clueExplain: "'Let's + verbo base' se usa para proponer una acción que incluye al hablante y al oyente. Es la forma de decir 'hagamos algo juntos'.",
+            options: ["Let plan", "We plan", "Let's plan"],
+            correct: "Let's plan",
+            feedback: {
+                "Let plan": {
+                    errorType: "Falta el apóstrofe — 'Let us' incompleto",
+                    explanation: "'Let plan' no es correcto. La estructura correcta es 'Let's' (= Let us) + verbo base. El apóstrofe es obligatorio: 'Let's plan', no 'Let plan'.",
+                    rule: "Propuesta conjunta = Let's + forma base (con apóstrofe)"
+                },
+                "We plan": {
+                    errorType: "Presente simple — no es propuesta imperativa",
+                    explanation: "'We plan' describe un hecho presente. Para proponer hacer algo juntos, se usa 'Let's + verbo': 'Let's plan'. 'We plan' no tiene la misma función.",
+                    rule: "Let's + verbo base = propuesta. We + verbo = descripción."
+                }
+            },
+            correctReason: "<span class='why-hl'>Let's plan</span> — 'Let's' (= Let us) + forma base. Es la estructura para proponer actividades conjuntas. El apóstrofe es parte esencial.",
+            examples: ["Let's plan → propuesta", "Let's go → propuesta", "Let's study → propuesta"]
+        },
+        {
+            id: 10,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "The teacher said: '_____ your homework at the kitchen table, like Ana — it helps you focus.'",
+            translation: "La maestra dijo: 'Haz tu tarea en la mesa de la cocina, como Ana — te ayuda a concentrarte.'",
+            hint: "La maestra da un consejo. ¿Cuál es la forma base del verbo 'do'?",
+            clue: "consejo de la maestra",
+            clueExplain: "'Do' es la forma base del verbo — es irregular y también funciona como auxiliar, pero aquí es el verbo principal del imperativo.",
+            options: ["Do", "Does", "Don't do"],
+            correct: "Do",
+            feedback: {
+                "Does": {
+                    errorType: "Tercera persona presente — no es imperativo",
+                    explanation: "'Does' es el auxiliar/forma de tercera persona del presente simple. El imperativo usa la forma base 'Do', nunca 'Does'.",
+                    rule: "Imperativo de 'do' = Do (base), nunca Does"
+                },
+                "Don't do": {
+                    errorType: "Negativo cuando el contexto pide afirmativo",
+                    explanation: "La maestra recomienda hacer la tarea en la cocina — es un consejo positivo. 'Don't do' ordenaría lo contrario."
+                }
+            },
+            correctReason: "<span class='why-hl'>Do</span> your homework — forma base del verbo 'do' en imperativo afirmativo. Aunque 'do' es también auxiliar, aquí es el verbo principal.",
+            examples: ["Do your homework → imperativo", "Do your best → imperativo", "Do it now → imperativo"]
+        },
+        {
+            id: 11,
+            impType: "neg",
+            impLabel: "Imperativo Negativo",
+            sentence: "David's mother said: '_____ the heat too high — the rice will burn.'",
+            translation: "La mamá de David dijo: 'No pongas el fuego muy alto — el arroz se quemará.'",
+            hint: "La mamá previene un error que David cometió antes. Es una advertencia directa.",
+            clue: "advertencia para prevenir un error",
+            clueExplain: "David quemó el arroz por poner el fuego muy alto. Su mamá le da una instrucción negativa para que no repita el error: 'Don't put the heat too high'.",
+            options: ["Putting", "Don't puts", "Don't put"],
+            correct: "Don't put",
+            feedback: {
+                "Putting": {
+                    errorType: "Gerundio — no es imperativo",
+                    explanation: "'Putting' es el gerundio de 'put'. No funciona como imperativo. Para prohibiciones directas: 'Don't put' — con 'Don't' más la forma base.",
+                    rule: "Imperativo negativo = Don't + forma base (no gerundio)"
+                },
+                "Don't puts": {
+                    errorType: "Don't + tercera persona — forma incorrecta",
+                    explanation: "Después de 'Don't' siempre va la forma BASE del verbo, nunca con -s. 'Don't puts' es incorrecto. Lo correcto es 'Don't put'.",
+                    rule: "Don't + forma base (sin -s): Don't put (no Don't puts)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Don't put</span> — prohibición directa: 'Don't' + forma base 'put'. Después de 'Don't' el verbo nunca lleva -s ni -ing.",
+            examples: ["Don't put → neg. imperativo", "Don't add → neg. imperativo", "Don't burn → neg. imperativo"]
+        },
+        {
+            id: 12,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "Sofia said: '_____ your bag by the door the night before — that way you never forget it.'",
+            translation: "Sofia dijo: 'Pon tu bolsa junto a la puerta la noche anterior — así nunca la olvidas.'",
+            hint: "Sofia le da un consejo práctico a Ana. Es una recomendación directa y útil.",
+            clue: "recomendación práctica / consejo",
+            clueExplain: "'Put' es la forma base del verbo 'poner'. En el imperativo, el verbo irregular 'put' no cambia — es el mismo en base, pasado y participio, pero solo la base se usa aquí.",
+            options: ["Puts", "Put", "Don't put"],
+            correct: "Put",
+            feedback: {
+                "Puts": {
+                    errorType: "Tercera persona presente — no es imperativo",
+                    explanation: "'Puts' es la forma del presente para he/she/it. El imperativo no lleva -s. Para dar consejos directos: 'Put your bag', no 'Puts your bag'.",
+                    rule: "Imperativo = forma base sin -s: Put (no Puts)"
+                },
+                "Don't put": {
+                    errorType: "Negativo cuando el consejo es positivo",
+                    explanation: "Sofia recomienda poner la bolsa junto a la puerta — es un consejo útil y positivo. 'Don't put' diría lo contrario."
+                }
+            },
+            correctReason: "<span class='why-hl'>Put</span> your bag by the door — forma base del verbo 'put', imperativo afirmativo. Igual que cualquier otro verbo: sin sujeto, sin -s.",
+            examples: ["Put → imperativo", "Set → imperativo", "Place → imperativo"]
+        },
+        {
+            id: 13,
+            impType: "neg",
+            impLabel: "Imperativo Negativo",
+            sentence: "Elena's mother said: '_____ dinner without the whole family — we always eat together.'",
+            translation: "La madre de Elena dijo: 'No empieces la cena sin toda la familia — siempre comemos juntos.'",
+            hint: "Es una regla familiar importante. La instrucción dice que NO hay que hacer algo.",
+            clue: "regla familiar / valor compartido",
+            clueExplain: "'Don't start' — prohibición directa. La forma base de 'start' es 'start'. Después de 'Don't' siempre va la forma base, sin cambios.",
+            options: ["Started", "Don't start", "Doesn't start"],
+            correct: "Don't start",
+            feedback: {
+                "Started": {
+                    errorType: "Pasado simple — no es imperativo",
+                    explanation: "'Started' es el pasado de 'start'. Para dar instrucciones o prohibiciones en el presente, se usa el imperativo: 'Don't start', no 'Started'.",
+                    rule: "Prohibición directa = Don't + forma base (no pasado)"
+                },
+                "Doesn't start": {
+                    errorType: "Presente simple negativo — no es imperativo",
+                    explanation: "'Doesn't start' describe a alguien en presente. Para dar una prohibición directa a alguien, usamos el imperativo negativo: 'Don't start'.",
+                    rule: "Imperativo negativo = Don't + base (no Doesn't)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Don't start</span> dinner without the family — prohibición clara con 'Don't + forma base'. 'Doesn't start' es presente simple, no imperativo.",
+            examples: ["Don't start → neg. imperativo", "Don't eat → neg. imperativo", "Don't begin → neg. imperativo"]
+        },
+        {
+            id: 14,
+            impType: "let",
+            impLabel: "Let's...",
+            sentence: "Carlos told Rosa: '_____ worry about a big dinner tonight — even soup and bread is enough.'",
+            translation: "Carlos le dijo a Rosa: 'No nos preocupemos por una cena grande esta noche — hasta sopa y pan es suficiente.'",
+            hint: "Carlos calma a Rosa con una propuesta de no preocuparse. Es una sugerencia conjunta negativa.",
+            clue: "sugerencia negativa conjunta",
+            clueExplain: "'Let's not + verbo base' es la forma negativa de 'Let's'. Se usa para proponer que el grupo NO haga algo. Nunca 'Don't let's' en inglés estándar.",
+            options: ["Don't let's", "We don't", "Let's not"],
+            correct: "Let's not",
+            feedback: {
+                "Don't let's": {
+                    errorType: "Orden de palabras incorrecta",
+                    explanation: "'Don't let's' no es la forma estándar en inglés. La negación de 'Let's' se forma poniendo 'not' después: 'Let's not worry'. 'Don't let's' suena muy anticuado y no se usa.",
+                    rule: "Let's not + verbo base = sugerencia negativa conjunta"
+                },
+                "We don't": {
+                    errorType: "Presente simple — no es sugerencia imperativa",
+                    explanation: "'We don't worry' describe un hecho. Para proponer que un grupo no haga algo se usa 'Let's not + verbo': 'Let's not worry'. Tiene función de sugerencia, no de descripción.",
+                    rule: "Let's not + verbo = sugerencia. We don't + verbo = descripción."
+                }
+            },
+            correctReason: "<span class='why-hl'>Let's not</span> worry — forma negativa de 'Let's': 'Let's not + verbo base'. Es la manera de proponer que el grupo evite algo.",
+            examples: ["Let's not worry → neg. propuesta", "Let's not waste → neg. propuesta", "Let's not forget → neg. propuesta"]
+        },
+        {
+            id: 15,
+            impType: "aff",
+            impLabel: "Imperativo Afirmativo",
+            sentence: "The teacher said: '_____ your phones before the class begins — no distractions.'",
+            translation: "La maestra dijo: 'Apaguen sus teléfonos antes de que empiece la clase — sin distracciones.'",
+            hint: "La maestra da una instrucción a toda la clase. Sigue siendo un imperativo afirmativo — la forma base del verbo.",
+            clue: "instrucción de la maestra a la clase",
+            clueExplain: "'Turn off' es un phrasal verb muy común en instrucciones de clase. El imperativo lo usa en forma base: 'Turn off your phones'. No cambia con el número de personas.",
+            options: ["Turn off", "Turns off", "Turned off"],
+            correct: "Turn off",
+            feedback: {
+                "Turns off": {
+                    errorType: "Tercera persona presente — no es imperativo",
+                    explanation: "'Turns off' es presente simple de he/she/it. El imperativo no lleva -s aunque se dirija a varias personas: 'Turn off your phones' (a toda la clase).",
+                    rule: "Imperativo = forma base (sin -s), para una o varias personas"
+                },
+                "Turned off": {
+                    errorType: "Pasado simple — no es imperativo",
+                    explanation: "'Turned off' es el pasado de 'turn off'. Para instrucciones actuales en clase, se usa el imperativo: 'Turn off', no 'Turned off'.",
+                    rule: "Imperativo afirmativo = forma base: Turn off (no Turned off)"
+                }
+            },
+            correctReason: "<span class='why-hl'>Turn off</span> your phones — forma base del phrasal verb, imperativo afirmativo. El imperativo es igual para 1 o 30 personas — siempre forma base.",
+            examples: ["Turn off → imperativo", "Switch off → imperativo", "Put away → imperativo"]
+        }
+    ];
+
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    // ── INIT ──
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => container.appendChild(createCard(q, i)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+
+        const badge = `<span class="imp-badge ${q.impType}">${q.impLabel}</span>`;
+        const sentenceHTML = q.sentence.replace('_____', `<span class="blank" id="blank-${index}">?</span>`);
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                ${badge}
+            </div>
+            <div class="hint-box">
+                <div class="hint-label">💡 Pista</div>
+                ${q.hint}
+            </div>
+            <div class="question-text">${sentenceHTML}</div>
+            <div class="translation">${q.translation}</div>
+            <div class="options-grid" id="options-${index}">
+                ${shuffle(q.options).map(opt => `<button class="option-btn" onclick="selectOption(${index}, this.textContent.trim())">${opt}</button>`).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, selected) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const isCorrect = selected === q.correct;
+        if (isCorrect) score++;
+
+        const blank = document.getElementById(`blank-${qi}`);
+        blank.textContent = selected;
+        blank.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach(b => {
+            b.disabled = true;
+            if (b.textContent.trim() === q.correct) b.classList.add('correct');
+            else if (b.textContent.trim() === selected) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const examplesHTML = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div><div class="fb-title">¡Correcto!</div><div class="fb-subtitle">Identificaste la forma imperativa correcta</div></div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 La señal clave</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.impLabel}: ${q.correct}</div>
+                        <div class="rule-examples">${examplesHTML}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué es correcto?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        } else {
+            const err = q.feedback[selected] || { errorType: 'Error', explanation: 'Respuesta incorrecta.', rule: '' };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div><div class="fb-title">Incorrecto</div><div class="fb-subtitle">Revisemos juntos qué pasó</div></div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 La señal clave que debías identificar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag red">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-block fb-compare">
+                        <div class="fb-block-title">🔄 Tu respuesta vs. la correcta</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">Tú elegiste</span>
+                            <span><span class="word-wrong">${selected}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correcto</span>
+                            <span><span class="word-right">${q.correct}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ Tipo de error: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-word-row">
+                            <span class="ew-box ew-wrong">${selected}</span>
+                            <span class="ew-arrow">→</span>
+                            <span class="ew-box ew-right">${q.correct}</span>
+                        </div>
+                        <div class="error-rule">${err.explanation}</div>
+                        ${err.rule ? `<div style="margin-top:0.5rem;font-size:0.82rem;color:var(--error-dark);font-weight:700;">📌 ${err.rule}</div>` : ''}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.impLabel}: ${q.correct}</div>
+                        <div class="rule-examples">${examplesHTML}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué es correcto "${q.correct}"?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        document.getElementById('progressFill').style.width = (answered.filter(Boolean).length / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Dominas los imperativos. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa las reglas e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

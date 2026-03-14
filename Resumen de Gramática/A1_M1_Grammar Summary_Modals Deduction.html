@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Modals of Deduction | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+--must:#E65100;--must-bg:#FFF3E0;--must-border:#FFB74D;
+--might:#1565C0;--might-bg:#E3F2FD;--might-border:#90CAF9;
+--cant:#C62828;--cant-bg:#FFEBEE;--cant-border:#EF9A9A;
+--may:#388E3C;--may-bg:#E8F5E9;--may-border:#A5D6A7;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-must{background:var(--must-bg);color:var(--must);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--must-border)}
+.g-might{background:var(--might-bg);color:var(--might);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--might-border)}
+.g-cant{background:var(--cant-bg);color:var(--cant);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--cant-border)}
+.g-may{background:var(--may-bg);color:var(--may);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--may-border)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.cert-scale{background:#F8F9FA;border:1.5px solid var(--border);border-radius:14px;padding:1.1rem 1.2rem;margin:.8rem 0}
+.cert-title{font-size:.72rem;font-weight:800;color:var(--ld);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.7rem}
+.cert-bar{display:flex;gap:0;border-radius:8px;overflow:hidden;height:36px;margin-bottom:.5rem}
+.cert-seg{display:flex;align-items:center;justify-content:center;font-family:'Fredoka',sans-serif;font-size:.78rem;font-weight:600;color:#fff;flex:1;text-align:center}
+.cert-seg.must{background:var(--must)}
+.cert-seg.may{background:var(--may)}
+.cert-seg.might{background:var(--might)}
+.cert-seg.cant{background:var(--cant)}
+.cert-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);padding:0 2px}
+
+.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.8rem 0}
+.modal-card{padding:.9rem;border-radius:12px;border:2px solid}
+.modal-card.must{background:var(--must-bg);border-color:var(--must-border)}
+.modal-card.might{background:var(--might-bg);border-color:var(--might-border)}
+.modal-card.may{background:var(--may-bg);border-color:var(--may-border)}
+.modal-card.cant{background:var(--cant-bg);border-color:var(--cant-border)}
+.modal-card .mc-word{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:.2rem}
+.modal-card.must .mc-word{color:var(--must)}
+.modal-card.might .mc-word{color:var(--might)}
+.modal-card.may .mc-word{color:var(--may)}
+.modal-card.cant .mc-word{color:var(--cant)}
+.modal-card .mc-esp{font-size:.78rem;color:var(--text-soft);margin-bottom:.3rem;font-style:italic}
+.modal-card .mc-ex{font-size:.78rem;color:var(--text);font-weight:600}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#F3E5F5;border:2px solid #CE93D8}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.9rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:#6A1B9A}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.07)}
+.compare-card li:last-child{border-bottom:none}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.92rem;color:var(--ld);line-height:2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.6}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.deduction-scenario{background:#F8F9FA;border-radius:12px;padding:1rem 1.1rem;margin:.6rem 0;border:1.5px solid var(--border)}
+.ds-situation{font-size:.83rem;color:var(--text-soft);margin-bottom:.5rem;font-style:italic}
+.ds-situation strong{color:var(--text);font-style:normal}
+.ds-row{display:flex;align-items:center;gap:.6rem;margin:.3rem 0;font-size:.82rem}
+.ds-modal{font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600;min-width:56px}
+.ds-modal.must{color:var(--must)}
+.ds-modal.might{color:var(--might)}
+.ds-modal.cant{color:var(--cant)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left;line-height:1.4}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .compare-grid,.modal-grid{grid-template-columns:1fr}
+  .cert-seg{font-size:.65rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life — Modals of Deduction</div>
+  <p class="subtitle">must · might · may · can't · certeza vs. posibilidad · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: Modals of Deduction</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>must</b> = casi seguro que sí → <i>He must be tired.</i> (Debe estar cansado.)",
+    "<b>might / may</b> = posible, no seguro → <i>She might be at home.</i> (Puede que esté en casa.)",
+    "<b>can't</b> = casi seguro que NO → <i>That can't be right.</i> (Eso no puede ser correcto.)",
+    "<b>Forma:</b> modal + base verb (sin to, sin -s, sin -ed)",
+    "<b>must ≠ have to:</b> must = deducción lógica · have to = obligación",
+    "<b>can't ≠ mustn't:</b> can't = imposible/improbable · mustn't = prohibición"
+  ],
+  steps: [
+    /* ── PASO 1 ── */
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español usamos expresiones como "debe ser", "puede ser" o "no puede ser" para expresar lo que creemos que es cierto basándonos en evidencia. En inglés los modales de deducción hacen exactamente lo mismo.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Deducción en Español</h4><ul>' +
+            '<li><b>Debe ser</b> su hermano. (casi seguro)</li>' +
+            '<li><b>Puede ser</b> que esté en casa. (posible)</li>' +
+            '<li><b>Quizás</b> llegue tarde. (posible)</li>' +
+            '<li><b>No puede ser</b> correcto. (imposible)</li>' +
+          '</ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 Modals of Deduction</h4><ul>' +
+            '<li>That <b>must be</b> his brother. (almost certain)</li>' +
+            '<li>She <b>might be</b> at home. (possible)</li>' +
+            '<li>He <b>may be</b> late. (possible)</li>' +
+            '<li>That <b>can\'t be</b> right. (impossible)</li>' +
+          '</ul></div>' +
+        '</div>' +
+        '<div class="cert-scale">' +
+          '<div class="cert-title">📊 Escala de certeza</div>' +
+          '<div class="cert-bar">' +
+            '<div class="cert-seg must">must ✅</div>' +
+            '<div class="cert-seg may">may</div>' +
+            '<div class="cert-seg might">might</div>' +
+            '<div class="cert-seg cant">can\'t ❌</div>' +
+          '</div>' +
+          '<div class="cert-labels"><span>← casi seguro que SÍ</span><span>posible →</span><span>casi seguro que NO →</span></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> Estos modales expresan lo que <em>deducimos</em> o <em>inferimos</em> a partir de evidencia. No tenemos certeza absoluta, pero sacamos una conclusión lógica.</div>',
+      exercises: [
+        {q: '"Debe estar cansado." (casi seguro) en inglés:', a: 'b', o: ['He might be tired.', 'He must be tired.'], fc: '"Must" = casi seguro que sí. Basado en evidencia, concluimos que está cansado.', fi: '"Might" expresa posibilidad, no certeza fuerte. "Must" es la deducción lógica casi segura.', ex: 'He must be tired. → Debe estar cansado.', tip: 'must = casi seguro que sí'},
+        {q: '"No puede ser correcto." (imposible) en inglés:', a: 'a', o: ["That can't be right.", 'That might not be right.'], fc: '"Can\'t" = casi seguro que NO. Concluimos que es imposible o muy improbable.', fi: '"Might not" expresa que quizás no sea correcto, pero es menos fuerte. "Can\'t" es la negación lógica.', ex: "That can't be right. → No puede ser correcto.", tip: "can't = casi seguro que NO"},
+        {q: '"Puede que esté en casa." (posible, no seguro):', a: 'b', o: ['She must be at home.', 'She might be at home.'], fc: '"Might" = posibilidad, no certeza. Quizás sí, quizás no.', fi: '"Must" sería casi seguro. "Might" expresa posibilidad sin certeza.', ex: 'She might be at home. → Puede que esté en casa.', tip: 'might/may = posible, no seguro'},
+        {q: 'Ves una luz encendida en casa a las 3am. Concluyes:', a: 'a', o: ['Someone must be awake.', 'Someone can\'t be awake.'], fc: '"Must" = deducción lógica fuerte. La luz encendida → alguien está despierto.', fi: '"Can\'t" sería la conclusión opuesta: nadie puede estar despierto, lo cual contradice la evidencia.', ex: 'The light is on. Someone must be awake. → La luz está encendida. Alguien debe estar despierto.'},
+        {q: '"May" y "might" para deducción expresan:', a: 'b', o: ['Certeza absoluta', 'Posibilidad (quizás sí, quizás no)'], fc: '"May" y "might" = posibilidad. No sabemos con seguridad, es una opción posible.', fi: 'Certeza absoluta sería "must" (casi seguro) o directamente afirmar el hecho.', ex: 'He may be at work. → Puede que esté en el trabajo.', tip: 'may = might = posibilidad ~50%'}
+      ]
+    },
+
+    /* ── PASO 2 ── */
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">Los modales de deducción en inglés comparten estructura y función con las expresiones de certeza en español.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Certeza alta (sí)</td><td>Debe ser / Tiene que ser</td><td><span class="g-must">must</span> + base verb</td></tr>' +
+          '<tr><td>Posibilidad</td><td>Puede ser / Quizás</td><td><span class="g-might">might</span> / <span class="g-may">may</span> + base verb</td></tr>' +
+          '<tr><td>Certeza alta (no)</td><td>No puede ser / Es imposible</td><td><span class="g-cant">can\'t</span> + base verb</td></tr>' +
+          '<tr><td>Forma: modal + verbo</td><td>debe + infinitivo</td><td>must + base verb (sin to)</td></tr>' +
+          '<tr><td>No cambia por persona</td><td>debe / debe (igual)</td><td>he <span class="g-must">must</span> / she <span class="g-must">must</span> (igual)</td></tr>' +
+        '</table>' +
+        '<div class="modal-grid">' +
+          '<div class="modal-card must"><div class="mc-word">must</div><div class="mc-esp">debe ser / tiene que ser</div><div class="mc-ex">He must be home. → Debe estar en casa.</div></div>' +
+          '<div class="modal-card may"><div class="mc-word">may</div><div class="mc-esp">puede ser / quizás (formal)</div><div class="mc-ex">She may be busy. → Puede que esté ocupada.</div></div>' +
+          '<div class="modal-card might"><div class="mc-word">might</div><div class="mc-esp">puede ser / quizás (informal)</div><div class="mc-ex">He might be late. → Puede que llegue tarde.</div></div>' +
+          '<div class="modal-card cant"><div class="mc-word">can\'t</div><div class="mc-esp">no puede ser / es imposible</div><div class="mc-ex">That can\'t be true. → Eso no puede ser verdad.</div></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 May vs. Might:</strong> En el uso cotidiano son casi intercambiables para deducción. "May" suena ligeramente más formal. Para este nivel, úsalos como sinónimos.</div>',
+      exercises: [
+        {q: '"Must" no cambia con la persona. Entonces:', a: 'a', o: ['She must be tired. ✅', 'She musts be tired. ✅'], fc: '"Must" es igual para todas las personas. Nunca añade -s: she must (no "musts").', fi: '"Musts" no existe. Los modales NUNCA llevan -s en tercera persona.', ex: 'He must be tired. / She must be tired. / They must be tired. → Todos igual.', tip: 'Modales: nunca -s en 3ra persona'},
+        {q: '"Might" y "may" para deducción son:', a: 'b', o: ['Completamente diferentes', 'Prácticamente intercambiables'], fc: 'Para deducción, might y may expresan la misma idea: posibilidad. Son casi sinónimos.', fi: 'Tienen matices de formalidad, pero para deducción básica funcionan igual.', ex: 'He might be at work. = He may be at work. → Puede que esté en el trabajo.'},
+        {q: '"Must" para deducción equivale a:', a: 'a', o: ['Debe ser / Tiene que ser', 'Tiene que (obligación)'], fc: '"Must" de deducción = "debe ser" basado en evidencia. No es obligación.', fi: 'Para obligación se usa "have to" o "must" en otro contexto. Aquí es deducción lógica.', ex: 'He must be tired. → Debe estar cansado. (deducción, no obligación)', tip: 'must deducción = debe ser (evidencia)'},
+        {q: 'La forma correcta con modal es:', a: 'b', o: ['She might to be at home.', 'She might be at home.'], fc: 'Modal + base verb SIN "to". She might be (no "might to be").', fi: '"Might to be" es incorrecto. Los modales van directamente con el base verb, sin "to".', ex: 'She might be at home. → Puede que esté en casa.', tip: 'modal + base verb (sin to)'},
+        {q: '"Can\'t" de deducción equivale a:', a: 'a', o: ['No puede ser / Es imposible', 'No está permitido'], fc: '"Can\'t" de deducción = conclusión de que algo es imposible o muy improbable.', fi: '"No está permitido" sería "can\'t" de prohibición, otro uso diferente.', ex: "That can't be his sister. → Esa no puede ser su hermana.", tip: "can't deducción = imposible/muy improbable"}
+      ]
+    },
+
+    /* ── PASO 3 ── */
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>Debe + infinitivo (con "de")</td><td><span class="g-must">must</span> + base verb (sin "to")</td><td>Sin "to" después del modal</td></tr>' +
+          '<tr><td>Él debe ser / ella debe ser</td><td><span class="g-must">must</span> (igual para todos)</td><td>Modal nunca lleva -s</td></tr>' +
+          '<tr><td>"Debe" = deducción Y obligación</td><td><span class="g-must">must</span> (ded.) ≠ have to (oblig.)</td><td>Inglés distingue los dos usos</td></tr>' +
+          '<tr><td>"No puede ser" (deducción)</td><td><span class="g-cant">can\'t</span></td><td>can\'t ≠ mustn\'t (prohibición)</td></tr>' +
+          '<tr><td>Pasado: "debía ser"</td><td>must have been (avanzado)</td><td>En A1: solo presente</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ must (deducción) vs. have to (obligación)</div>' +
+          '<p>🧠 <b>must</b> de deducción: conclusión lógica basada en evidencia<br>' +
+          '&nbsp;&nbsp;&nbsp;→ "He must be tired." (Veo que bosteза, deduzco que está cansado.)<br><br>' +
+          '📋 <b>have to</b> de obligación: algo que es necesario hacer<br>' +
+          '&nbsp;&nbsp;&nbsp;→ "He has to cook dinner." (Es su responsabilidad cocinar.)</p></div>' +
+        '<div class="section-label">Escenarios de deducción</div>' +
+        '<div class="deduction-scenario">' +
+          '<div class="ds-situation"><strong>Situación:</strong> Tu compañero no llegó a clase. Su teléfono está apagado.</div>' +
+          '<div class="ds-row"><div class="ds-modal must">must</div><span>He must be sick. → Debe estar enfermo. (casi seguro)</span></div>' +
+          '<div class="ds-row"><div class="ds-modal might">might</div><span>He might be stuck in traffic. → Puede que esté atascado. (posible)</span></div>' +
+          '<div class="ds-row"><div class="ds-modal cant">can\'t</div><span>He can\'t be at school. → No puede estar en la escuela. (imposible)</span></div>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-subj">She</span> <span class="g-must">must</span> <span class="g-verb">be</span> <span class="g-comp">the cook</span>.</div><div class="es">Ella debe ser la cocinera.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">She musts be the cook.</div><div class="es">Los modales NUNCA llevan -s.</div></div></div>',
+      exercises: [
+        {q: '"must" de deducción se diferencia de "have to" en que:', a: 'b', o: ['Son exactamente lo mismo', '"must" deduce / "have to" obliga'], fc: '"Must" de deducción = conclusión lógica. "Have to" = obligación o necesidad.', fi: 'No son lo mismo. "He must be tired" (deduzco) ≠ "He has to cook" (obligación).', ex: 'He must be tired. (deducción) vs. He has to work. (obligación)', tip: 'must deducción = evidencia · have to = obligación'},
+        {q: '"can\'t" de deducción significa:', a: 'a', o: ['Es imposible / casi seguro que no', 'Está prohibido'], fc: '"Can\'t" de deducción: concluyes que algo es imposible dado lo que sabes.', fi: '"Está prohibido" sería "can\'t" de prohibición, diferente contexto.', ex: "That can't be his car. He doesn't drive. → Eso no puede ser su carro. No sabe manejar.", tip: "can't deducción = imposible (por lógica)"},
+        {q: '"She ___ be tired. She worked 12 hours."', a: 'a', o: ['must', 'might'], fc: '"Must" = deducción casi segura. 12 horas de trabajo → es casi seguro que está cansada.', fi: '"Might" sería posibilidad débil. Con 12 horas de trabajo, "must" es la conclusión lógica fuerte.', ex: 'She must be tired. → Debe estar cansada.', tip: 'Evidencia fuerte → must'},
+        {q: '"That ___ be correct. The numbers don\'t add up."', a: 'b', o: ['must', "can't"], fc: '"Can\'t" = es imposible. Los números no cuadran → no puede ser correcto.', fi: '"Must" sería la conclusión opuesta: casi seguro que sí es correcto, lo cual contradice la evidencia.', ex: "That can't be correct. → No puede ser correcto.", tip: "Evidencia contradice → can't"},
+        {q: '"He ___ be at home or at work." (no sabes)', a: 'a', o: ['might', 'must'], fc: '"Might" = posibilidad. No tienes evidencia fuerte, solo es una opción posible.', fi: '"Must" sería deducción casi segura. Sin evidencia fuerte, "might" es más apropiado.', ex: 'He might be at home or at work. → Puede que esté en casa o en el trabajo.', tip: 'Sin evidencia fuerte → might/may'}
+      ]
+    },
+
+    /* ── PASO 4 ── */
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1 — Forma única:</strong> Modal + <b>base verb</b> siempre. Sin "to", sin -s, sin -ed. <em>He must be</em> ✅ · <em>She might go</em> ✅ · <em>They can\'t know</em> ✅</div>' +
+        '<div class="tip-card"><strong>Tip 2 — Truco de certeza:</strong> ¿Tienes evidencia fuerte? → <b>must</b>. ¿Solo es posible? → <b>might/may</b>. ¿Contradice lo que sabes? → <b>can\'t</b>.</div>' +
+        '<div class="tip-card"><strong>Tip 3 — must vs. have to:</strong> "Must" de deducción responde a "¿Qué concluyes?". "Have to" responde a "¿Qué tienes que hacer?". Son usos distintos.</div>' +
+        '<div class="tip-card"><strong>Tip 4 — can\'t vs. mustn\'t:</strong> <b>can\'t</b> (deducción) = es imposible lógicamente. <b>mustn\'t</b> (prohibición) = no debes hacerlo. Contextos completamente diferentes.</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-subj">Subject</span> + <span class="g-must">must</span> / <span class="g-might">might</span> / <span class="g-may">may</span> / <span class="g-cant">can\'t</span> + <span class="g-verb">base verb</span><br>' +
+          '🟠 <span class="g-must">must be</span> → casi seguro ✅ &nbsp;·&nbsp; 🔵 <span class="g-might">might/may be</span> → posible<br>' +
+          '🔴 <span class="g-cant">can\'t be</span> → casi seguro ❌' +
+        '</div>',
+      exercises: [
+        {q: '"She must ___ the cook." — verbo correcto:', a: 'b', o: ['to be', 'be'], fc: 'Modal + base verb SIN "to". She must be the cook.', fi: '"Must to be" es incorrecto. Los modales no van con "to" en inglés.', ex: 'She must be the cook. → Ella debe ser la cocinera.', tip: 'modal + base verb (sin to)'},
+        {q: '"The light is on. Someone ___ be awake."', a: 'a', o: ['must', "can't"], fc: '"Must" = deducción fuerte basada en evidencia. Luz encendida → alguien debe estar despierto.', fi: '"Can\'t" sería la conclusión opuesta: nadie puede estar despierto, contradiciendo la evidencia.', ex: 'The light is on. Someone must be awake. → Debe haber alguien despierto.'},
+        {q: '"He just ran 10km. He ___ be tired."', a: 'a', o: ['must', 'might'], fc: '"Must" = evidencia fuerte. 10km de carrera → casi seguro que está cansado.', fi: '"Might" expresa posibilidad débil, insuficiente ante evidencia tan clara.', ex: 'He just ran 10km. He must be tired. → Acaba de correr 10km. Debe estar cansado.', tip: 'Evidencia obvia → must'},
+        {q: '"That ___ be Maria. She\'s in Peru right now."', a: 'b', o: ['must', "can't"], fc: '"Can\'t" = es imposible. Si está en Perú, no puede ser ella (implícitamente, en otro lugar).', fi: '"Must" sería la conclusión opuesta, contradiciendo el hecho de que está en Perú.', ex: "That can't be Maria. She's in Peru. → Esa no puede ser María. Está en Perú.", tip: "Contradice lo que sabes → can't"},
+        {q: '"I\'m not sure where he is. He ___ be at work."', a: 'b', o: ['must', 'might'], fc: '"Might" = posibilidad cuando no tienes certeza. Es una opción, no una conclusión fuerte.', fi: '"Must" implicaría evidencia sólida. "I\'m not sure" indica incertidumbre → might.', ex: "I'm not sure. He might be at work. → No estoy seguro. Puede que esté en el trabajo.", tip: 'Incertidumbre sin evidencia → might/may'}
+      ]
+    },
+
+    /* ── PASO 5 ── */
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-must">must</span> = casi seguro ✅ &nbsp;·&nbsp; <span class="g-might">might</span> / <span class="g-may">may</span> = posible &nbsp;·&nbsp; <span class="g-cant">can\'t</span> = casi seguro ❌<br>' +
+          '<span class="g-subj">Subject</span> + modal + <span class="g-verb">base verb</span> (sin to · sin -s · sin -ed)' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">😴</div><div><div class="en"><span class="g-subj">He</span> <span class="g-must">must</span> <span class="g-verb">be</span> <span class="g-comp">exhausted</span>. He cooked all day.</div><div class="es">Debe estar agotado. Cocinó todo el día.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🤷</div><div><div class="en"><span class="g-subj">She</span> <span class="g-might">might</span> <span class="g-verb">be</span> <span class="g-comp">at the supermarket</span>.</div><div class="es">Puede que esté en el supermercado.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🚫</div><div><div class="en"><span class="g-subj">That</span> <span class="g-cant">can\'t</span> <span class="g-verb">be</span> <span class="g-comp">his house</span>. It\'s too big.</div><div class="es">Esa no puede ser su casa. Es demasiado grande.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "She musts be tired." → ✅ "She <b>must</b> be tired." (sin -s)<br>' +
+          '❌ "He might to be at home." → ✅ "He might <b>be</b> at home." (sin to)<br>' +
+          '❌ "That mustn\'t be right." (prohibición) → ✅ "That <b>can\'t</b> be right." (deducción negativa)' +
+        '</p></div>',
+      exercises: [
+        {q: '"She worked all night. She ___ be very tired."', a: 'a', o: ['must', 'may'], fc: '"Must" = deducción fuerte. Evidencia clara (trabajó toda la noche) → casi seguro que está cansada.', fi: '"May" expresa posibilidad más débil. Con evidencia tan clara, "must" es la conclusión lógica.', ex: 'She must be very tired. → Debe estar muy cansada.', tip: 'Evidencia clara → must'},
+        {q: '"I don\'t know if he is home. He ___ be there."', a: 'b', o: ['must', 'might'], fc: '"Might" = posibilidad sin certeza. Sin evidencia, es solo una opción posible.', fi: '"Must" requiere evidencia fuerte. "I don\'t know" indica falta de evidencia → might.', ex: 'He might be there. → Puede que esté ahí.', tip: 'Sin evidencia → might/may'},
+        {q: '"That ___ be Ana. She moved to Canada last year."', a: 'b', o: ['must', "can't"], fc: '"Can\'t" = es imposible/muy improbable. Si se fue a Canadá, no puede ser ella aquí.', fi: '"Must" daría la conclusión opuesta, contradiciendo el hecho conocido.', ex: "That can't be Ana. She moved to Canada. → Esa no puede ser Ana. Se fue a Canadá.", tip: "Contradice lo que sabes → can't"},
+        {q: '"The food smells amazing. She ___ be a great cook."', a: 'a', o: ['must', "can't"], fc: '"Must" = deducción positiva fuerte. La comida huele increíble → casi seguro que cocina muy bien.', fi: '"Can\'t" daría la conclusión opuesta: casi seguro que NO es buena cocinera, lo que contradice el aroma.', ex: 'She must be a great cook. → Debe ser una gran cocinera.'},
+        {q: 'La forma correcta del modal es:', a: 'b', o: ['He might to go there.', 'He might go there.'], fc: 'Modal + base verb SIN "to". He might go (no "might to go").', fi: '"Might to go" añade "to" incorrectamente. Los modales de deducción van directamente con el base verb.', ex: 'He might go there. → Puede que vaya ahí.', tip: 'modal + base verb (nunca modal + to + verb)'}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

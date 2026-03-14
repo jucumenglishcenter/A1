@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Past Simple vs Past Continuous | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+--aux:#5E35B1;--aux-bg:#EDE7F6;
+--ps:#E65100;--ps-bg:#FFF3E0;--ps-border:#FFB74D;
+--pc:#1565C0;--pc-bg:#E3F2FD;--pc-border:#90CAF9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-aux{background:var(--aux-bg);color:var(--aux);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--aux)}
+.g-ing{background:#FFF3E0;color:#E65100;padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid #FF8F00}
+.g-ps{background:var(--ps-bg);color:var(--ps);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--ps-border)}
+.g-pc{background:var(--pc-bg);color:var(--pc);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--pc-border)}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px}
+.compare-card.ps{background:var(--ps-bg);border:2px solid var(--ps-border)}
+.compare-card.pc{background:var(--pc-bg);border:2px solid var(--pc-border)}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.9rem;margin-bottom:.5rem}
+.compare-card.ps h4{color:var(--ps)}
+.compare-card.pc h4{color:var(--pc)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0;border-bottom:1px dashed rgba(0,0,0,.07)}
+.compare-card li:last-child{border-bottom:none}
+
+.timeline-box{background:#F8F9FA;border:1.5px solid var(--border);border-radius:12px;padding:1.2rem;margin:.8rem 0}
+.tl-title{font-size:.72rem;font-weight:800;color:var(--ld);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.6rem}
+.tl-row{display:flex;align-items:center;gap:.5rem;margin:.5rem 0;font-size:.82rem}
+.tl-badge{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.7rem;font-weight:800;flex-shrink:0}
+.tl-badge.ps{background:var(--ps-bg);color:var(--ps);border:1.5px solid var(--ps-border)}
+.tl-badge.pc{background:var(--pc-bg);color:var(--pc);border:1.5px solid var(--pc-border)}
+.tl-line{flex:1;height:3px;border-radius:2px;position:relative}
+.tl-line.ps{background:var(--ps)}
+.tl-line.pc{background:linear-gradient(to right,var(--pc),transparent);background-size:200% 100%}
+.tl-dot-row{display:flex;justify-content:space-between;font-size:.65rem;color:var(--text-soft);margin-top:.2rem}
+.tl-marker-line{height:3px;background:linear-gradient(to right,#BBDEFB,#1565C0,#BBDEFB);border-radius:2px;margin:.5rem 0;position:relative}
+.tl-marker-line::before{content:'← PASADO';position:absolute;left:0;top:-16px;font-size:.6rem;font-weight:800;color:var(--text-soft)}
+.tl-marker-line::after{content:'AHORA →';position:absolute;right:0;top:-16px;font-size:.6rem;font-weight:800;color:var(--text-soft)}
+
+.when-box{background:linear-gradient(135deg,var(--ps-bg),var(--pc-bg));border:2px solid var(--border);border-radius:14px;padding:1rem 1.2rem;margin:.8rem 0}
+.when-box .wb-title{font-family:'Fredoka',sans-serif;font-size:.85rem;color:var(--ld);margin-bottom:.5rem}
+.when-sentence{display:flex;align-items:flex-start;gap:.6rem;margin:.4rem 0;font-size:.83rem;line-height:1.5}
+.when-sentence .ws-arrow{color:var(--lp);font-weight:800;flex-shrink:0;margin-top:2px}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.92rem;color:var(--ld);line-height:2}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.6}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+.ex-ps{border-left:3px solid var(--ps);background:var(--ps-bg)}
+.ex-pc{border-left:3px solid var(--pc);background:var(--pc-bg)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.5}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:left;line-height:1.4}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .compare-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life — Past Simple vs Past Continuous</div>
+  <p class="subtitle">Contraste · acción completa vs. acción en progreso · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: Past Simple vs Past Continuous</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>Past Simple</b> = acción completa y terminada: <i>I cooked dinner.</i>",
+    "<b>Past Continuous</b> = acción en progreso en un momento del pasado: <i>I was cooking at 8pm.</i>",
+    "<b>Combinación clásica:</b> Past continuous (fondo) + <i>when</i> + past simple (interrupción)",
+    "<b>Ejemplo:</b> I was sleeping <i>when</i> he called. → Estaba durmiendo cuando él llamó.",
+    "<b>While</b> + past continuous: <i>While she was cooking, I was reading.</i> (dos acciones simultáneas)",
+    "<b>Señales:</b> yesterday/ago/last = past simple · at that moment/while = past continuous",
+    "Past simple interrumpe · Past continuous es el fondo/contexto"
+  ],
+  steps: [
+    /* ── PASO 1 ── */
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español la misma distinción existe entre el pretérito indefinido (acción terminada) y el imperfecto progresivo (acción en curso). En inglés es la misma lógica.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card ps"><h4>🟠 Pretérito Indefinido</h4><ul>' +
+            '<li>Yo <b>cociné</b> la cena.</li>' +
+            '<li>Él <b>llegó</b> a las 8.</li>' +
+            '<li>Nosotros <b>estudiamos</b> ayer.</li>' +
+            '<li>→ Acción <b>completa y terminada</b></li>' +
+          '</ul></div>' +
+          '<div class="compare-card pc"><h4>🔵 Imperfecto Progresivo</h4><ul>' +
+            '<li>Yo <b>estaba cocinando</b>...</li>' +
+            '<li>Él <b>estaba llegando</b>...</li>' +
+            '<li>Nosotros <b>estábamos estudiando</b>...</li>' +
+            '<li>→ Acción <b>en progreso</b> en ese momento</li>' +
+          '</ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> La diferencia en español es la misma en inglés. "Cociné" = <span class="g-ps">cooked</span>. "Estaba cocinando" = <span class="g-pc">was cooking</span>.</div>' +
+        '<div class="ex-row ex-ps"><div class="icon">🟠</div><div><div class="en">Llegué a casa a las 8. → <b>I arrived</b> home at 8.</div><div class="es">Acción puntual y terminada → Past Simple</div></div></div>' +
+        '<div class="ex-row ex-pc"><div class="icon">🔵</div><div><div class="en">Estaba cocinando a las 8. → <b>I was cooking</b> at 8.</div><div class="es">Acción en progreso a esa hora → Past Continuous</div></div></div>',
+      exercises: [
+        {q: '"Cociné la cena." → en inglés:', a: 'a', o: ['I cooked dinner.', 'I was cooking dinner.'], fc: '"Cociné" = acción completa → Past Simple: I cooked.', fi: '"I was cooking" expresa proceso en curso, no acción terminada. Corresponde a "Estaba cocinando".', ex: 'I cooked dinner. → Cociné la cena.', tip: 'Acción terminada → Past Simple'},
+        {q: '"Estaba cocinando." → en inglés:', a: 'b', o: ['I cooked.', 'I was cooking.'], fc: '"Estaba cocinando" = proceso en curso → Past Continuous: I was cooking.', fi: '"I cooked" = acción completa. Para proceso en curso se usa was/were + -ing.', ex: 'I was cooking. → Estaba cocinando.', tip: 'Proceso en curso → Past Continuous'},
+        {q: '"Él llegó a las 8." → en inglés:', a: 'a', o: ['He arrived at 8.', 'He was arriving at 8.'], fc: '"Llegó" = acción puntual terminada → Past Simple: He arrived.', fi: '"He was arriving" sugiere un proceso gradual de llegada, inusual en este contexto.', ex: 'He arrived at 8. → Él llegó a las 8.'},
+        {q: '"Nosotros estábamos estudiando." → en inglés:', a: 'b', o: ['We studied.', 'We were studying.'], fc: '"Estábamos estudiando" = proceso en curso → Past Continuous: We were studying.', fi: '"We studied" = acción terminada (estudiamos), no proceso en progreso.', ex: 'We were studying. → Estábamos estudiando.'},
+        {q: 'Past Simple corresponde a:', a: 'a', o: ['Pretérito indefinido (cociné, llegué)', 'Pretérito imperfecto progresivo (estaba cocinando)'], fc: 'Past Simple = pretérito indefinido → acción completa.', fi: 'Imperfecto progresivo ("estaba cocinando") = Past Continuous.', ex: 'I cooked (cociné) · I was cooking (estaba cocinando)'}
+      ]
+    },
+
+    /* ── PASO 2 ── */
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes y Contraste</div>' +
+        '<div class="section-desc">Ambos tiempos hablan del pasado, pero con perspectivas distintas. Entender sus similitudes ayuda a ver la diferencia.</div>' +
+        '<table class="g-table"><tr><th></th><th>🟠 Past Simple</th><th>🔵 Past Continuous</th></tr>' +
+          '<tr><td><b>Hablan del</b></td><td>pasado</td><td>pasado</td></tr>' +
+          '<tr><td><b>Forma</b></td><td><span class="g-ps">verb-ed</span> / irregular</td><td><span class="g-aux">was/were</span> + <span class="g-ing">-ing</span></td></tr>' +
+          '<tr><td><b>Negativo</b></td><td><span class="g-neg">didn\'t</span> + base verb</td><td><span class="g-neg">wasn\'t/weren\'t</span> + -ing</td></tr>' +
+          '<tr><td><b>Pregunta</b></td><td><span class="g-quest">Did</span> + subject + base?</td><td><span class="g-quest">Was/Were</span> + subject + -ing?</td></tr>' +
+          '<tr><td><b>Enfoque</b></td><td>acción <b>completa</b></td><td>acción <b>en progreso</b></td></tr>' +
+        '</table>' +
+        '<div class="timeline-box">' +
+          '<div class="tl-title">📅 Línea de tiempo</div>' +
+          '<div class="tl-marker-line"></div>' +
+          '<div class="tl-row"><span class="tl-badge ps">PS</span><span style="font-size:.82rem">I <b>cooked</b> dinner. → ✅ acción puntual completa</span></div>' +
+          '<div class="tl-row"><span class="tl-badge pc">PC</span><span style="font-size:.82rem">I <b>was cooking</b> at 8pm. → ~~~~ acción en curso a las 8pm</span></div>' +
+          '<div class="tl-row"><span class="tl-badge ps">PS</span><span style="font-size:.82rem"><b>interrupted</b> by: He <b>called</b>. → ✅ interrumpe el proceso</span></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Imagen mental:</strong> Past continuous es la <b>película de fondo</b>. Past simple es algo que <b>entra de golpe</b> en esa película.</div>',
+      exercises: [
+        {q: '"Did you study?" es pregunta en:', a: 'a', o: ['Past Simple', 'Past Continuous'], fc: '"Did" es el auxiliar de Past Simple. Did + subject + base verb.', fi: 'Past Continuous usa "Was/Were you studying?"', ex: 'Did you study? → ¿Estudiaste? (PS) · Were you studying? → ¿Estabas estudiando? (PC)', tip: 'Did → Past Simple · Was/Were → Past Continuous'},
+        {q: '"She wasn\'t sleeping." es negativo en:', a: 'b', o: ['Past Simple', 'Past Continuous'], fc: '"Wasn\'t + -ing" = negativo de Past Continuous.', fi: 'Past Simple negativo usa "didn\'t": She didn\'t sleep.', ex: "She wasn't sleeping. (PC) vs. She didn't sleep. (PS)", tip: "wasn't/weren't + -ing → Past Continuous negativo"},
+        {q: '"I cooked dinner." se enfoca en:', a: 'a', o: ['La acción completada (cociné)', 'El proceso de cocinar (estaba cocinando)'], fc: 'Past Simple muestra la acción como un evento terminado.', fi: 'Para el proceso en curso usaríamos "I was cooking dinner."', ex: 'I cooked dinner. (terminado) vs. I was cooking dinner. (en proceso)'},
+        {q: '"Were they working?" es pregunta en:', a: 'b', o: ['Past Simple', 'Past Continuous'], fc: '"Were + subject + -ing" = pregunta de Past Continuous.', fi: 'Past Simple pregunta usa "Did": Did they work?', ex: 'Were they working? (PC) · Did they work? (PS)', tip: 'Were/Was + -ing → Past Continuous pregunta'},
+        {q: 'La "película de fondo" en una historia es:', a: 'b', o: ['Past Simple', 'Past Continuous'], fc: 'Past Continuous es el contexto/fondo. Past Simple interrumpe ese fondo.', fi: 'Past Simple es la acción que entra de golpe, no el fondo.', ex: 'I was sleeping (fondo) when he called (acción que interrumpe).'}
+      ]
+    },
+
+    /* ── PASO 3 ── */
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Clave</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🟠 Past Simple</th><th>🔵 Past Continuous</th></tr>' +
+          '<tr><td>Cociné (terminado)</td><td><span class="g-ps">I cooked</span></td><td><span class="g-pc">I was cooking</span></td></tr>' +
+          '<tr><td>Señales de tiempo</td><td>yesterday, ago, last night</td><td>at that moment, while, when</td></tr>' +
+          '<tr><td>Con "when" (cuando)</td><td>acción que <b>interrumpe</b></td><td>acción que <b>estaba ocurriendo</b></td></tr>' +
+          '<tr><td>Con "while" (mientras)</td><td>no típico</td><td>dos acciones simultáneas</td></tr>' +
+          '<tr><td>Secuencia de eventos</td><td>first... then... finally</td><td>no secuencia, progreso</td></tr>' +
+        '</table>' +
+        '<div class="when-box">' +
+          '<div class="wb-title">🔗 La combinación clásica: when / while</div>' +
+          '<div class="when-sentence"><span class="wb-arrow">▶</span><span><span class="g-pc">I was sleeping</span> <span class="g-quest">when</span> <span class="g-ps">he called</span>.<br><em style="font-size:.8rem;color:var(--text-soft)">Estaba durmiendo (fondo) cuando él llamó (interrupción).</em></span></div>' +
+          '<div class="when-sentence"><span class="wb-arrow">▶</span><span><span class="g-quest">While</span> <span class="g-pc">she was cooking</span>, <span class="g-pc">I was reading</span>.<br><em style="font-size:.8rem;color:var(--text-soft)">Mientras ella cocinaba (simultáneo), yo leía.</em></span></div>' +
+          '<div class="when-sentence"><span class="wb-arrow">▶</span><span><span class="g-ps">I arrived</span> <span class="g-quest">when</span> <span class="g-pc">they were eating</span>.<br><em style="font-size:.8rem;color:var(--text-soft)">Llegué (interrupción) cuando ellos estaban comiendo (fondo).</em></span></div>' +
+        '</div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Cuidado con "when"</div>' +
+          '<p>"When" puede ir con ambos tiempos, pero cambia el rol:<br>' +
+          '🟠 I <b>arrived</b> when she <b>was cooking</b>. → llegué (PS) interrumpe a ella cocinando (PC)<br>' +
+          '🔵 I <b>was arriving</b> when she <b>called</b>. → yo llegando (PC) cuando ella llamó (PS)</p></div>',
+      exercises: [
+        {q: '"I was sleeping ___ he called." — conector correcto:', a: 'b', o: ['while', 'when'], fc: '"When" introduce la acción que interrumpe al Past Continuous. I was sleeping when he called.', fi: '"While" introduce otra acción simultánea en PC. "While he was calling, I was sleeping."', ex: 'I was sleeping when he called. → Estaba durmiendo cuando llamó.', tip: 'when = interrupción puntual · while = dos acciones simultáneas'},
+        {q: '"___ she was cooking, I was reading." — conector:', a: 'a', o: ['While', 'When'], fc: '"While" conecta dos acciones en PC que ocurren al mismo tiempo.', fi: '"When" introduce una acción puntual (PS) que interrumpe.', ex: 'While she was cooking, I was reading. → Mientras ella cocinaba, yo leía.', tip: 'while + PC → dos acciones simultáneas'},
+        {q: '"I ___ dinner when she arrived."', a: 'a', o: ['was cooking', 'cooked'], fc: '"Was cooking" = acción en progreso (fondo) que "she arrived" interrumpe.', fi: '"Cooked" pondría dos PS seguidos: cociné → llegó. Perdemos el sentido de fondo.', ex: 'I was cooking dinner when she arrived. → Estaba cocinando cuando ella llegó.'},
+        {q: '"She ___ when I called her."', a: 'b', o: ['was sleep', 'was sleeping'], fc: '"Was sleeping" = PC correcto. Was + verb-ing.', fi: '"Was sleep" no tiene -ing. El verbo principal siempre necesita -ing en PC.', ex: 'She was sleeping when I called. → Ella estaba durmiendo cuando llamé.', tip: 'PC = was/were + verb-ing (obligatorio)'},
+        {q: '"Yesterday I ___ dinner at 7pm." (acción completa)', a: 'b', o: ['was cooking', 'cooked'], fc: '"Yesterday... cooked" = Past Simple. Acción terminada con señal de tiempo pasado.', fi: '"Was cooking" expresa proceso en curso. Con "yesterday" y sin contexto de interrupción, PS es más natural.', ex: 'Yesterday I cooked dinner at 7pm. → Ayer cociné la cena a las 7pm.', tip: 'yesterday / last / ago → señales de Past Simple'}
+      ]
+    },
+
+    /* ── PASO 4 ── */
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1 — La película:</strong> Imagina una película. El <b>Past Continuous</b> es la escena de fondo (música, ambiente). El <b>Past Simple</b> es cuando algo ocurre de repente.</div>' +
+        '<div class="tip-card"><strong>Tip 2 — Señales de tiempo:</strong> <b>yesterday / last night / ago</b> → casi siempre Past Simple. <b>at that moment / while / at 8pm</b> → posible Past Continuous.</div>' +
+        '<div class="tip-card"><strong>Tip 3 — "When" vs "While":</strong> <b>when</b> + Past Simple = interrupción. <b>while</b> + Past Continuous = simultaneidad. Son los conectores más importantes de este contraste.</div>' +
+        '<div class="tip-card"><strong>Tip 4 — Pregunta clave:</strong> ¿La acción estaba <b>en curso</b> o ya <b>terminó</b>? En curso → PC. Terminó → PS.</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-pc">PC (fondo)</span> + <span class="g-quest">when</span> + <span class="g-ps">PS (interrupción)</span><br>' +
+          '<span class="g-quest">While</span> + <span class="g-pc">PC</span>, + <span class="g-pc">PC</span> (simultáneas)<br>' +
+          '<span class="g-ps">PS</span> + <span class="g-quest">when</span> + <span class="g-pc">PC</span> (también posible, orden invertido)' +
+        '</div>',
+      exercises: [
+        {q: '"She ___ TV when I arrived." (estaba viendo)', a: 'b', o: ['watched', 'was watching'], fc: '"Was watching" = fondo (PC) cuando yo llegué (PS interrupción).', fi: '"Watched" pondría dos acciones PS en secuencia: miró → llegué. Se pierde la idea de fondo.', ex: 'She was watching TV when I arrived. → Estaba viendo TV cuando llegué.'},
+        {q: '"I ___ home at 10pm yesterday." (llegué)', a: 'a', o: ['arrived', 'was arriving'], fc: '"Arrived" = Past Simple. Acción puntual con "yesterday" como señal.', fi: '"Was arriving" expresa proceso gradual de llegar, inusual con "yesterday at 10pm".', ex: 'I arrived home at 10pm yesterday. → Llegué a casa a las 10pm ayer.', tip: 'yesterday + acción puntual → Past Simple'},
+        {q: '"While she was cooking, he ___ ." (limpió)', a: 'b', o: ['was cleaning', 'cleaned'], fc: '"While + PC, PC" = dos acciones simultáneas en progreso. She was cooking / he was cleaning.', fi: '"Cleaned" (PS) también posible pero "while" con PC indica simultaneidad de proceso.', ex: 'While she was cooking, he was cleaning. → Mientras ella cocinaba, él limpiaba.', tip: 'while + PC → simultaneidad'},
+        {q: '"___ you studying when I called?"', a: 'b', o: ['Did', 'Were'], fc: '"Were you studying?" → Past Continuous pregunta. Pregunta si el proceso estaba en curso.', fi: '"Did you study?" sería PS: ¿Estudiaste? Sin foco en el proceso.', ex: 'Were you studying when I called? → ¿Estabas estudiando cuando llamé?'},
+        {q: 'Señal de Past Simple típica:', a: 'a', o: ['last night / yesterday / ago', 'at that moment / while'], fc: '"Last night, yesterday, ago" = señales de PS → acción completa en un punto del pasado.', fi: '"At that moment, while" sugieren proceso en curso → Past Continuous.', ex: 'I cooked last night (PS) · I was cooking at that moment (PC)', tip: 'last/yesterday/ago → Past Simple'}
+      ]
+    },
+
+    /* ── PASO 5 ── */
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '🟠 <span class="g-ps">Past Simple</span> = acción completa · <i>cooked, arrived, studied</i><br>' +
+          '🔵 <span class="g-pc">Past Continuous</span> = en progreso · <i>was cooking, were studying</i><br>' +
+          '<span class="g-pc">PC</span> + <span class="g-quest">when</span> + <span class="g-ps">PS</span> · <span class="g-quest">While</span> + <span class="g-pc">PC</span> + , + <span class="g-pc">PC</span>' +
+        '</div>' +
+        '<div class="ex-row ex-ps"><div class="icon">🟠</div><div><div class="en"><span class="g-subj">She</span> <span class="g-ps">cooked</span> <span class="g-comp">dinner yesterday</span>.</div><div class="es">Ella cocinó la cena ayer. (acción terminada)</div></div></div>' +
+        '<div class="ex-row ex-pc"><div class="icon">🔵</div><div><div class="en"><span class="g-subj">She</span> <span class="g-pc">was cooking</span> <span class="g-comp">when I arrived</span>.</div><div class="es">Ella estaba cocinando cuando llegué. (fondo + interrupción)</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🔗</div><div><div class="en"><span class="g-quest">While</span> <span class="g-subj">he</span> <span class="g-pc">was sleeping</span>, <span class="g-subj">she</span> <span class="g-ps">arrived</span>.</div><div class="es">Mientras él dormía, ella llegó.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "I was cook dinner." → ✅ "I was <b>cooking</b> dinner." (-ing obligatorio en PC)<br>' +
+          '❌ "While he called, I was sleeping." → ✅ "I was sleeping <b>when</b> he called." (called = acción puntual → when)<br>' +
+          '❌ "She cooked when I arrived." → ✅ "She <b>was cooking</b> when I arrived." (fondo = PC)' +
+        '</p></div>',
+      exercises: [
+        {q: '"I ___ when you called me." (estaba durmiendo)', a: 'b', o: ['slept', 'was sleeping'], fc: '"Was sleeping" = fondo (PC) interrumpido por "you called" (PS).', fi: '"Slept" es PS: dormí. No expresa que el proceso estaba en curso cuando llamaste.', ex: 'I was sleeping when you called me. → Estaba durmiendo cuando me llamaste.'},
+        {q: '"She ___ dinner last night." (cocinó — acción terminada)', a: 'a', o: ['cooked', 'was cooking'], fc: '"Cooked" = PS. "Last night" señala una acción completa del pasado.', fi: '"Was cooking last night" también posible si hay contexto, pero sin interrupción PS es más natural.', ex: 'She cooked dinner last night. → Ella cocinó la cena anoche.', tip: 'last night + acción terminada → Past Simple'},
+        {q: '"While they ___, I arrived."', a: 'b', o: ['ate', 'were eating'], fc: '"While + Past Continuous" = proceso simultáneo. While they were eating → yo llegué.', fi: '"While they ate" mezcla while con PS, lo cual es menos natural para expresar simultaneidad.', ex: 'While they were eating, I arrived. → Mientras ellos comían, llegué.', tip: 'while → Past Continuous'},
+        {q: '"___ he studying when you arrived?"', a: 'b', o: ['Did', 'Was'], fc: '"Was he studying?" → pregunta sobre proceso en curso (PC) en el momento de llegada.', fi: '"Did he study?" → PS: ¿Estudió? Sin conexión con el momento de llegada.', ex: 'Was he studying when you arrived? → ¿Estaba estudiando cuando llegaste?'},
+        {q: '"I ___ to music while she was cooking."', a: 'a', o: ['was listening', 'listened'], fc: '"While + PC, PC" — ambas acciones en proceso simultáneo. I was listening / she was cooking.', fi: '"Listened" (PS) posible, pero "while" con PC expresa mejor la simultaneidad de los dos procesos.', ex: 'I was listening to music while she was cooking. → Escuchaba música mientras ella cocinaba.', tip: 'while + PC + PC → dos procesos simultáneos'}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

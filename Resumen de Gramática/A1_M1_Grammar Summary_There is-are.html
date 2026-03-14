@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — There is / There are | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-there{background:#FFF3E0;color:#E65100;padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid #FF8F00}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#E8F5E9;border:2px solid #A5D6A7}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--ok)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.there-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.there-card{padding:1rem;border-radius:12px;text-align:center}
+.there-card.sing{background:#FFF3E0;border:2px solid #FFB74D}
+.there-card.plur{background:#E8F5E9;border:2px solid #A5D6A7}
+.there-card h4{font-family:'Fredoka',sans-serif;font-size:.95rem;margin-bottom:.4rem}
+.there-card.sing h4{color:#E65100}
+.there-card.plur h4{color:var(--ok)}
+.there-card p{font-size:.82rem;color:var(--text-soft);line-height:1.6}
+
+.forms-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.form-item{padding:.7rem .5rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.form-item .label{font-size:.68rem;color:var(--text-soft);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.2rem}
+.form-item .val{font-family:'Fredoka',sans-serif;font-size:1rem;color:var(--ld)}
+.form-item .sub{font-size:.68rem;color:var(--text-soft);margin-top:.1rem}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.9}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .compare-grid,.there-grid,.forms-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life &amp; Personal Routines — There is / There are</div>
+  <p class="subtitle">Existencia · afirmativo · negativo · preguntas · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: There is / There are</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>There is</b> + singular/incontable: <i>There is a nurse. / There is water.</i>",
+    "<b>There are</b> + plural: <i>There are two doctors.</i>",
+    "<b>Negativo:</b> There isn't / There aren't",
+    "<b>Pregunta:</b> Is there...? / Are there...? → Yes, there is. / No, there aren't.",
+    "<b>Contracción:</b> There's = There is (muy común en conversación)",
+    "<b>Trampa:</b> 'Hay' en español NO es 'have' en inglés — es <i>there is/are</i>",
+    "El verbo concuerda con el sustantivo que sigue, no con 'there'"
+  ],
+  steps: [
+    /* ── PASO 1 ── */
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español, la palabra "hay" sirve para expresar existencia: indica que algo existe o está en un lugar. Es la misma forma para singular y plural.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 "Hay" en Español</h4><ul><li><b>Hay</b> un libro</li><li><b>Hay</b> dos libros</li><li><b>Hay</b> agua</li><li><b>Hay</b> enfermeros</li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 There is / There are</h4><ul><li>There <b>is</b> a book</li><li>There <b>are</b> two books</li><li>There <b>is</b> water</li><li>There <b>are</b> nurses</li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> "Hay" en español = una sola palabra para todo. En inglés cambia: <b>There is</b> (singular/incontable) · <b>There are</b> (plural). ¡Hay que contar!</div>' +
+        '<div class="ex-row"><div class="icon">🏠</div><div><div class="en">Hay una cocina. → Hay dos cuartos.</div><div class="es">There <b>is</b> a kitchen. → There <b>are</b> two rooms. — el verbo cambia según el número</div></div></div>' +
+        '<div class="ex-row"><div class="icon">💧</div><div><div class="en">Hay agua en la mesa. → incontable = singular</div><div class="es">There <b>is</b> water on the table. — incontable → there is</div></div></div>',
+      exercises: [
+        {q: '"Hay" en español corresponde a:', a: 'b', o: ['have', 'there is / there are'], fc: '"Hay" = there is / there are. Nunca "have" (= tener).', fi: '"Have" significa "tener". "Hay" expresa existencia → there is/are.', ex: 'Hay un libro. → There is a book.', tip: 'Hay = there is/are · nunca have'},
+        {q: '"Hay" en español tiene ___ formas para singular y plural:', a: 'a', o: ['Una sola: "hay"', 'Dos: "hay" y "han"'], fc: '"Hay" es igual para singular y plural en español. En inglés cambia.', fi: 'En español es siempre "hay". En inglés sí cambia: is/are.', ex: 'Hay un libro. / Hay libros. → There is... / There are...'},
+        {q: '"Hay dos libros." → en inglés el verbo es:', a: 'b', o: ['There IS two books.', 'There ARE two books.'], fc: '"two books" = plural → There ARE two books.', fi: 'Plural siempre usa "are". "Is" es para singular.', ex: 'There are two books. → Hay dos libros.'},
+        {q: '"Hay agua." → en inglés:', a: 'a', o: ['There is water.', 'There are water.'], fc: '"water" es incontable → singular → There IS water.', fi: '"Water" es incontable, funciona como singular → there is.', ex: 'There is water. → Hay agua.', tip: 'Incontable → there is (singular)'},
+        {q: '"Hay una enfermera." → en inglés:', a: 'a', o: ['There is a nurse.', 'There are a nurse.'], fc: '"a nurse" = singular → There IS a nurse.', fi: '"A nurse" es singular. Plural sería "nurses" → there are.', ex: 'There is a nurse. → Hay una enfermera.'}
+      ]
+    },
+
+    /* ── PASO 2 ── */
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">There is/are comparte el propósito y muchas características con "hay" en español.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Indica existencia</td><td>Hay un médico</td><td>There <span class="g-verb">is</span> a doctor</td></tr>' +
+          '<tr><td>Negativo posible</td><td>No hay nadie</td><td>There <span class="g-neg">isn\'t</span> anyone</td></tr>' +
+          '<tr><td>Pregunta posible</td><td>¿Hay alguien?</td><td><span class="g-quest">Is</span> there anyone?</td></tr>' +
+          '<tr><td>Con incontables</td><td>Hay agua</td><td>There <span class="g-verb">is</span> water</td></tr>' +
+          '<tr><td>Con cantidades</td><td>Hay tres sillas</td><td>There <span class="g-verb">are</span> three chairs</td></tr>' +
+        '</table>' +
+        '<div class="there-grid">' +
+          '<div class="there-card sing"><h4>There IS</h4><p>+ singular<br>There is <b>a book</b><br>There is <b>water</b><br>There is <b>one nurse</b></p></div>' +
+          '<div class="there-card plur"><h4>There ARE</h4><p>+ plural<br>There are <b>books</b><br>There are <b>two doctors</b><br>There are <b>nurses</b></p></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> Mira el sustantivo que sigue a there is/are. ¿Es singular o plural? Eso decide el verbo.</div>',
+      exercises: [
+        {q: '"There ___ a kitchen in the house."', a: 'a', o: ['is', 'are'], fc: '"a kitchen" = singular → There IS a kitchen.', fi: '"Are" es para plural.', ex: 'There is a kitchen. → Hay una cocina.', tip: 'Singular → there is'},
+        {q: '"There ___ three rooms upstairs."', a: 'b', o: ['is', 'are'], fc: '"three rooms" = plural → There ARE three rooms.', fi: '"Is" es para singular.', ex: 'There are three rooms. → Hay tres cuartos.', tip: 'Plural → there are'},
+        {q: '"There ___ some water in the glass."', a: 'a', o: ['is', 'are'], fc: '"water" = incontable → singular → There IS water.', fi: '"Water" es incontable, funciona como singular.', ex: 'There is some water. → Hay un poco de agua.', tip: 'Incontable → there is'},
+        {q: '"There ___ two nurses and a doctor."', a: 'b', o: ['is', 'are'], fc: 'El primer sustantivo "two nurses" es plural → There ARE.', fi: 'El verbo sigue al primer sustantivo de la lista.', ex: 'There are two nurses and a doctor.', tip: 'Lista → verbo según el primer elemento'},
+        {q: 'There is/are indica:', a: 'a', o: ['Existencia de algo en un lugar', 'Posesión (tener algo)'], fc: 'There is/are = "hay" → existencia. "Have/has" = posesión.', fi: '"Have/has" (tener) es diferente de "there is/are" (existencia).', ex: 'There is a book. → Hay un libro. (existe)'}
+      ]
+    },
+
+    /* ── PASO 3 ── */
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>Hay (invariable)</td><td>There <span class="g-verb">is</span> / There <span class="g-verb">are</span></td><td>Inglés distingue sing./pl.</td></tr>' +
+          '<tr><td>No hay (negativo)</td><td>There <span class="g-neg">isn\'t</span> / <span class="g-neg">aren\'t</span></td><td>Negativo también distingue</td></tr>' +
+          '<tr><td>¿Hay? (pregunta)</td><td><span class="g-quest">Is</span> there? / <span class="g-quest">Are</span> there?</td><td>Inversión como to be</td></tr>' +
+          '<tr><td>Hay un libro (singular)</td><td>There is <b>a</b> book</td><td>Singular → necesita "a/an"</td></tr>' +
+          '<tr><td>"Hay" ≠ "have"</td><td>There is ≠ I have</td><td>Existencia ≠ posesión</td></tr>' +
+        '</table>' +
+        '<div class="alert-card"><div class="atitle">⚠️ "Hay" ≠ "have"</div>' +
+          '<p>❌ "Have a book on the table." (incorrecto para "hay")<br>' +
+          '✅ "<b>There is</b> a book on the table." → existencia<br>' +
+          '✅ "<b>I have</b> a book." → posesión (yo tengo)</p></div>' +
+        '<div class="forms-grid">' +
+          '<div class="form-item"><div class="label">Afirmativo</div><div class="val">There\'s</div><div class="sub">= There is</div></div>' +
+          '<div class="form-item"><div class="label">Negativo</div><div class="val">isn\'t / aren\'t</div><div class="sub">There isn\'t / aren\'t</div></div>' +
+          '<div class="form-item"><div class="label">Pregunta</div><div class="val">Is / Are there?</div><div class="sub">inversión</div></div>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-there">There is</span> <span class="g-comp">a hospital</span> near here.</div><div class="es">Hay un hospital cerca.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">Have a hospital near here.</div><div class="es">"Have" no funciona para "hay" impersonal.</div></div></div>',
+      exercises: [
+        {q: '"No hay ningún médico." en inglés:', a: 'b', o: ["There aren't a doctor.", "There isn't a doctor."], fc: '"a doctor" = singular → There ISN\'T a doctor.', fi: '"aren\'t" es para plural. "A doctor" es singular.', ex: "There isn't a doctor. → No hay ningún médico.", tip: 'Singular → isn\'t'},
+        {q: '"No hay sillas." en inglés:', a: 'a', o: ["There aren't any chairs.", "There isn't any chairs."], fc: '"chairs" = plural → There AREN\'T any chairs.', fi: '"isn\'t" es solo para singular.', ex: "There aren't any chairs. → No hay sillas.", tip: 'Plural → aren\'t'},
+        {q: '"¿Hay un hospital cerca?" en inglés:', a: 'b', o: ['There is a hospital near?', 'Is there a hospital near?'], fc: 'Pregunta → inversión: IS THERE a hospital?', fi: 'Solo cambiar el tono no forma la pregunta en inglés.', ex: 'Is there a hospital near? → ¿Hay un hospital cerca?', tip: 'Pregunta → Is/Are there...?'},
+        {q: '"Tengo un libro." vs. "Hay un libro." en inglés:', a: 'a', o: ['I have a book. / There is a book.', 'There have a book. / I is a book.'], fc: '"I have" = posesión (tengo). "There is" = existencia (hay).', fi: '"There have" no existe. "Have" no reemplaza a "there is".', ex: 'I have a book. → Tengo un libro. / There is a book. → Hay un libro.'},
+        {q: 'Contracción de "There is":', a: 'a', o: ["There's", "Theres"], fc: "There's = There is. Con apóstrofo entre 'e' y 's'.", fi: '"Theres" sin apóstrofo no es correcto.', ex: "There's a kitchen here. → Hay una cocina aquí.", tip: "There's = There is (conversación)"}
+      ]
+    },
+
+    /* ── PASO 4 ── */
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Mira el sustantivo DESPUÉS de there is/are. Singular → <b>is</b>. Plural → <b>are</b>. Incontable → <b>is</b>.</div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Negativo con "any": There isn\'t <b>any</b> water. / There aren\'t <b>any</b> chairs. "Any" suena más natural en negativo.</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Pregunta → invierte: <b>Is there</b> a bathroom? / <b>Are there</b> two rooms? Respuesta corta: Yes, there is. / No, there aren\'t.</div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> "Hay" ≠ "have". Memoriza: <b>Hay</b> = There is/are · <b>Tengo</b> = I have. Son dos verbos completamente diferentes.</div>' +
+        '<div class="formula-box">' +
+          '✅ <span class="g-there">There is</span> + a/an + singular · <span class="g-there">There is</span> + incontable<br>' +
+          '✅ <span class="g-there">There are</span> + número/plural<br>' +
+          '❌ <span class="g-neg">There isn\'t</span> + singular · <span class="g-neg">There aren\'t</span> + plural<br>' +
+          '❓ <span class="g-quest">Is there</span> + singular? · <span class="g-quest">Are there</span> + plural?' +
+        '</div>',
+      exercises: [
+        {q: '"___ a bathroom in the house?"', a: 'b', o: ['There is', 'Is there'], fc: 'Pregunta → inversión: IS THERE a bathroom?', fi: '"There is" es afirmativo, no pregunta.', ex: 'Is there a bathroom? → ¿Hay un baño?', tip: 'Pregunta → Is/Are there...?'},
+        {q: '"There ___ any milk in the fridge."', a: 'a', o: ["isn't", "aren't"], fc: '"milk" = incontable → singular → There ISN\'T any milk.', fi: '"Aren\'t" es para plural.', ex: "There isn't any milk. → No hay leche.", tip: 'Incontable → isn\'t'},
+        {q: '"___ two doctors in the clinic."', a: 'a', o: ['There are', 'There is'], fc: '"two doctors" = plural → There ARE two doctors.', fi: '"There is" es solo para singular o incontable.', ex: 'There are two doctors. → Hay dos médicos.'},
+        {q: '"Are there any chairs?" → "Yes, ___"', a: 'b', o: ['Yes, they are.', 'Yes, there are.'], fc: '"Yes, there are." — respuesta corta repite "there are".', fi: '"Yes, they are" responde sobre las sillas como sujeto, no sobre su existencia.', ex: 'Are there chairs? → Yes, there are.', tip: 'Respuesta corta: Yes, there is/are'},
+        {q: 'There\'s a cook in the kitchen. Significa:', a: 'a', o: ['Hay un cocinero en la cocina.', 'Tengo un cocinero en la cocina.'], fc: "There's = There is → existencia → 'hay'.", fi: '"Tengo" sería "I have a cook..." → posesión.', ex: "There's a cook. → Hay un cocinero."}
+      ]
+    },
+
+    /* ── PASO 5 ── */
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-there">There\'s</span> a kitchen. · <span class="g-there">There are</span> two rooms.<br>' +
+          '<span class="g-neg">There isn\'t</span> a doctor. · <span class="g-neg">There aren\'t</span> any chairs.<br>' +
+          '<span class="g-quest">Is there</span> a hospital? · <span class="g-quest">Are there</span> nurses?' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🏥</div><div><div class="en"><span class="g-there">There is</span> <span class="g-comp">a hospital</span> in the city.</div><div class="es">Hay un hospital en la ciudad.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">🪑</div><div><div class="en"><span class="g-neg">There aren\'t</span> <span class="g-comp">any chairs</span> in the room.</div><div class="es">No hay sillas en el cuarto.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">❓</div><div><div class="en"><span class="g-quest">Is there</span> <span class="g-comp">a cook</span> in the kitchen?</div><div class="es">¿Hay un cocinero en la cocina?</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "There are a nurse." → ✅ "There <b>is</b> a nurse." (singular)<br>' +
+          '❌ "Have a hospital here." → ✅ "There <b>is</b> a hospital here." (hay ≠ have)<br>' +
+          '❌ "There isn\'t any chairs." → ✅ "There <b>aren\'t</b> any chairs." (plural)' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ a supermarket near the house."', a: 'b', o: ['There are', 'There is'], fc: '"a supermarket" = singular → There IS a supermarket.', fi: '"There are" es para plural.', ex: 'There is a supermarket near. → Hay un supermercado cerca.'},
+        {q: '"___ any eggs in the fridge?"', a: 'b', o: ['Is there', 'Are there'], fc: '"eggs" = plural → ARE THERE any eggs?', fi: '"Is there" es para singular.', ex: 'Are there any eggs? → ¿Hay huevos?', tip: 'Plural → Are there...?'},
+        {q: '"There ___ any coffee." (no hay)', a: 'a', o: ["isn't", "aren't"], fc: '"coffee" = incontable → singular → There ISN\'T any coffee.', fi: '"Aren\'t" es para plural.', ex: "There isn't any coffee. → No hay café.", tip: 'Incontable → isn\'t'},
+        {q: '"Is there a nurse?" → "No, ___"', a: 'b', o: ["No, there aren't.", "No, there isn't."], fc: '"No, there isn\'t." — singular → isn\'t.', fi: '"Aren\'t" es para plural. "A nurse" es singular.', ex: "Is there a nurse? → No, there isn't."},
+        {q: '"___ two doctors and a nurse in the clinic."', a: 'a', o: ['There are', 'There is'], fc: '"two doctors" es el primer elemento → plural → There ARE.', fi: 'El verbo sigue al primer sustantivo de la lista.', ex: 'There are two doctors and a nurse.', tip: 'Lista → verbo según el primer elemento'}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>

@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification - A1 Daily Life | Articles | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-light: #BBDEFB;
+            --primary-dark: #0D47A1;
+            --accent: #64B5F6;
+            --bg-gradient-start: #E3F2FD;
+            --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470;
+            --text-medium: #0D47A1;
+            --text-light: #1565C0;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --purple: #8B5CF6;  --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .article-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .article-badge.a-an  { background:#E3F2FD; color:#0D47A1; }
+        .article-badge.the   { background:#EDE9FE; color:#6D28D9; }
+        .article-badge.zero  { background:#D1FAE5; color:#059669; }
+        .article-badge.mixed { background:#FFF3E0; color:#C2410C; }
+
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled  { cursor:default; }
+        .sent-option.correct   { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error);   background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:1px; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct   .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error);   color:white; }
+        .option-text { font-size:0.98rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
+        .sent-option.correct   .option-text { color:var(--success-dark); }
+        .sent-option.incorrect .option-text { color:var(--error-dark); }
+        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
+        .sent-option.correct   .option-status,
+        .sent-option.incorrect .option-status { opacity:1; }
+
+        .error-highlight   { color:var(--error);        font-weight:800; text-decoration:underline wavy var(--error); }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge   { display:inline-block; background:var(--error);   color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+
+        .fb-signal      { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong{ background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal      .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:flex-start; gap:0.6rem; padding:0.4rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label       { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
+        .compare-label.wrong { background:var(--error-light);   color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap  { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box   { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text  { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji   { font-size:4rem; margin-bottom:1rem; }
+        .results-title   { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score   { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star            { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned     { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons  { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn         { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-daily-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">🔵 A1 · Daily Life · Articles: a / an / the / Ø</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que use correctamente <strong>a</strong>, <strong>an</strong>, <strong>the</strong> o <strong>Ø</strong> (sin artículo).</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/10</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-daily-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // IDENTIFY — Articles a / an / the / Ø
+    // A1 · Daily Life & Personal Routines
+    // Nuevos contextos — artículos distintos a los del Fill
+    // Fill usó: a nice place, an old man, the food, Ø food,
+    //           a friend, the best, Ø friends, an early, the book, a plan
+    // Identify usa nuevas oraciones con los mismos 4 tipos de error
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            articleType: "a-an",
+            articleLabel: "a / an",
+            options: [
+                { text: "Luis is an very good cook for Ana.", correct: false,
+                  errorWord: "an", correctWord: "a",
+                  errorType: "an antes de consonante",
+                  explanation: "'Very' empieza con el sonido consonántico /v/. 'An' solo se usa antes de sonido vocálico. La forma correcta es 'a very good cook'." },
+                { text: "Luis is a very good cook for Ana.", correct: true },
+                { text: "Luis is the very good cook for Ana.", correct: false,
+                  errorWord: "the", correctWord: "a",
+                  errorType: "the en caracterización indefinida",
+                  explanation: "'The' implica que ya se habló de este cocinero específico. Aquí es una caracterización general — la primera mención — así que se necesita 'a'." }
+            ],
+            clue: "very good cook (primera mención + consonante)",
+            clueExplain: "es una caracterización indefinida en primera mención. 'Very' empieza con /v/ — consonante — así que el artículo correcto es 'a', nunca 'an'.",
+            rule: "a + adjetivo/sustantivo que empieza con CONSONANTE",
+            examples: ["a very good cook → v consonante", "a big home → b consonante", "a nice man → n consonante"],
+            correctReason: "<span class='why-hl'>a</span> es el artículo indefinido correcto. Primera mención + 'very' empieza con /v/ (consonante) → 'a very good cook'. 'An' es solo para vocales."
+        },
+        {
+            id: 2,
+            articleType: "a-an",
+            articleLabel: "a / an",
+            options: [
+                { text: "Ana has an important plan to learn every day.", correct: true },
+                { text: "Ana has a important plan to learn every day.", correct: false,
+                  errorWord: "a", correctWord: "an",
+                  errorType: "a antes de vocal",
+                  explanation: "'Important' empieza con el sonido vocálico /i/. Antes de vocales se usa 'an', no 'a'. La forma correcta es 'an important plan'." },
+                { text: "Ana has important plan to learn every day.", correct: false,
+                  errorWord: "(sin artículo)", correctWord: "an",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Plan' es un sustantivo contable singular — nunca puede ir solo sin determinante. Necesita 'a', 'an', 'the' u otro. Aquí es primera mención + vocal → 'an important plan'." }
+            ],
+            clue: "important plan (primera mención + vocal)",
+            clueExplain: "'Important' empieza con el sonido vocálico /i/. Los sustantivos contables singulares en primera mención necesitan artículo, y antes de vocal es siempre 'an'.",
+            rule: "an + adjetivo/sustantivo que empieza con VOCAL (a, e, i, o, u)",
+            examples: ["an important plan → i vocal", "an old book → o vocal", "an early day → e vocal"],
+            correctReason: "<span class='why-hl'>an</span> porque 'important' empieza con /i/ (vocal). Además, 'plan' es contable singular — no puede ir sin artículo."
+        },
+        {
+            id: 3,
+            articleType: "the",
+            articleLabel: "the — 2ª mención",
+            options: [
+                { text: "Carlos brought a book. Ana opened a book right away.", correct: false,
+                  errorWord: "a book (2ª vez)", correctWord: "the book",
+                  errorType: "Artículo indefinido en 2ª mención",
+                  explanation: "La primera vez es 'a book' (cualquiera). La segunda vez ya sabemos cuál libro — ese específico que trajo Carlos — por eso se usa 'the book'." },
+                { text: "Carlos brought a book. Ana opened the book right away.", correct: true },
+                { text: "Carlos brought a book. Ana opened book right away.", correct: false,
+                  errorWord: "(sin artículo)", correctWord: "the book",
+                  errorType: "Sin artículo en contable singular conocido",
+                  explanation: "'Book' es contable singular y ya conocido (segunda mención). No puede ir sin artículo — necesita 'the' para indicar que es el libro específico que se acaba de mencionar." }
+            ],
+            clue: "a book → the book (secuencia 1ª → 2ª mención)",
+            clueExplain: "la primera mención usa 'a book' para introducir el objeto. La segunda mención usa 'the book' porque ya sabemos exactamente de cuál se habla.",
+            rule: "1ª mención: a/an → 2ª mención: the (ya es conocido)",
+            examples: ["a book → the book", "a plan → the plan", "a room → the room"],
+            correctReason: "Primera mención: <span class='why-hl'>a book</span> (cualquier libro). Segunda mención: <span class='why-hl'>the book</span> (ese libro específico que ya conocemos)."
+        },
+        {
+            id: 4,
+            articleType: "zero",
+            articleLabel: "Ø — incontable",
+            options: [
+                { text: "Ana and Luis like to drink a water every morning.", correct: false,
+                  errorWord: "a water", correctWord: "Ø water",
+                  errorType: "Artículo 'a' con incontable",
+                  explanation: "'Water' es incontable — no se puede contar (one water, two waters). Los incontables en sentido general no llevan artículo indefinido. 'A water' no existe en inglés estándar." },
+                { text: "Ana and Luis like to drink the water every morning.", correct: false,
+                  errorWord: "the water", correctWord: "Ø water",
+                  errorType: "the con incontable genérico",
+                  explanation: "'The water' implicaría un agua específica ya mencionada o conocida. Aquí se habla de agua en general (su costumbre diaria) → sin artículo." },
+                { text: "Ana and Luis like to drink water every morning.", correct: true }
+            ],
+            clue: "water (incontable, hábito general)",
+            clueExplain: "'Water' es incontable y se usa en sentido genérico — como parte de una rutina diaria. Los incontables genéricos nunca llevan artículo.",
+            rule: "Ø + incontable genérico: water, food, music, time...",
+            examples: ["drink water → incontable", "eat food → incontable", "like music → incontable"],
+            correctReason: "<span class='why-hl'>Ø</span> (sin artículo) porque 'water' es incontable y la oración habla de un hábito general, no de un agua específica. 'A water' no existe y 'the water' requeriría contexto previo."
+        },
+        {
+            id: 5,
+            articleType: "the",
+            articleLabel: "the — superlativo",
+            options: [
+                { text: "Maria is the nicest friend Ana has.", correct: true },
+                { text: "Maria is a nicest friend Ana has.", correct: false,
+                  errorWord: "a nicest", correctWord: "the nicest",
+                  errorType: "a con superlativo",
+                  explanation: "'A' es artículo indefinido para primera mención. Los superlativos son únicos — no puede haber dos 'más simpáticas' — por eso siempre van con 'the', nunca 'a'." },
+                { text: "Maria is nicest friend Ana has.", correct: false,
+                  errorWord: "(sin artículo)", correctWord: "the nicest",
+                  errorType: "Superlativo sin 'the'",
+                  explanation: "Los superlativos en inglés SIEMPRE llevan 'the'. 'Nicest friend' sin artículo es incorrecto — debe ser 'the nicest friend'." }
+            ],
+            clue: "nicest (superlativo)",
+            clueExplain: "los superlativos (-est / most) son únicos por definición. En inglés los superlativos SIEMPRE van precedidos de 'the' — sin excepción.",
+            rule: "the + superlativo (the nicest, the best, the most...)",
+            examples: ["the nicest friend → superlativo", "the best cook → superlativo", "the most happy → superlativo"],
+            correctReason: "<span class='why-hl'>the nicest</span> — todos los superlativos llevan 'the' obligatoriamente. Son únicos (solo una persona puede ser 'la más simpática'), por eso 'the'."
+        },
+        {
+            id: 6,
+            articleType: "zero",
+            articleLabel: "Ø — plural genérico",
+            options: [
+                { text: "Carlos likes to read the books every day.", correct: false,
+                  errorWord: "the books", correctWord: "Ø books",
+                  errorType: "the con plural genérico",
+                  explanation: "'The books' implicaría libros específicos ya conocidos. Aquí se habla de leer libros en general — es un gusto, una costumbre — así que no lleva artículo." },
+                { text: "Carlos likes to read a books every day.", correct: false,
+                  errorWord: "a books", correctWord: "Ø books",
+                  errorType: "a con sustantivo plural",
+                  explanation: "'A' solo se usa con sustantivos singulares. 'Books' está en plural — nunca puede ir con 'a'. Los plurales genéricos no llevan artículo." },
+                { text: "Carlos likes to read books every day.", correct: true }
+            ],
+            clue: "books (plural, gusto general)",
+            clueExplain: "'Books' está en plural y expresa un gusto general — no libros específicos. Los plurales en sentido general no llevan artículo en inglés.",
+            rule: "Ø + plural genérico (libros, cosas, amigos en general)",
+            examples: ["read books → plural general", "like things → plural general", "have friends → plural general"],
+            correctReason: "<span class='why-hl'>Ø</span> — 'books' en plural expresa un gusto general. 'The books' requeriría contexto previo; 'a books' nunca existe porque 'a' es solo para singular."
+        },
+        {
+            id: 7,
+            articleType: "a-an",
+            articleLabel: "a / an",
+            options: [
+                { text: "Ana has an happy life with her father.", correct: false,
+                  errorWord: "an happy", correctWord: "a happy",
+                  errorType: "an antes de consonante (h aspirada)",
+                  explanation: "'Happy' empieza con la 'h' aspirada /h/ — sonido consonántico. Aunque 'h' puede ser muda en palabras como 'hour' o 'honest', en 'happy' se pronuncia. Antes de /h/ aspirada → 'a happy'." },
+                { text: "Ana has a happy life with her father.", correct: true },
+                { text: "Ana has happy life with her father.", correct: false,
+                  errorWord: "(sin artículo)", correctWord: "a happy",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Life' es contable singular aquí. No puede ir sin determinante — necesita 'a', 'an', 'the' u otro. Es primera mención → 'a happy life'." }
+            ],
+            clue: "happy life (h aspirada + primera mención)",
+            clueExplain: "'Happy' empieza con /h/ aspirada — sonido consonántico. Se usa 'a', no 'an'. Ojo: 'hour' u 'honest' tienen h muda y sí usan 'an', pero 'happy' no.",
+            rule: "a + h aspirada (happy, home, hard, high...)",
+            examples: ["a happy life → h aspirada", "a hard plan → h aspirada", "a high room → h aspirada"],
+            correctReason: "<span class='why-hl'>a happy life</span> — 'happy' tiene 'h' aspirada (se pronuncia). Antes de consonante → 'a'. Las palabras con 'h' muda como 'hour' usan 'an', pero 'happy' no."
+        },
+        {
+            id: 8,
+            articleType: "the",
+            articleLabel: "the — único / conocido",
+            options: [
+                { text: "Luis puts cups above a table every morning.", correct: false,
+                  errorWord: "a table", correctWord: "the table",
+                  errorType: "a con referencia única conocida",
+                  explanation: "Es la mesa de su casa — única, ya conocida por el contexto. Cuando algo es único en su contexto (la mesa de nuestra casa, el sol, el cielo) se usa 'the', no 'a'." },
+                { text: "Luis puts cups above table every morning.", correct: false,
+                  errorWord: "(sin artículo)", correctWord: "the table",
+                  errorType: "Sin artículo en contable singular conocido",
+                  explanation: "'Table' es contable singular y se refiere a una mesa específica y conocida (la de su hogar). Un contable singular conocido necesita 'the'." },
+                { text: "Luis puts cups above the table every morning.", correct: true }
+            ],
+            clue: "the table (único en su contexto — la mesa de casa)",
+            clueExplain: "no es cualquier mesa — es la mesa de su casa, única en ese contexto. Cuando el sustantivo es único o ya conocido por el contexto, se usa 'the'.",
+            rule: "the + referencia única o conocida por contexto",
+            examples: ["the table in our home → única", "the sun → único en el universo", "the best man → único superlativo"],
+            correctReason: "<span class='why-hl'>the table</span> — es la mesa específica de su casa, única en ese contexto. 'A table' implicaría cualquier mesa desconocida; sin artículo nunca es correcto con contable singular."
+        },
+        {
+            id: 9,
+            articleType: "mixed",
+            articleLabel: "a / Ø mixto",
+            options: [
+                { text: "Maria is a good friend and she likes music.", correct: true },
+                { text: "Maria is good friend and she likes a music.", correct: false,
+                  errorWord: "good friend / a music",
+                  correctWord: "a good friend / music",
+                  errorType: "Dos errores: sin artículo + a con incontable",
+                  explanation: "Error 1: 'good friend' necesita 'a' — es contable singular primera mención. Error 2: 'a music' no existe — 'music' es incontable y no lleva artículo indefinido." },
+                { text: "Maria is the good friend and she likes the music.", correct: false,
+                  errorWord: "the good friend / the music",
+                  correctWord: "a good friend / music",
+                  errorType: "the en primera mención + the con incontable genérico",
+                  explanation: "Error 1: 'the good friend' implicaría que ya se habló de esta amiga antes. Es primera mención → 'a good friend'. Error 2: 'the music' necesita contexto previo; aquí es un gusto general → sin artículo." }
+            ],
+            clue: "a good friend (1ª mención) + music (incontable genérico)",
+            clueExplain: "'Friend' es contable singular en primera mención → 'a good friend'. 'Music' es incontable y expresa un gusto general → sin artículo.",
+            rule: "a + contable singular 1ª mención | Ø + incontable genérico",
+            examples: ["a good friend → 1ª mención", "like music → incontable", "a nice plan → 1ª mención"],
+            correctReason: "<span class='why-hl'>a good friend</span> (contable, 1ª mención, consonante) + <span class='why-hl'>music</span> sin artículo (incontable, gusto general). Cada sustantivo tiene su propia regla."
+        },
+        {
+            id: 10,
+            articleType: "zero",
+            articleLabel: "Ø — incontable abstracto",
+            options: [
+                { text: "Ana's father says a learning is very important.", correct: false,
+                  errorWord: "a learning", correctWord: "Ø learning",
+                  errorType: "a con sustantivo incontable abstracto",
+                  explanation: "'Learning' (el aprendizaje) es incontable abstracto cuando se usa en sentido general. No se puede contar 'one learning, two learnings'. En sentido general no lleva artículo." },
+                { text: "Ana's father says learning is very important.", correct: true },
+                { text: "Ana's father says the learning is very important.", correct: false,
+                  errorWord: "the learning", correctWord: "Ø learning",
+                  errorType: "the con abstracto genérico",
+                  explanation: "'The learning' implicaría un aprendizaje específico ya mencionado. Aquí se habla del aprendizaje en general — como concepto — y los abstractos genéricos no llevan artículo." }
+            ],
+            clue: "learning (incontable abstracto, sentido general)",
+            clueExplain: "'Learning' es un sustantivo abstracto incontable cuando se refiere al concepto general del aprendizaje. Como todo incontable/abstracto genérico, no lleva artículo.",
+            rule: "Ø + abstracto genérico (learning, happiness, life, knowledge...)",
+            examples: ["learning is important → abstracto", "happiness is good → abstracto", "knowledge is power → abstracto"],
+            correctReason: "<span class='why-hl'>Ø learning</span> — el aprendizaje como concepto general es incontable abstracto. Sin artículo. 'A learning' no existe y 'the learning' requeriría contexto específico previo."
+        },
+        {
+            id: 11,
+            articleType: "a-an",
+            articleLabel: "a / an",
+            // Story 1: Ana — "She doesn't use an alarm"
+            options: [
+                { text: "Ana's father puts water on for tea every morning.", correct: true },
+                { text: "Ana's father puts water on for a tea every morning.", correct: false,
+                  errorWord: "a tea", correctWord: "Ø tea",
+                  errorType: "a con sustantivo incontable",
+                  explanation: "'Tea' es incontable cuando se refiere a la bebida en general. No se puede contar 'one tea, two teas' en este contexto de rutina. 'A tea' es incorrecto — sin artículo es lo correcto." },
+                { text: "Ana's father puts water on for the tea every morning.", correct: false,
+                  errorWord: "the tea", correctWord: "Ø tea",
+                  errorType: "the con incontable genérico habitual",
+                  explanation: "'The tea' implicaría un té específico ya mencionado antes. Aquí es parte de una rutina diaria — el té como bebida en general → sin artículo." }
+            ],
+            clue: "tea (incontable en sentido habitual/general)",
+            clueExplain: "'Tea' es incontable cuando se refiere a la bebida en general. En rutinas y hábitos, los incontables van sin artículo.",
+            rule: "Ø + sustantivo incontable en sentido habitual (tea, water, coffee...)",
+            examples: ["put water on for tea → incontable", "drink coffee → incontable", "make soup → incontable"],
+            correctReason: "<span class='why-hl'>Ø tea</span> — 'tea' como bebida habitual es incontable. No lleva artículo. 'A tea' no existe en este contexto; 'the tea' requeriría mención previa."
+        },
+        {
+            id: 12,
+            articleType: "the",
+            articleLabel: "the — 2ª mención",
+            // Story 2: David — "his mother came to visit and gave him a small cookbook... He would come home and open the book"
+            options: [
+                { text: "David's mother gave him a small cookbook. He opened a cookbook right away.", correct: false,
+                  errorWord: "a cookbook", correctWord: "the cookbook",
+                  errorType: "Artículo indefinido en segunda mención",
+                  explanation: "'A cookbook' en la segunda oración implicaría un libro diferente — no el que su madre le dio. La primera mención usó 'a cookbook'; la segunda debe usar 'the cookbook' para referirse al mismo." },
+                { text: "David's mother gave him a small cookbook. He opened the cookbook right away.", correct: true },
+                { text: "David's mother gave him a small cookbook. He opened cookbook right away.", correct: false,
+                  errorWord: "opened cookbook", correctWord: "opened the cookbook",
+                  errorType: "Sin artículo en segunda mención de contable singular",
+                  explanation: "'Cookbook' es contable singular — nunca va sin artículo cuando ya fue presentado. La segunda mención de un sustantivo específico siempre usa 'the'." }
+            ],
+            clue: "cookbook (segunda mención — ya fue presentado con 'a')",
+            clueExplain: "La primera oración presenta el libro con 'a cookbook'. La segunda oración habla de ese mismo libro específico → segunda mención = 'the cookbook'.",
+            rule: "1ª mención: a cookbook → 2ª mención: the cookbook",
+            examples: ["a cookbook → the cookbook", "a book → the book", "a notebook → the notebook"],
+            correctReason: "Primera mención → 'a small cookbook'. Segunda mención → <span class='why-hl'>the cookbook</span>. 'A cookbook' repetiría la misma forma implicando otro libro diferente."
+        },
+        {
+            id: 13,
+            articleType: "the",
+            articleLabel: "the — único / superlativo",
+            // Story 3: Elena — "The kitchen was the most important room in the house"
+            options: [
+                { text: "In Elena's home, the kitchen was a most important room.", correct: false,
+                  errorWord: "a most important", correctWord: "the most important",
+                  errorType: "a con superlativo",
+                  explanation: "Los superlativos SIEMPRE van con 'the'. 'The most important' = 'el más importante' — único. 'A most important' es incorrecto porque 'a' implica uno entre varios iguales, pero el superlativo implica unicidad." },
+                { text: "In Elena's home, the kitchen was most important room.", correct: false,
+                  errorWord: "most important room (sin the)", correctWord: "the most important room",
+                  errorType: "Superlativo sin 'the'",
+                  explanation: "Los superlativos no pueden aparecer sin 'the' en inglés. 'Most important room' sin artículo es incorrecto. La forma obligatoria siempre es 'the most important'." },
+                { text: "In Elena's home, the kitchen was the most important room.", correct: true }
+            ],
+            clue: "most important (superlativo)",
+            clueExplain: "Los superlativos en inglés SIEMPRE llevan 'the'. 'The most important room' = 'el cuarto más importante' — hay solo uno, es único.",
+            rule: "the + superlativo (the most, the best, the nicest...)",
+            examples: ["the most important room → superlativo", "the best cook → superlativo", "the nicest day → superlativo"],
+            correctReason: "<span class='why-hl'>the most important</span> — todos los superlativos llevan 'the' obligatoriamente. 'A most important' y 'most important' sin artículo son siempre incorrectos."
+        },
+        {
+            id: 14,
+            articleType: "a-an",
+            articleLabel: "a / an",
+            // Story 4: Carlos — "He eats something quick — usually toast with an egg"
+            options: [
+                { text: "Carlos usually eats toast with an egg for breakfast before school.", correct: true },
+                { text: "Carlos usually eats toast with a egg for breakfast before school.", correct: false,
+                  errorWord: "a egg", correctWord: "an egg",
+                  errorType: "a antes de vocal",
+                  explanation: "'Egg' empieza con el sonido vocálico /e/. Antes de vocal se usa 'an', no 'a'. 'A egg' es incorrecto y difícil de pronunciar — la regla es siempre por SONIDO." },
+                { text: "Carlos usually eats toast with the egg for breakfast before school.", correct: false,
+                  errorWord: "the egg", correctWord: "an egg",
+                  errorType: "the con primera mención sin contexto previo",
+                  explanation: "'The egg' implicaría un huevo específico ya mencionado antes. Aquí es la primera mención — un huevo cualquiera como parte del desayuno → artículo indefinido 'an egg'." }
+            ],
+            clue: "egg (vocal /e/ — primera mención)",
+            clueExplain: "'Egg' empieza con el sonido vocálico /e/. La regla a/an depende siempre del SONIDO de la siguiente palabra — ante vocal se usa 'an'.",
+            rule: "an + sustantivo/adjetivo que empieza con sonido VOCAL (/e/, /a/, /i/, /o/, /u/)",
+            examples: ["an egg → vocal e", "an apple → vocal a", "an old book → vocal o"],
+            correctReason: "<span class='why-hl'>an egg</span> — 'egg' empieza con /e/ (vocal). La regla a/an es siempre por sonido: ante vocal → 'an'. 'A egg' es incorrecto; 'the egg' requeriría contexto previo."
+        },
+        {
+            id: 15,
+            articleType: "mixed",
+            articleLabel: "a / Ø mixto",
+            // Story 4: Carlos — "puts on music" + "drinks a glass of water"
+            options: [
+                { text: "Carlos opens the window, puts on a music, and drinks a glass of water while he cooks.", correct: false,
+                  errorWord: "a music", correctWord: "Ø music",
+                  errorType: "a con sustantivo incontable",
+                  explanation: "'Music' es incontable — no se puede contar 'one music, two musics'. Los incontables no aceptan 'a/an'. La forma correcta es simplemente 'puts on music'." },
+                { text: "Carlos opens the window, puts on music, and drinks glass of water while he cooks.", correct: false,
+                  errorWord: "drinks glass", correctWord: "drinks a glass",
+                  errorType: "Falta artículo con contable singular",
+                  explanation: "'Glass' es contable singular — nunca va sin artículo. 'Drinks glass' es incorrecto. Necesita 'a glass' (primera mención, consonante g) o 'the glass' (referencia conocida)." },
+                { text: "Carlos opens the window, puts on music, and drinks a glass of water while he cooks.", correct: true }
+            ],
+            clue: "Ø music (incontable) + a glass (contable singular)",
+            clueExplain: "Dos reglas en la misma oración: 'music' es incontable → sin artículo. 'Glass' es contable singular en primera mención → 'a glass'.",
+            rule: "Ø + incontable (music) / a + contable singular primera mención (glass)",
+            examples: ["put on music → incontable Ø", "drink a glass → contable singular", "listen to music → incontable Ø"],
+            correctReason: "<span class='why-hl'>Ø music</span> (incontable, no acepta 'a') + <span class='why-hl'>a glass</span> (contable singular, primera mención). Los dos artículos son distintos porque los sustantivos son de tipo diferente."
+        }
+    ];
+
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = [...q.options].sort(() => Math.random() - 0.5);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+        const badge = `<span class="article-badge ${q.articleType}">${q.articleLabel}</span>`;
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Elige la oración gramaticalmente correcta:</span>
+                ${badge}
+            </div>
+            <div class="sentence-options" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="sent-option" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                        <div class="option-status">${opt.correct ? '✅' : '❌'}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .sent-option`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx)      btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        function markError(text, word) {
+            if (!word) return text;
+            return text.replace(word, `<span class="error-highlight">${word}</span>`);
+        }
+        function markCorrect(text, word) {
+            if (!word) return text;
+            return text.replace(word, `<span class="correct-highlight">${word}</span>`);
+        }
+
+        const ruleExamples = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">¡Correcto! Identificaste bien la oración</div>
+                        <div class="fb-subtitle">Veamos por qué las otras estaban mal</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 Señal clave en las oraciones</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    ${q.shuffled.filter(o => !o.correct).map(err => `
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ Error en una opción: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${err.errorWord}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${err.correctWord}</span>
+                        </div>
+                        <div class="error-text">${err.explanation}</div>
+                    </div>`).join('')}
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrecto — revisemos juntos</div>
+                        <div class="fb-subtitle">Identifica la diferencia entre las oraciones</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 Señal clave que debías identificar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag red">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-block fb-compare">
+                        <div class="fb-block-title">🔄 Tu elección vs. la correcta</div>
+                        <div class="compare-row">
+                            <span class="compare-label wrong">Elegiste</span>
+                            <span class="compare-text">${markError(selected.text, selected.errorWord)}</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label right">Correcta</span>
+                            <span class="compare-text">${markCorrect(correctOpt.text, selected.correctWord)}</span>
+                        </div>
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${selected.errorWord}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${selected.correctWord}</span>
+                        </div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Identificas los artículos perfectamente. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa los errores y vuelve a intentarlo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

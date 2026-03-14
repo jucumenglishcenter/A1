@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A1 Daily Life | Articles | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-light: #BBDEFB;
+            --primary-dark: #0D47A1;
+            --accent: #64B5F6;
+            --bg-gradient-start: #E3F2FD;
+            --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470;
+            --text-medium: #0D47A1;
+            --text-light: #1565C0;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --orange: #F97316;  --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6;  --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --shadow-strong: 0 8px 30px rgba(33,150,243,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .article-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .article-badge.a-an   { background:#E3F2FD; color:#0D47A1; }
+        .article-badge.the    { background:#EDE9FE; color:#6D28D9; }
+        .article-badge.zero   { background:#D1FAE5; color:#059669; }
+        .article-badge.mixed  { background:#FFF3E0; color:#C2410C; }
+        .article-badge.a-to-the { background:#F3E5F5; color:#7B1FA2; }
+
+        /* ── TRANSFORM VISUAL ── */
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:0.98rem; font-weight:600; color:var(--text-dark); line-height:1.5; }
+        .article-hl { color:var(--orange-dark); font-weight:800; background:#FED7AA; padding:0 4px; border-radius:3px; }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.2rem 0; }
+
+        /* ── OPTIONS ── */
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.85rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:center; width:100%; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled  { cursor:default; }
+        .option-btn.correct   { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error);   background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .option-btn.correct   .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error);   color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-btn.correct   .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .art-word { font-weight:800; }
+        .option-btn.correct   .art-word { color:var(--success-dark); }
+        .option-btn.incorrect .art-word { color:var(--error-dark); text-decoration:underline wavy; }
+
+        /* ── FEEDBACK ── */
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.4rem; }
+        .tf-step { padding:0.5rem 0.8rem; border-radius:9px; font-size:0.93rem; font-weight:600; line-height:1.5; }
+        .tf-step.present      { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.past-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #BBF7D0; }
+        .tf-step.past-wrong   { background:var(--error-light);   color:var(--error-dark);   border:1px solid #FECACA; text-decoration:line-through; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; margin-right:6px; opacity:.7; }
+        .tf-arrow { text-align:center; color:#94A3B8; font-size:0.9rem; }
+        .vb-highlight { font-weight:800; text-decoration:underline; }
+
+        .fb-signal      { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong{ background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal      .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap  { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box   { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text  { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji   { font-size:4rem; margin-bottom:1rem; }
+        .results-title   { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score   { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star            { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned     { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons  { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn         { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-daily-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">🔵 A1 · Daily Life · Articles: a / an / the / Ø</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transforma la oración</div>
+                <div class="instructions-text">Lee la oración original. Elige la versión correcta según el cambio indicado: reemplaza el artículo o añade/elimina uno.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/10</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-daily-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // TRANSFORM — Articles a / an / the / Ø
+    // A1 · Daily Life & Personal Routines
+    //
+    // Transformaciones (10):
+    //  1.  a → an   (cambia adjetivo: nice→old, consonante→vocal)
+    //  2.  an → a   (cambia adjetivo: old→big, vocal→consonante)
+    //  3.  a → the  (1ª mención → 2ª mención en contexto)
+    //  4.  Ø → a    (incontable→contable: food→meal)
+    //  5.  the → Ø  (específico → genérico: cambio de contexto)
+    //  6.  a → Ø    (contable singular → plural genérico)
+    //  7.  Ø → an   (abstracto → contable singular con vocal)
+    //  8.  a → the  (indefinido → superlativo)
+    //  9.  the → a  (2ª mención → reintroduce nuevo referente)
+    // 10.  Ø → the  (genérico → referencia específica conocida)
+    //
+    // REGLA TRANSFORM: goal muestra solo el tipo de cambio,
+    // nunca el artículo respuesta.
+    // ============================================================
+    const quizData = [
+        {
+            id: 1,
+            transformType: "a-an",
+            transformLabel: "a → an",
+            base: "Our home is a nice place to live.",
+            presentVerb: "a",
+            goal: "Cambiar 'nice' por 'old'",
+            timeMarker: "a → an",
+            clueExplain: "Al cambiar 'nice' (consonante /n/) por 'old' (vocal /o/), el artículo también debe cambiar. Antes de vocal → 'an'.",
+            options: [
+                { text: "Our home is a old place to live.", correct: false, pastVerb: "a",
+                  errorType: "a antes de vocal",
+                  explanation: "'Old' empieza con vocal /o/. Al cambiar el adjetivo de 'nice' a 'old', el artículo también cambia de 'a' a 'an'. 'A old' es difícil de pronunciar e incorrecto." },
+                { text: "Our home is the old place to live.", correct: false, pastVerb: "the",
+                  errorType: "the en primera mención",
+                  explanation: "No hay contexto previo que haga este lugar específico y conocido. Es una descripción general → artículo indefinido. Y antes de 'old' (vocal) → 'an'." },
+                { text: "Our home is an old place to live.", correct: true, pastVerb: "an" }
+            ],
+            rule: "a → an cuando la siguiente palabra empieza con vocal",
+            examples: ["a nice place → an old place", "a good man → an old man", "a big room → an empty room"],
+            correctReason: "'Old' empieza con /o/ — sonido vocálico. Al cambiar el adjetivo, el artículo cambia con él: <span class='why-hl'>an old place</span>. La regla a/an depende del SONIDO de la palabra siguiente."
+        },
+        {
+            id: 2,
+            transformType: "a-an",
+            transformLabel: "an → a",
+            base: "Luis is an old man who likes to cook.",
+            presentVerb: "an",
+            goal: "Cambiar 'old' por 'good'",
+            timeMarker: "an → a",
+            clueExplain: "Al cambiar 'old' (vocal /o/) por 'good' (consonante /g/), el artículo también debe cambiar. Antes de consonante → 'a'.",
+            options: [
+                { text: "Luis is a good man who likes to cook.", correct: true, pastVerb: "a" },
+                { text: "Luis is an good man who likes to cook.", correct: false, pastVerb: "an",
+                  errorType: "an antes de consonante",
+                  explanation: "'Good' empieza con consonante /g/. El artículo 'an' solo va antes de vocales. Al cambiar 'old' por 'good', el artículo también cambia: 'an' → 'a'." },
+                { text: "Luis is the good man who likes to cook.", correct: false, pastVerb: "the",
+                  errorType: "the en descripción indefinida",
+                  explanation: "No hay contexto que haga a Luis 'el' hombre específico ya conocido. Es una descripción de su carácter → artículo indefinido. Y 'good' empieza con consonante → 'a'." }
+            ],
+            rule: "an → a cuando la siguiente palabra empieza con consonante",
+            examples: ["an old man → a good man", "an early hour → a nice hour", "an important plan → a big plan"],
+            correctReason: "'Good' empieza con /g/ — consonante. Al cambiar el adjetivo, el artículo cambia: <span class='why-hl'>a good man</span>. 'An good' es incorrecto — 'an' nunca va antes de consonante."
+        },
+        {
+            id: 3,
+            transformType: "a-to-the",
+            transformLabel: "a → the (2ª mención)",
+            base: "Carlos gave Ana a book yesterday.",
+            presentVerb: "a",
+            goal: "Añadir: 'She read ___ book all night.'",
+            timeMarker: "a → the",
+            clueExplain: "En la segunda oración el libro ya es conocido — es el mismo que mencionó Carlos. Segunda mención de un sustantivo conocido → 'the'.",
+            options: [
+                { text: "She read a book all night.", correct: false, pastVerb: "a",
+                  errorType: "a en segunda mención",
+                  explanation: "'A book' en la segunda oración implicaría otro libro distinto. Ya sabemos de cuál libro se habla — el que le dio Carlos — así que la segunda mención usa 'the book'." },
+                { text: "She read the book all night.", correct: true, pastVerb: "the" },
+                { text: "She read book all night.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Book' es contable singular y conocido. No puede ir sin artículo. Segunda mención de un sustantivo conocido → 'the book'." }
+            ],
+            rule: "1ª mención: a book → 2ª mención: the book",
+            examples: ["a book → the book", "a plan → the plan", "a room → the room"],
+            correctReason: "Primera mención: <span class='why-hl'>a book</span>. Segunda mención (ya sabemos cuál): <span class='why-hl'>the book</span>. 'A book' la segunda vez implicaría un libro diferente."
+        },
+        {
+            id: 4,
+            transformType: "zero",
+            transformLabel: "Ø → a (incontable → contable)",
+            base: "Ana and Luis eat food every morning.",
+            presentVerb: "Ø",
+            goal: "Cambiar 'food' por 'meal'",
+            timeMarker: "Ø → a",
+            clueExplain: "'Food' es incontable (sin artículo en general). 'Meal' es contable singular — cada comida es un evento individual. Con contable singular en primera mención → 'a meal'.",
+            options: [
+                { text: "Ana and Luis eat meal every morning.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Meal' es contable singular — no puede ir sin artículo. A diferencia de 'food' (incontable), 'meal' necesita 'a', 'the' u otro determinante." },
+                { text: "Ana and Luis eat the meal every morning.", correct: false, pastVerb: "the",
+                  errorType: "the en primera mención",
+                  explanation: "'The meal' implicaría una comida específica ya conocida. Aquí es una referencia general a cada desayuno → primera mención → 'a meal'." },
+                { text: "Ana and Luis eat a meal every morning.", correct: true, pastVerb: "a" }
+            ],
+            rule: "Incontable: Ø food | Contable singular 1ª mención: a meal",
+            examples: ["eat food → Ø (incontable)", "eat a meal → contable", "drink water → Ø (incontable)"],
+            correctReason: "Al cambiar 'food' (incontable, sin artículo) por 'meal' (contable singular), aparece el artículo: <span class='why-hl'>a meal</span>. Los contables singulares en primera mención necesitan 'a' o 'an'."
+        },
+        {
+            id: 5,
+            transformType: "the",
+            transformLabel: "the → Ø (específico → genérico)",
+            base: "Luis puts the cups on the table.",
+            presentVerb: "the",
+            goal: "Cambiar a hábito general (sin contexto previo)",
+            timeMarker: "the → Ø",
+            clueExplain: "En la oración original 'the cups' son específicas (las tazas de esa casa, ya conocidas). Al hablar de un hábito general sin contexto específico, 'cups' pasa a ser plural genérico → sin artículo.",
+            options: [
+                { text: "Luis puts a cups on the table every morning.", correct: false, pastVerb: "a cups",
+                  errorType: "a con sustantivo plural",
+                  explanation: "'A' solo funciona con singulares. 'Cups' está en plural — nunca puede ir con 'a'. Los plurales genéricos no llevan artículo." },
+                { text: "Luis puts cups on the table every morning.", correct: true, pastVerb: "Ø" },
+                { text: "Luis puts an cups on the table every morning.", correct: false, pastVerb: "an cups",
+                  errorType: "an con sustantivo plural",
+                  explanation: "'An' también es solo para singulares (antes de vocal). 'Cups' es plural — ni 'a' ni 'an' son posibles. El plural genérico no lleva artículo." }
+            ],
+            rule: "the cups (específicas) → Ø cups (hábito general, plural)",
+            examples: ["the cups → Ø cups (genérico)", "the books → Ø books (genérico)", "the things → Ø things (genérico)"],
+            correctReason: "Al hablar del hábito general, 'cups' pasa de referencia específica a plural genérico: <span class='why-hl'>Ø cups</span>. 'A cups' y 'an cups' no existen — 'a/an' son solo para singular."
+        },
+        {
+            id: 6,
+            transformType: "zero",
+            transformLabel: "a → Ø (singular → plural genérico)",
+            base: "Carlos likes to share a book with his friends.",
+            presentVerb: "a",
+            goal: "Cambiar 'a book' a plural genérico",
+            timeMarker: "a → Ø",
+            clueExplain: "Al pasar de 'a book' (singular, uno) a 'books' (plural genérico — libros en general), desaparece el artículo. Los plurales genéricos no llevan artículo.",
+            options: [
+                { text: "Carlos likes to share books with his friends.", correct: true, pastVerb: "Ø" },
+                { text: "Carlos likes to share the books with his friends.", correct: false, pastVerb: "the books",
+                  errorType: "the con plural genérico",
+                  explanation: "'The books' implicaría libros específicos ya conocidos. Al usar el plural para expresar un gusto general (libros en general), no se usa artículo." },
+                { text: "Carlos likes to share a books with his friends.", correct: false, pastVerb: "a books",
+                  errorType: "a con sustantivo plural",
+                  explanation: "'A' es solo para singulares. 'Books' es plural — 'a books' no existe. El plural genérico no lleva artículo." }
+            ],
+            rule: "a book (singular) → Ø books (plural genérico, sin artículo)",
+            examples: ["a book → books (general)", "a friend → friends (general)", "a plan → plans (general)"],
+            correctReason: "De singular indefinido a plural genérico: <span class='why-hl'>Ø books</span>. Los plurales que expresan gusto o costumbre general no llevan artículo. 'The books' sería solo para libros ya conocidos."
+        },
+        {
+            id: 7,
+            transformType: "a-an",
+            transformLabel: "Ø → an (abstracto → contable)",
+            base: "Maria says learning is important for life.",
+            presentVerb: "Ø",
+            goal: "Cambiar 'learning' por 'idea'",
+            timeMarker: "Ø → an",
+            clueExplain: "'Learning' como abstracto genérico no lleva artículo. Al cambiar a 'idea' (contable singular, vocal /i/), aparece el artículo indefinido 'an'.",
+            options: [
+                { text: "Maria says a idea is important for life.", correct: false, pastVerb: "a",
+                  errorType: "a antes de vocal",
+                  explanation: "'Idea' empieza con vocal /i/. Antes de vocal el artículo indefinido es 'an', no 'a'. 'A idea' es incorrecto." },
+                { text: "Maria says idea is important for life.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Idea' es contable singular — no puede ir sin artículo. A diferencia de 'learning' (abstracto), 'idea' necesita 'a', 'an' o 'the'. Aquí es primera mención + vocal → 'an idea'." },
+                { text: "Maria says an idea is important for life.", correct: true, pastVerb: "an" }
+            ],
+            rule: "Ø abstracto → an + contable singular con vocal",
+            examples: ["learning → an idea (vocal i)", "happiness → an emotion (vocal e)", "knowledge → an answer (vocal a)"],
+            correctReason: "Al cambiar de abstracto genérico ('learning', sin artículo) a contable singular ('idea'), aparece el artículo. 'Idea' empieza con /i/ (vocal) → <span class='why-hl'>an idea</span>."
+        },
+        {
+            id: 8,
+            transformType: "a-to-the",
+            transformLabel: "a → the (superlativo)",
+            base: "Luis is a good cook in Ana's home.",
+            presentVerb: "a",
+            goal: "Cambiar 'good' por 'best'",
+            timeMarker: "a → the",
+            clueExplain: "Al cambiar el adjetivo regular 'good' por el superlativo 'best', el artículo cambia obligatoriamente de 'a' a 'the'. Los superlativos siempre llevan 'the'.",
+            options: [
+                { text: "Luis is a best cook in Ana's home.", correct: false, pastVerb: "a",
+                  errorType: "a con superlativo",
+                  explanation: "Los superlativos NUNCA van con 'a'. Son únicos por definición — no puede haber dos 'mejores'. El superlativo siempre exige 'the': 'the best cook'." },
+                { text: "Luis is the best cook in Ana's home.", correct: true, pastVerb: "the" },
+                { text: "Luis is best cook in Ana's home.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Superlativo sin the",
+                  explanation: "Los superlativos en inglés SIEMPRE llevan 'the'. 'Best cook' sin artículo es incorrecto — debe ser 'the best cook'." }
+            ],
+            rule: "adjetivo normal: a good → superlativo: the best",
+            examples: ["a good cook → the best cook", "a nice place → the nicest place", "a big room → the biggest room"],
+            correctReason: "Al cambiar a superlativo, el artículo cambia obligatoriamente a <span class='why-hl'>the</span>. 'The best' = el mejor (único). Todos los superlativos llevan 'the' — sin excepción."
+        },
+        {
+            id: 9,
+            transformType: "a-to-the",
+            transformLabel: "the → a (reintroducir nuevo referente)",
+            base: "Ana opened the book Carlos gave her.",
+            presentVerb: "the",
+            goal: "Cambiar contexto: ahora es un libro diferente, no el de Carlos",
+            timeMarker: "the → a",
+            clueExplain: "Si ya no es el libro específico de Carlos sino cualquier libro nuevo, se pierde la referencia específica y se vuelve al artículo indefinido 'a'.",
+            options: [
+                { text: "Ana opened a new book from the library.", correct: true, pastVerb: "a" },
+                { text: "Ana opened the new book from the library.", correct: false, pastVerb: "the",
+                  errorType: "the sin referencia previa establecida",
+                  explanation: "Si este es un libro nuevo del que no se ha hablado antes, no hay referencia conocida que justifique 'the'. Primera mención de un nuevo libro → 'a new book'." },
+                { text: "Ana opened new book from the library.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en contable singular",
+                  explanation: "'Book' es contable singular — no puede ir sin artículo. Es un nuevo libro en primera mención → necesita 'a new book'." }
+            ],
+            rule: "Referencia conocida: the book → Nuevo referente: a book",
+            examples: ["the book (ya sabemos cuál) → a book (uno nuevo)", "the plan → a new plan", "the room → a different room"],
+            correctReason: "Al cambiar a un libro nuevo sin contexto previo, se pierde 'the' y se vuelve al indefinido: <span class='why-hl'>a new book</span>. 'The new book' sin contexto previo no tendría referencia."
+        },
+        {
+            id: 10,
+            transformType: "the",
+            transformLabel: "Ø → the (genérico → específico)",
+            base: "Ana likes to cook food at home.",
+            presentVerb: "Ø",
+            goal: "Especificar: la comida que preparó hoy",
+            timeMarker: "Ø → the",
+            clueExplain: "Al pasar de 'food' genérico (sin artículo) a 'the food she made today' (comida específica ya conocida), aparece 'the' para señalar esa comida concreta.",
+            options: [
+                { text: "Ana likes a food she made today.", correct: false, pastVerb: "a food",
+                  errorType: "a con sustantivo incontable",
+                  explanation: "'Food' es incontable — no se puede contar. 'A food' no existe. Cuando 'food' se especifica ('the food she made'), se usa 'the', no 'a'." },
+                { text: "Ana likes food she made today.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en referencia específica",
+                  explanation: "Sin artículo, 'food she made today' suena incompleto — falta 'the' para señalar que es esa comida específica. El contexto ya la definió → 'the food she made today'." },
+                { text: "Ana likes the food she made today.", correct: true, pastVerb: "the" }
+            ],
+            rule: "Ø food (genérico) → the food (específica, ya definida por contexto)",
+            examples: ["cook food → Ø (general)", "the food she made → the (específica)", "like food → Ø (general)"],
+            correctReason: "Al especificar 'la comida que hizo hoy', 'food' deja de ser genérico y se convierte en referencia específica: <span class='why-hl'>the food she made</span>. 'A food' no existe y sin artículo queda incompleto."
+        },
+        {
+            id: 11,
+            transformType: "a-an",
+            transformLabel: "a → an (vocal)",
+            // Story 1: Ana — "She doesn't use an alarm"
+            base: "Ana doesn't use a alarm to wake up in the morning.",
+            presentVerb: "a",
+            goal: "Corregir el artículo según el sonido inicial",
+            timeMarker: "a → an",
+            clueExplain: "'Alarm' empieza con el sonido vocálico /æ/. Antes de cualquier sonido vocálico se usa 'an', no 'a'. La regla depende siempre del SONIDO, no de la letra.",
+            options: [
+                { text: "Ana doesn't use the alarm to wake up in the morning.", correct: false, pastVerb: "the",
+                  errorType: "Cambio incorrecto a artículo definido",
+                  explanation: "'The alarm' implicaría una alarma específica ya mencionada. Aquí la oración describe su rutina general — primera mención. El problema original era usar 'a' ante vocal, no el tipo de artículo." },
+                { text: "Ana doesn't use a alarm to wake up in the morning.", correct: false, pastVerb: "a",
+                  errorType: "Sin transformación — error original mantenido",
+                  explanation: "'A alarm' es incorrecto porque 'alarm' empieza con el sonido vocálico /æ/. La regla: ante vocal → 'an'. La transformación no fue aplicada." },
+                { text: "Ana doesn't use an alarm to wake up in the morning.", correct: true, pastVerb: "an" }
+            ],
+            rule: "a + vocal → an + vocal: a alarm → an alarm",
+            examples: ["a alarm → an alarm", "a egg → an egg", "a old man → an old man"],
+            correctReason: "'Alarm' empieza con /æ/ — sonido vocálico. Se corrige 'a' por <span class='why-hl'>an</span>: 'an alarm'. La regla a/an es siempre por SONIDO inicial de la palabra siguiente."
+        },
+        {
+            id: 12,
+            transformType: "a-to-the",
+            transformLabel: "a → the (2ª mención)",
+            // Story 2: David — "gave him a small cookbook... He would come home and open the book"
+            base: "David's mother gave him a small cookbook.",
+            presentVerb: "a",
+            goal: "Añadir: 'Every day he came home and opened ___ cookbook.'",
+            timeMarker: "a → the",
+            clueExplain: "El cookbook fue presentado en la primera oración con 'a'. En la segunda oración es ese libro específico — ya ambos saben de cuál se habla → segunda mención = 'the'.",
+            options: [
+                { text: "Every day he came home and opened the cookbook.", correct: true, pastVerb: "the" },
+                { text: "Every day he came home and opened a cookbook.", correct: false, pastVerb: "a",
+                  errorType: "Artículo indefinido en segunda mención",
+                  explanation: "'A cookbook' en la segunda oración implicaría un libro distinto — no el de su madre. El libro ya fue presentado en la oración anterior → segunda mención usa 'the cookbook'." },
+                { text: "Every day he came home and opened cookbook.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin artículo en segunda mención de contable singular",
+                  explanation: "'Cookbook' es contable singular — nunca va sin artículo cuando es una referencia específica ya presentada. Segunda mención siempre necesita 'the'." }
+            ],
+            rule: "1ª mención: a cookbook → 2ª mención: the cookbook",
+            examples: ["a cookbook → the cookbook", "a book → the book", "a notebook → the notebook"],
+            correctReason: "Primera mención: 'a small cookbook'. Segunda mención: <span class='why-hl'>the cookbook</span> — ese mismo, el que la madre le dio. 'A cookbook' en segunda mención implicaría otro libro diferente."
+        },
+        {
+            id: 13,
+            transformType: "a-to-the",
+            transformLabel: "a → the (superlativo)",
+            // Story 3: Elena — "The kitchen was the most important room"
+            base: "Elena says the kitchen was a important room in the house.",
+            presentVerb: "a",
+            goal: "Cambiar 'important' por 'most important'",
+            timeMarker: "a → the",
+            clueExplain: "Al añadir el superlativo 'most important', el artículo DEBE cambiar de 'a' a 'the'. Los superlativos siempre llevan 'the' — nunca 'a'.",
+            options: [
+                { text: "Elena says the kitchen was a most important room in the house.", correct: false, pastVerb: "a",
+                  errorType: "a con superlativo",
+                  explanation: "'A most important' es incorrecto. Los superlativos siempre llevan 'the', no 'a'. El superlativo implica unicidad — uno solo — por eso usa el artículo definido." },
+                { text: "Elena says the kitchen was most important room in the house.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Superlativo sin 'the'",
+                  explanation: "Los superlativos no pueden aparecer sin artículo en inglés. 'Most important room' sin 'the' es incorrecto. La forma obligatoria es siempre 'the most important room'." },
+                { text: "Elena says the kitchen was the most important room in the house.", correct: true, pastVerb: "the" }
+            ],
+            rule: "a + adj → the + superlativo: a important → the most important",
+            examples: ["a good → the best", "a nice → the nicest", "a important → the most important"],
+            correctReason: "Al añadir el superlativo, el artículo cambia de 'a' a <span class='why-hl'>the</span>: 'the most important room'. Los superlativos siempre llevan 'the' — sin excepción."
+        },
+        {
+            id: 14,
+            transformType: "zero",
+            transformLabel: "a → Ø (contable → incontable)",
+            // Story 2: David — "making a good meal feels like a reward"
+            base: "After a long day, making a good meal feels like a reward.",
+            presentVerb: "a reward",
+            goal: "Cambiar 'a reward' por 'satisfaction' (incontable abstracto)",
+            timeMarker: "a → Ø",
+            clueExplain: "'Satisfaction' es incontable abstracto — no se puede contar. Al reemplazar 'a reward' (contable) por 'satisfaction' (incontable), desaparece el artículo.",
+            options: [
+                { text: "After a long day, making a good meal feels like a satisfaction.", correct: false, pastVerb: "a satisfaction",
+                  errorType: "a con incontable abstracto",
+                  explanation: "'Satisfaction' es incontable — no acepta 'a/an'. 'A satisfaction' no existe en inglés. Los incontables abstractos como satisfaction, happiness, peace van sin artículo." },
+                { text: "After a long day, making a good meal feels like satisfaction.", correct: true, pastVerb: "Ø satisfaction" },
+                { text: "After a long day, making a good meal feels like the satisfaction.", correct: false, pastVerb: "the satisfaction",
+                  errorType: "the con abstracto genérico",
+                  explanation: "'The satisfaction' implicaría una satisfacción específica ya mencionada. Aquí es un concepto general — incontable abstracto en sentido general → sin artículo." }
+            ],
+            rule: "a + contable singular → Ø + incontable abstracto",
+            examples: ["a reward → Ø satisfaction", "a feeling → Ø happiness", "a result → Ø progress"],
+            correctReason: "Al cambiar 'reward' (contable) por 'satisfaction' (incontable), el artículo desaparece: <span class='why-hl'>Ø satisfaction</span>. Los incontables abstractos no aceptan 'a' ni 'the' en sentido general."
+        },
+        {
+            id: 15,
+            transformType: "the",
+            transformLabel: "Ø → the (genérico → específico)",
+            // Story 4: Carlos — "He liked the streets when they are quiet"
+            base: "Carlos likes streets when they are quiet in the morning.",
+            presentVerb: "streets",
+            goal: "Especificar: las calles de su barrio (contexto conocido)",
+            timeMarker: "Ø → the",
+            clueExplain: "Al pasar de 'streets' genérico (calles en general) a 'the streets' (las calles específicas de su barrio — ya conocidas por contexto), aparece 'the'.",
+            options: [
+                { text: "Carlos likes a streets when they are quiet in the morning.", correct: false, pastVerb: "a streets",
+                  errorType: "a con sustantivo plural",
+                  explanation: "'A' nunca va con sustantivos en plural. 'A streets' no existe en inglés. 'A' es solo para singulares. Si el referente es específico y plural, se usa 'the'." },
+                { text: "Carlos likes the streets when they are quiet in the morning.", correct: true, pastVerb: "the" },
+                { text: "Carlos likes streets when they are quiet in the morning.", correct: false, pastVerb: "(sin artículo)",
+                  errorType: "Sin transformación — genérico mantenido",
+                  explanation: "Sin artículo, 'streets' es genérico — calles en general, cualquier calle. La transformación pedía especificar las calles de su barrio, que son conocidas en contexto → 'the streets'." }
+            ],
+            rule: "Ø streets (genérico) → the streets (específicas, conocidas por contexto)",
+            examples: ["streets → the streets (del barrio)", "water → the water (del río)", "air → the air (de la mañana)"],
+            correctReason: "Al especificar 'las calles de su barrio', el sustantivo pasa de genérico a referencia conocida: <span class='why-hl'>the streets</span>. 'A streets' no existe; sin artículo sería genérico."
+        }
+    ];
+
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = [...q.options].sort(() => Math.random() - 0.5);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+        const badge = `<span class="article-badge ${q.transformType}">${q.transformLabel}</span>`;
+        const baseHighlighted = q.base.replace(
+            new RegExp(`\\b${q.presentVerb}\\b`),
+            `<span class="article-hl">${q.presentVerb}</span>`
+        );
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span style="font-size:0.88rem;color:var(--text-medium);font-weight:600;flex:1;">Transforma la oración:</span>
+                ${badge}
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">🔶 Oración original</span>
+                    <div class="transform-sentence">${baseHighlighted}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transforma a...</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Objetivo</span>
+                    <div class="transform-sentence">${q.goal}</div>
+                </div>
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => {
+                    const highlighted = opt.text.replace(
+                        new RegExp(`\\b${opt.pastVerb}\\b`),
+                        `<span class="art-word">${opt.pastVerb}</span>`
+                    );
+                    return `
+                    <button class="option-btn" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${highlighted}</div>
+                    </button>`;
+                }).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx)      btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const ruleExamples = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        const transformFlow = (baseHL, correctHL, wrongHL) => `
+            <div class="transform-flow">
+                <div class="tf-step present"><span class="tf-label">Original:</span>${baseHL}</div>
+                <div class="tf-arrow">⬇</div>
+                ${wrongHL ? `<div class="tf-step past-wrong"><span class="tf-label">Tu respuesta:</span>${wrongHL}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correcto:</span>${correctHL}</div>
+            </div>
+        `;
+
+        const pBase    = q.base.replace(new RegExp(`\\b${q.presentVerb}\\b`), `<span class="vb-highlight">${q.presentVerb}</span>`);
+        const pCorrect = correctOpt.text.replace(new RegExp(`\\b${correctOpt.pastVerb}\\b`), `<span class="vb-highlight">${correctOpt.pastVerb}</span>`);
+        const pWrong   = !isCorrect ? selected.text.replace(new RegExp(`\\b${selected.pastVerb}\\b`), `<span class="vb-highlight">${selected.pastVerb}</span>`) : null;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">¡Transformación correcta!</div>
+                        <div class="fb-subtitle">Aplicaste bien el artículo</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Transformación realizada</div>
+                        ${transformFlow(pBase, pCorrect, null)}
+                    </div>
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 Señal clave de la transformación</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            El cambio <span class="signal-tag">${q.timeMarker}</span> ocurre porque ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué es correcta la transformación?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Transformación incorrecta</div>
+                        <div class="fb-subtitle">Revisemos qué falló y cómo corregirlo</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Tu transformación vs. la correcta</div>
+                        ${transformFlow(pBase, pCorrect, pWrong)}
+                    </div>
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 Señal clave que debías aplicar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            El cambio <span class="signal-tag red">${q.timeMarker}</span> ocurre porque ${q.clueExplain}
+                        </div>
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${selected.pastVerb}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${correctOpt.pastVerb}</span>
+                        </div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Cómo debía hacerse la transformación?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Transformas artículos perfectamente. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa las reglas e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

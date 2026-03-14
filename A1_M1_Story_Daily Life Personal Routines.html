@@ -1,0 +1,2218 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>A1 — Daily Life &amp; Personal Routines — Stories &amp; Dialogues</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800&amp;family=Lora:ital,wght@0,400;0,500;1,400&amp;family=Fredoka:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --bg: #FAFAF6;
+  --card: #FFFFFF;
+  --text: #2A2A2A;
+  --text-soft: #777777;
+  --border: #E8E5DC;
+  --shadow: 0 3px 16px rgba(0,0,0,0.06);
+  --radius: 14px;
+  --sp-a: #1565C0;
+  --sp-a-bg: #E3F2FD;
+  --sp-b: #C46200;
+  --sp-b-bg: #FFF3E0;
+  --sp-c: #2E7D32;
+  --sp-c-bg: #E8F5E9;
+  --hl-bg: #FFF8E1;
+  --hl-border: #FFD54F;
+  --rv-bg: #F3E5F5;
+  --rv-text: #7B1FA2;
+  --note-bg: #FFFDE7;
+  --note-border: #FBC02D;
+  --note-shadow: 0 4px 20px rgba(251,192,45,0.25);
+  --note-dot: #F9A825;
+  /* A1 BLUE THEME from COLORES JUCUM */
+  --level-primary: #2196F3;
+  --level-dark: #0D47A1;
+  --level-light: #E3F2FD;
+  --level-mid: #BBDEFB;
+  --level-gradient: linear-gradient(135deg, #1565C0 0%, #2196F3 60%, #64B5F6 100%);
+  --level-glow: rgba(33, 150, 243, 0.12);
+  --level-badge-text: #0A3470;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  padding: 1.5rem 1rem;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 780px; margin: 0 auto; }
+
+/* LEVEL HEADER */
+.level-header {
+  text-align: center; padding: 2.2rem 2rem; border-radius: 20px;
+  color: white; position: relative; overflow: hidden; margin-bottom: 2rem;
+  background: var(--level-gradient);
+}
+.level-header::before {
+  content: ''; position: absolute; top: -40%; right: -15%;
+  width: 250px; height: 250px; background: rgba(255,255,255,0.1); border-radius: 50%;
+}
+.level-header h1 {
+  font-family: 'Fredoka', sans-serif; font-size: 1.9rem;
+  font-weight: 600; position: relative; z-index: 1;
+}
+.level-header .subtitle {
+  opacity: 0.9; font-size: 0.92rem; font-weight: 500;
+  position: relative; z-index: 1; margin-top: 0.3rem;
+}
+.level-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.73rem; font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; background: var(--level-light);
+  color: var(--level-badge-text); padding: 5px 14px;
+  border-radius: 20px; border: 1.5px solid var(--level-mid); margin-bottom: 1rem;
+}
+.section-label {
+  display: flex; align-items: center; gap: 0.6rem;
+  font-size: 0.73rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.13em; color: var(--level-dark); margin-bottom: 0.4rem;
+}
+.section-label::before {
+  content: ''; width: 20px; height: 3px;
+  background: var(--level-primary); border-radius: 2px;
+}
+.section-title {
+  font-family: 'Fredoka', sans-serif; font-size: 1.3rem;
+  font-weight: 600; margin-bottom: 0.2rem;
+}
+.section-desc { font-size: 0.87rem; color: var(--text-soft); margin-bottom: 1.5rem; }
+
+/* TABS */
+.content-tabs {
+  display: flex; gap: 0.5rem; margin-bottom: 2rem; padding: 0.4rem;
+  background: var(--card); border-radius: 14px; border: 1px solid var(--border);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.content-tab {
+  flex: 1; text-align: center; padding: 0.7rem 0.5rem; border-radius: 10px;
+  font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.25s;
+  border: 2px solid transparent; user-select: none; background: transparent;
+  font-family: 'Nunito', sans-serif;
+}
+.content-tab:hover { background: #F5F5F0; }
+.content-tab.active {
+  background: #E3F2FD; border-color: #2196F3; color: #0D47A1;
+  box-shadow: 0 2px 8px rgba(33,150,243,0.25);
+}
+.item-tabs {
+  display: flex; gap: 0.4rem; margin-bottom: 1.5rem; justify-content: center;
+}
+.item-tab {
+  padding: 0.45rem 1rem; border-radius: 8px; font-size: 0.78rem;
+  font-weight: 700; cursor: pointer; transition: all 0.2s;
+  border: 1.5px solid var(--border); background: var(--card);
+  font-family: 'Nunito', sans-serif; user-select: none;
+}
+.item-tab:hover { background: #F0F0F0; }
+.item-tab.active {
+  background: var(--level-light); border-color: var(--level-primary);
+  color: var(--level-dark);
+}
+.content-panel { display: none; }
+.content-panel.active { display: block; animation: fadeIn 0.35s ease; }
+.item-panel { display: none; }
+.item-panel.active { display: block; animation: fadeIn 0.3s ease; }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* CARDS */
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 1.8rem; margin-bottom: 2rem;
+  box-shadow: var(--shadow); border-top: 3.5px solid var(--level-primary);
+}
+
+/* LEGEND */
+.legend {
+  display: flex; flex-wrap: wrap; gap: 1.2rem; padding: 0.9rem 1.2rem;
+  background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+  font-size: 0.82rem; color: var(--text-soft); margin-bottom: 2rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+.legend-item { display: inline-flex; align-items: center; gap: 6px; }
+.legend-swatch { width: 16px; height: 16px; border-radius: 4px; display: inline-block; }
+
+/* VOCAB */
+.vocab {
+  background: var(--hl-bg); border-bottom: 2.5px solid var(--hl-border);
+  padding: 1px 5px; border-radius: 4px; font-weight: 700; cursor: default;
+  transition: background 0.2s;
+}
+.vocab:hover { background: #FFECB3; }
+.vocab-es {
+  background: var(--hl-bg); border-bottom: 2.5px solid var(--hl-border);
+  padding: 1px 5px; border-radius: 4px; font-weight: 600;
+}
+
+/* NOTES */
+.note-word {
+  border-bottom: 2px dotted var(--note-dot); cursor: pointer; position: relative;
+  padding-bottom: 1px; transition: all 0.2s; font-weight: 600;
+}
+.note-word:hover { background: rgba(251,192,45,0.12); border-radius: 3px; }
+.note-word::after {
+  content: '\1F4A1'; font-size: 0.55rem; position: relative;
+  top: -6px; margin-left: 1px;
+}
+.note-popup {
+  display: none; position: absolute; bottom: calc(100% + 10px); left: 50%;
+  transform: translateX(-50%); width: 280px; background: var(--note-bg);
+  border: 1.5px solid var(--note-border); border-radius: 10px;
+  padding: 0.9rem 1rem; box-shadow: var(--note-shadow); z-index: 1000;
+  font-size: 0.83rem; font-weight: 500; line-height: 1.6; color: var(--text);
+  animation: noteIn 0.25s ease; cursor: default;
+}
+.note-popup.show { display: block; }
+.note-popup.pos-below { bottom: auto; top: calc(100% + 10px); }
+@keyframes noteIn {
+  from { opacity: 0; transform: translateX(-50%) translateY(5px); }
+  to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+.note-popup::before {
+  content: ''; position: absolute; bottom: -7px; left: 50%;
+  transform: translateX(-50%) rotate(45deg); width: 12px; height: 12px;
+  background: var(--note-bg); border-right: 1.5px solid var(--note-border);
+  border-bottom: 1.5px solid var(--note-border);
+}
+.note-popup.pos-below::before {
+  bottom: auto; top: -7px; border-right: none; border-bottom: none;
+  border-left: 1.5px solid var(--note-border); border-top: 1.5px solid var(--note-border);
+}
+.note-popup .note-header {
+  font-family: 'Fredoka', sans-serif; font-size: 0.78rem; font-weight: 600;
+  color: #E65100; text-transform: uppercase; letter-spacing: 0.08em;
+  margin-bottom: 4px; display: flex; align-items: center; gap: 4px;
+}
+.note-popup .note-body { font-family: 'Nunito', sans-serif; color: #4E342E; }
+.note-popup .note-body strong { color: #BF360C; }
+.note-popup .note-close {
+  position: absolute; top: 6px; right: 8px; background: none; border: none;
+  font-size: 1rem; cursor: pointer; color: #BCAAA4; line-height: 1; padding: 2px;
+}
+.note-popup .note-close:hover { color: #795548; }
+
+/* TRANSLATION REVEAL */
+.reveal-line { margin-top: 3px; margin-bottom: 0; }
+.reveal-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Nunito', sans-serif; font-size: 0.76rem; font-weight: 600;
+  color: var(--rv-text); background: var(--rv-bg); border: none;
+  padding: 3px 10px; border-radius: 6px; cursor: pointer;
+  transition: all 0.2s; user-select: none;
+}
+.reveal-btn:hover { background: #E1BEE7; }
+.reveal-btn .arrow { transition: transform 0.25s; font-size: 0.7rem; }
+.reveal-btn.open .arrow { transform: rotate(90deg); }
+.reveal-text {
+  display: none; font-family: 'Lora', serif; font-style: italic;
+  font-size: 0.87rem; color: var(--text-soft); margin-top: 5px;
+  padding-left: 13px; border-left: 2.5px solid #CE93D8;
+  animation: fadeSlide 0.25s ease; line-height: 1.7;
+}
+.reveal-text.show { display: block; }
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* AUDIO */
+.audio-row { display: flex; gap: 6px; margin-top: 6px; }
+.audio-btn {
+  display: inline-flex; align-items: center; gap: 4px;
+  font-family: 'Nunito', sans-serif; font-size: 0.72rem; font-weight: 700;
+  border: 1.5px solid #E0E0E0; background: #FAFAFA; color: var(--text);
+  padding: 3px 10px; border-radius: 8px; cursor: pointer;
+  transition: all 0.2s; user-select: none;
+}
+.audio-btn:hover { background: #F0F0F0; border-color: #BDBDBD; transform: translateY(-1px); }
+.audio-btn.playing {
+  border-color: var(--level-primary); background: var(--level-glow); color: var(--level-dark);
+}
+.audio-btn .flag { font-size: 0.85rem; }
+
+/* CHAT BUBBLES */
+.chat-wrapper { display: flex; flex-direction: column; gap: 0.65rem; }
+.chat-msg {
+  max-width: 82%; padding: 0.8rem 1.1rem; border-radius: 18px;
+  font-size: 0.95rem; line-height: 1.65; position: relative;
+  transition: box-shadow 0.2s;
+}
+.chat-msg:hover { box-shadow: 0 2px 12px rgba(0,0,0,0.08); }
+.chat-msg .speaker-name {
+  font-size: 0.7rem; font-weight: 800; text-transform: uppercase;
+  letter-spacing: 0.07em; margin-bottom: 3px;
+}
+.chat-msg.left {
+  align-self: flex-start; background: var(--sp-a-bg); border-bottom-left-radius: 5px;
+}
+.chat-msg.left .speaker-name { color: var(--sp-a); }
+.chat-msg.right {
+  align-self: flex-end; background: var(--sp-b-bg);
+  border-bottom-right-radius: 5px; text-align: right;
+}
+.chat-msg.right .speaker-name { color: var(--sp-b); }
+.chat-msg.right .audio-row { justify-content: flex-end; }
+.chat-msg.right .reveal-line { text-align: right; }
+.chat-msg.right .reveal-text {
+  text-align: right; border-left: none;
+  border-right: 2.5px solid #CE93D8; padding-left: 0; padding-right: 13px;
+}
+
+/* STORY */
+.story-block { margin-bottom: 1rem; }
+.story-paragraph {
+  font-family: 'Lora', serif; font-size: 1rem; line-height: 1.9;
+  padding: 0.5rem 0.7rem; border-radius: 8px; transition: background 0.2s;
+}
+.story-paragraph:hover { background: var(--level-glow); }
+
+/* PARALLEL VIEW */
+.parallel-toggle {
+  display: flex; align-items: center; gap: 8px; margin-bottom: 1.5rem;
+  font-size: 0.8rem; color: var(--text-soft); justify-content: flex-end;
+}
+.parallel-toggle label { cursor: pointer; font-weight: 600; }
+.parallel-toggle input { cursor: pointer; }
+.parallel-view .reveal-text { display: block !important; }
+.parallel-view .reveal-btn { display: none; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .level-header h1 { font-size: 1.5rem; }
+  .chat-msg { max-width: 90%; font-size: 0.9rem; }
+  .card { padding: 1.3rem; }
+  .content-tabs { flex-direction: column; gap: 0.3rem; }
+  .note-popup { width: 240px; font-size: 0.8rem; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<h1>🔵 A1 — Daily Life &amp; Personal Routines</h1>
+<p class="subtitle">Beginner · 5–9 words per sentence · 93 vocabulary words</p>
+</div>
+<div class="legend">
+
+<div class="legend-item"><button class="reveal-btn" style="pointer-events:none;font-size:0.72rem">🇪🇸 <span class="arrow">›</span></button><span>Click → traducción</span></div>
+<div class="legend-item"><button class="audio-btn" style="pointer-events:none;font-size:0.7rem"><span class="flag">🔊</span> Audio</button><span>Click → pronunciación</span></div>
+</div>
+<div id="voice-status" style="text-align:center;font-size:0.78rem;color:var(--text-soft);margin-bottom:1.5rem;padding:0.5rem;background:var(--card);border-radius:8px;border:1px solid var(--border);display:none;">⏳ Cargando voces...</div>
+<div class="parallel-toggle"><label for="parallelCheck">🔀 Vista paralela EN/ES</label><input id="parallelCheck" onchange="toggleParallel(this.checked)" type="checkbox"/></div>
+<div class="content-tabs" role="tablist">
+<button class="content-tab active" onclick="switchContent('dialogues')">💬 Dialogues</button>
+<button class="content-tab" onclick="switchContent('stories')">📖 Stories</button>
+</div>
+<div class="content-panel active" id="panel-dialogues">
+<div class="item-tabs">
+<button class="item-tab active" onclick="switchItem('dialogues','d1')">D1</button>
+<button class="item-tab" onclick="switchItem('dialogues','d2')">D2</button>
+<button class="item-tab" onclick="switchItem('dialogues','d3')">D3</button>
+<button class="item-tab" onclick="switchItem('dialogues','d4')">D4</button>
+</div>
+<div class="item-panel active" id="dialogues-d1">
+<div class="card">
+<div class="section-label">Dialogue 1</div>
+<div class="section-title">Good Mornings and Bad Habits</div>
+<div class="section-desc">Ana and Sofia compare their morning routines.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Good morning, Sofia! You're up early today.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good morning, Sofia! You\'re up early today.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good morning, Sofia! You\'re up early today.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Buenos días, Sofía! Madrugas hoy.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">I always get up early. I have done it for a long time.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I always get up early. I have done it for a long time.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I always get up early. I have done it for a long time.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Siempre me levanto temprano. Lo hago desde hace mucho tiempo.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Really? Mornings are hard for me. My alarm goes off at six and I just want to go back to bed.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Really? Mornings are hard for me. My alarm goes off at six and I just want to go back to bed.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Really? Mornings are hard for me. My alarm goes off at six and I just want to go back to bed.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿De verdad? Las mañanas me cuestan. El despertador suena a las seis y solo quiero seguir durmiendo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">I know. But once I get up and have my coffee, I feel much better.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I know. But once I get up and have my coffee, I feel much better.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I know. But once I get up and have my coffee, I feel much better.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo sé. Pero una vez que me levanto y tomo mi café, me siento mucho mejor.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Coffee definitely helps. Do you eat breakfast before you leave the house?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Coffee definitely helps. Do you eat breakfast before you leave the house?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Coffee definitely helps. Do you eat breakfast before you leave the house?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El café definitivamente ayuda. ¿Desayunas antes de salir de casa?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">Yes, always. I never leave without eating something. My mother says breakfast is the most important meal.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Yes, always. I never leave without eating something. My mother says breakfast is the most important meal.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Yes, always. I never leave without eating something. My mother says breakfast is the most important meal.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, siempre. Nunca salgo sin comer algo. Mi mamá dice que el desayuno es la comida más importante.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">My father says the same thing! He makes eggs and toast for us every morning before work.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'My father says the same thing! He makes eggs and toast for us every morning before work.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'My father says the same thing! He makes eggs and toast for us every morning before work.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Mi papá dice lo mismo! Nos hace huevos y tostadas cada mañana antes del trabajo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">That's nice. I usually have some fruit and yogurt. It's quick and I don't have to cook anything.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s nice. I usually have some fruit and yogurt. It\'s quick and I don\'t have to cook anything.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s nice. I usually have some fruit and yogurt. It\'s quick and I don\'t have to cook anything.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Qué lindo. Yo generalmente como fruta y yogur. Es rápido y no tengo que cocinar nada.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">That sounds easy. My mornings are always a little chaotic — I can never find my things.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That sounds easy. My mornings are always a little chaotic — I can never find my things.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That sounds easy. My mornings are always a little chaotic — I can never find my things.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso suena fácil. Mis mañanas siempre son un poco caóticas — nunca encuentro mis cosas.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">You should put your bag by the door the night before. I do that and I never forget it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'You should put your bag by the door the night before. I do that and I never forget it.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'You should put your bag by the door the night before. I do that and I never forget it.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Deberías poner tu bolsa junto a la puerta la noche anterior. Yo hago eso y nunca la olvido.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">That's a good idea. I always leave things to the last minute, especially on school days.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s a good idea. I always leave things to the last minute, especially on school days.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s a good idea. I always leave things to the last minute, especially on school days.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Esa es una buena idea. Siempre dejo todo para el último momento, especialmente los días de clases.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">What time do you usually get to school?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'What time do you usually get to school?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'What time do you usually get to school?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿A qué hora llegas generalmente a la escuela?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">I try to get there by eight, but sometimes I'm a few minutes late. The bus doesn't always come on time.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I try to get there by eight, but sometimes I\'m a few minutes late. The bus doesn\'t always come on time.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I try to get there by eight, but sometimes I\'m a few minutes late. The bus doesn\'t always come on time.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Intento llegar antes de las ocho, pero a veces llego unos minutos tarde. El autobús no siempre llega a tiempo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">I take the bus too. I try to be at the stop ten minutes early, just to be safe.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I take the bus too. I try to be at the stop ten minutes early, just to be safe.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I take the bus too. I try to be at the stop ten minutes early, just to be safe.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Yo también tomo el autobús. Intento estar en la parada diez minutos antes, por si acaso.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">You're much more organized than me! Do you also study in the mornings?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'You\'re much more organized than me! Do you also study in the mornings?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'You\'re much more organized than me! Do you also study in the mornings?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Eres mucho más organizada que yo! ¿También estudias en las mañanas?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">I read for about twenty minutes before I leave. It helps me feel ready for the day.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I read for about twenty minutes before I leave. It helps me feel ready for the day.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I read for about twenty minutes before I leave. It helps me feel ready for the day.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Leo unos veinte minutos antes de salir. Me ayuda a sentirme lista para el día.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">I'm not good in the mornings. I can't read or study early.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'m not good in the mornings. I can\'t read or study early.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'m not good in the mornings. I can\'t read or study early.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Yo no soy buena en las mañanas. No puedo leer ni estudiar temprano.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">That's okay. Not everyone is the same. What do you like to do in the evenings?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s okay. Not everyone is the same. What do you like to do in the evenings?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s okay. Not everyone is the same. What do you like to do in the evenings?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Está bien. No todos somos iguales. ¿Qué te gusta hacer por las tardes?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">I usually do my homework after dinner and then watch something with my family. We all sit together in the living room.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I usually do my homework after dinner and then watch something with my family. We all sit together in the living room.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I usually do my homework after dinner and then watch something with my family. We all sit together in the living room.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Generalmente hago mi tarea después de cenar y luego vemos algo con mi familia. Todos nos sentamos juntos en la sala.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">That sounds really nice. My evenings are quieter — I often read or write in my journal.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That sounds really nice. My evenings are quieter — I often read or write in my journal.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That sounds really nice. My evenings are quieter — I often read or write in my journal.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso suena muy lindo. Mis tardes son más tranquilas — a menudo leo o escribo en mi diario.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">I'd like to start a journal. My teacher says it's a good way to learn new words.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'d like to start a journal. My teacher says it\'s a good way to learn new words.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'d like to start a journal. My teacher says it\'s a good way to learn new words.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me gustaría empezar un diario. Mi maestra dice que es una buena manera de aprender palabras nuevas.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">It really is! I learn a lot just from writing every day. You should try it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It really is! I learn a lot just from writing every day. You should try it.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It really is! I learn a lot just from writing every day. You should try it.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Realmente lo es! Aprendo mucho solo escribiendo todos los días. Deberías intentarlo.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Maybe I'll start tonight. Do you write in English or in Spanish?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Maybe I\'ll start tonight. Do you write in English or in Spanish?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Maybe I\'ll start tonight. Do you write in English or in Spanish?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Quizás empiece esta noche. ¿Escribes en inglés o en español?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">I try to write in English. If I don't know a word, I look it up and keep going.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I try to write in English. If I don\'t know a word, I look it up and keep going.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I try to write in English. If I don\'t know a word, I look it up and keep going.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Intento escribir en inglés. Si no sé una palabra, la busco y sigo adelante.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Good idea. I think I need better habits — in the morning and in the evening.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good idea. I think I need better habits — in the morning and in the evening.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good idea. I think I need better habits — in the morning and in the evening.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Buena idea. Creo que necesito mejores hábitos — por la mañana y por la tarde.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">Start with one small thing. It gets easier after that.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Start with one small thing. It gets easier after that.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Start with one small thing. It gets easier after that.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Empieza con una cosa pequeña. Después se vuelve más fácil.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Ana</div>
+<div class="msg-text">Okay. Tomorrow I'm going to put my bag by the door, like you do.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Okay. Tomorrow I\'m going to put my bag by the door, like you do.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Okay. Tomorrow I\'m going to put my bag by the door, like you do.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Está bien. Mañana voy a poner mi bolsa junto a la puerta, como tú.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Sofia</div>
+<div class="msg-text">Good luck! Let me know how it goes.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good luck! Let me know how it goes.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good luck! Let me know how it goes.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Buena suerte! Cuéntame cómo te va.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d2">
+<div class="card">
+<div class="section-label">Dialogue 2</div>
+<div class="section-title">A Better Way to Study</div>
+<div class="section-desc">Luis asks his older brother David for study advice.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">Hey David, are you busy right now?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Hey David, are you busy right now?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Hey David, are you busy right now?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Oye David, ¿estás ocupado ahora mismo?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Not really. I just finished eating. What's up?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Not really. I just finished eating. What\'s up?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Not really. I just finished eating. What\'s up?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">No mucho. Acabo de terminar de comer. ¿Qué pasa?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">I have a big test next week and I need help. Can you study with me?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I have a big test next week and I need help. Can you study with me?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I have a big test next week and I need help. Can you study with me?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Tengo un examen importante la próxima semana y necesito ayuda. ¿Puedes estudiar conmigo?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Of course. What subject is it?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Of course. What subject is it?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Of course. What subject is it?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Claro que sí. ¿Qué materia es?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">History. There is a lot to learn and I don't know where to start.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'History. There is a lot to learn and I don\'t know where to start.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'History. There is a lot to learn and I don\'t know where to start.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Historia. Hay mucho que aprender y no sé por dónde empezar.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Okay. Do you have your book with you?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Okay. Do you have your book with you?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Okay. Do you have your book with you?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. ¿Tienes tu libro contigo?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">Yes, it's right here. But it's very long. I don't know how to read all of it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Yes, it\'s right here. But it\'s very long. I don\'t know how to read all of it.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Yes, it\'s right here. But it\'s very long. I don\'t know how to read all of it.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, está aquí mismo. Pero es muy largo. No sé cómo leer todo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">You don't have to read all of it. Look at the next test — what topics does it cover?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'You don\'t have to read all of it. Look at the next test — what topics does it cover?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'You don\'t have to read all of it. Look at the next test — what topics does it cover?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">No tienes que leer todo. Mira el próximo examen — ¿qué temas cubre?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">It says early civilizations and the first big cities. About ten pages in chapter two.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It says early civilizations and the first big cities. About ten pages in chapter two.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It says early civilizations and the first big cities. About ten pages in chapter two.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Dice civilizaciones tempranas y las primeras grandes ciudades. Unas diez páginas en el capítulo dos.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Good. So we close the other chapters and focus only on those ten pages. That's not hard.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good. So we close the other chapters and focus only on those ten pages. That\'s not hard.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good. So we close the other chapters and focus only on those ten pages. That\'s not hard.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Entonces cerramos los otros capítulos y nos enfocamos solo en esas diez páginas. Eso no es difícil.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">That makes it feel much smaller. Okay, I'll read the first part now.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That makes it feel much smaller. Okay, I\'ll read the first part now.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That makes it feel much smaller. Okay, I\'ll read the first part now.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso lo hace sentir mucho más pequeño. Bien, voy a leer la primera parte ahora.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Good. Read it once and then tell me what you understood.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good. Read it once and then tell me what you understood.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good. Read it once and then tell me what you understood.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Léelo una vez y luego dime qué entendiste.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">It says that early people lived near rivers because the land was good for growing food.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It says that early people lived near rivers because the land was good for growing food.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It says that early people lived near rivers because the land was good for growing food.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Dice que la gente primitiva vivía cerca de los ríos porque la tierra era buena para cultivar alimentos.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">That's right. And why was that important?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s right. And why was that important?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s right. And why was that important?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Así es. ¿Y por qué era eso importante?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">Because they needed food every day, and the river made it easier to get it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Because they needed food every day, and the river made it easier to get it.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Because they needed food every day, and the river made it easier to get it.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Porque necesitaban comida todos los días, y el río hacía más fácil conseguirla.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Exactly. You understood it well. Keep going — what does the next part say?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Exactly. You understood it well. Keep going — what does the next part say?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Exactly. You understood it well. Keep going — what does the next part say?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Exactamente. Lo entendiste bien. Continúa — ¿qué dice la próxima parte?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">It talks about how they learned to make houses close to the water.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It talks about how they learned to make houses close to the water.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It talks about how they learned to make houses close to the water.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Habla de cómo aprendieron a construir casas cerca del agua.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Good. Now I'll ask you a question — what did they use to make those houses?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good. Now I\'ll ask you a question — what did they use to make those houses?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good. Now I\'ll ask you a question — what did they use to make those houses?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Ahora te haré una pregunta — ¿qué usaban para hacer esas casas?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">The book says they used wood, stone, and also large pieces of dry mud.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'The book says they used wood, stone, and also large pieces of dry mud.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The book says they used wood, stone, and also large pieces of dry mud.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El libro dice que usaban madera, piedra y también grandes pedazos de barro seco.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Very good. You know this material. You just need to go over it a few more times.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Very good. You know this material. You just need to go over it a few more times.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Very good. You know this material. You just need to go over it a few more times.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Muy bien. Conoces este material. Solo necesitas repasarlo unas cuantas veces más.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">This is easier when someone helps me. I always study alone at home.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'This is easier when someone helps me. I always study alone at home.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'This is easier when someone helps me. I always study alone at home.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Esto es más fácil cuando alguien me ayuda. Siempre estudio solo en casa.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Studying with someone is good. You can ask questions and check what you know.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Studying with someone is good. You can ask questions and check what you know.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Studying with someone is good. You can ask questions and check what you know.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Estudiar con alguien es bueno. Puedes hacer preguntas y verificar lo que sabes.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">Can we do this every evening before the test?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Can we do this every evening before the test?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Can we do this every evening before the test?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Podemos hacer esto todas las tardes antes del examen?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Sure. How much time do you have? Father usually eats at eight.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Sure. How much time do you have? Father usually eats at eight.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Sure. How much time do you have? Father usually eats at eight.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Claro. ¿Cuánto tiempo tienes? Papá generalmente cena a las ocho.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">It's about six now, so I have two hours. That's enough, I think.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It\'s about six now, so I have two hours. That\'s enough, I think.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It\'s about six now, so I have two hours. That\'s enough, I think.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Son como las seis ahora, así que tengo dos horas. Eso es suficiente, creo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">It is. Let's go over the next page and then I'll ask you everything again from the beginning.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'It is. Let\'s go over the next page and then I\'ll ask you everything again from the beginning.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'It is. Let\'s go over the next page and then I\'ll ask you everything again from the beginning.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo es. Veamos la próxima página y luego te preguntaré todo de nuevo desde el principio.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Luis</div>
+<div class="msg-text">Okay. And David — thank you. This really helps.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Okay. And David — thank you. This really helps.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Okay. And David — thank you. This really helps.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Y David — gracias. Esto realmente ayuda.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">David</div>
+<div class="msg-text">Any time. That's what older brothers are for.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Any time. That\'s what older brothers are for.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Any time. That\'s what older brothers are for.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Cuando quieras. Para eso están los hermanos mayores.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d3">
+<div class="card">
+<div class="section-label">Dialogue 3</div>
+<div class="section-title">Planning the Week</div>
+<div class="section-desc">Elena and her mother sit down to organize the family schedule.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Mom, can we sit down and plan the week? I have a lot going on and I need to organize.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Mom, can we sit down and plan the week? I have a lot going on and I need to organize.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Mom, can we sit down and plan the week? I have a lot going on and I need to organize.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Mamá, ¿podemos sentarnos y planificar la semana? Tengo mucho que hacer y necesito organizarme.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Of course. Let me get my notebook. I like to write everything down.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Of course. Let me get my notebook. I like to write everything down.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Of course. Let me get my notebook. I like to write everything down.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Claro que sí. Déjame traer mi cuaderno. Me gusta escribir todo.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Good idea. So, Monday I have school all day and then a meeting with my study group in the evening.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good idea. So, Monday I have school all day and then a meeting with my study group in the evening.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good idea. So, Monday I have school all day and then a meeting with my study group in the evening.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Buena idea. Entonces, el lunes tengo clases todo el día y luego una reunión con mi grupo de estudio por la tarde.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">What time does the meeting finish?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'What time does the meeting finish?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'What time does the meeting finish?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿A qué hora termina la reunión?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Around nine. So I won't be home for dinner. Sorry about that.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Around nine. So I won\'t be home for dinner. Sorry about that.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Around nine. So I won\'t be home for dinner. Sorry about that.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Alrededor de las nueve. Así que no estaré en casa para cenar. Lo siento.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Don't worry. I'll leave something in the fridge for you. What about Tuesday?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Don\'t worry. I\'ll leave something in the fridge for you. What about Tuesday?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Don\'t worry. I\'ll leave something in the fridge for you. What about Tuesday?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">No te preocupes. Te dejaré algo en el refrigerador. ¿Y el martes?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Tuesday is easier. I finish school early and I'd like to help with the house — clean my room, maybe help cook.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Tuesday is easier. I finish school early and I\'d like to help with the house — clean my room, maybe help cook.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Tuesday is easier. I finish school early and I\'d like to help with the house — clean my room, maybe help cook.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El martes es más tranquilo. Termino clases temprano y me gustaría ayudar en casa — limpiar mi cuarto, quizás ayudar a cocinar.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">That would be great. We can make the soup your father likes. It takes time but it's not hard.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That would be great. We can make the soup your father likes. It takes time but it\'s not hard.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That would be great. We can make the soup your father likes. It takes time but it\'s not hard.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso estaría genial. Podemos hacer la sopa que le gusta a tu papá. Toma tiempo pero no es difícil.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">I'd like to learn how to make it. You always cook so well.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'d like to learn how to make it. You always cook so well.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'d like to learn how to make it. You always cook so well.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me gustaría aprender a hacerla. Tú siempre cocinas tan bien.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">I'll teach you. It's important to know how to cook, especially when you go off to university.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'ll teach you. It\'s important to know how to cook, especially when you go off to university.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'ll teach you. It\'s important to know how to cook, especially when you go off to university.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Te enseñaré. Es importante saber cocinar, especialmente cuando te vayas a la universidad.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Don't remind me! That's still two years away. Do we have anything on Wednesday?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Don\'t remind me! That\'s still two years away. Do we have anything on Wednesday?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Don\'t remind me! That\'s still two years away. Do we have anything on Wednesday?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡No me recuerdes! Todavía faltan dos años. ¿Tenemos algo el miércoles?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Yes, your grandmother is coming to visit. She'll be here all afternoon.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Yes, your grandmother is coming to visit. She\'ll be here all afternoon.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Yes, your grandmother is coming to visit. She\'ll be here all afternoon.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, tu abuela viene de visita. Estará aquí toda la tarde.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Oh good! I love seeing her. I'll make sure I'm home by three.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Oh good! I love seeing her. I\'ll make sure I\'m home by three.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Oh good! I love seeing her. I\'ll make sure I\'m home by three.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Qué bien! Me encanta verla. Me aseguraré de estar en casa antes de las tres.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">She'll be very happy. She always asks about you. What about Thursday?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'She\'ll be very happy. She always asks about you. What about Thursday?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'She\'ll be very happy. She always asks about you. What about Thursday?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Ella estará muy feliz. Siempre pregunta por ti. ¿Y el jueves?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Thursday is my long day. School and then extra English class from four to six.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Thursday is my long day. School and then extra English class from four to six.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Thursday is my long day. School and then extra English class from four to six.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El jueves es mi día largo. Clases y luego clase extra de inglés de cuatro a seis.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Is the English class going well? You were a little worried about it at first.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Is the English class going well? You were a little worried about it at first.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Is the English class going well? You were a little worried about it at first.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Va bien la clase de inglés? Al principio estabas un poco preocupada.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Much better now. The teacher is patient and I feel like I'm actually learning.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Much better now. The teacher is patient and I feel like I\'m actually learning.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Much better now. The teacher is patient and I feel like I\'m actually learning.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Mucho mejor ahora. La maestra es paciente y siento que de verdad estoy aprendiendo.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">That's really good to hear. If you work hard, you can do it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s really good to hear. If you work hard, you can do it.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s really good to hear. If you work hard, you can do it.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Qué bueno escuchar eso. Si trabajas duro, puedes lograrlo.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">I hope so. Friday is easier — just school in the morning and then I'm free.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I hope so. Friday is easier — just school in the morning and then I\'m free.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I hope so. Friday is easier — just school in the morning and then I\'m free.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso espero. El viernes es más fácil — solo clases en la mañana y luego estoy libre.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Good. We can go to the market together on Friday afternoon. We need a few things.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good. We can go to the market together on Friday afternoon. We need a few things.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good. We can go to the market together on Friday afternoon. We need a few things.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Podemos ir al mercado juntas el viernes por la tarde. Necesitamos algunas cosas.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">I'd like that. And on the weekend — do we have any big plans?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'d like that. And on the weekend — do we have any big plans?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'d like that. And on the weekend — do we have any big plans?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me gustaría eso. ¿Y el fin de semana? ¿Tenemos algún plan grande?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Saturday your father wants to go for a walk somewhere new. Somewhere outside the neighborhood.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Saturday your father wants to go for a walk somewhere new. Somewhere outside the neighborhood.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Saturday your father wants to go for a walk somewhere new. Somewhere outside the neighborhood.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El sábado tu papá quiere salir a caminar a algún lugar nuevo. Fuera del barrio.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">That sounds nice. We don't go out together enough. What about Sunday?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That sounds nice. We don\'t go out together enough. What about Sunday?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That sounds nice. We don\'t go out together enough. What about Sunday?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso suena bien. No salimos juntos suficientemente. ¿Y el domingo?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">Sunday is for rest. A quiet day at home — read, cook something nice, just be here.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Sunday is for rest. A quiet day at home — read, cook something nice, just be here.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Sunday is for rest. A quiet day at home — read, cook something nice, just be here.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El domingo es para descansar. Un día tranquilo en casa — leer, cocinar algo rico, solo estar aquí.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">That sounds perfect to me. I need a day to catch up on homework too.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That sounds perfect to me. I need a day to catch up on homework too.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That sounds perfect to me. I need a day to catch up on homework too.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso me parece perfecto. También necesito un día para ponerme al día con la tarea.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">So we have a good week. Not too full, not too empty.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'So we have a good week. Not too full, not too empty.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'So we have a good week. Not too full, not too empty.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Así que tenemos una buena semana. Ni demasiado llena ni demasiado vacía.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Exactly. I feel better now that I can see it all written down.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Exactly. I feel better now that I can see it all written down.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Exactly. I feel better now that I can see it all written down.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Exactamente. Me siento mejor ahora que puedo verlo todo escrito.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">That's why I use this notebook. It helps me feel organized.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s why I use this notebook. It helps me feel organized.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s why I use this notebook. It helps me feel organized.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Por eso uso este cuaderno. Me ayuda a sentirme organizada.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Elena</div>
+<div class="msg-text">Can we do this every Sunday evening?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Can we do this every Sunday evening?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Can we do this every Sunday evening?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Podemos hacer esto cada domingo por la tarde?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Mother</div>
+<div class="msg-text">I'd really like that. Planning together makes everything easier.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'d really like that. Planning together makes everything easier.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'d really like that. Planning together makes everything easier.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me gustaría mucho. Planificar juntas hace todo más fácil.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d4">
+<div class="card">
+<div class="section-label">Dialogue 4</div>
+<div class="section-title">Neighbors in the Afternoon</div>
+<div class="section-desc">Rosa and Carlos chat about work, routines, and weekends.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">Good afternoon, Carlos! I almost never see you these days.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Good afternoon, Carlos! I almost never see you these days.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Good afternoon, Carlos! I almost never see you these days.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Buenas tardes, Carlos! Casi nunca te veo estos días.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">I know! Work has been very long this month. I leave early and come home late.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I know! Work has been very long this month. I leave early and come home late.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I know! Work has been very long this month. I leave early and come home late.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Lo sé! El trabajo ha sido muy largo este mes. Salgo temprano y llego tarde a casa.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">That sounds hard. Do you still have time to eat a good dinner?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That sounds hard. Do you still have time to eat a good dinner?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That sounds hard. Do you still have time to eat a good dinner?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso suena difícil. ¿Todavía tienes tiempo para comer una buena cena?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Yes, I always try to eat at home. I don't like to eat fast food every night.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Yes, I always try to eat at home. I don\'t like to eat fast food every night.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Yes, I always try to eat at home. I don\'t like to eat fast food every night.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, siempre intento comer en casa. No me gusta comer comida rápida todas las noches.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">Do you cook for yourself?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Do you cook for yourself?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Do you cook for yourself?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Cocinas para ti mismo?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">I do. I like to cook. On Saturdays I make something big — a large pot of rice or a stew.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I do. I like to cook. On Saturdays I make something big — a large pot of rice or a stew.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I do. I like to cook. On Saturdays I make something big — a large pot of rice or a stew.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí. Me gusta cocinar. Los sábados hago algo grande — una olla grande de arroz o un guisado.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">Oh, I love that idea. My husband never cooks. He just drinks his coffee and waits for me.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Oh, I love that idea. My husband never cooks. He just drinks his coffee and waits for me.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Oh, I love that idea. My husband never cooks. He just drinks his coffee and waits for me.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Oh, me encanta esa idea. Mi esposo nunca cocina. Solo toma su café y me espera.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Ha! My father was the same. But I learned to cook from my mother. She taught me a lot.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Ha! My father was the same. But I learned to cook from my mother. She taught me a lot.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Ha! My father was the same. But I learned to cook from my mother. She taught me a lot.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Ja! Mi padre era igual. Pero aprendí a cocinar de mi mamá. Ella me enseñó mucho.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">That's really nice. My daughter also wants to learn. She's twelve and she's interested in cooking.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s really nice. My daughter also wants to learn. She\'s twelve and she\'s interested in cooking.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s really nice. My daughter also wants to learn. She\'s twelve and she\'s interested in cooking.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Qué lindo. Mi hija también quiere aprender. Tiene doce años y le interesa cocinar.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">That's a good age to start. Give her something easy first — maybe eggs or a simple soup.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s a good age to start. Give her something easy first — maybe eggs or a simple soup.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s a good age to start. Give her something easy first — maybe eggs or a simple soup.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Es una buena edad para empezar. Dale algo fácil primero — quizás huevos o una sopa sencilla.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">I'll try that. She could help me in the kitchen next weekend.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I\'ll try that. She could help me in the kitchen next weekend.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I\'ll try that. She could help me in the kitchen next weekend.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo intentaré. Ella podría ayudarme en la cocina el próximo fin de semana.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Do you have a set routine at home? A set time for dinner and all that?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Do you have a set routine at home? A set time for dinner and all that?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Do you have a set routine at home? A set time for dinner and all that?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Tienes una rutina fija en casa? ¿Una hora fija para cenar y todo eso?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">Yes. We eat at seven, every evening. My husband is home by six and the kids finish school at four.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Yes. We eat at seven, every evening. My husband is home by six and the kids finish school at four.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Yes. We eat at seven, every evening. My husband is home by six and the kids finish school at four.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí. Comemos a las siete, todas las tardes. Mi esposo está en casa a las seis y los niños terminan la escuela a las cuatro.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">That's a good routine. I try to eat at seven too, but some evenings I get home at eight.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s a good routine. I try to eat at seven too, but some evenings I get home at eight.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s a good routine. I try to eat at seven too, but some evenings I get home at eight.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Esa es una buena rutina. Yo también intento comer a las siete, pero algunas tardes llego a casa a las ocho.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">What do you do when you get home late? Do you still cook?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'What do you do when you get home late? Do you still cook?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'What do you do when you get home late? Do you still cook?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Qué haces cuando llegas tarde a casa? ¿Todavía cocinas?</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">If I'm not too tired, yes. I open the fridge, see what I have, and make something fast.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'If I\'m not too tired, yes. I open the fridge, see what I have, and make something fast.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'If I\'m not too tired, yes. I open the fridge, see what I have, and make something fast.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Si no estoy muy cansado, sí. Abro el refrigerador, veo lo que tengo y hago algo rápido.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">I need to be more like that. Some nights I feel too tired and we eat whatever is easy.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I need to be more like that. Some nights I feel too tired and we eat whatever is easy.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I need to be more like that. Some nights I feel too tired and we eat whatever is easy.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Necesito ser más así. Algunas noches me siento muy cansada y comemos lo que sea fácil.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">That's okay too. Not every night has to be a big meal. Even a good soup and some bread is enough.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'That\'s okay too. Not every night has to be a big meal. Even a good soup and some bread is enough.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'That\'s okay too. Not every night has to be a big meal. Even a good soup and some bread is enough.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Eso también está bien. No todas las noches tiene que ser una comida grande. Hasta una buena sopa y pan es suficiente.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">True. I also make soup a lot. My kids drink it without complaining, which helps.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'True. I also make soup a lot. My kids drink it without complaining, which helps.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'True. I also make soup a lot. My kids drink it without complaining, which helps.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Verdad. Yo también hago mucha sopa. Mis hijos la toman sin quejarse, lo que ayuda.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Ha! Yes, that's important. Do your kids have a set bedtime?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Ha! Yes, that\'s important. Do your kids have a set bedtime?','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Ha! Yes, that\'s important. Do your kids have a set bedtime?','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Ja! Sí, eso es importante. ¿Tus hijos tienen una hora fija para dormir?</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">My daughter goes to bed at nine and my son at eight thirty. Both have school early.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'My daughter goes to bed at nine and my son at eight thirty. Both have school early.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'My daughter goes to bed at nine and my son at eight thirty. Both have school early.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Mi hija se va a dormir a las nueve y mi hijo a las ocho y media. Ambos tienen clases temprano.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Getting up early is hard if you don't go to bed early. I learned that.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Getting up early is hard if you don\'t go to bed early. I learned that.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Getting up early is hard if you don\'t go to bed early. I learned that.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Levantarse temprano es difícil si no te acuestas temprano. Eso lo aprendí.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">Me too! I used to stay up late and then feel terrible in the morning.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Me too! I used to stay up late and then feel terrible in the morning.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Me too! I used to stay up late and then feel terrible in the morning.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡A mí también! Antes me quedaba despierta hasta tarde y luego me sentía terrible por la mañana.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Now I try to be in bed by ten. It makes a big difference.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Now I try to be in bed by ten. It makes a big difference.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Now I try to be in bed by ten. It makes a big difference.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Ahora intento estar en cama a las diez. Hace una gran diferencia.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">I should do the same. Well, it was nice to talk, Carlos. I need to go make dinner now.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I should do the same. Well, it was nice to talk, Carlos. I need to go make dinner now.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I should do the same. Well, it was nice to talk, Carlos. I need to go make dinner now.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Debería hacer lo mismo. Bueno, fue lindo hablar, Carlos. Ahora necesito ir a hacer la cena.</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Of course. Give my best to your family.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Of course. Give my best to your family.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Of course. Give my best to your family.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Claro. Saluda a tu familia de mi parte.</div>
+</div>
+</div>
+<div class="chat-msg left">
+<div class="speaker-name">Rosa</div>
+<div class="msg-text">I will. Take care. And don't work too hard!</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'I will. Take care. And don\'t work too hard!','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'I will. Take care. And don\'t work too hard!','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo haré. Cuídate. ¡Y no trabajes demasiado!</div>
+</div>
+</div>
+<div class="chat-msg right">
+<div class="speaker-name">Carlos</div>
+<div class="msg-text">Ha! I'll try. Good night, Rosa.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="speak(this,'Ha! I\'ll try. Good night, Rosa.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Ha! I\'ll try. Good night, Rosa.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Ja! Lo intentaré. Buenas noches, Rosa.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="content-panel" id="panel-stories">
+<div class="item-tabs">
+<button class="item-tab active" onclick="switchItem('stories','s1')">S1</button>
+<button class="item-tab" onclick="switchItem('stories','s2')">S2</button>
+<button class="item-tab" onclick="switchItem('stories','s3')">S3</button>
+<button class="item-tab" onclick="switchItem('stories','s4')">S4</button>
+</div>
+<div class="item-panel active" id="stories-s1">
+<div class="card">
+<div class="section-label">Story 1</div>
+<div class="section-title">The Hour Before School</div>
+<div class="section-desc">Ana's quiet morning before her day begins.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph">Ana wakes up at half past six every morning. She doesn't use an alarm — her body just knows when it's time. She lies in bed for a few minutes and then she gets up.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Ana wakes up at half past six every morning. She doesn\'t use an alarm — her body just knows when it\'s time. She lies in bed for a few minutes and then she gets up.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Ana wakes up at half past six every morning. She doesn\'t use an alarm — her body just knows when it\'s time. She lies in bed for a few minutes and then she gets up.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Ana se despierta a las seis y media cada mañana. No usa despertador — su cuerpo simplemente sabe cuándo es el momento. Se queda en cama unos minutos y luego se levanta.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The first thing she does is open the window in her room. She likes to feel the morning air, even if it's a little cold. After that, she gets dressed and goes to the kitchen to help her father with breakfast.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The first thing she does is open the window in her room. She likes to feel the morning air, even if it\'s a little cold. After that, she gets dressed and goes to the kitchen to help her father with breakfast.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The first thing she does is open the window in her room. She likes to feel the morning air, even if it\'s a little cold. After that, she gets dressed and goes to the kitchen to help her father with breakfast.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo primero que hace es abrir la ventana de su cuarto. Le gusta sentir el aire de la mañana, aunque haga un poco de frío. Después de eso, se viste y va a la cocina a ayudar a su padre con el desayuno.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Her father always wakes up before her. He puts water on for tea and cuts some fruit. Some days he also makes toast or eggs if they have time. Ana pours the tea and sets the cups on the table.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Her father always wakes up before her. He puts water on for tea and cuts some fruit. Some days he also makes toast or eggs if they have time. Ana pours the tea and sets the cups on the table.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Her father always wakes up before her. He puts water on for tea and cuts some fruit. Some days he also makes toast or eggs if they have time. Ana pours the tea and sets the cups on the table.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Su padre siempre se despierta antes que ella. Él pone agua para el té y corta fruta. Algunos días también hace tostadas o huevos si tienen tiempo. Ana sirve el té y pone las tazas en la mesa.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">They eat together and talk about the day. Sometimes her father asks what she is studying at school. It is a short time, but Ana really likes it. It helps her feel good before she goes to class.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'They eat together and talk about the day. Sometimes her father asks what she is studying at school. It is a short time, but Ana really likes it. It helps her feel good before she goes to class.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'They eat together and talk about the day. Sometimes her father asks what she is studying at school. It is a short time, but Ana really likes it. It helps her feel good before she goes to class.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Comen juntos y hablan del día. A veces su padre pregunta qué está estudiando en la escuela. Es un momento corto, pero a Ana le gusta mucho. La ayuda a sentirse bien antes de ir a clases.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">After breakfast, she washes the dishes quickly and goes back to her room to get her bag. She makes sure she has her books, her notebook, and her bus card before she leaves the house.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'After breakfast, she washes the dishes quickly and goes back to her room to get her bag. She makes sure she has her books, her notebook, and her bus card before she leaves the house.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'After breakfast, she washes the dishes quickly and goes back to her room to get her bag. She makes sure she has her books, her notebook, and her bus card before she leaves the house.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Después del desayuno, lava los platos rápido y vuelve a su cuarto a buscar su bolsa. Se asegura de tener sus libros, su cuaderno y su tarjeta del autobús antes de salir de casa.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The walk to the bus stop takes about five minutes. She usually listens to music or just looks at the street. This small, quiet time helps her feel calm and ready for the day.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The walk to the bus stop takes about five minutes. She usually listens to music or just looks at the street. This small, quiet time helps her feel calm and ready for the day.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The walk to the bus stop takes about five minutes. She usually listens to music or just looks at the street. This small, quiet time helps her feel calm and ready for the day.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">La caminata hasta la parada del autobús tarda unos cinco minutos. Generalmente escucha música o simplemente mira la calle. Este momento tranquilo la ayuda a sentirse serena y lista para el día.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Sometimes her brother is still asleep when she leaves. She tries not to make noise in the hallway. She closes the front door slowly and steps outside.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Sometimes her brother is still asleep when she leaves. She tries not to make noise in the hallway. She closes the front door slowly and steps outside.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Sometimes her brother is still asleep when she leaves. She tries not to make noise in the hallway. She closes the front door slowly and steps outside.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">A veces su hermano todavía está dormido cuando ella sale. Intenta no hacer ruido en el pasillo. Cierra la puerta principal despacio y sale.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">At school, she goes to her classroom and puts her bag on her chair. She takes out her notebook and her pen. She likes to be ready before the teacher arrives.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'At school, she goes to her classroom and puts her bag on her chair. She takes out her notebook and her pen. She likes to be ready before the teacher arrives.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'At school, she goes to her classroom and puts her bag on her chair. She takes out her notebook and her pen. She likes to be ready before the teacher arrives.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">En la escuela, va a su salón y pone su bolsa en su silla. Saca su cuaderno y su bolígrafo. Le gusta estar lista antes de que llegue la maestra.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">After school, Ana comes home and has a snack. She eats some bread or a piece of fruit. Then she does her homework at the kitchen table. Her father is usually nearby.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'After school, Ana comes home and has a snack. She eats some bread or a piece of fruit. Then she does her homework at the kitchen table. Her father is usually nearby.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'After school, Ana comes home and has a snack. She eats some bread or a piece of fruit. Then she does her homework at the kitchen table. Her father is usually nearby.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Después de clases, Ana llega a casa y come algo. Come pan o una fruta. Luego hace su tarea en la mesa de la cocina. Su padre generalmente está cerca.</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="item-panel" id="stories-s2">
+<div class="card">
+<div class="section-label">Story 2</div>
+<div class="section-title">The Cookbook</div>
+<div class="section-desc">How David learned to cook — and what it taught him.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph">David did not cook much before his second year at university. He usually ate bread or whatever his roommates made. One day, his mother came to visit and gave him a small cookbook. That was the beginning of something new.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'David did not cook much before his second year at university. He usually ate bread or whatever his roommates made. One day, his mother came to visit and gave him a small cookbook. That was the beginning of something new.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'David did not cook much before his second year at university. He usually ate bread or whatever his roommates made. One day, his mother came to visit and gave him a small cookbook. That was the beginning of something new.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">David no cocinaba mucho antes de su segundo año en la universidad. Generalmente comía pan o lo que sus compañeros de cuarto hacían. Un día, su mamá vino a visitarlo y le dio un pequeño libro de cocina. Eso fue el comienzo de algo nuevo.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The book was old and the pages were soft. His mother had marked her favorite recipes with small pieces of paper. She sat with him and showed him how to make a simple rice dish. It was not hard, but David had to pay attention.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The book was old and the pages were soft. His mother had marked her favorite recipes with small pieces of paper. She sat with him and showed him how to make a simple rice dish. It was not hard, but David had to pay attention.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The book was old and the pages were soft. His mother had marked her favorite recipes with small pieces of paper. She sat with him and showed him how to make a simple rice dish. It was not hard, but David had to pay attention.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El libro era viejo y las páginas eran suaves. Su mamá había marcado sus recetas favoritas con pequeños papeles. Ella se sentó con él y le mostró cómo hacer un plato de arroz sencillo. No era difícil, pero David tenía que prestar atención.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">He burned the first attempt. He put the heat too high and did not add enough water. His mother did not say anything bad — she just smiled and said, 'Again.' So he tried a second time and it came out much better.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'He burned the first attempt. He put the heat too high and did not add enough water. His mother did not say anything bad — she just smiled and said, \'Again.\' So he tried a second time and it came out much better.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'He burned the first attempt. He put the heat too high and did not add enough water. His mother did not say anything bad — she just smiled and said, \'Again.\' So he tried a second time and it came out much better.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Quemó el primer intento. Puso el fuego muy alto y no agregó suficiente agua. Su mamá no dijo nada malo — solo sonrió y dijo: 'Otra vez.' Entonces lo intentó por segunda vez y le salió mucho mejor.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">He started to cook every day after that. He would come home from class and open the book. Some of the food was not very good. But some of it was really nice. He learned from every meal, good or bad.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'He started to cook every day after that. He would come home from class and open the book. Some of the food was not very good. But some of it was really nice. He learned from every meal, good or bad.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'He started to cook every day after that. He would come home from class and open the book. Some of the food was not very good. But some of it was really nice. He learned from every meal, good or bad.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Después de eso, empezó a cocinar todos los días. Llegaba a casa de clases y abría el libro. Algo de la comida no era muy buena. Pero algo era realmente rico. Aprendía de cada comida, buena o mala.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">His roommates began to notice. They would ask if he had enough for two, or three. Before long, David was cooking dinner for all of them several nights a week. He liked the company. Eating together felt good.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'His roommates began to notice. They would ask if he had enough for two, or three. Before long, David was cooking dinner for all of them several nights a week. He liked the company. Eating together felt good.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'His roommates began to notice. They would ask if he had enough for two, or three. Before long, David was cooking dinner for all of them several nights a week. He liked the company. Eating together felt good.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sus compañeros de cuarto empezaron a notar. Preguntaban si tenía suficiente para dos, o tres. En poco tiempo, David cocinaba la cena para todos ellos varias noches a la semana. Le gustaba la compañía. Comer juntos se sentía bien.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Now, several years later, cooking is one of the things David enjoys most. After a long day, making a good meal feels like a reward. He still uses his mother's old cookbook. The pages are even softer now.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Now, several years later, cooking is one of the things David enjoys most. After a long day, making a good meal feels like a reward. He still uses his mother\'s old cookbook. The pages are even softer now.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Now, several years later, cooking is one of the things David enjoys most. After a long day, making a good meal feels like a reward. He still uses his mother\'s old cookbook. The pages are even softer now.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Ahora, varios años después, cocinar es una de las cosas que David más disfruta. Después de un día largo, preparar una buena comida se siente como una recompensa. Todavía usa el viejo libro de cocina de su mamá. Las páginas están aún más suaves ahora.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">David did not know many recipes at first. He started with the easy ones. He made rice, soup, and eggs. These were simple but good.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'David did not know many recipes at first. He started with the easy ones. He made rice, soup, and eggs. These were simple but good.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'David did not know many recipes at first. He started with the easy ones. He made rice, soup, and eggs. These were simple but good.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">David no sabía muchas recetas al principio. Empezó con las fáciles. Hacía arroz, sopa y huevos. Eran sencillos pero buenos.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken. He tried to spend only a little money. His mother had taught him to plan before buying.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken. He tried to spend only a little money. His mother had taught him to plan before buying.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken. He tried to spend only a little money. His mother had taught him to plan before buying.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Iba al mercado cada sábado por la mañana. Compraba verduras, huevos y a veces pollo. Intentaba gastar solo un poco de dinero. Su madre le había enseñado a planificar antes de comprar.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">David also called his mother on weekends. He told her what he made during the week. She gave him tips and sometimes a new recipe. He wrote them down in a small notebook next to the cookbook.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'David also called his mother on weekends. He told her what he made during the week. She gave him tips and sometimes a new recipe. He wrote them down in a small notebook next to the cookbook.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'David also called his mother on weekends. He told her what he made during the week. She gave him tips and sometimes a new recipe. He wrote them down in a small notebook next to the cookbook.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">David también llamaba a su mamá los fines de semana. Le contaba lo que había hecho durante la semana. Ella le daba consejos y a veces una receta nueva. Él las anotaba en un pequeño cuaderno junto al libro de cocina.</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="item-panel" id="stories-s3">
+<div class="card">
+<div class="section-label">Story 3</div>
+<div class="section-title">The House on Calle Verde</div>
+<div class="section-desc">Elena remembers the home she grew up in.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph">Elena grew up in a small house with a large garden. The house had three bedrooms and one bathroom. Elena shared a room with her sister. They had two beds, one near the window and one close to the door.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Elena grew up in a small house with a large garden. The house had three bedrooms and one bathroom. Elena shared a room with her sister. They had two beds, one near the window and one close to the door.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Elena grew up in a small house with a large garden. The house had three bedrooms and one bathroom. Elena shared a room with her sister. They had two beds, one near the window and one close to the door.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Elena creció en una casa pequeña con un jardín grande. La casa tenía tres dormitorios y un baño. Elena compartía un cuarto con su hermana. Tenían dos camas, una cerca de la ventana y una cerca de la puerta.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The kitchen was the most important room in the house. Her mother cooked there every day. The family ate all their meals at the big old table. The table was a little uneven, but nobody wanted to get a new one.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The kitchen was the most important room in the house. Her mother cooked there every day. The family ate all their meals at the big old table. The table was a little uneven, but nobody wanted to get a new one.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The kitchen was the most important room in the house. Her mother cooked there every day. The family ate all their meals at the big old table. The table was a little uneven, but nobody wanted to get a new one.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">La cocina era el cuarto más importante de la casa. Su mamá cocinaba ahí todos los días. La familia comía todas sus comidas en la gran mesa vieja. La mesa estaba un poco dispareja, pero nadie quería conseguir una nueva.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">In the mornings, Elena's father woke up early. He opened the door to the garden and drank his coffee outside. He said the morning air helped him feel awake. Elena liked to watch him from the kitchen window.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'In the mornings, Elena\'s father woke up early. He opened the door to the garden and drank his coffee outside. He said the morning air helped him feel awake. Elena liked to watch him from the kitchen window.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'In the mornings, Elena\'s father woke up early. He opened the door to the garden and drank his coffee outside. He said the morning air helped him feel awake. Elena liked to watch him from the kitchen window.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">En las mañanas, el padre de Elena se despertaba temprano. Abría la puerta al jardín y tomaba su café afuera. Decía que el aire de la mañana lo ayudaba a sentirse despierto. A Elena le gustaba mirarlo desde la ventana de la cocina.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Her grandmother lived in the house too. She had the room next to Elena's. She was a quiet woman who woke up very early and sat in the garden before breakfast. Every morning, Elena gave her a cup of tea.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Her grandmother lived in the house too. She had the room next to Elena\'s. She was a quiet woman who woke up very early and sat in the garden before breakfast. Every morning, Elena gave her a cup of tea.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Her grandmother lived in the house too. She had the room next to Elena\'s. She was a quiet woman who woke up very early and sat in the garden before breakfast. Every morning, Elena gave her a cup of tea.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Su abuela también vivía en la casa. Tenía el cuarto al lado del de Elena. Era una mujer tranquila que se despertaba muy temprano y se sentaba en el jardín antes del desayuno. Cada mañana, Elena le daba una taza de té.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The evenings were always lively. Elena's father came home from work at around six. Then everyone ate together. They talked about their days — what was good, what was hard. Her mother said that talking over dinner was important for the family.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The evenings were always lively. Elena\'s father came home from work at around six. Then everyone ate together. They talked about their days — what was good, what was hard. Her mother said that talking over dinner was important for the family.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The evenings were always lively. Elena\'s father came home from work at around six. Then everyone ate together. They talked about their days — what was good, what was hard. Her mother said that talking over dinner was important for the family.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Las tardes siempre eran animadas. El padre de Elena llegaba del trabajo alrededor de las seis. Luego todos comían juntos. Hablaban de sus días — qué fue bueno, qué fue difícil. Su mamá decía que hablar durante la cena era importante para la familia.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Elena learned many things in that house. She learned to cook by watching her mother. She learned to read by sitting on her bed with a book and a lamp. She learned that a home does not need to be large. It just needs to feel good.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Elena learned many things in that house. She learned to cook by watching her mother. She learned to read by sitting on her bed with a book and a lamp. She learned that a home does not need to be large. It just needs to feel good.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Elena learned many things in that house. She learned to cook by watching her mother. She learned to read by sitting on her bed with a book and a lamp. She learned that a home does not need to be large. It just needs to feel good.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Elena aprendió muchas cosas en esa casa. Aprendió a cocinar observando a su mamá. Aprendió a leer sentada en su cama con un libro y una lámpara. Aprendió que un hogar no necesita ser grande. Solo necesita sentirse bien.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">When Elena moved to the city for university, she missed that house a lot. She found a small apartment and tried to make it feel like home. She put a chair near the window. She cooked the food her mother had taught her. It was not the same, but it helped.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'When Elena moved to the city for university, she missed that house a lot. She found a small apartment and tried to make it feel like home. She put a chair near the window. She cooked the food her mother had taught her. It was not the same, but it helped.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'When Elena moved to the city for university, she missed that house a lot. She found a small apartment and tried to make it feel like home. She put a chair near the window. She cooked the food her mother had taught her. It was not the same, but it helped.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Cuando Elena se mudó a la ciudad para la universidad, extrañó mucho esa casa. Encontró un pequeño apartamento e intentó que se sintiera como un hogar. Puso una silla cerca de la ventana. Cocinó la comida que su mamá le había enseñado. No era lo mismo, pero ayudaba.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">On weekends, the whole family worked in the garden together. Her father cut the grass. Her sister watered the plants. Elena picked up leaves from the floor. Everyone had a job to do.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'On weekends, the whole family worked in the garden together. Her father cut the grass. Her sister watered the plants. Elena picked up leaves from the floor. Everyone had a job to do.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'On weekends, the whole family worked in the garden together. Her father cut the grass. Her sister watered the plants. Elena picked up leaves from the floor. Everyone had a job to do.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Los fines de semana, toda la familia trabajaba en el jardín juntos. Su padre cortaba el pasto. Su hermana regaba las plantas. Elena recogía hojas del suelo. Todos tenían un trabajo que hacer.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">In the afternoons, Elena and her sister did homework on their beds. The room was small but they each had their own space. Sometimes they helped each other with difficult problems.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'In the afternoons, Elena and her sister did homework on their beds. The room was small but they each had their own space. Sometimes they helped each other with difficult problems.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'In the afternoons, Elena and her sister did homework on their beds. The room was small but they each had their own space. Sometimes they helped each other with difficult problems.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Por las tardes, Elena y su hermana hacían la tarea en sus camas. El cuarto era pequeño pero cada una tenía su propio espacio. A veces se ayudaban la una a la otra con los problemas difíciles.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Before bed, her mother came to say good night. She turned off the big light and left the small lamp on. Elena read for a little while and then closed her book. She put it on the floor next to her bed.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Before bed, her mother came to say good night. She turned off the big light and left the small lamp on. Elena read for a little while and then closed her book. She put it on the floor next to her bed.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Before bed, her mother came to say good night. She turned off the big light and left the small lamp on. Elena read for a little while and then closed her book. She put it on the floor next to her bed.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Antes de dormir, su mamá venía a dar las buenas noches. Apagaba la luz grande y dejaba encendida la lámpara pequeña. Elena leía un rato y luego cerraba su libro. Lo ponía en el suelo junto a su cama.</div>
+</div>
+</div>
+
+</div>
+</div>
+<div class="item-panel" id="stories-s4">
+<div class="card">
+<div class="section-label">Story 4</div>
+<div class="section-title">A Day Well Used</div>
+<div class="section-desc">A look at one full day in Carlos's life.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph">Carlos's days start early. He wakes up at six and goes for a short run before the city wakes up. He likes the streets when they are quiet — just a few people and the smell of bread from the bakery on the corner.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Carlos\'s days start early. He wakes up at six and goes for a short run before the city wakes up. He likes the streets when they are quiet — just a few people and the smell of bread from the bakery on the corner.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Carlos\'s days start early. He wakes up at six and goes for a short run before the city wakes up. He likes the streets when they are quiet — just a few people and the smell of bread from the bakery on the corner.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Los días de Carlos empiezan temprano. Se despierta a las seis y sale a correr un poco antes de que la ciudad despierte. Le gustan las calles cuando están tranquilas — solo unas pocas personas y el olor a pan de la panadería en la esquina.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Back home, he showers and drinks his coffee standing at the kitchen window. He eats something quick — usually toast with an egg or yogurt with fruit. He is at school by eight. He says that being on time is important.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Back home, he showers and drinks his coffee standing at the kitchen window. He eats something quick — usually toast with an egg or yogurt with fruit. He is at school by eight. He says that being on time is important.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Back home, he showers and drinks his coffee standing at the kitchen window. He eats something quick — usually toast with an egg or yogurt with fruit. He is at school by eight. He says that being on time is important.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">De regreso en casa, se ducha y toma su café parado en la ventana de la cocina. Come algo rápido — generalmente tostadas con un huevo o yogur con fruta. Está en la escuela a las ocho. Dice que llegar a tiempo es importante.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">He teaches four classes in the morning. Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions. He never says a question is bad or unimportant.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'He teaches four classes in the morning. Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions. He never says a question is bad or unimportant.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'He teaches four classes in the morning. Between classes, he goes over his notes and gets ready for the next lesson. He also helps students who have questions. He never says a question is bad or unimportant.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Enseña cuatro clases en la mañana. Entre clases, repasa sus notas y se prepara para la siguiente lección. También ayuda a los estudiantes que tienen preguntas. Nunca dice que una pregunta es mala o sin importancia.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">At midday, he eats lunch in the teachers' room. He likes to eat with other teachers and talk about the morning. He feels it is good to share how things are going — both the hard days and the good ones.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'At midday, he eats lunch in the teachers\' room. He likes to eat with other teachers and talk about the morning. He feels it is good to share how things are going — both the hard days and the good ones.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'At midday, he eats lunch in the teachers\' room. He likes to eat with other teachers and talk about the morning. He feels it is good to share how things are going — both the hard days and the good ones.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Al mediodía, almuerza en la sala de profesores. Le gusta comer con otros maestros y hablar sobre la mañana. Siente que es bueno compartir cómo van las cosas — tanto los días difíciles como los buenos.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">The afternoons are for a special group of students. These students missed a lot of school the year before. Carlos goes slowly with them. He puts the most important ideas on the board and goes over them many times.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'The afternoons are for a special group of students. These students missed a lot of school the year before. Carlos goes slowly with them. He puts the most important ideas on the board and goes over them many times.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'The afternoons are for a special group of students. These students missed a lot of school the year before. Carlos goes slowly with them. He puts the most important ideas on the board and goes over them many times.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Las tardes son para un grupo especial de estudiantes. Estos estudiantes faltaron mucho a la escuela el año anterior. Carlos va despacio con ellos. Pone las ideas más importantes en la pizarra y las repasa muchas veces.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">He gets home around five and changes his clothes. Then he cooks. This is the part of the day he likes most. He opens the window, puts on music, and takes his time. He drinks a glass of water while he cooks and tries not to rush.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'He gets home around five and changes his clothes. Then he cooks. This is the part of the day he likes most. He opens the window, puts on music, and takes his time. He drinks a glass of water while he cooks and tries not to rush.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'He gets home around five and changes his clothes. Then he cooks. This is the part of the day he likes most. He opens the window, puts on music, and takes his time. He drinks a glass of water while he cooks and tries not to rush.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Llega a casa alrededor de las cinco y se cambia de ropa. Luego cocina. Esta es la parte del día que más le gusta. Abre la ventana, pone música y se toma su tiempo. Toma un vaso de agua mientras cocina e intenta no apresurarse.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">After dinner, he reads for about an hour. He usually reads history books — not for work, but because he enjoys it. He goes to bed at ten. He falls asleep quickly. He feels that if a day was long and full, it was also a good day.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'After dinner, he reads for about an hour. He usually reads history books — not for work, but because he enjoys it. He goes to bed at ten. He falls asleep quickly. He feels that if a day was long and full, it was also a good day.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'After dinner, he reads for about an hour. He usually reads history books — not for work, but because he enjoys it. He goes to bed at ten. He falls asleep quickly. He feels that if a day was long and full, it was also a good day.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Después de cenar, lee durante aproximadamente una hora. Generalmente lee libros de historia — no por trabajo, sino porque lo disfruta. Se va a dormir a las diez. Se queda dormido rápidamente. Siente que si un día fue largo y lleno, también fue un buen día.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">Carlos does not think his life is exciting or special. But it feels right to him. Every day has a beginning and an end. Every day he learns something — from his students, from his books, from the small things around him.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'Carlos does not think his life is exciting or special. But it feels right to him. Every day has a beginning and an end. Every day he learns something — from his students, from his books, from the small things around him.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'Carlos does not think his life is exciting or special. But it feels right to him. Every day has a beginning and an end. Every day he learns something — from his students, from his books, from the small things around him.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Carlos no cree que su vida sea emocionante o especial. Pero para él se siente correcta. Cada día tiene un principio y un final. Cada día aprende algo — de sus estudiantes, de sus libros, de las pequeñas cosas a su alrededor.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">On Fridays, Carlos stays a little later at school. He talks with students who need extra help. He never says he is too busy. He knows that one good conversation can make a big difference.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'On Fridays, Carlos stays a little later at school. He talks with students who need extra help. He never says he is too busy. He knows that one good conversation can make a big difference.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'On Fridays, Carlos stays a little later at school. He talks with students who need extra help. He never says he is too busy. He knows that one good conversation can make a big difference.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Los viernes, Carlos se queda un poco más tarde en la escuela. Habla con los estudiantes que necesitan ayuda extra. Nunca dice que está demasiado ocupado. Sabe que una buena conversación puede hacer una gran diferencia.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph">On Saturdays, he goes to the market early. He buys fresh vegetables and sometimes fish. He takes his time and talks to the sellers. He feels good when he cooks with fresh food.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="speak(this,'On Saturdays, he goes to the market early. He buys fresh vegetables and sometimes fish. He takes his time and talks to the sellers. He feels good when he cooks with fresh food.','US')"><span class="flag">🇺🇸</span> US</button>
+<button class="audio-btn" onclick="speak(this,'On Saturdays, he goes to the market early. He buys fresh vegetables and sometimes fish. He takes his time and talks to the sellers. He feels good when he cooks with fresh food.','UK')"><span class="flag">🇬🇧</span> UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Los sábados, va al mercado temprano. Compra verduras frescas y a veces pescado. Se toma su tiempo y habla con los vendedores. Se siente bien cuando cocina con comida fresca.</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<script>
+const NOTES = [];
+
+function toggleReveal(btn){const t=btn.nextElementSibling;t.classList.toggle('show');btn.classList.toggle('open')}
+function switchContent(type){document.querySelectorAll('.content-panel').forEach(p=>p.classList.remove('active'));document.querySelectorAll('.content-tab').forEach(t=>t.classList.remove('active'));document.getElementById('panel-'+type).classList.add('active');event.target.classList.add('active');closeAllNotes()}
+function switchItem(panelType,itemId){const panel=document.getElementById('panel-'+panelType);panel.querySelectorAll('.item-panel').forEach(p=>p.classList.remove('active'));panel.querySelectorAll('.item-tab').forEach(t=>t.classList.remove('active'));document.getElementById(panelType+'-'+itemId).classList.add('active');event.target.classList.add('active');closeAllNotes()}
+function toggleParallel(on){document.querySelectorAll('.card').forEach(card=>{if(on)card.classList.add('parallel-view');else card.classList.remove('parallel-view')})}
+
+let voicesReady=false,usVoice=null,ukVoice=null,currentBtn=null;
+function loadVoices(){const voices=speechSynthesis.getVoices();if(voices.length===0)return;voicesReady=true;const usP=[v=>v.lang==='en-US'&&/samantha|allison|ava|tom|alex|nicky|aaron/i.test(v.name),v=>v.lang==='en-US'&&/google us/i.test(v.name),v=>v.lang==='en-US'&&/microsoft.*online/i.test(v.name),v=>v.lang==='en-US',v=>v.lang.startsWith('en')&&/us|america/i.test(v.name)];const ukP=[v=>v.lang==='en-GB'&&/daniel|kate|serena|oliver|martha/i.test(v.name),v=>v.lang==='en-GB'&&/google uk/i.test(v.name),v=>v.lang==='en-GB'&&/microsoft.*online/i.test(v.name),v=>v.lang==='en-GB',v=>v.lang.startsWith('en')&&/uk|brit/i.test(v.name)];for(const p of usP){const m=voices.find(p);if(m){usVoice=m;break}}for(const p of ukP){const m=voices.find(v=>p(v)&&v!==usVoice);if(m){ukVoice=m;break}}if(!ukVoice)ukVoice=voices.find(v=>v.lang==='en-AU')||voices.find(v=>v.lang==='en-IE')||voices.find(v=>v.lang.startsWith('en')&&v!==usVoice);const status=document.getElementById('voice-status');if(usVoice&&ukVoice&&usVoice!==ukVoice){status.style.display='none'}else if(usVoice||ukVoice){status.innerHTML='⚠️ Tu navegador tiene voces limitadas. Para mejor experiencia con 2 acentos distintos, usa <strong>Google Chrome</strong> o <strong>Microsoft Edge</strong>.';status.style.display='block';status.style.background='#FFF3E0';status.style.borderColor='#FFB74D'}}
+speechSynthesis.getVoices();if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;setTimeout(loadVoices,100);setTimeout(loadVoices,500);setTimeout(loadVoices,1500);
+function speak(btn,text,accent){if(currentBtn===btn&&speechSynthesis.speaking){speechSynthesis.cancel();btn.classList.remove('playing');currentBtn=null;return}if(speechSynthesis.speaking){speechSynthesis.cancel();if(currentBtn)currentBtn.classList.remove('playing')}if(!voicesReady)loadVoices();const u=new SpeechSynthesisUtterance(text);u.rate=0.82;u.pitch=1;if(accent==='US'){u.lang='en-US';if(usVoice)u.voice=usVoice}else{u.lang='en-GB';if(ukVoice)u.voice=ukVoice}btn.classList.add('playing');currentBtn=btn;u.onend=()=>{btn.classList.remove('playing');currentBtn=null};u.onerror=()=>{btn.classList.remove('playing');currentBtn=null};speechSynthesis.speak(u)}
+
+let activeNote=null;
+function showNote(wordEl,idx){closeAllNotes();const noteHTML=NOTES[idx];if(!noteHTML)return;const popup=document.createElement('div');popup.className='note-popup';popup.innerHTML=`<button class="note-close" onclick="closeAllNotes()">×</button><div class="note-header">💡 Nota</div><div class="note-body">${noteHTML}</div>`;wordEl.style.position='relative';wordEl.appendChild(popup);requestAnimationFrame(()=>{const rect=popup.getBoundingClientRect();if(rect.top<10)popup.classList.add('pos-below');if(rect.left<10){popup.style.left='0';popup.style.transform='none'}else if(rect.right>window.innerWidth-10){popup.style.left='auto';popup.style.right='0';popup.style.transform='none'}popup.classList.add('show')});activeNote=popup}
+function closeAllNotes(){document.querySelectorAll('.note-popup').forEach(n=>n.remove());activeNote=null}
+document.addEventListener('click',(e)=>{if(activeNote&&!e.target.closest('.note-word')&&!e.target.closest('.note-popup'))closeAllNotes()});
+</script>
+</body>
+</html>

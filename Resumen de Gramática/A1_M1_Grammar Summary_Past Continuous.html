@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Past Continuous | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#E3F2FD;--note-border:#2196F3;
+--aux:#5E35B1;--aux-bg:#EDE7F6;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem}
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:'';width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem}
+
+.g-subj{background:var(--subj-bg);color:var(--subj);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--quest)}
+.g-aux{background:var(--aux-bg);color:var(--aux);padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid var(--aux)}
+.g-ing{background:#FFF3E0;color:#E65100;padding:1px 6px;border-radius:4px;font-weight:700;border-bottom:2.5px solid #FF8F00}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:#E8F5E9;border:2px solid #A5D6A7}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--ok)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:2px 0}
+
+.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}
+.conj-item{padding:.65rem .5rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}
+.conj-item .pron{font-size:.72rem;color:var(--subj);font-weight:800}
+.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--verb);line-height:1.3}
+.conj-item .meaning{font-size:.63rem;color:var(--text-soft);margin-top:.1rem}
+
+.timeline-box{background:#F8F9FA;border:1.5px solid var(--border);border-radius:12px;padding:1rem 1.2rem;margin:.8rem 0;position:relative}
+.timeline-line{height:4px;background:linear-gradient(to right,#BBDEFB,#1565C0,#BBDEFB);border-radius:2px;margin:.6rem 0 .3rem;position:relative}
+.timeline-line::before{content:'PASADO';position:absolute;left:0;top:-18px;font-size:.62rem;font-weight:800;color:var(--text-soft);letter-spacing:.06em}
+.timeline-line::after{content:'AHORA';position:absolute;right:0;top:-18px;font-size:.62rem;font-weight:800;color:var(--text-soft);letter-spacing:.06em}
+.tl-marker{display:flex;justify-content:center;gap:2.5rem;margin-top:.5rem;font-size:.75rem;font-weight:700}
+.tl-marker span{display:flex;flex-direction:column;align-items:center;gap:2px}
+.tl-dot{width:10px;height:10px;border-radius:50%;margin:0 auto}
+.tl-dot.blue{background:var(--lp)}
+.tl-dot.wave{background:var(--verb);border:2px solid #fff;box-shadow:0 0 0 2px var(--verb)}
+.tl-label{font-size:.68rem;color:var(--text-soft);text-align:center;max-width:80px}
+
+.ing-rules{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin:.8rem 0}
+.ing-card{padding:.8rem;border-radius:10px;background:var(--card);border:1.5px solid var(--border)}
+.ing-card .rule{font-size:.72rem;font-weight:800;color:var(--ld);margin-bottom:.3rem}
+.ing-card .examples{font-size:.8rem;color:var(--text-soft)}
+.ing-card .examples span{color:var(--verb);font-weight:700}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:1.9}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp)}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.5}
+
+.ex-row{display:flex;align-items:center;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0}
+.ex-row .en{font-weight:700;color:var(--text)}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:1px}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.9rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.88rem;margin-bottom:.7rem;line-height:1.4}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.65rem .5rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text-soft);font-size:.83rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:500px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.85rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.4rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.9rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-flex;align-items:center;gap:.3rem;margin-top:.3rem;padding:3px 10px;border-radius:6px;font-size:.78rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .7rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.76rem;color:#0a2a5e}
+.fb-tip strong{color:var(--ld)}
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:4px 0 4px 20px;position:relative;font-size:.83rem;color:var(--text-soft)}
+.summary-final li:before{content:"✔";position:absolute;left:0;color:var(--lp);font-weight:700}
+
+@media(max-width:600px){
+  .level-header h1{font-size:1.4rem}
+  .card{padding:1.2rem}
+  .compare-grid,.conj-grid,.ing-rules{grid-template-columns:1fr}
+  .tl-marker{gap:1rem}
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="level-badge">💙 A1 · Daily Life &amp; Personal Routines</div>
+<div class="level-header">
+  <h1>📝 Grammar Summary</h1>
+  <div class="module-name">🏠 Daily Life &amp; Personal Routines — Past Continuous</div>
+  <p class="subtitle">was/were + verb-ing · forma y uso básico · 5 pasos × 5 ejercicios</p>
+</div>
+
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+
+<div class="summary-final" id="summaryFinal">
+  <h3>🎓 Resumen: Past Continuous</h3>
+  <ul id="summaryList"></ul>
+</div>
+
+</div>
+<script>
+var TOPIC = {
+  summary: [
+    "<b>Forma:</b> sujeto + <i>was/were</i> + verbo-<i>ing</i>",
+    "<b>was</b> → I / He / She / It &nbsp;·&nbsp; <b>were</b> → You / We / They",
+    "<b>Uso principal:</b> acción en progreso en un momento específico del pasado",
+    "<b>Negativo:</b> was not (wasn't) / were not (weren't) + verb-ing",
+    "<b>Pregunta:</b> Was/Were + subject + verb-ing?",
+    "<b>-ing rules:</b> e final se elimina (make → making) · consonante doble si CVC (run → running)",
+    "<b>Diferencia clave con pasado simple:</b> acción completa (simple) vs. acción en progreso (continuous)"
+  ],
+  steps: [
+    /* ── PASO 1 ── */
+    {
+      icon: "🇪🇸", title: "Repaso en Español",
+      html: '<div class="section-label">Paso 1</div><div class="section-title">Paso 1: 🇪🇸 Repaso en Español</div>' +
+        '<div class="section-desc">En español usamos el pretérito imperfecto para describir acciones que estaban en progreso en el pasado. En inglés esto se expresa con el <strong>past continuous</strong>.</div>' +
+        '<div class="compare-grid">' +
+          '<div class="compare-card esp"><h4>🇪🇸 Imperfecto Español</h4><ul><li>Yo <b>estaba cocinando</b></li><li>Tú <b>estabas estudiando</b></li><li>Él <b>estaba durmiendo</b></li><li>Nosotros <b>estábamos trabajando</b></li></ul></div>' +
+          '<div class="compare-card eng"><h4>🇬🇧 Past Continuous</h4><ul><li>I <b>was cooking</b></li><li>You <b>were studying</b></li><li>He <b>was sleeping</b></li><li>We <b>were working</b></li></ul></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Clave:</strong> "Estaba + gerundio" en español = "was/were + verb-ing" en inglés. ¡La estructura es casi idéntica!</div>' +
+        '<div class="timeline-box">' +
+          '<div class="timeline-line"></div>' +
+          '<div class="tl-marker">' +
+            '<span><div class="tl-dot blue"></div><div class="tl-label">Ayer a las 8pm</div></span>' +
+            '<span><div class="tl-dot wave"></div><div class="tl-label">I was cooking 🍳 (en progreso)</div></span>' +
+            '<span><div class="tl-dot blue"></div><div class="tl-label">Ahora</div></span>' +
+          '</div>' +
+        '</div>' +
+        '<div class="ex-row"><div class="icon">🍳</div><div><div class="en">Ayer a las 8pm yo <b>estaba cocinando</b>.</div><div class="es">Yesterday at 8pm I <b>was cooking</b>. — acción en progreso en ese momento</div></div></div>' +
+        '<div class="ex-row"><div class="icon">📚</div><div><div class="en">Ella <b>estaba estudiando</b> cuando llegué.</div><div class="es">She <b>was studying</b> when I arrived. — acción de fondo interrumpida</div></div></div>',
+      exercises: [
+        {q: '"Estaba cocinando" corresponde a:', a: 'b', o: ['I cooked', 'I was cooking'], fc: '"Estaba cocinando" = acción en progreso en el pasado → I was cooking.', fi: '"I cooked" = pasado simple → acción completa y terminada, no en progreso.', ex: 'I was cooking. → Estaba cocinando.', tip: 'Estaba + gerundio = was/were + -ing'},
+        {q: '"Él estaba durmiendo." en inglés:', a: 'a', o: ['He was sleeping.', 'He were sleeping.'], fc: '"He" → was. He/She/It siempre usan "was".', fi: '"Were" es para You/We/They, no para He.', ex: 'He was sleeping. → Él estaba durmiendo.', tip: 'He/She/It → was'},
+        {q: '"Nosotros estábamos trabajando." en inglés:', a: 'b', o: ['We was working.', 'We were working.'], fc: '"We" → were. You/We/They siempre usan "were".', fi: '"Was" es para I/He/She/It.', ex: 'We were working. → Estábamos trabajando.', tip: 'We/You/They → were'},
+        {q: 'El past continuous describe:', a: 'b', o: ['Una acción completa y terminada', 'Una acción en progreso en un momento del pasado'], fc: 'Past continuous = acción que estaba ocurriendo en un momento específico del pasado.', fi: 'Acción completa = pasado simple (I cooked, I slept).', ex: 'I was cooking at 8pm. → Estaba cocinando a las 8pm.'},
+        {q: '"Tú estabas estudiando." en inglés:', a: 'a', o: ['You were studying.', 'You was studying.'], fc: '"You" → were. Siempre.', fi: '"Was" no combina con "you".', ex: 'You were studying. → Estabas estudiando.', tip: 'You → were (siempre)'}
+      ]
+    },
+
+    /* ── PASO 2 ── */
+    {
+      icon: "🤝", title: "Similitudes",
+      html: '<div class="section-label">Paso 2</div><div class="section-title">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>' +
+        '<div class="section-desc">El past continuous y el pretérito imperfecto progresivo comparten estructura y función.</div>' +
+        '<table class="g-table"><tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>' +
+          '<tr><td>Acción en progreso pasado</td><td>estaba cocinando</td><td><span class="g-aux">was</span> <span class="g-ing">cooking</span></td></tr>' +
+          '<tr><td>Auxiliar + gerundio/ing</td><td>estaba + <b>-ando/-iendo</b></td><td><span class="g-aux">was/were</span> + <span class="g-ing">verb-ing</span></td></tr>' +
+          '<tr><td>Cambia según persona</td><td>estaba / estabas / estaba</td><td><span class="g-aux">was</span> / <span class="g-aux">were</span></td></tr>' +
+          '<tr><td>Acción de fondo</td><td>Estaba lloviendo cuando...</td><td>It <span class="g-aux">was</span> <span class="g-ing">raining</span> when...</td></tr>' +
+          '<tr><td>Negativo con auxiliar</td><td>no estaba + -ando</td><td><span class="g-aux">wasn\'t/weren\'t</span> + <span class="g-ing">-ing</span></td></tr>' +
+        '</table>' +
+        '<div class="section-label">Conjugación — was / were</div>' +
+        '<div class="conj-grid">' +
+          '<div class="conj-item"><div class="pron">I</div><div class="vrb">was</div><div class="meaning">estaba</div></div>' +
+          '<div class="conj-item"><div class="pron">You</div><div class="vrb">were</div><div class="meaning">estabas</div></div>' +
+          '<div class="conj-item"><div class="pron">He / She / It</div><div class="vrb">was</div><div class="meaning">estaba</div></div>' +
+          '<div class="conj-item"><div class="pron">We</div><div class="vrb">were</div><div class="meaning">estábamos</div></div>' +
+          '<div class="conj-item"><div class="pron">You (pl.)</div><div class="vrb">were</div><div class="meaning">estaban</div></div>' +
+          '<div class="conj-item"><div class="pron">They</div><div class="vrb">were</div><div class="meaning">estaban</div></div>' +
+        '</div>' +
+        '<div class="tip-card"><strong>💡 Truco:</strong> Was/were son el pasado de am/is/are. Si en presente usas "is" → en past continuous usas "was". Si usas "are" → "were".</div>',
+      exercises: [
+        {q: '"She ___ reading." (past continuous)', a: 'a', o: ['was', 'were'], fc: '"She" → was. He/She/It → was en pasado.', fi: '"Were" es para You/We/They.', ex: 'She was reading. → Ella estaba leyendo.', tip: 'She → was'},
+        {q: '"They ___ cooking." (past continuous)', a: 'b', o: ['was', 'were'], fc: '"They" → were. You/We/They → were en pasado.', fi: '"Was" es para I/He/She/It.', ex: 'They were cooking. → Ellos estaban cocinando.', tip: 'They → were'},
+        {q: '"Was" es el pasado de:', a: 'a', o: ['is / am', 'are'], fc: '"Was" = pasado de "is" (He/She/It) y "am" (I).', fi: '"Are" → "were" en pasado.', ex: 'He is → He was · I am → I was', tip: 'is/am → was · are → were'},
+        {q: '"I ___ sleeping at midnight." (past continuous)', a: 'b', o: ['were', 'was'], fc: '"I" → was. I siempre usa was.', fi: '"Were" no combina con "I".', ex: 'I was sleeping at midnight. → Estaba durmiendo a medianoche.', tip: 'I → was (siempre)'},
+        {q: 'La forma -ing corresponde a:', a: 'a', o: ['-ando / -iendo en español', 'El pasado del verbo'], fc: '-ing = gerundio. "cooking" = cocinando · "sleeping" = durmiendo.', fi: 'El pasado sería "cooked", "slept". -ing es el gerundio.', ex: 'cooking → cocinando · studying → estudiando', tip: '-ing = gerundio (-ando/-iendo)'}
+      ]
+    },
+
+    /* ── PASO 3 ── */
+    {
+      icon: "⚡", title: "Diferencias",
+      html: '<div class="section-label">Paso 3</div><div class="section-title">Paso 3: ⚡ Diferencias Importantes</div>' +
+        '<table class="g-table"><tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>' +
+          '<tr><td>estaba / estabas / estaba (3 formas)</td><td><span class="g-aux">was</span> / <span class="g-aux">were</span> (2 formas)</td><td>Inglés más simple</td></tr>' +
+          '<tr><td>cocinando (siempre igual)</td><td><span class="g-ing">cook</span> → <span class="g-ing">cook<b>ing</b></span> (reglas)</td><td>Hay reglas de ortografía para -ing</td></tr>' +
+          '<tr><td>Pasado simple y continuo similares</td><td>I <span class="g-verb">cooked</span> ≠ I <span class="g-aux">was</span> <span class="g-ing">cooking</span></td><td>Diferencia importante de uso</td></tr>' +
+          '<tr><td>No existe "estoy siendo"</td><td>I <span class="g-aux">was</span> <span class="g-ing">being</span> careful</td><td>"Being" existe en inglés</td></tr>' +
+          '<tr><td>Negativo: no estaba + -ando</td><td><span class="g-neg">wasn\'t / weren\'t</span> + <span class="g-ing">-ing</span></td><td>Contracciones comunes</td></tr>' +
+        '</table>' +
+        '<div class="section-label">Reglas para formar -ing</div>' +
+        '<div class="ing-rules">' +
+          '<div class="ing-card"><div class="rule">Regla general: + ing</div><div class="examples">cook → <span>cooking</span><br>read → <span>reading</span><br>sleep → <span>sleeping</span></div></div>' +
+          '<div class="ing-card"><div class="rule">-e final: quitar e + ing</div><div class="examples">make → <span>making</span><br>write → <span>writing</span><br>come → <span>coming</span></div></div>' +
+          '<div class="ing-card"><div class="rule">CVC corto: doblar + ing</div><div class="examples">run → <span>running</span><br>sit → <span>sitting</span><br>swim → <span>swimming</span></div></div>' +
+          '<div class="ing-card"><div class="rule">-ie final: ie → y + ing</div><div class="examples">die → <span>dying</span><br>lie → <span>lying</span><br>tie → <span>tying</span></div></div>' +
+        '</div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Past simple vs. Past continuous</div>' +
+          '<p>❌ <b>I cooked</b> at 8pm. → Solo indica que cocinó en algún momento de las 8pm.<br>' +
+          '✅ <b>I was cooking</b> at 8pm. → Estaba en plena acción de cocinar a las 8pm.</p></div>' +
+        '<div class="ex-row ex-right"><div class="icon">✅</div><div><div class="en"><span class="g-subj">She</span> <span class="g-aux">was</span> <span class="g-ing">making</span> <span class="g-comp">dinner</span>.</div><div class="es">Ella estaba preparando la cena.</div></div></div>' +
+        '<div class="ex-row ex-wrong"><div class="icon">❌</div><div><div class="en">She was makeing dinner.</div><div class="es">make → quitar "e" → making (no "makeing")</div></div></div>',
+      exercises: [
+        {q: '"make" → forma -ing correcta:', a: 'b', o: ['makeing', 'making'], fc: '"make" termina en -e → quitar la e → making.', fi: '"makeing" duplica la vocal innecesariamente. La regla es quitar la e.', ex: 'She was making dinner. → Estaba preparando la cena.', tip: 'Verbo en -e: quitar e + ing'},
+        {q: '"run" → forma -ing correcta:', a: 'a', o: ['running', 'runing'], fc: '"run" es CVC corto (consonante-vocal-consonante) → doblar la última → running.', fi: '"runing" con una sola n es incorrecto. La última consonante se dobla.', ex: 'He was running. → Él estaba corriendo.', tip: 'CVC corto → doblar consonante + ing'},
+        {q: '"sleep" → forma -ing correcta:', a: 'b', o: ['sleping', 'sleeping'], fc: '"sleep" → regla general, solo + ing → sleeping.', fi: '"sleping" elimina una e incorrectamente. "sleep" tiene dos vocales → no dobla.', ex: 'I was sleeping. → Estaba durmiendo.'},
+        {q: '"I was cooking" vs. "I cooked" — diferencia:', a: 'a', o: ['Was cooking = en progreso · cooked = acción completa', 'Son exactamente lo mismo'], fc: '"Was cooking" = proceso en curso a esa hora. "Cooked" = acción terminada, completada.', fi: 'No son equivalentes. El aspecto (progresivo vs. completado) cambia el significado.', ex: 'I was cooking at 8pm. (progreso) vs. I cooked dinner. (completado)'},
+        {q: '"write" → forma -ing correcta:', a: 'b', o: ['writeing', 'writing'], fc: '"write" termina en -e → quitar la e → writing.', fi: '"writeing" mantiene la e, lo que es incorrecto.', ex: 'She was writing a letter. → Estaba escribiendo una carta.', tip: 'Verbo en -e: quitar e + ing'}
+      ]
+    },
+
+    /* ── PASO 4 ── */
+    {
+      icon: "💡", title: "Consejos",
+      html: '<div class="section-label">Paso 4</div><div class="section-title">Paso 4: 💡 Consejos Prácticos</div>' +
+        '<div class="tip-card"><strong>Tip 1:</strong> Dos palabras siempre: auxiliar + ing. <b>was/were</b> (auxiliar) + <b>verb-ing</b> (acción). Nunca una sola.</div>' +
+        '<div class="tip-card"><strong>Tip 2:</strong> Was → I, He, She, It (singular). Were → You, We, They (plural/you). Mismos grupos que am/is/are.</div>' +
+        '<div class="tip-card"><strong>Tip 3:</strong> Negativo → solo agrega "not": <b>wasn\'t</b> / <b>weren\'t</b> + verb-ing. <em>She wasn\'t sleeping. / They weren\'t working.</em></div>' +
+        '<div class="tip-card"><strong>Tip 4:</strong> Pregunta → invierte auxiliar y sujeto: <b>Was she sleeping?</b> / <b>Were they working?</b> Respuesta corta: Yes, she was. / No, they weren\'t.</div>' +
+        '<div class="formula-box">' +
+          '✅ <span class="g-subj">Subject</span> + <span class="g-aux">was/were</span> + <span class="g-ing">verb-ing</span><br>' +
+          '❌ <span class="g-subj">Subject</span> + <span class="g-aux">wasn\'t/weren\'t</span> + <span class="g-ing">verb-ing</span><br>' +
+          '❓ <span class="g-aux">Was/Were</span> + <span class="g-subj">subject</span> + <span class="g-ing">verb-ing</span>?' +
+        '</div>',
+      exercises: [
+        {q: '"She ___ working yesterday." (negativo)', a: 'b', o: ["weren't", "wasn't"], fc: '"She" → wasn\'t. She/He/It → wasn\'t en negativo.', fi: '"Weren\'t" es para You/We/They.', ex: "She wasn't working yesterday. → Ella no estaba trabajando ayer.", tip: "She → wasn't"},
+        {q: '"___ they cooking?" (pregunta)', a: 'b', o: ['Was', 'Were'], fc: '"They" → Were. Were they cooking?', fi: '"Was" es para I/He/She/It.', ex: 'Were they cooking? → ¿Estaban cocinando?', tip: 'They → were'},
+        {q: '"Was he sleeping?" → "Yes, ___"', a: 'a', o: ['Yes, he was.', 'Yes, he were.'], fc: '"Yes, he was." — respuesta corta repite el auxiliar.', fi: '"He were" es incorrecto. He siempre usa was.', ex: 'Was he sleeping? → Yes, he was.'},
+        {q: '"___ you studying last night?" (pregunta)', a: 'b', o: ['Was', 'Were'], fc: '"You" → Were. Were you studying last night?', fi: '"Was you" es incorrecto. "You" siempre usa were.', ex: 'Were you studying last night? → ¿Estabas estudiando anoche?'},
+        {q: '"We ___ sleeping at midnight." (negativo)', a: 'a', o: ["weren't", "wasn't"], fc: '"We" → weren\'t. We/You/They → weren\'t.', fi: '"Wasn\'t" es para I/He/She/It.', ex: "We weren't sleeping at midnight. → No estábamos durmiendo a medianoche.", tip: "We → weren't"}
+      ]
+    },
+
+    /* ── PASO 5 ── */
+    {
+      icon: "✨", title: "Práctica Final",
+      html: '<div class="section-label">Paso 5</div><div class="section-title">Paso 5: ✨ Práctica Final</div>' +
+        '<div class="formula-box">' +
+          '<span class="g-subj">I/He/She/It</span> + <span class="g-aux">was</span> + <span class="g-ing">verb-ing</span><br>' +
+          '<span class="g-subj">You/We/They</span> + <span class="g-aux">were</span> + <span class="g-ing">verb-ing</span>' +
+        '</div>' +
+        '<div class="ex-row ex-right"><div class="icon">🍳</div><div><div class="en"><span class="g-subj">She</span> <span class="g-aux">was</span> <span class="g-ing">cooking</span> <span class="g-comp">at 7pm</span>.</div><div class="es">Ella estaba cocinando a las 7pm.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">📚</div><div><div class="en"><span class="g-subj">They</span> <span class="g-neg">weren\'t</span> <span class="g-ing">studying</span> <span class="g-comp">last night</span>.</div><div class="es">Ellos no estaban estudiando anoche.</div></div></div>' +
+        '<div class="ex-row ex-right"><div class="icon">❓</div><div><div class="en"><span class="g-quest">Was</span> <span class="g-subj">he</span> <span class="g-ing">sleeping</span>? — Yes, he <span class="g-aux">was</span>.</div><div class="es">¿Estaba él durmiendo? — Sí, estaba.</div></div></div>' +
+        '<div class="alert-card"><div class="atitle">⚠️ Errores Comunes</div><p>' +
+          '❌ "She were cooking." → ✅ "She <b>was</b> cooking." (She → was)<br>' +
+          '❌ "I was cook dinner." → ✅ "I was <b>cooking</b> dinner." (-ing obligatorio)<br>' +
+          '❌ "They was working." → ✅ "They <b>were</b> working." (They → were)' +
+        '</p></div>',
+      exercises: [
+        {q: '"___ cooking at 8pm." (Yo estaba)', a: 'b', o: ['I were', 'I was'], fc: '"I was cooking at 8pm." — I → was.', fi: '"I were" es incorrecto. "I" siempre usa was.', ex: 'I was cooking at 8pm. → Estaba cocinando a las 8pm.'},
+        {q: '"They ___ studying last night."', a: 'a', o: ['were', 'was'], fc: '"They were studying last night." — They → were.', fi: '"Was" es para I/He/She/It.', ex: 'They were studying last night. → Estaban estudiando anoche.'},
+        {q: '"He was ___ dinner." (preparar)', a: 'b', o: ['make', 'making'], fc: '"He was making dinner." — need -ing after was/were.', fi: 'Después de was/were siempre va el verbo con -ing.', ex: 'He was making dinner. → Él estaba preparando la cena.', tip: 'was/were + verb-ing (obligatorio)'},
+        {q: '"___ she running in the park?"', a: 'a', o: ['Was', 'Were'], fc: '"Was she running?" — She → was.', fi: '"Were she" es incorrecto. She usa was.', ex: 'Was she running in the park? → ¿Estaba ella corriendo en el parque?'},
+        {q: '"We ___ sleeping when he called."', a: 'b', o: ['was', 'were'], fc: '"We were sleeping when he called." — We → were.', fi: '"We was" es uno de los errores más comunes. We siempre usa were.', ex: 'We were sleeping when he called. → Estábamos durmiendo cuando llamó.', tip: 'We → were (siempre, sin excepción)'}
+      ]
+    }
+  ]
+};
+
+var curStep = 0;
+var scores = {};
+var answered = {};
+
+function renderStepTabs() {
+  var c = document.getElementById('stepTabs');
+  c.innerHTML = '';
+  TOPIC.steps.forEach(function(s, i) {
+    var b = document.createElement('button');
+    var k = 's' + i;
+    b.className = 'step-tab' + (i === curStep ? ' active' : '');
+    if (scores[k] !== undefined && i < curStep) b.classList.add('done');
+    b.textContent = (i + 1) + '. ' + s.icon + ' ' + s.title;
+    b.onclick = (function(idx) {
+      return function() {
+        curStep = idx;
+        renderStepTabs();
+        renderCard();
+        document.getElementById('summaryFinal').classList.remove('show');
+      };
+    })(i);
+    c.appendChild(b);
+  });
+}
+
+function renderCard() {
+  var s = TOPIC.steps[curStep];
+  var k = 's' + curStep;
+  if (scores[k] === undefined) scores[k] = 0;
+  var h = '<div class="card active">' + s.html + '<div class="ex-section"><h3>✏️ Ejercicios — ' + s.title + '</h3>';
+  s.exercises.forEach(function(e, i) {
+    var eid = k + 'e' + i;
+    var correct_label = e.o[e.a === 'a' ? 0 : 1];
+    var fbOk = '<div class="fb fb-ok" id="fbok-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">🎉</span> ¡Correcto!</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text"><span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        '<div class="fb-row"><span class="fb-dot">💡</span><div class="fb-text">La otra opción: ' + e.fi + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    var fbBad = '<div class="fb fb-bad" id="fbbad-' + eid + '">' +
+      '<div class="fb-header"><span class="fb-icon">😕</span> No es correcto</div>' +
+      '<div class="fb-body">' +
+        '<div class="fb-row"><span class="fb-dot">❌</span><div class="fb-text"><span class="fb-wrong-reason">' + e.fi + '</span></div></div>' +
+        '<div class="fb-row"><span class="fb-dot">✅</span><div class="fb-text">La respuesta correcta es <span class="fb-correct-answer">' + correct_label + '</span> — ' + e.fc + '</div></div>' +
+        (e.ex ? '<div class="fb-example">📝 ' + e.ex + '</div>' : '') +
+        (e.tip ? '<div class="fb-tip"><strong>💡 Recuerda:</strong> ' + e.tip + '</div>' : '') +
+      '</div></div>';
+    h += '<div class="exercise" id="' + eid + '">' +
+      '<div class="exercise-q">' + (i + 1) + '. ' + e.q + '</div>' +
+      '<div class="opts">' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'a\',\'' + e.a + '\')">a) ' + e.o[0] + '</button>' +
+        '<button class="opt-btn" onclick="chk(\'' + eid + '\',\'b\',\'' + e.a + '\')">b) ' + e.o[1] + '</button>' +
+      '</div>' + fbOk + fbBad + '</div>';
+  });
+  h += '<div class="score-bar"><div class="num" id="sc-' + k + '">0/5</div><div class="lbl">Puntuación</div></div></div></div>';
+  document.getElementById('cardArea').innerHTML = h;
+}
+
+function chk(eid, sel, correct) {
+  if (answered[eid]) return;
+  answered[eid] = true;
+  var ex = document.getElementById(eid);
+  var btns = ex.querySelectorAll('.opt-btn');
+  btns.forEach(function(b) { b.disabled = true; });
+  var k = eid.match(/s\d+/)[0];
+  if (sel === correct) {
+    ex.classList.add('correct');
+    btns.forEach(function(b) { if (b.textContent.charAt(0) === sel) b.classList.add('sel-ok'); });
+    document.getElementById('fbok-' + eid).classList.add('show');
+    scores[k]++;
+  } else {
+    ex.classList.add('incorrect');
+    btns.forEach(function(b) {
+      if (b.textContent.charAt(0) === sel) b.classList.add('sel-bad');
+      if (b.textContent.charAt(0) === correct) b.classList.add('show-ok');
+    });
+    document.getElementById('fbbad-' + eid).classList.add('show');
+  }
+  document.getElementById('sc-' + k).textContent = scores[k] + '/5';
+  var allDone = [0,1,2,3,4].every(function(i) { return answered[k + 'e' + i]; });
+  if (allDone && curStep === 4) {
+    setTimeout(function() {
+      var sf = document.getElementById('summaryFinal');
+      var sl = document.getElementById('summaryList');
+      sl.innerHTML = TOPIC.summary.map(function(s) { return '<li>' + s + '</li>'; }).join('');
+      sf.classList.add('show');
+      sf.scrollIntoView({behavior: 'smooth'});
+    }, 600);
+  }
+}
+
+renderStepTabs();
+renderCard();
+</script>
+</body>
+</html>
