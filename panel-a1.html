@@ -149,7 +149,7 @@ main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
   <div class="dscroll" id="d-scroll"></div>
 </div>
 <script>
-const BASE = 'https://htmlpreview.github.io/?https://raw.githubusercontent.com/jucumenglishcenter/PRACTICE/main/';
+const GH = 'https://jucumenglishcenter.github.io/A1/';
 
 const DATA=[
   {
@@ -172,40 +172,40 @@ const DATA=[
     grammar:[
       {
         label:'There is/are & To be',
-        fill:   BASE+'A1_M1_Grammar_There_is-are___To_be_Fill_in.html',
-        ident:  BASE+'A1_M1_Grammar_There_is-are___To_be_Identification.html',
-        trans:  BASE+'A1_M1_Grammar_There_is-are___To_be_Transform.html',
-        summary:BASE+'A1_M1_Grammar_Summary_There_is-are.html'
+        fill:  GH+'Practicas/T1_There is are _To be/A1_M1_Grammar_There is-are & To be_Fill in.html',
+        ident: GH+'Practicas/T1_There is are _To be/A1_M1_Grammar_There is-are & To be_Identification.html',
+        trans: GH+'Practicas/T1_There is are _To be/A1_M1_Grammar_There is-are & To be_Transform.html',
+        summary:GH+'Resumen de Gramática/A1_M1_Grammar Summary_There is-are.html'
       },
       {
         label:'Articles',
-        fill:   BASE+'A1_M1_Grammar_Articles_Fill_in.html',
-        ident:  BASE+'A1_M1_Grammar_Articles_Identification.html',
-        trans:  BASE+'A1_M1_Grammar_Articles_Transform.html',
-        summary:BASE+'A1_M1_Grammar_Summary_Articles.html'
+        fill:  GH+'Practicas/T2_Articles_countuncount contrast/A1_M1_Grammar_Articles_Fill in.html',
+        ident: GH+'Practicas/T2_Articles_countuncount contrast/A1_M1_Grammar_Articles_Identification.html',
+        trans: GH+'Practicas/T2_Articles_countuncount contrast/A1_M1_Grammar_Articles_Transform.html',
+        summary:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Articles.html'
       },
       {
         label:'Imperatives',
-        fill:   BASE+'A1_M1_Grammar_Imperatives_Fill_in.html',
-        ident:  BASE+'A1_M1_Grammar_Imperatives_Identification.html',
-        trans:  BASE+'A1_M1_Grammar_Imperatives_Transform.html',
-        summary:BASE+'A1_M1_Grammar_Summary_Imperatives.html'
+        fill:  GH+'Practicas/T3_Imperatives — classroom & procedures/A1_M1_Grammar_Imperatives_Fill in.html',
+        ident: GH+'Practicas/T3_Imperatives — classroom & procedures/A1_M1_Grammar_Imperatives_Identification.html',
+        trans: GH+'Practicas/T3_Imperatives — classroom & procedures/A1_M1_Grammar_Imperatives_Transform.html',
+        summary:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Imperatives.html'
       }
     ],
     summaries:[
-      {label:'To be',             url:BASE+'A1_M1_Grammar_Summary_To_be.html'},
-      {label:'There is / are',    url:BASE+'A1_M1_Grammar_Summary_There_is-are.html'},
-      {label:'Articles',          url:BASE+'A1_M1_Grammar_Summary_Articles.html'},
-      {label:'Imperatives',       url:BASE+'A1_M1_Grammar_Summary_Imperatives.html'},
-      {label:'Past Continuous',   url:BASE+'A1_M1_Grammar_Summary_Past_Continuous.html'},
-      {label:'Past Simple vs Cont.',url:BASE+'A1_M1_Grammar_Summary_Past_Simple_vs_Continuous.html'},
-      {label:'WH Questions Past', url:BASE+'A1_M1_Grammar_Summary_WH_Questions_Past.html'},
-      {label:'Modals of Deduction',url:BASE+'A1_M1_Grammar_Summary_Modals_Deduction.html'},
-      {label:'Will / Probably / Might',url:BASE+'A1_M1_Grammar_Summary_Will-Probably-Might.html'}
+      {label:'To be',                  url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_To be.html'},
+      {label:'There is / are',         url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_There is-are.html'},
+      {label:'Articles',               url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Articles.html'},
+      {label:'Imperatives',            url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Imperatives.html'},
+      {label:'Past Continuous',        url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Past Continuous.html'},
+      {label:'Past Simple vs Cont.',   url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Past Simple vs Continuous.html'},
+      {label:'WH Questions Past',      url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_WH Questions Past.html'},
+      {label:'Modals of Deduction',    url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Modals Deduction.html'},
+      {label:'Will / Probably / Might',url:GH+'Resumen de Gramática/A1_M1_Grammar Summary_Will-Probably-Might.html'}
     ],
-    reading: BASE+'A1_M1_Reading_Comprehension_Daily_Life_Personal_Routines.html',
-    listening:BASE+'A1_M1_Listening_Daily_Life_Personal_Routines.html',
-    story:    BASE+'A1_M1_Story_Daily_Life_Personal_Routines.html',
+    reading:  GH+'A1_M1_Reading Comprehension_Daily Life Personal Routines.html',
+    listening:GH+'A1_M1_Listening_Daily Life Personal Routines.html',
+    story:    GH+'A1_M1_Story_Daily Life Personal Routines.html',
     quizlet:[
       {label:'📚 Definiciones',   url:'https://quizlet.com/pe/1155523636/a1-vocabulario-definiciones-flash-cards/?new'},
       {label:'🔤 Eng → Esp',      url:'https://quizlet.com/pe/1156003746/a1-vocabulario-eng-es-flash-cards/?new'},
@@ -240,17 +240,32 @@ function buildGrammarSec(m){
 function buildDrawer(m){
   let html='';
 
-  // Gramática práctica
-  html+=`<div class="dsec" id="ds_${m.id}_gr">
-    <div class="dsec-trig" onclick="tog('ds_${m.id}_gr')">
-      <div class="dsec-ico">📝</div>
-      <span class="dsec-label">Práctica de Gramática</span>
-      <span class="dsec-meta">${m.grammar.length} temas</span>
+  // Materiales
+  html+=`<div class="dsec" id="ds_${m.id}_mt">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_mt')">
+      <div class="dsec-ico">📚</div>
+      <span class="dsec-label">Materiales</span>
       <span class="dsec-chev">▾</span>
     </div>
     <div class="dsec-body">
-      <div class="sec-label">Temas con ejercicios</div>
-      ${buildGrammarSec(m)}
+      <div class="matlist">
+        <a class="matitem" href="${m.story}" target="_blank"><div class="matitem-ico">📗</div><span>Story</span><span class="matitem-arr">→</span></a>
+        <a class="matitem" href="#"><div class="matitem-ico">💬</div><span>Diálogos</span><span class="matitem-arr">→</span></a>
+      </div>
+      <div class="sec-label">Resúmenes de Gramática</div>
+      <div class="tacc">
+        ${m.summaries.map((s,i)=>`
+          <div class="titem" id="sm_${m.id}_${i}">
+            <div class="ttrig" onclick="tog('sm_${m.id}_${i}')">
+              <span class="tn">${i+1}</span>
+              <span class="ttext">${s.label}</span>
+              <span class="tchev">▾</span>
+            </div>
+            <div class="tacts">
+              <a class="chip chip-out" href="${s.url}" target="_blank">📄 Ver resumen</a>
+            </div>
+          </div>`).join('')}
+      </div>
     </div>
   </div>`;
 
@@ -297,32 +312,17 @@ function buildDrawer(m){
     </div>
   </div>`;
 
-  // Materiales
-  html+=`<div class="dsec" id="ds_${m.id}_mt">
-    <div class="dsec-trig" onclick="tog('ds_${m.id}_mt')">
-      <div class="dsec-ico">📚</div>
-      <span class="dsec-label">Materiales</span>
+  // Práctica de Gramática
+  html+=`<div class="dsec" id="ds_${m.id}_gr">
+    <div class="dsec-trig" onclick="tog('ds_${m.id}_gr')">
+      <div class="dsec-ico">📝</div>
+      <span class="dsec-label">Práctica de Gramática</span>
+      <span class="dsec-meta">${m.grammar.length} temas</span>
       <span class="dsec-chev">▾</span>
     </div>
     <div class="dsec-body">
-      <div class="matlist">
-        <a class="matitem" href="${m.story}" target="_blank"><div class="matitem-ico">📗</div><span>Story</span><span class="matitem-arr">→</span></a>
-        <a class="matitem" href="#"><div class="matitem-ico">💬</div><span>Diálogos</span><span class="matitem-arr">→</span></a>
-      </div>
-      <div class="sec-label">Resúmenes de Gramática</div>
-      <div class="tacc">
-        ${m.summaries.map((s,i)=>`
-          <div class="titem" id="sm_${m.id}_${i}">
-            <div class="ttrig" onclick="tog('sm_${m.id}_${i}')">
-              <span class="tn">${i+1}</span>
-              <span class="ttext">${s.label}</span>
-              <span class="tchev">▾</span>
-            </div>
-            <div class="tacts">
-              <a class="chip chip-out" href="${s.url}" target="_blank">📄 Ver resumen</a>
-            </div>
-          </div>`).join('')}
-      </div>
+      <div class="sec-label">Temas con ejercicios</div>
+      ${buildGrammarSec(m)}
     </div>
   </div>`;
 
