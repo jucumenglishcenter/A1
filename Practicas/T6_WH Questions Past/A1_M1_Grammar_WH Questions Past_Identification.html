@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification - A1 M1 | Wh-Questions in the Past | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3; --primary-light: #BBDEFB; --primary-dark: #0D47A1;
+            --bg-gradient-start: #E3F2FD; --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470; --text-medium: #0D47A1;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --purple: #8B5CF6;  --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .topic-badge { display:inline-flex; align-items:center; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .topic-badge.ps   { background:#E3F2FD; color:#0D47A1; }
+        .topic-badge.tobe { background:#EDE9FE; color:#6D28D9; }
+        .topic-badge.pc   { background:#FFF3E0; color:#C2410C; }
+
+        .context-box { background:#F0F9FF; border:1px solid #BAE6FD; border-radius:10px; padding:0.7rem 0.9rem; margin-bottom:0.5rem; font-size:0.88rem; color:#0C4A6E; line-height:1.55; }
+        .context-label { font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:#0369A1; display:block; margin-bottom:0.25rem; }
+        .translation-hint { font-size:0.82rem; color:#64748B; font-weight:600; margin-bottom:0.85rem; padding:0.4rem 0.7rem; background:#F8FAFC; border-radius:8px; border:1px dashed #CBD5E1; }
+        .translation-hint span { color:#0369A1; font-weight:700; }
+
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled  { cursor:default; }
+        .sent-option.correct   { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error);   background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:1px; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct   .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error);   color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
+        .sent-option.correct   .option-text { color:var(--success-dark); }
+        .sent-option.incorrect .option-text { color:var(--error-dark); }
+        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
+        .sent-option.correct   .option-status,
+        .sent-option.incorrect .option-status { opacity:1; }
+        .wh-hl { font-weight:800; background:var(--primary-light); color:var(--primary-dark); padding:0 3px; border-radius:3px; }
+        .sent-option.correct   .wh-hl { background:var(--success-light); color:var(--success-dark); }
+        .sent-option.incorrect .wh-hl { background:var(--error-light);   color:var(--error-dark); }
+
+        .error-highlight   { color:var(--error);        font-weight:800; text-decoration:underline wavy var(--error); }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+
+        .formula-box { background:#EDE9FE; border:1px solid #C4B5FD; border-radius:10px; padding:0.6rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:#5B21B6; font-weight:600; text-align:center; margin-bottom:0.5rem; }
+
+        .fb-signal      { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong{ background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal      .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:flex-start; gap:0.6rem; padding:0.4rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label       { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
+        .compare-label.wrong { background:var(--error-light);   color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap  { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box   { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text  { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji   { font-size:4rem; margin-bottom:1rem; }
+        .results-title   { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score   { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star       { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned{ opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons  { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn         { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-m1-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">🔵 A1 · M1 · Wh-Questions in the Past</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la pregunta correcta</div>
+                <div class="instructions-text">Lee el contexto y la traducción. Elige la pregunta Wh- en pasado que está correctamente formada. Las opciones se mezclan en cada sesión.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-m1-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // IDENTIFY — 15 preguntas
+    // A1 · M1 · Wh-questions in the Past
+    // Personajes: Ana, David, Elena, Carlos
+    // Nuevos contextos — distintos al Fill
+    // Opciones mezcladas con shuffle()
+    //
+    // Errores cubiertos por bloque:
+    //  PS:   Wh- incorrecta / did faltante / verbo conjugado tras did
+    //  To be: did en lugar de was/were / número incorrecto / Wh- incorrecta
+    //  PC:   did en lugar de was/were / -ing faltante / número incorrecto
+    // ============================================================
+    const quizData = [
+
+        // ── Wh- + DID ─────────────────────────────────────────
+        {
+            id: 1, topicType: "ps", topicLabel: "Wh- + did",
+            context: "Elena's mother cooked in the kitchen every single day of the week.",
+            translation: "¿Dónde cocinaba la madre de Elena todos los días?",
+            whWord: "Where did", formulaType: "ps",
+            options: [
+                { text: "Where did Elena's mother cook every day?", correct: true, whPart: "Where did" },
+                { text: "Where Elena's mother cooked every day?", correct: false, whPart: "Where ... cooked",
+                  errorType: "Falta el auxiliar 'did'",
+                  explanation: "En preguntas Wh- con Past Simple necesitas el auxiliar 'did'. Sin 'did', la estructura es declarativa, no interrogativa. Correcto: 'Where did Elena's mother cook?'" },
+                { text: "Where did Elena's mother cooked every day?", correct: false, whPart: "cooked",
+                  errorType: "Verbo conjugado tras 'did'",
+                  explanation: "Después de 'did' el verbo va siempre en forma BASE: 'cook', no 'cooked'. 'Did' ya marca el pasado — el verbo no necesita conjugarse de nuevo." }
+            ],
+            clue: "¿Dónde? → Where + did + sujeto + verbo BASE",
+            clueExplain: "la pregunta busca el lugar → 'Where'. Past Simple con otros verbos: Where + did + sujeto + verbo base (sin -ed).",
+            rule: "Where did + sujeto + verbo base? → lugar en Past Simple",
+            examples: ["Where did she cook? → lugar PS", "Where did he go? → lugar PS", "Where did they live? → lugar PS"],
+            correctReason: "<span class='why-hl'>Where did Elena's mother cook?</span> — 'did' es el auxiliar; 'cook' va en forma base. Sin 'did' no es pregunta; con 'cooked' se duplica el pasado."
+        },
+        {
+            id: 2, topicType: "ps", topicLabel: "Wh- + did",
+            context: "Carlos ate lunch in the teachers' room every day and talked with his colleagues.",
+            translation: "¿Qué hizo Carlos en la sala de profesores a mediodía?",
+            whWord: "What did", formulaType: "ps",
+            options: [
+                { text: "What did Carlos do in the teachers' room at midday?", correct: true, whPart: "What did" },
+                { text: "What Carlos did in the teachers' room at midday?", correct: false, whPart: "Carlos did",
+                  errorType: "Orden incorrecto — did después del sujeto",
+                  explanation: "En preguntas Wh- el orden es: Wh- + did + sujeto + verbo base. 'What Carlos did...' es un orden declarativo — 'did' debe ir antes del sujeto." },
+                { text: "How did Carlos do in the teachers' room at midday?", correct: false, whPart: "How did",
+                  errorType: "Wh- incorrecta — How vs What",
+                  explanation: "'How did he do?' pregunta por resultados o rendimiento (¿Cómo le fue?). La traducción pregunta '¿Qué hizo?' — busca la acción → 'What did Carlos do?'" }
+            ],
+            clue: "¿Qué? → What + did + sujeto + verbo base",
+            clueExplain: "la pregunta busca la acción realizada → 'What'. Orden: What + did + Carlos + do. El verbo 'do' va en forma base tras 'did'.",
+            rule: "What did + sujeto + do/verbo base? → acción en Past Simple",
+            examples: ["What did he do? → acción PS", "What did she eat? → cosa PS", "What did they make? → acción PS"],
+            correctReason: "<span class='why-hl'>What did Carlos do?</span> — 'What' pregunta por la acción; 'did' es el auxiliar; 'do' va en base. El orden correcto es Wh- + did + sujeto + base."
+        },
+        {
+            id: 3, topicType: "ps", topicLabel: "Wh- + did",
+            context: "David called his mother on weekends to tell her what he had cooked during the week.",
+            translation: "¿Cuándo llamaba David a su madre?",
+            whWord: "When did", formulaType: "ps",
+            options: [
+                { text: "When did David call his mother?", correct: true, whPart: "When did" },
+                { text: "Why did David call his mother?", correct: false, whPart: "Why did",
+                  errorType: "Wh- incorrecta — Why vs When",
+                  explanation: "'Why' pregunta por razón o motivo. La traducción pregunta '¿Cuándo?' — busca el momento en el tiempo → 'When did David call?'" },
+                { text: "When did David called his mother?", correct: false, whPart: "called",
+                  errorType: "Verbo conjugado tras 'did'",
+                  explanation: "Tras 'did' el verbo va en forma BASE: 'call', no 'called'. 'Did' ya indica pasado — agregar '-ed' duplica el tiempo verbal incorrectamente." }
+            ],
+            clue: "¿Cuándo? → When + did + sujeto + verbo BASE",
+            clueExplain: "la pregunta busca el momento → 'When'. Estructura: When + did + David + call (base, sin -ed tras did).",
+            rule: "When did + sujeto + verbo base? → tiempo en Past Simple",
+            examples: ["When did he call? → tiempo PS", "When did she leave? → tiempo PS", "When did they arrive? → tiempo PS"],
+            correctReason: "<span class='why-hl'>When did David call?</span> — 'When' pregunta por el momento; 'call' en base tras 'did'. 'Why' pregunta razón; 'called' tras 'did' duplica el pasado."
+        },
+        {
+            id: 4, topicType: "ps", topicLabel: "Wh- + did",
+            context: "Ana's father always helped her feel good before she went to school by talking with her at breakfast.",
+            translation: "¿A quién ayudaba el padre de Ana a sentirse bien?",
+            whWord: "Who did", formulaType: "ps",
+            options: [
+                { text: "Who did Ana's father help feel good?", correct: true, whPart: "Who did" },
+                { text: "What did Ana's father help feel good?", correct: false, whPart: "What did",
+                  errorType: "Wh- incorrecta — What vs Who",
+                  explanation: "'What' pregunta por cosas o acciones. La traducción pregunta '¿A quién?' — busca una persona → 'Who did Ana's father help?'" },
+                { text: "Who Ana's father helped feel good?", correct: false, whPart: "Ana's father helped",
+                  errorType: "Falta el auxiliar 'did' + verbo conjugado",
+                  explanation: "Faltan dos correcciones: (1) necesitas 'did' como auxiliar para formar la pregunta, y (2) el verbo va en forma base 'help', no 'helped'. Correcto: 'Who did Ana's father help?'" }
+            ],
+            clue: "¿A quién? → Who + did + sujeto + verbo BASE",
+            clueExplain: "la pregunta busca la persona que recibió la ayuda → 'Who'. Con 'did': Who + did + Ana's father + help (base).",
+            rule: "Who did + sujeto + verbo base? → persona (objeto) en Past Simple",
+            examples: ["Who did he help? → persona PS", "Who did she call? → persona PS", "Who did they visit? → persona PS"],
+            correctReason: "<span class='why-hl'>Who did Ana's father help?</span> — 'Who' para persona; 'did' auxiliar; 'help' en base. 'What' es para cosas; sin 'did' no hay pregunta válida."
+        },
+        {
+            id: 5, topicType: "ps", topicLabel: "Wh- + did",
+            context: "Carlos went to the market on Saturdays because he liked to buy fresh food and talk to the sellers.",
+            translation: "¿Por qué fue Carlos al mercado los sábados?",
+            whWord: "Why did", formulaType: "ps",
+            options: [
+                { text: "Why Carlos went to the market on Saturdays?", correct: false, whPart: "Carlos went",
+                  errorType: "Falta 'did' + verbo conjugado",
+                  explanation: "Dos errores: (1) falta el auxiliar 'did' para formar la pregunta, y (2) 'went' debe volver a forma base 'go' tras 'did'. Correcto: 'Why did Carlos go to the market?'" },
+                { text: "Why did Carlos go to the market on Saturdays?", correct: true, whPart: "Why did" },
+                { text: "Where did Carlos go to the market on Saturdays?", correct: false, whPart: "Where did",
+                  errorType: "Wh- incorrecta — Where vs Why",
+                  explanation: "'Where' pregunta por lugar (¿adónde?). Ya sabemos que fue al mercado — la pregunta busca el MOTIVO → 'Why did Carlos go?'" }
+            ],
+            clue: "¿Por qué? → Why + did + sujeto + verbo BASE",
+            clueExplain: "la pregunta busca la razón → 'Why'. Estructura: Why + did + Carlos + go (base). Sin 'did' no es pregunta; 'went' tras 'did' es error de doble pasado.",
+            rule: "Why did + sujeto + verbo base? → razón en Past Simple",
+            examples: ["Why did he go? → razón PS", "Why did she stay? → razón PS", "Why did they cook? → razón PS"],
+            correctReason: "<span class='why-hl'>Why did Carlos go?</span> — 'Why' para razón; 'did' auxiliar; 'go' en base (no 'went'). 'Where' pregunta lugar no razón; sin 'did' no hay pregunta."
+        },
+
+        // ── Wh- + WAS/WERE ─────────────────────────────────────
+        {
+            id: 6, topicType: "tobe", topicLabel: "Wh- + was/were",
+            context: "The kitchen was the most important room in Elena's family home. Her mother cooked there every day.",
+            translation: "¿Cuál era la habitación más importante de la casa de Elena?",
+            whWord: "What was", formulaType: "tobe",
+            options: [
+                { text: "What was the most important room in Elena's house?", correct: true, whPart: "What was" },
+                { text: "What did the most important room in Elena's house?", correct: false, whPart: "What did",
+                  errorType: "did con to be — incorrecto",
+                  explanation: "Con el verbo 'to be' en pasado NO se usa 'did'. El propio 'was/were' actúa como auxiliar. Correcto: 'What was the most important room?'" },
+                { text: "Which were the most important room in Elena's house?", correct: false, whPart: "Which were",
+                  errorType: "were con sujeto singular + Which inapropiado",
+                  explanation: "Dos errores: (1) 'the room' es singular → 'was', no 'were'; (2) 'Which' se usa para elegir entre opciones conocidas — aquí la pregunta es más abierta → 'What'." }
+            ],
+            clue: "¿Cuál/qué? → What + was + sujeto singular",
+            clueExplain: "'What was' pregunta por la naturaleza de algo singular. Con 'to be' no se usa 'did'. 'The room' es singular → 'was', no 'were'.",
+            rule: "What was + sujeto singular + ...? → pregunta por cosa/descripción (to be pasado)",
+            examples: ["What was the room? → singular", "What was the problem? → singular", "What was the plan? → singular"],
+            correctReason: "<span class='why-hl'>What was the most important room?</span> — 'to be' en pasado = 'was' (no 'did'). 'The room' es singular → 'was'. 'Which were' tiene doble error: número y Wh- inapropiada."
+        },
+        {
+            id: 7, topicType: "tobe", topicLabel: "Wh- + was/were",
+            context: "Carlos and his colleagues ate lunch together in the teachers' room and talked about their morning.",
+            translation: "¿Dónde estaban Carlos y sus colegas a mediodía?",
+            whWord: "Where were", formulaType: "tobe",
+            options: [
+                { text: "Where were Carlos and his colleagues at midday?", correct: true, whPart: "Where were" },
+                { text: "Where was Carlos and his colleagues at midday?", correct: false, whPart: "Where was",
+                  errorType: "was con sujeto plural",
+                  explanation: "'Carlos and his colleagues' son dos o más personas → plural (they) → 'were'. 'Was' es solo para he/she/it (singular)." },
+                { text: "Where did Carlos and his colleagues at midday?", correct: false, whPart: "Where did",
+                  errorType: "did con to be — incorrecto",
+                  explanation: "Con el verbo 'to be' NO se usa 'did'. El propio 'were' es el auxiliar. 'Did' se usa solo con otros verbos (go, eat, cook...). Correcto: 'Where were Carlos and his colleagues?'" }
+            ],
+            clue: "¿Dónde? → Where + were + sujeto plural",
+            clueExplain: "Carlos and his colleagues = plural → 'were'. Con 'to be' no se usa 'did'. 'Where were' pregunta por la ubicación de un grupo.",
+            rule: "Where were + sujeto plural + ...? → lugar de grupo (to be pasado plural)",
+            examples: ["Where were they? → plural", "Where were the students? → plural", "Where were Carlos and Elena? → plural"],
+            correctReason: "<span class='why-hl'>Where were Carlos and his colleagues?</span> — plural → 'were'. 'To be' no usa 'did'. 'Was' sería para singular."
+        },
+        {
+            id: 8, topicType: "tobe", topicLabel: "Wh- + was/were",
+            context: "Elena's grandmother was a very quiet woman who woke up early every morning.",
+            translation: "¿Cómo era la abuela de Elena?",
+            whWord: "What was", formulaType: "tobe",
+            options: [
+                { text: "What was Elena's grandmother like?", correct: true, whPart: "What was" },
+                { text: "How did Elena's grandmother like?", correct: false, whPart: "How did",
+                  errorType: "did con to be + estructura incorrecta",
+                  explanation: "Dos errores: (1) con 'to be' no se usa 'did'; (2) la estructura para descripción personal es 'What was...like?', no 'How did...like?'. 'How did' + like suena como preguntar sobre gustos." },
+                { text: "What were Elena's grandmother like?", correct: false, whPart: "What were",
+                  errorType: "were con sujeto singular",
+                  explanation: "'Elena's grandmother' es una persona singular (she) → 'was', no 'were'. 'Were' es para you/we/they." }
+            ],
+            clue: "¿Cómo era? → What was + sujeto singular + like?",
+            clueExplain: "'What was...like?' es la estructura estándar para describir personas o cosas. Abuela = singular → 'was'. Con 'to be' nunca se usa 'did'.",
+            rule: "What was + sujeto singular + like? → descripción de persona/cosa (to be pasado)",
+            examples: ["What was she like? → descripción", "What was the food like? → descripción", "What was the house like? → descripción"],
+            correctReason: "<span class='why-hl'>What was Elena's grandmother like?</span> — estructura 'What...like?' para descripción; singular → 'was'; no 'did' con 'to be'."
+        },
+        {
+            id: 9, topicType: "tobe", topicLabel: "Wh- + was/were",
+            context: "Ana's father was always the first one awake in the morning. He was up before everyone.",
+            translation: "¿Quién era el primero en despertarse en casa de Ana?",
+            whWord: "Who was", formulaType: "tobe",
+            options: [
+                { text: "Who was the first to wake up in Ana's house?", correct: true, whPart: "Who was" },
+                { text: "Who did wake up first in Ana's house?", correct: false, whPart: "Who did",
+                  errorType: "did con to be — incorrecto",
+                  explanation: "La pregunta usa 'to be' implícito (¿Quién ERA el primero?). Con 'to be' no se usa 'did'. Correcto: 'Who was the first...?' El verbo principal aquí es 'to be'." },
+                { text: "Who were the first to wake up in Ana's house?", correct: false, whPart: "Who were",
+                  errorType: "were con sujeto singular implícito",
+                  explanation: "'Who' aquí pregunta por una sola persona (el primero). La respuesta esperada es singular → 'was'. 'Were' sería si esperáramos un grupo de personas." }
+            ],
+            clue: "¿Quién? → Who + was + ... (sujeto singular esperado)",
+            clueExplain: "'Who was' pregunta por la identidad de una persona singular. Con 'to be' no se usa 'did'. La respuesta es una sola persona → 'was'.",
+            rule: "Who was + ...? → pregunta por persona singular con to be pasado",
+            examples: ["Who was the first? → persona singular", "Who was there? → persona singular", "Who was in charge? → persona singular"],
+            correctReason: "<span class='why-hl'>Who was the first?</span> — 'to be' pasado singular = 'was'; no 'did'. 'Were' sería para respuesta plural. 'Who did' mezcla 'did' con 'to be' incorrectamente."
+        },
+        {
+            id: 10, topicType: "tobe", topicLabel: "Wh- + was/were",
+            context: "The evenings at Elena's house were always lively. Everyone talked about their day at dinner.",
+            translation: "¿Por qué eran tan animadas las noches en casa de Elena?",
+            whWord: "Why were", formulaType: "tobe",
+            options: [
+                { text: "Why were the evenings so lively at Elena's house?", correct: true, whPart: "Why were" },
+                { text: "Why did the evenings so lively at Elena's house?", correct: false, whPart: "Why did",
+                  errorType: "did con to be — incorrecto",
+                  explanation: "El verbo principal es 'to be' (were lively). Con 'to be' en pasado el auxiliar ES el propio 'were' — no se añade 'did'. 'Did' se usa solo con otros verbos." },
+                { text: "Why was the evenings so lively at Elena's house?", correct: false, whPart: "Why was",
+                  errorType: "was con sujeto plural",
+                  explanation: "'The evenings' es plural → 'were'. 'Was' es solo para he/she/it (singular). 'Evenings' (plural) → 'Why were the evenings...?'" }
+            ],
+            clue: "¿Por qué? → Why + were + sujeto plural",
+            clueExplain: "'The evenings' es plural → 'were'. Con 'to be' no se usa 'did'. 'Why were' pregunta por la razón de un estado en plural.",
+            rule: "Why were + sujeto plural + adjetivo? → razón de estado plural (to be pasado)",
+            examples: ["Why were they happy? → razón plural", "Why were the days long? → razón plural", "Why were the evenings lively? → razón plural"],
+            correctReason: "<span class='why-hl'>Why were the evenings so lively?</span> — plural → 'were'; 'to be' no usa 'did'. 'Was' es para singular."
+        },
+
+        // ── Wh- + WAS/WERE + -ING ──────────────────────────────
+        {
+            id: 11, topicType: "pc", topicLabel: "Wh- + was/were + -ing",
+            context: "David came home from class and opened the cookbook. He was preparing something for dinner.",
+            translation: "¿Qué estaba preparando David cuando llegó a casa?",
+            whWord: "What was", formulaType: "pc",
+            options: [
+                { text: "What was David preparing when he got home?", correct: true, whPart: "What was" },
+                { text: "What did David preparing when he got home?", correct: false, whPart: "What did",
+                  errorType: "did con Past Continuous — incorrecto",
+                  explanation: "En preguntas de Past Continuous el auxiliar es 'was/were', nunca 'did'. 'Did' se usa solo para Past Simple. Correcto: 'What was David preparing?'" },
+                { text: "What was David prepare when he got home?", correct: false, whPart: "prepare",
+                  errorType: "Verbo base en lugar de -ing",
+                  explanation: "Past Continuous siempre requiere verbo + ING. 'Was prepare' usa la forma base — incorrecto. La forma correcta es 'was preparing'." }
+            ],
+            clue: "¿Qué estaba haciendo? → What + was + sujeto + verbo-ING",
+            clueExplain: "Past Continuous singular (David = he) → 'was preparing'. En PC no se usa 'did'. El verbo siempre lleva '-ing'.",
+            rule: "What was + sujeto singular + verbo-ing? → acción en progreso (PC singular)",
+            examples: ["What was he preparing? → PC singular", "What was she cooking? → PC singular", "What was David making? → PC singular"],
+            correctReason: "<span class='why-hl'>What was David preparing?</span> — Past Continuous: 'was' + '-ing'. 'Did preparing' mezcla PS con PC; 'was prepare' olvida el '-ing'."
+        },
+        {
+            id: 12, topicType: "pc", topicLabel: "Wh- + was/were + -ing",
+            context: "Ana's brother was asleep in his room when she left for school in the morning.",
+            translation: "¿Por qué no hizo ruido Ana al salir de casa?",
+            whWord: "Why was", formulaType: "pc",
+            options: [
+                { text: "Why was Ana's brother still sleeping when she left?", correct: true, whPart: "Why was" },
+                { text: "Why were Ana's brother still sleeping when she left?", correct: false, whPart: "Why were",
+                  errorType: "were con sujeto singular",
+                  explanation: "'Ana's brother' es singular (he) → 'was'. 'Were' es para you/we/they (plural). Con sujeto singular en Past Continuous → 'was sleeping'." },
+                { text: "Why did Ana's brother still sleeping when she left?", correct: false, whPart: "Why did",
+                  errorType: "did con Past Continuous — incorrecto",
+                  explanation: "En preguntas de Past Continuous el auxiliar es 'was/were', nunca 'did'. 'Did sleeping' mezcla el auxiliar de PS con la forma -ing de PC. Correcto: 'Why was...sleeping?'" }
+            ],
+            clue: "¿Por qué estaba...? → Why + was + sujeto singular + verbo-ING",
+            clueExplain: "'Ana's brother' es singular → 'was sleeping'. En PC no se usa 'did'. 'Why was' pregunta por la razón de una acción en progreso.",
+            rule: "Why was + sujeto singular + verbo-ing? → razón de acción en progreso (PC)",
+            examples: ["Why was he sleeping? → razón PC", "Why was she waiting? → razón PC", "Why was the brother asleep? → razón PC"],
+            correctReason: "<span class='why-hl'>Why was Ana's brother still sleeping?</span> — singular → 'was'; '-ing' obligatorio; no 'did' en PC."
+        },
+        {
+            id: 13, topicType: "pc", topicLabel: "Wh- + was/were + -ing",
+            context: "Carlos opened the window and put on music while he cooked dinner after getting home.",
+            translation: "¿Qué estaban haciendo Carlos y su música mientras cocinaba?",
+            whWord: "What was", formulaType: "pc",
+            options: [
+                { text: "What was Carlos listening to while he was cooking?", correct: true, whPart: "What was" },
+                { text: "What were Carlos listening to while he was cooking?", correct: false, whPart: "What were",
+                  errorType: "were con sujeto singular",
+                  explanation: "'Carlos' es singular (he) → 'was listening'. 'Were' es para sujetos plurales (they/we/you). Carlos solo → 'was'." },
+                { text: "What was Carlos listen to while he was cooking?", correct: false, whPart: "listen",
+                  errorType: "Verbo base en lugar de -ing",
+                  explanation: "Past Continuous = was/were + verbo-ING. 'Was listen' usa la forma base — falta '-ing'. La forma correcta es 'was listening'." }
+            ],
+            clue: "¿Qué estaba escuchando? → What + was + sujeto singular + verbo-ING",
+            clueExplain: "Carlos (singular) + Past Continuous → 'was listening'. El verbo siempre lleva '-ing' en PC. 'Were' es para plural.",
+            rule: "What was + sujeto singular + verbo-ing? → objeto de acción en progreso (PC)",
+            examples: ["What was he listening to? → objeto PC", "What was she reading? → objeto PC", "What was Carlos playing? → objeto PC"],
+            correctReason: "<span class='why-hl'>What was Carlos listening to?</span> — singular → 'was'; '-ing' obligatorio. 'Were' es para plural; 'listen' sin '-ing' es incorrecto en PC."
+        },
+        {
+            id: 14, topicType: "pc", topicLabel: "Wh- + was/were + -ing",
+            context: "Elena and her sister always did homework on their beds in the afternoon.",
+            translation: "¿Dónde estaban estudiando Elena y su hermana por la tarde?",
+            whWord: "Where were", formulaType: "pc",
+            options: [
+                { text: "Where were Elena and her sister studying in the afternoon?", correct: true, whPart: "Where were" },
+                { text: "Where was Elena and her sister studying in the afternoon?", correct: false, whPart: "Where was",
+                  errorType: "was con sujeto plural",
+                  explanation: "'Elena and her sister' son dos personas → plural (they) → 'were'. 'Was' es solo para he/she/it (singular)." },
+                { text: "Where did Elena and her sister studying in the afternoon?", correct: false, whPart: "Where did",
+                  errorType: "did con Past Continuous — incorrecto",
+                  explanation: "En preguntas de Past Continuous el auxiliar es 'was/were', nunca 'did'. Con '-ing' ya presente la forma correcta es 'Where were Elena and her sister studying?'" }
+            ],
+            clue: "¿Dónde estaban? → Where + were + sujeto plural + verbo-ING",
+            clueExplain: "Elena and her sister = plural (they) → 'were studying'. En PC no se usa 'did'. '-ing' es obligatorio.",
+            rule: "Where were + sujeto plural + verbo-ing? → lugar de acción en progreso (PC plural)",
+            examples: ["Where were they studying? → lugar PC plural", "Where were the girls reading? → lugar PC plural", "Where were Elena and her sister? → plural PC"],
+            correctReason: "<span class='why-hl'>Where were Elena and her sister studying?</span> — plural → 'were'; '-ing' obligatorio; no 'did' en PC."
+        },
+        {
+            id: 15, topicType: "pc", topicLabel: "Wh- + was/were + -ing",
+            context: "After dinner Carlos usually read history books for about an hour. He fell asleep quickly after.",
+            translation: "¿Cuánto tiempo estuvo Carlos leyendo libros de historia?",
+            whWord: "How long was", formulaType: "pc",
+            options: [
+                { text: "How long was Carlos reading history books after dinner?", correct: true, whPart: "How long was" },
+                { text: "How long did Carlos reading history books after dinner?", correct: false, whPart: "How long did",
+                  errorType: "did con Past Continuous — incorrecto",
+                  explanation: "Con Past Continuous el auxiliar es 'was/were', nunca 'did'. La estructura correcta es 'How long was Carlos reading?' — 'did' es solo para Past Simple." },
+                { text: "How long were Carlos reading history books after dinner?", correct: false, whPart: "How long were",
+                  errorType: "were con sujeto singular",
+                  explanation: "'Carlos' es singular (he) → 'was'. 'Were' es para sujetos plurales. Correcto: 'How long was Carlos reading?'" }
+            ],
+            clue: "¿Cuánto tiempo? → How long + was + sujeto singular + verbo-ING",
+            clueExplain: "Carlos (singular) + Past Continuous → 'was reading'. 'How long' pregunta por duración. En PC no se usa 'did'.",
+            rule: "How long was + sujeto singular + verbo-ing? → duración de acción en progreso (PC)",
+            examples: ["How long was he reading? → duración PC", "How long was she cooking? → duración PC", "How long was Carlos studying? → duración PC"],
+            correctReason: "<span class='why-hl'>How long was Carlos reading?</span> — singular → 'was'; '-ing' obligatorio; no 'did' en PC. 'Were' es para plural."
+        }
+    ];
+
+    // ── FORMULA LABELS ──
+    const formulae = {
+        ps:   "Wh- + <strong>did</strong> + sujeto + verbo base?",
+        tobe: "Wh- + <strong>was/were</strong> + sujeto + ...?",
+        pc:   "Wh- + <strong>was/were</strong> + sujeto + verbo<strong>-ing</strong>?"
+    };
+
+    // ── SHUFFLE ──
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        quizData.forEach(q => { q.shuffled = shuffle(q.options); });
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => container.appendChild(createCard(q, i)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+        const badge = `<span class="topic-badge ${q.topicType}">${q.topicLabel}</span>`;
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Elige la pregunta correcta:</span>
+                ${badge}
+            </div>
+            <div class="context-box">
+                <span class="context-label">📖 Contexto</span>
+                ${q.context}
+            </div>
+            <div class="translation-hint">🇪🇸 <span>${q.translation}</span></div>
+            <div class="sentence-options" id="options-${index}">
+                ${q.shuffled.map((opt, i) => {
+                    const hl = opt.text.replace(opt.whPart, `<span class="wh-hl">${opt.whPart}</span>`);
+                    return `
+                    <button class="sent-option" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${hl}</div>
+                        <div class="option-status">${opt.correct ? '✅' : '❌'}</div>
+                    </button>`;
+                }).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .sent-option`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx)      btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        function markWh(text, part) {
+            if (!part) return text;
+            return text.replace(part, `<span class="error-highlight">${part}</span>`);
+        }
+        function markCorrectWh(text, part) {
+            if (!part) return text;
+            return text.replace(part, `<span class="correct-highlight">${part}</span>`);
+        }
+
+        const ruleExamples = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">¡Correcto! Identificaste la pregunta bien formada</div>
+                        <div class="fb-subtitle">Veamos por qué las otras estaban mal</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 Señal clave</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                        <div class="formula-box" style="margin-top:0.6rem;">${formulae[q.formulaType]}</div>
+                    </div>
+                    ${q.shuffled.filter(o => !o.correct).map(err => `
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ Error en una opción: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${err.whPart}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${q.whWord}</span>
+                        </div>
+                        <div class="error-text">${err.explanation}</div>
+                    </div>`).join('')}
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la pregunta correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrecto — revisemos juntos</div>
+                        <div class="fb-subtitle">La estructura correcta es: <strong>${q.whWord}</strong></div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 Señal clave que debías identificar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag red">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                        <div class="formula-box" style="margin-top:0.6rem;">${formulae[q.formulaType]}</div>
+                    </div>
+                    <div class="fb-block fb-compare">
+                        <div class="fb-block-title">🔄 Tu elección vs. la correcta</div>
+                        <div class="compare-row">
+                            <span class="compare-label wrong">Elegiste</span>
+                            <span class="compare-text">${markWh(selected.text, selected.whPart)}</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label right">Correcta</span>
+                            <span class="compare-text">${markCorrectWh(correctOpt.text, correctOpt.whPart)}</span>
+                        </div>
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${selected.whPart}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${q.whWord}</span>
+                        </div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la pregunta correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Identificas Wh-questions perfectamente. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa las estructuras e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

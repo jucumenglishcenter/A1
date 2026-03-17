@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification - A1 M1 | Modals of Deduction | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3;
+            --primary-light: #BBDEFB;
+            --primary-dark: #0D47A1;
+            --accent: #64B5F6;
+            --bg-gradient-start: #E3F2FD;
+            --bg-gradient-end: #BBDEFB;
+            --text-dark: #0A3470;
+            --text-medium: #0D47A1;
+            --text-light: #1565C0;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444;   --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6;    --info-light: #DBEAFE;  --info-dark: #1D4ED8;
+            --purple: #8B5CF6;  --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+
+        .header { background:linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
+        .topic-badge { display:inline-flex; align-items:center; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .topic-badge.deduction { background:#EDE9FE; color:#6D28D9; }
+        .topic-badge.certainty { background:#FFF3E0; color:#C2410C; }
+        .topic-badge.contrast  { background:#D1FAE5; color:#065F46; }
+
+        .context-box { background:#F0F9FF; border:1px solid #BAE6FD; border-radius:10px; padding:0.7rem 0.9rem; margin-bottom:0.85rem; font-size:0.88rem; color:#0C4A6E; line-height:1.55; }
+        .context-label { font-size:0.68rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:#0369A1; display:block; margin-bottom:0.25rem; }
+
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled  { cursor:default; }
+        .sent-option.correct   { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error);   background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:1px; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct   .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error);   color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
+        .sent-option.correct   .option-text { color:var(--success-dark); }
+        .sent-option.incorrect .option-text { color:var(--error-dark); }
+        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
+        .sent-option.correct   .option-status,
+        .sent-option.incorrect .option-status { opacity:1; }
+        .modal-hl { color:var(--primary-dark); font-weight:800; background:var(--primary-light); padding:0 3px; border-radius:3px; }
+        .sent-option.correct   .modal-hl { color:var(--success-dark); background:var(--success-light); }
+        .sent-option.incorrect .modal-hl { color:var(--error-dark);   background:var(--error-light); }
+
+        .error-highlight   { color:var(--error);        font-weight:800; text-decoration:underline wavy var(--error); }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct   .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+
+        .fb-signal      { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong{ background:#FFF1F2; border-color:#FECDD3; }
+        .fb-signal      .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .signal-tag     { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.82rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+
+        .certainty-scale { display:flex; align-items:center; gap:0; margin:0.5rem 0; border-radius:8px; overflow:hidden; font-size:0.78rem; font-weight:700; }
+        .cs-item { flex:1; text-align:center; padding:0.3rem 0.2rem; }
+        .cs-item.active { outline:2px solid var(--text-dark); outline-offset:-2px; }
+        .cs-cant  { background:#FEE2E2; color:#DC2626; }
+        .cs-might { background:#FFF3E0; color:#D97706; }
+        .cs-may   { background:#FEF9C3; color:#854D0E; }
+        .cs-must  { background:#D1FAE5; color:#059669; }
+        .cs-prob  { background:#DBEAFE; color:#1D4ED8; }
+
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare .fb-block-title { color:#475569; }
+        .compare-row { display:flex; align-items:flex-start; gap:0.6rem; padding:0.4rem 0; border-bottom:1px dashed #E2E8F0; }
+        .compare-row:last-child { border-bottom:none; }
+        .compare-label       { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
+        .compare-label.wrong { background:var(--error-light);   color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .word-swap  { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box   { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:#94A3B8; }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula  { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
+        .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
+        .rule-ex .arrow { color:#94A3B8; }
+        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text  { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
+
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled             { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+
+        .results-screen      { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji   { font-size:4rem; margin-bottom:1rem; }
+        .results-title   { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score   { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star            { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned     { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons  { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn         { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary   { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="a1-m1-index.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">🔵 A1 · M1 · Modals of Deduction · Degrees of Certainty</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee el contexto y elige la oración que usa el modal correcto según el grado de certeza. Las opciones se mezclan en cada sesión.</div>
+            </div>
+        </div>
+
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+                <a href="a1-m1-index.html" class="result-btn secondary">← Volver al Módulo</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    // ============================================================
+    // IDENTIFY — 15 preguntas
+    // A1 · M1 · Modals of deduction + Degrees of certainty
+    // Personajes: Ana, David, Elena, Carlos
+    // Nuevos contextos — distintos a los del Fill
+    // Opciones mezcladas con shuffle() en cada sesión
+    //
+    // Distribución:
+    //  Q1–Q5   Modals of deduction: must / can't / might / may
+    //  Q6–Q10  Degrees of certainty: will probably / probably won't
+    //  Q11–Q15 Contraste: elegir modal correcto según contexto
+    // ============================================================
+    const quizData = [
+
+        // ── MODALS OF DEDUCTION ────────────────────────────────
+        {
+            id: 1, topicType: "deduction", topicLabel: "Modal de deducción",
+            context: "Carlos has been teaching for fifteen years. His students always say he explains things very clearly.",
+            certaintyScale: "must",
+            options: [
+                { text: "He must be a very experienced teacher.", correct: true, modal: "must" },
+                { text: "He might be a very experienced teacher.", correct: false, modal: "might",
+                  errorType: "might — demasiado débil para la evidencia",
+                  explanation: "'Might' expresa solo posibilidad incierta (quizás sí, quizás no). Quince años de enseñanza y el reconocimiento constante de sus alumnos son evidencia muy sólida → 'must'." },
+                { text: "He can't be a very experienced teacher.", correct: false, modal: "can't",
+                  errorType: "can't contradice la evidencia",
+                  explanation: "'Can't' niega la posibilidad con base en evidencia en contra. Aquí la evidencia (15 años, alumnos que lo reconocen) es claramente favorable → 'must', no 'can't'." }
+            ],
+            clue: "fifteen years + always explains clearly — evidencia sólida",
+            clueExplain: "quince años de experiencia y el reconocimiento constante de los alumnos son evidencia fuerte y consistente. 'Must' expresa la deducción lógica casi segura.",
+            rule: "must = deducción positiva con evidencia sólida y consistente",
+            examples: ["must be experienced → 15 años", "must know the topic → siempre explica bien", "must be good → reconocido"],
+            correctReason: "<span class='why-hl'>must be</span> — la evidencia (15 años + claridad constante) hace la deducción casi inevitable. 'Might' sería demasiado incierto; 'can't' contradiría los hechos."
+        },
+        {
+            id: 2, topicType: "deduction", topicLabel: "Modal de deducción",
+            context: "David has never eaten sushi in his life. He grew up in a small town with no Japanese restaurants.",
+            certaintyScale: "cant",
+            options: [
+                { text: "He must know how sushi tastes.", correct: false, modal: "must",
+                  errorType: "must contradice la evidencia",
+                  explanation: "'Must know' afirmaría con certeza que sabe el sabor. Pero la evidencia dice lo contrario: nunca lo ha probado. 'Must' requiere evidencia a favor — aquí la evidencia niega." },
+                { text: "He can't know how sushi tastes.", correct: true, modal: "can't" },
+                { text: "He will probably know how sushi tastes.", correct: false, modal: "will probably",
+                  errorType: "will probably — predicción futura inapropiada",
+                  explanation: "'Will probably know' es una predicción sobre el futuro. La oración habla del presente: ¿sabe ahora? La evidencia actual (nunca lo ha probado) lleva a 'can't know'." }
+            ],
+            clue: "never eaten + grew up without Japanese restaurants — imposibilidad lógica",
+            clueExplain: "nunca haberlo probado y no haber tenido acceso hace imposible (lógicamente) que sepa su sabor. 'Can't' expresa esa negación con base en evidencia clara.",
+            rule: "can't = la evidencia hace algo (casi) imposible en el presente",
+            examples: ["can't know the taste → nunca lo probó", "can't be home → nunca estuvo", "can't like it → nunca lo ha hecho"],
+            correctReason: "<span class='why-hl'>can't know</span> — nunca haber comido sushi hace imposible conocer su sabor. La evidencia niega directamente → 'can't'. 'Must' afirmaría lo contrario."
+        },
+        {
+            id: 3, topicType: "deduction", topicLabel: "Modal de deducción",
+            context: "Elena sees a light on in her old neighbor's house late at night, but she hasn't spoken to him in years.",
+            certaintyScale: "might",
+            options: [
+                { text: "Someone must be home — there's a light on.", correct: false, modal: "must",
+                  errorType: "must — demasiado fuerte para una luz sola",
+                  explanation: "Una luz encendida es un indicio, pero no evidencia definitiva — podría ser un temporizador, alguien nuevo, etc. 'Must' requiere evidencia más directa. 'Might' reconoce la incertidumbre." },
+                { text: "Someone might be home — there's a light on.", correct: true, modal: "might" },
+                { text: "Someone can't be home — there's a light on.", correct: false, modal: "can't",
+                  errorType: "can't contradice el indicio visual",
+                  explanation: "Una luz encendida es un indicio de que alguien podría estar. 'Can't be home' negaría la posibilidad — pero la luz sugiere lo contrario. 'Might' es el grado correcto." }
+            ],
+            clue: "a light on + no direct contact — indicio sin certeza suficiente",
+            clueExplain: "una luz encendida es un indicio, no evidencia directa. Elena no sabe con certeza si hay alguien — 'might' expresa esa posibilidad real pero incierta.",
+            rule: "might = posibilidad basada en indicio indirecto, sin certeza suficiente",
+            examples: ["might be home → luz encendida", "might be working → parece ocupado", "might know → tal vez"],
+            correctReason: "<span class='why-hl'>might be home</span> — la luz es un indicio, no prueba directa. Podría haber alguien, podría no haberlo. 'Might' es el grado honesto de certeza."
+        },
+        {
+            id: 4, topicType: "deduction", topicLabel: "Modal de deducción",
+            context: "Ana finishes all her homework every single day before dinner, without exception.",
+            certaintyScale: "must",
+            options: [
+                { text: "She might be a very organized student.", correct: false, modal: "might",
+                  errorType: "might — demasiado débil para evidencia tan consistente",
+                  explanation: "'Might' sugiere solo posibilidad incierta. Pero terminar SIEMPRE la tarea antes de cenar, sin excepción, es evidencia muy sólida y repetida → 'must'." },
+                { text: "She can't be a very organized student.", correct: false, modal: "can't",
+                  errorType: "can't contradice completamente la evidencia",
+                  explanation: "'Can't' negaría la organización, pero la evidencia (siempre termina la tarea) la confirma con claridad. 'Can't' requiere evidencia en contra — aquí es todo a favor." },
+                { text: "She must be a very organized student.", correct: true, modal: "must" }
+            ],
+            clue: "every single day + without exception — deducción casi segura",
+            clueExplain: "hacer la tarea todos los días sin excepción es evidencia repetida y consistente. 'Must' es la deducción lógica — casi segura — basada en ese patrón.",
+            rule: "must = patrón consistente y repetido → deducción casi segura",
+            examples: ["must be organized → siempre sin excepción", "must like studying → lo hace cada día", "must be disciplined → patrón claro"],
+            correctReason: "<span class='why-hl'>must be organized</span> — la consistencia absoluta (cada día, sin excepción) es evidencia fuerte. 'Might' sería demasiado incierto; 'can't' contradiría los hechos."
+        },
+        {
+            id: 5, topicType: "deduction", topicLabel: "Modal de deducción",
+            context: "David burned the first rice dish he made. He put the heat too high and didn't add enough water.",
+            certaintyScale: "cant",
+            options: [
+                { text: "It must have been delicious — he tried very hard.", correct: false, modal: "must",
+                  errorType: "must contradice el resultado descrito",
+                  explanation: "La oración describe claramente que quemó el plato. 'Must have been delicious' afirma lo contrario de la evidencia. 'Must' debe basarse en evidencia a favor — aquí es en contra." },
+                { text: "It can't have been very good — he burned it.", correct: true, modal: "can't" },
+                { text: "It will probably be delicious next time.", correct: false, modal: "will probably",
+                  errorType: "will probably — predicción futura, no deducción presente",
+                  explanation: "La pregunta es sobre el plato que ya cocinó — no sobre el futuro. 'Can't have been good' es la deducción lógica sobre lo que ya ocurrió." }
+            ],
+            clue: "he burned it + too much heat + not enough water — resultado obvio",
+            clueExplain: "quemar el plato, con demasiado calor y poca agua, hace casi imposible que estuviera bueno. 'Can't' niega la posibilidad con base en evidencia directa.",
+            rule: "can't = la evidencia del resultado hace algo casi imposible",
+            examples: ["can't have been good → quemado", "can't be right → resultado erróneo", "can't taste nice → cocinado mal"],
+            correctReason: "<span class='why-hl'>can't have been very good</span> — quemar un plato es evidencia directa de un mal resultado. 'Must have been delicious' contradiría los hechos."
+        },
+
+        // ── DEGREES OF CERTAINTY ───────────────────────────────
+        {
+            id: 6, topicType: "certainty", topicLabel: "Grado de certeza",
+            context: "Carlos always prepares his lessons very carefully, but tomorrow's is a new topic he has never taught before.",
+            certaintyScale: "might",
+            options: [
+                { text: "Tomorrow's lesson will definitely go perfectly.", correct: false, modal: "will definitely",
+                  errorType: "will definitely — certeza absoluta injustificada",
+                  explanation: "Es un tema nuevo que nunca ha enseñado — la certeza absoluta ('definitely') no está justificada. Incluso Carlos, siendo experto, podría encontrar dificultades con algo nuevo." },
+                { text: "Tomorrow's lesson might be a bit challenging.", correct: true, modal: "might" },
+                { text: "Tomorrow's lesson probably won't be any different.", correct: false, modal: "probably won't",
+                  errorType: "probably won't — contradice la novedad del tema",
+                  explanation: "'Probably won't be different' sugiere que todo seguirá igual — pero la novedad del tema es precisamente lo que crea incertidumbre. 'Might be challenging' captura esa posibilidad real." }
+            ],
+            clue: "new topic + never taught before — posibilidad de dificultad real",
+            clueExplain: "la combinación de preparación cuidadosa y tema nuevo crea incertidumbre real. 'Might' expresa esa posibilidad honesta sin afirmar ni negar.",
+            rule: "might = posibilidad real ante situación nueva o desconocida",
+            examples: ["might be challenging → tema nuevo", "might need extra time → primera vez", "might be different → situación nueva"],
+            correctReason: "<span class='why-hl'>might be challenging</span> — es la primera vez con ese tema. La posibilidad de dificultad es real aunque no segura. 'Definitely' sería excesivo; 'probably won't' ignoraría la novedad."
+        },
+        {
+            id: 7, topicType: "certainty", topicLabel: "Grado de certeza",
+            context: "Ana has her bus card, her books, and her notebook. She checked her bag three times before leaving.",
+            certaintyScale: "prob",
+            options: [
+                { text: "She probably won't forget anything today.", correct: true, modal: "probably won't" },
+                { text: "She might forget something today.", correct: false, modal: "might",
+                  errorType: "might — demasiado incierto para tres revisiones",
+                  explanation: "'Might forget' sugiere 50/50 de posibilidad. Pero revisar la mochila tres veces hace el olvido muy improbable. 'Probably won't' refleja mejor esa alta probabilidad negativa." },
+                { text: "She can't forget anything today.", correct: false, modal: "can't",
+                  errorType: "can't — certeza absoluta excesiva",
+                  explanation: "'Can't forget' afirma que es imposible olvidar — certeza absoluta. Pero nadie es infalible. 'Probably won't' reconoce la alta probabilidad sin afirmar imposibilidad." }
+            ],
+            clue: "checked three times — muy improbable que olvide, pero no imposible",
+            clueExplain: "revisar tres veces hace el olvido muy improbable. 'Probably won't' es el grado honesto: alta probabilidad de que no olvide nada, pero sin la arrogancia de 'can't'.",
+            rule: "probably won't = muy improbable que ocurra algo negativo (sin ser imposible)",
+            examples: ["probably won't forget → revisó todo", "probably won't be late → preparada", "probably won't fail → bien preparada"],
+            correctReason: "<span class='why-hl'>probably won't forget</span> — tres revisiones hacen el olvido muy improbable. 'Might forget' da demasiado margen; 'can't forget' es certeza imposible de garantizar."
+        },
+        {
+            id: 8, topicType: "certainty", topicLabel: "Grado de certeza",
+            context: "David wants to cook his mother's rice recipe for his roommates tonight. He has made it successfully many times.",
+            certaintyScale: "prob",
+            options: [
+                { text: "It might turn out okay — he's tried it before.", correct: false, modal: "might",
+                  errorType: "might — demasiado débil para un cocinero con experiencia",
+                  explanation: "'Might turn out okay' sugiere solo una posibilidad neutral — demasiado incierto para alguien que la ha hecho bien muchas veces. 'Will probably' refleja mejor la alta probabilidad de éxito." },
+                { text: "It will probably be delicious — he knows the recipe well.", correct: true, modal: "will probably" },
+                { text: "It definitely won't be good — he always burns things.", correct: false, modal: "definitely won't",
+                  errorType: "definitely won't — contradice completamente la evidencia",
+                  explanation: "'Definitely won't be good' afirma fracaso con certeza absoluta. Pero la evidencia dice lo contrario: ha hecho la receta bien muchas veces. Esta opción inventa un contexto negativo." }
+            ],
+            clue: "made it successfully many times — alta probabilidad de éxito",
+            clueExplain: "haber tenido éxito muchas veces con la misma receta hace el éxito muy probable esta vez. 'Will probably' captura esa alta probabilidad sin prometer certeza absoluta.",
+            rule: "will probably = alta probabilidad de resultado positivo (futuro)",
+            examples: ["will probably be good → experiencia previa", "will probably succeed → historial positivo", "will probably enjoy → contexto favorable"],
+            correctReason: "<span class='why-hl'>will probably be delicious</span> — muchos éxitos previos hacen el resultado positivo muy probable. 'Might' es demasiado incierto; 'definitely won't' contradice los hechos."
+        },
+        {
+            id: 9, topicType: "certainty", topicLabel: "Grado de certeza",
+            context: "Elena hasn't spoken to her childhood friend Maria in ten years. She doesn't know if Maria still lives in the same city.",
+            certaintyScale: "might",
+            options: [
+                { text: "Maria must still live in the same city.", correct: false, modal: "must",
+                  errorType: "must — sin evidencia suficiente para afirmar",
+                  explanation: "'Must' requiere evidencia sólida. Aquí no hay ninguna — diez años sin contacto hacen la afirmación injustificada. Solo se puede decir 'might' (quizás)." },
+                { text: "Maria might still live in the same city.", correct: true, modal: "might" },
+                { text: "Maria will probably still live in the same city.", correct: false, modal: "will probably",
+                  errorType: "will probably — demasiado fuerte sin ninguna información",
+                  explanation: "'Will probably' expresa alta probabilidad — pero sin ninguna información en diez años, no hay base para esa confianza. 'Might' es más honesto sobre la incertidumbre real." }
+            ],
+            clue: "ten years without contact — no hay información suficiente para más que posibilidad",
+            clueExplain: "diez años sin hablar hace imposible saber con certeza. 'Might' es el único modal honesto cuando no hay evidencia ni reciente ni a favor ni en contra.",
+            rule: "might = posibilidad cuando no hay información suficiente para decidir",
+            examples: ["might still live there → sin info", "might have moved → posible", "might know → sin contacto reciente"],
+            correctReason: "<span class='why-hl'>might still live</span> — sin contacto en diez años, no hay base para más que posibilidad. 'Must' o 'will probably' requerirían evidencia que no existe."
+        },
+        {
+            id: 10, topicType: "certainty", topicLabel: "Grado de certeza",
+            context: "Carlos runs every morning before school. He has never missed a single day in three years.",
+            certaintyScale: "prob",
+            options: [
+                { text: "He probably won't skip his run tomorrow.", correct: true, modal: "probably won't" },
+                { text: "He might skip his run tomorrow.", correct: false, modal: "might",
+                  errorType: "might — 50/50 injustificado para un hábito de tres años",
+                  explanation: "'Might skip' daría igual probabilidad de correr o no. Pero tres años sin saltarse ni un día hacen el salto muy improbable. 'Probably won't' refleja mejor ese patrón." },
+                { text: "He can't skip his run — it's impossible.", correct: false, modal: "can't",
+                  errorType: "can't — nadie puede garantizar el futuro con certeza absoluta",
+                  explanation: "'Can't skip' afirma que es físicamente imposible saltarse el día — pero siempre existe alguna posibilidad (enfermedad, emergencia). 'Probably won't' es más honesto." }
+            ],
+            clue: "never missed in three years — muy improbable, pero no imposible",
+            clueExplain: "tres años sin excepción hacen que saltar el día mañana sea muy improbable. 'Probably won't' captura esa alta probabilidad sin la arrogancia de afirmar imposibilidad.",
+            rule: "probably won't = muy improbable basado en patrón consistente (sin ser imposible)",
+            examples: ["probably won't skip → hábito de 3 años", "probably won't forget → siempre recuerda", "probably won't fail → preparado"],
+            correctReason: "<span class='why-hl'>probably won't skip</span> — el hábito de tres años hace el salto muy improbable. 'Might skip' daría demasiada incertidumbre; 'can't skip' sería imposible de garantizar."
+        },
+
+        // ── CONTRASTE DE MODALES ───────────────────────────────
+        {
+            id: 11, topicType: "contrast", topicLabel: "Contraste de modales",
+            context: "Ana hears someone moving in the kitchen at 6 am. She knows her father always wakes up early.",
+            certaintyScale: "must",
+            options: [
+                { text: "That must be her father — he always wakes up early.", correct: true, modal: "must" },
+                { text: "That might be her father — he always wakes up early.", correct: false, modal: "might",
+                  errorType: "might — demasiado incierto cuando la evidencia es fuerte",
+                  explanation: "'Might' sugiere incertidumbre real (quizás sí, quizás no). Pero saber que el padre SIEMPRE se levanta temprano y oír ruido en la cocina a las 6 am es evidencia sólida → 'must'." },
+                { text: "That can't be her father — he always wakes up early.", correct: false, modal: "can't",
+                  errorType: "can't contradice directamente la evidencia",
+                  explanation: "'Can't be her father' negaría que sea él — pero la evidencia (siempre se levanta temprano, ruido en la cocina a las 6 am) señala claramente que sí es él." }
+            ],
+            clue: "always wakes up early + noise at 6 am — evidencia directa y consistente",
+            clueExplain: "el patrón consistente del padre (siempre madrugador) y el ruido en la cocina a las 6 am son evidencia fuerte. 'Must' es la deducción lógica — casi segura.",
+            rule: "must = patrón consistente + evidencia situacional = deducción casi segura",
+            examples: ["must be him → siempre a esa hora", "must be her → es su rutina", "must be the alarm → siempre suena"],
+            correctReason: "<span class='why-hl'>must be her father</span> — el patrón (siempre temprano) + el ruido a las 6 am hacen la deducción casi inevitable. 'Might' sería demasiado incierto; 'can't' contradiría los hechos."
+        },
+        {
+            id: 12, topicType: "contrast", topicLabel: "Contraste de modales",
+            context: "David is cooking something new tonight. He found the recipe online and it looks interesting but complicated.",
+            certaintyScale: "might",
+            options: [
+                { text: "It might not turn out perfectly — it's his first time.", correct: true, modal: "might" },
+                { text: "It must not turn out well — he never gets it right.", correct: false, modal: "must",
+                  errorType: "must — contradicción con el contexto (él sí cocina bien)",
+                  explanation: "'Must not turn out well' haría una deducción negativa fuerte — pero el contexto no dice que David sea mal cocinero. De hecho, cocina bien habitualmente. 'Might' reconoce la incertidumbre de lo nuevo." },
+                { text: "It will definitely be perfect — he's a great cook.", correct: false, modal: "will definitely",
+                  errorType: "will definitely — certeza absoluta para algo nuevo",
+                  explanation: "Incluso un buen cocinero puede fallar con una receta nueva y complicada. 'Will definitely be perfect' prometería un resultado que nadie puede garantizar." }
+            ],
+            clue: "first time + complicated recipe — posibilidad real de imperfección",
+            clueExplain: "la combinación de primera vez y receta complicada crea incertidumbre real. 'Might not turn out perfectly' es honesto: puede salir bien o no tan bien.",
+            rule: "might = posibilidad real ante algo nuevo o desconocido (sin afirmar ni negar)",
+            examples: ["might not be perfect → primera vez", "might need adjustment → receta nueva", "might take longer → situación nueva"],
+            correctReason: "<span class='why-hl'>might not turn out perfectly</span> — primera vez con receta complicada = incertidumbre real. 'Definitely perfect' prometería demasiado; 'must not' implicaría que David es mal cocinero."
+        },
+        {
+            id: 13, topicType: "contrast", topicLabel: "Contraste de modales",
+            context: "Elena's old house has been empty for fifteen years. The roof was already damaged when the family left.",
+            certaintyScale: "cant",
+            options: [
+                { text: "The house must be in perfect condition.", correct: false, modal: "must",
+                  errorType: "must contradice directamente la evidencia",
+                  explanation: "'Must be in perfect condition' afirmaría buen estado con certeza. Pero quince años vacío con el tejado ya dañado al salir hacen eso casi imposible. 'Can't' es la deducción correcta." },
+                { text: "The house can't be in good condition after all that time.", correct: true, modal: "can't" },
+                { text: "The house will probably be fine — buildings last a long time.", correct: false, modal: "will probably",
+                  errorType: "will probably — ignora la evidencia concreta del daño previo",
+                  explanation: "'Will probably be fine' ignoraría el daño ya existente en el tejado y los quince años de abandono. La evidencia concreta apunta claramente al mal estado → 'can't'." }
+            ],
+            clue: "15 years empty + damaged roof when they left — negación casi segura",
+            clueExplain: "quince años de abandono más un tejado ya dañado al salir hacen casi imposible que la casa esté en buen estado. 'Can't' expresa esa negación lógica.",
+            rule: "can't = evidencia acumulada hace algo casi imposible (negación lógica)",
+            examples: ["can't be in good condition → abandono + daño previo", "can't still work → sin mantenimiento", "can't be the same → mucho tiempo"],
+            correctReason: "<span class='why-hl'>can't be in good condition</span> — quince años vacío con tejado ya dañado hace el buen estado casi imposible. 'Must be perfect' contradiría toda la evidencia."
+        },
+        {
+            id: 14, topicType: "contrast", topicLabel: "Contraste de modales",
+            context: "Carlos bought twice as many vegetables as usual at the market. He seems to be planning something special for the week.",
+            certaintyScale: "prob",
+            options: [
+                { text: "He will probably cook something special this week.", correct: true, modal: "will probably" },
+                { text: "He can't be planning anything special — he always cooks the same.", correct: false, modal: "can't",
+                  errorType: "can't — el contexto sugiere algo diferente esta vez",
+                  explanation: "Comprar el doble de verduras es un cambio observable que sugiere algo diferente. 'Can't be planning' negaría esa posibilidad — pero la evidencia (doble compra) señala en sentido contrario." },
+                { text: "He might buy vegetables — he sometimes does.", correct: false, modal: "might",
+                  errorType: "might — ya compró las verduras, no es una posibilidad futura",
+                  explanation: "La oración dice que YA compró las verduras — no es una posibilidad futura. Además, 'might buy' ignora la evidencia del doble de la cantidad habitual que sugiere algo especial." }
+            ],
+            clue: "twice as many + seems to be planning — alta probabilidad de algo especial",
+            clueExplain: "comprar el doble de lo habitual es evidencia observable de que algo diferente está planeado. 'Will probably' captura esa alta probabilidad sin afirmar certeza absoluta.",
+            rule: "will probably = alta probabilidad de acción futura basada en evidencia presente",
+            examples: ["will probably cook something special → doble compra", "will probably have guests → más comida", "will probably try a new recipe → preparación especial"],
+            correctReason: "<span class='why-hl'>will probably cook something special</span> — el doble de verduras es evidencia de planificación. 'Can't' negaría lo que la evidencia sugiere; 'might buy' ignora que ya compró."
+        },
+        {
+            id: 15, topicType: "contrast", topicLabel: "Contraste de modales",
+            context: "Ana's brother has slept through every alarm for the past month. He has been late to school several times.",
+            certaintyScale: "cant",
+            options: [
+                { text: "He must be a very punctual person.", correct: false, modal: "must",
+                  errorType: "must contradice completamente el contexto",
+                  explanation: "'Must be punctual' afirmaría con certeza que es puntual. Pero el contexto (duerme todos los despertadores, llega tarde repetidamente) niega eso directamente. 'Must' requiere evidencia a favor." },
+                { text: "He might be a punctual person on weekends.", correct: false, modal: "might",
+                  errorType: "might — especulación sin base en el contexto dado",
+                  explanation: "Introducir los fines de semana es una evasión. El contexto describe un patrón claro en días de escuela. 'Might on weekends' evita la deducción que la evidencia exige: 'can't be punctual'." },
+                { text: "He can't be a punctual person — he's late almost every day.", correct: true, modal: "can't" }
+            ],
+            clue: "every alarm + late several times — patrón que niega la posibilidad",
+            clueExplain: "dormir todos los despertadores y llegar tarde repetidamente es un patrón que hace casi imposible ser una persona puntual. 'Can't' es la deducción lógica negativa.",
+            rule: "can't = patrón negativo repetido → deducción que niega la posibilidad",
+            examples: ["can't be punctual → siempre tarde", "can't be organized → nunca listo", "can't like it → nunca lo hace"],
+            correctReason: "<span class='why-hl'>can't be punctual</span> — el patrón (todos los despertadores, tarde repetidamente) niega casi con certeza la puntualidad. 'Must be punctual' contradiría los hechos."
+        }
+    ];
+
+    // ── CERTAINTY SCALE ──
+    function buildScale(activeKey) {
+        const items = [
+            { key: "cant",  label: "can't",  cls: "cs-cant" },
+            { key: "might", label: "might",  cls: "cs-might" },
+            { key: "may",   label: "may",    cls: "cs-may" },
+            { key: "must",  label: "must",   cls: "cs-must" },
+            { key: "prob",  label: "will probably", cls: "cs-prob" }
+        ];
+        return `<div class="certainty-scale">${items.map(it =>
+            `<div class="cs-item ${it.cls}${it.key === activeKey ? ' active' : ''}">${it.label}</div>`
+        ).join('')}</div>`;
+    }
+
+    // ── SHUFFLE ──
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    // ── STATE ──
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        quizData.forEach(q => { q.shuffled = shuffle(q.options); });
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => container.appendChild(createCard(q, i)));
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+        const badge = `<span class="topic-badge ${q.topicType}">${q.topicLabel}</span>`;
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="q-label">Elige la oración con el modal correcto:</span>
+                ${badge}
+            </div>
+            <div class="context-box">
+                <span class="context-label">📖 Contexto</span>
+                ${q.context}
+            </div>
+            <div class="sentence-options" id="options-${index}">
+                ${q.shuffled.map((opt, i) => {
+                    const hl = opt.text.replace(opt.modal, `<span class="modal-hl">${opt.modal}</span>`);
+                    return `
+                    <button class="sent-option" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${hl}</div>
+                        <div class="option-status">${opt.correct ? '✅' : '❌'}</div>
+                    </button>`;
+                }).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'Ver Resultados 🎉' : 'Siguiente →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .sent-option`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            if (q.shuffled[i].correct) btn.classList.add('correct');
+            else if (i === optIdx)      btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        const ruleExamples = q.examples.map(e => {
+            const p = e.split(' → ');
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+        }).join('');
+
+        const scale = buildScale(q.certaintyScale);
+
+        function markModal(text, modal) {
+            return text.replace(modal, `<span class="error-highlight">${modal}</span>`);
+        }
+        function markCorrectModal(text, modal) {
+            return text.replace(modal, `<span class="correct-highlight">${modal}</span>`);
+        }
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">¡Correcto! Identificaste el modal adecuado</div>
+                        <div class="fb-subtitle">Veamos por qué las otras opciones eran incorrectas</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal">
+                        <div class="fb-block-title">🔍 Señal clave del contexto</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                        ${scale}
+                    </div>
+                    ${q.shuffled.filter(o => !o.correct).map(err => `
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ Error en una opción: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${err.modal}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${correctOpt.modal}</span>
+                        </div>
+                        <div class="error-text">${err.explanation}</div>
+                    </div>`).join('')}
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 Regla aplicada</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrecto — revisemos juntos</div>
+                        <div class="fb-subtitle">El modal correcto era: <strong>${correctOpt.modal}</strong></div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong">
+                        <div class="fb-block-title">🔍 Señal clave que debías identificar</div>
+                        <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
+                            <span class="signal-tag red">${q.clue}</span> ${q.clueExplain}
+                        </div>
+                        ${scale}
+                    </div>
+                    <div class="fb-block fb-compare">
+                        <div class="fb-block-title">🔄 Tu elección vs. la correcta</div>
+                        <div class="compare-row">
+                            <span class="compare-label wrong">Elegiste</span>
+                            <span class="compare-text">${markModal(selected.text, selected.modal)}</span>
+                        </div>
+                        <div class="compare-row">
+                            <span class="compare-label right">Correcta</span>
+                            <span class="compare-text">${markCorrectModal(correctOpt.text, correctOpt.modal)}</span>
+                        </div>
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="word-swap">
+                            <span class="ws-box ws-wrong">${selected.modal}</span>
+                            <span class="ws-arrow">→</span>
+                            <span class="ws-box ws-right">${correctOpt.modal}</span>
+                        </div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 La regla correcta</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>`;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? '¡Excelente! Identificas los modales perfectamente. 🏆'
+            : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
+            : 'Buen esfuerzo. Repasa los grados de certeza e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
