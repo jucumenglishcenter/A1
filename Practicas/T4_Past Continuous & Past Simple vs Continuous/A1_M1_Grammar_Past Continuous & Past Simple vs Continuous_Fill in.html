@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Identification - A1 M1 | Prepositions & Past Continuous | JUCUM English</title>
+    <title>Fill in the Blanks - A1 M1 | Prepositions & Past Continuous | JUCUM English</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -34,7 +34,7 @@
         .header-info { flex:1; }
         .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
         .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
-        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
         .progress-container { height:6px; background:rgba(255,255,255,0.3); }
         .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
 
@@ -50,39 +50,35 @@
 
         .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
         .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
-        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; flex:1; }
-        .topic-badge { display:inline-flex; align-items:center; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
-        .topic-badge.prep { background:#E3F2FD; color:#0D47A1; }
-        .topic-badge.pc   { background:#EDE9FE; color:#6D28D9; }
-        .topic-badge.pspc { background:#FFF3E0; color:#C2410C; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; }
+        .topic-badge.prep  { background:#E3F2FD; color:#0D47A1; }
+        .topic-badge.pc    { background:#EDE9FE; color:#6D28D9; }
+        .topic-badge.pspc  { background:#FFF3E0; color:#C2410C; }
 
-        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
-        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
-        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
-        .sent-option.disabled  { cursor:default; }
-        .sent-option.correct   { border-color:var(--success); background:var(--success-light); }
-        .sent-option.incorrect { border-color:var(--error);   background:var(--error-light); }
-        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; margin-top:1px; font-family:'Fredoka',sans-serif; }
-        .sent-option.correct   .option-letter { background:var(--success); color:white; }
-        .sent-option.incorrect .option-letter { background:var(--error);   color:white; }
-        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.55; font-weight:600; flex:1; }
-        .sent-option.correct   .option-text { color:var(--success-dark); }
-        .sent-option.incorrect .option-text { color:var(--error-dark); }
-        .option-status { font-size:1.1rem; margin-left:auto; flex-shrink:0; opacity:0; transition:opacity .2s; }
-        .sent-option.correct   .option-status,
-        .sent-option.incorrect .option-status { opacity:1; }
+        .sentence-area { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:1rem 1.1rem; margin-bottom:1rem; font-size:1.05rem; font-weight:600; color:var(--text-dark); line-height:2; }
+        .blank-input { display:inline-block; border:none; border-bottom:2.5px solid var(--primary); background:transparent; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; color:var(--primary-dark); width:110px; text-align:center; padding:0 4px; outline:none; vertical-align:baseline; transition:border-color .2s; }
+        .blank-input:focus { border-bottom-color:var(--accent); }
+        .blank-input.correct   { border-bottom-color:var(--success); color:var(--success-dark); }
+        .blank-input.incorrect { border-bottom-color:var(--error);   color:var(--error-dark); }
+        .blank-input:disabled  { background:transparent; }
 
-        .error-highlight   { color:var(--error);        font-weight:800; text-decoration:underline wavy var(--error); }
-        .correct-highlight { color:var(--success-dark); font-weight:800; }
+        .options-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.75rem; }
+        .option-chip { padding:0.35rem 0.85rem; border:2px solid var(--primary-light); border-radius:20px; font-size:0.88rem; font-weight:700; color:var(--text-medium); background:white; cursor:pointer; transition:all .2s; user-select:none; }
+        .option-chip:hover { background:var(--primary-light); border-color:var(--primary); }
+        .option-chip.used { opacity:.35; cursor:default; text-decoration:line-through; }
 
-        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .check-btn { width:100%; padding:0.8rem; border:none; border-radius:12px; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; margin-bottom:0.5rem; }
+        .check-btn:hover:not(:disabled) { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .check-btn:disabled { opacity:.45; cursor:default; }
+
+        .feedback { border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); margin-top:0.75rem; }
         .feedback.show { display:block; animation:fadeUp .35s ease; }
         @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
 
         .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
         .feedback.correct   .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
         .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
-        .fb-icon { font-size:1.6rem; }
+        .fb-icon  { font-size:1.6rem; }
         .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
         .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
 
@@ -108,7 +104,9 @@
         .compare-label       { font-size:0.72rem; font-weight:800; text-transform:uppercase; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; margin-top:2px; }
         .compare-label.wrong { background:var(--error-light);   color:var(--error-dark); }
         .compare-label.right { background:var(--success-light); color:var(--success-dark); }
-        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.55; }
+        .compare-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; font-weight:600; }
+        .hl-wrong   { color:var(--error-dark);   font-weight:800; text-decoration:underline wavy var(--error); }
+        .hl-correct { color:var(--success-dark); font-weight:800; }
 
         .fb-error { background:var(--error-light); border:1px solid #FECACA; }
         .fb-error .fb-block-title { color:var(--error-dark); }
@@ -126,14 +124,14 @@
         .rule-ex        { display:flex; align-items:center; gap:0.3rem; font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.2rem 0.5rem; }
         .rule-ex .base  { color:var(--info-dark);    font-weight:600; }
         .rule-ex .arrow { color:#94A3B8; }
-        .rule-ex .past  { color:var(--success-dark); font-weight:700; }
+        .rule-ex .result{ color:var(--success-dark); font-weight:700; }
 
         .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
         .fb-why .fb-block-title { color:var(--success-dark); }
         .fb-why-text  { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
         .why-hl { background:var(--success-light); color:var(--success-dark); padding:0.1rem 0.4rem; border-radius:5px; font-weight:700; }
 
-        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1rem; }
         .nav-btn      { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
         .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
         .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
@@ -161,7 +159,7 @@
     <header class="header">
         <a href="a1-m1-index.html" class="back-btn">←</a>
         <div class="header-info">
-            <div class="header-title">🔍 Identification</div>
+            <div class="header-title">✏️ Fill in the Blanks</div>
             <div class="header-subtitle">🔵 A1 · M1 · Prepositions of Place · Past Continuous · PS vs PC</div>
         </div>
         <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
@@ -170,10 +168,10 @@
 
     <main>
         <div class="instructions">
-            <div class="instructions-icon">🔍</div>
+            <div class="instructions-icon">✏️</div>
             <div>
-                <div class="instructions-title">Identifica la oración correcta</div>
-                <div class="instructions-text">Lee las tres oraciones y elige la que esté gramaticalmente correcta. Las opciones se mezclan en cada sesión.</div>
+                <div class="instructions-title">Completa el espacio en blanco</div>
+                <div class="instructions-text">Elige la opción correcta: una preposición de lugar, una forma del Past Continuous o la estructura adecuada para PS vs PC.</div>
             </div>
         </div>
 
@@ -196,314 +194,222 @@
 
     <script>
     // ============================================================
-    // IDENTIFY — 15 preguntas
-    // A1 · M1 · Prepositions of Place + Past Continuous + PS vs PC
+    // FILL IN THE BLANKS — 15 preguntas
+    // A1 · M1 · Daily Life & Personal Routines
     // Personajes: Ana, David, Elena, Carlos
-    // Opciones mezcladas en cada pregunta al cargar (shuffle)
     //
     // Distribución:
-    //  Q1–Q5   Prepositions of place
-    //  Q6–Q10  Past Continuous — forma
-    //  Q11–Q15 Past Simple vs Past Continuous
+    //  Q1–Q5   Prepositions of place (in, on, at, near, next to,
+    //          on the corner of, outside, close to)
+    //  Q6–Q10  Past Continuous — forma (was/were + -ing)
+    //  Q11–Q15 Past Simple vs Past Continuous (when / while)
     //
-    // Las oraciones y contextos son DISTINTOS a los del Fill
-    // para evitar repetición.
+    // topicType: "prep" | "pc" | "pspc"
     // ============================================================
     const quizData = [
-
         // ── PREPOSITIONS OF PLACE ──────────────────────────────
         {
             id: 1, topicType: "prep", topicLabel: "Preposition of Place",
-            options: [
-                { text: "Ana puts her bag in her chair at school.", correct: false,
-                  errorWord: "in", correctWord: "on",
-                  errorType: "in en lugar de on (superficie)",
-                  explanation: "'In' implica estar dentro de un espacio cerrado. Una bolsa se coloca SOBRE la silla — superficie — así que la preposición correcta es 'on her chair'." },
-                { text: "Ana puts her bag on her chair at school.", correct: true },
-                { text: "Ana puts her bag at her chair at school.", correct: false,
-                  errorWord: "at", correctWord: "on",
-                  errorType: "at en lugar de on (superficie)",
-                  explanation: "'At' indica un punto de actividad general, no una superficie. La bolsa reposa SOBRE la silla → 'on her chair'." }
-            ],
-            clue: "bag on the chair (superficie plana)",
-            clueExplain: "una bolsa que descansa sobre una silla está en contacto con su superficie → 'on'. 'In' sería dentro de; 'at' es para lugares de actividad.",
-            rule: "on = contacto con una superficie (silla, mesa, suelo, estante)",
-            examples: ["bag on the chair → superficie", "book on the table → superficie", "cup on the shelf → superficie"],
-            correctReason: "<span class='why-hl'>on her chair</span> — la bolsa está sobre la superficie de la silla. 'In' = dentro de; 'on' = encima de (con contacto)."
+            parts: ["Ana puts the cups ", "___", " the table before breakfast."],
+            answer: "on",
+            options: ["in", "on", "at", "next to"],
+            clue: "on the table",
+            clueExplain: "'On' indica contacto con una superficie horizontal (encima de). Las tazas descansan sobre la superficie de la mesa → 'on'.",
+            errorType: "Preposición de superficie incorrecta",
+            errorExplain: "'In' = dentro de un espacio cerrado. 'At' = ubicación general. 'On' = sobre una superficie. Las tazas están sobre la mesa → 'on the table'.",
+            rule: "on = sobre una superficie (mesa, suelo, estante)",
+            examples: ["cups on the table → superficie", "book on the shelf → superficie", "bag on the chair → superficie"],
+            correctReason: "<span class='why-hl'>on</span> describe contacto con la superficie de la mesa. Las cosas que reposan sobre algo plano siempre usan 'on'."
         },
         {
             id: 2, topicType: "prep", topicLabel: "Preposition of Place",
-            options: [
-                { text: "Carlos goes for a run in the quiet streets every morning.", correct: false,
-                  errorWord: "in", correctWord: "through",
-                  errorType: "in estático en lugar de through (movimiento)",
-                  explanation: "'In the streets' indica estar dentro de las calles (estático). Correr es movimiento que atraviesa un espacio → 'through the streets' o 'along the streets'." },
-                { text: "Carlos goes for a run through the quiet streets every morning.", correct: true },
-                { text: "Carlos goes for a run on the quiet streets every morning.", correct: false,
-                  errorWord: "on", correctWord: "through",
-                  errorType: "on en lugar de through (movimiento por espacio)",
-                  explanation: "'On the streets' puede usarse para estar en la calle de pie, pero correr A TRAVÉS de un espacio usa 'through' para indicar movimiento de un extremo a otro." }
-            ],
-            clue: "through the streets (movimiento por un espacio)",
-            clueExplain: "'Through' indica movimiento dentro de y a lo largo de un espacio — correr atravesando las calles de principio a fin.",
-            rule: "through = movimiento de un lado al otro dentro de un espacio",
-            examples: ["run through the streets → movimiento", "walk through the park → movimiento", "drive through the city → movimiento"],
-            correctReason: "<span class='why-hl'>through the streets</span> — correr atraviesa el espacio de las calles. 'Through' captura el movimiento continuo dentro de un área."
+            parts: ["Carlos buys fresh vegetables ", "___", " the market every Saturday."],
+            answer: "at",
+            options: ["in", "on", "at", "near"],
+            clue: "at the market",
+            clueExplain: "'At' se usa con lugares de actividad o eventos: el mercado es un lugar donde se hace algo específico (comprar). 'At' indica punto de actividad, no el interior físico.",
+            errorType: "Preposición de lugar de actividad incorrecta",
+            errorExplain: "'In the market' es posible pero describe estar dentro del espacio físico. 'At the market' es la expresión natural para ir al mercado como actividad habitual.",
+            rule: "at = lugar de actividad habitual (at school, at work, at the market)",
+            examples: ["at the market → actividad", "at school → actividad", "at work → actividad"],
+            correctReason: "<span class='why-hl'>at</span> se usa para lugares de actividad — el mercado como destino donde ocurre una acción. 'At the market' es la expresión idiomática correcta."
         },
         {
             id: 3, topicType: "prep", topicLabel: "Preposition of Place",
-            options: [
-                { text: "David's mother sat with him at the kitchen table to show him the recipe.", correct: true },
-                { text: "David's mother sat with him in the kitchen table to show him the recipe.", correct: false,
-                  errorWord: "in", correctWord: "at",
-                  errorType: "in en lugar de at (mesa = punto de actividad)",
-                  explanation: "'In the table' implicaría estar dentro de la mesa — imposible. Para mesas usadas para hacer algo (comer, trabajar, estudiar) se usa 'at the table'." },
-                { text: "David's mother sat with him on the kitchen table to show him the recipe.", correct: false,
-                  errorWord: "on", correctWord: "at",
-                  errorType: "on en lugar de at (sentarse a la mesa, no sobre ella)",
-                  explanation: "'On the table' significa encima de la superficie de la mesa. Sentarse a hacer una actividad usa 'at the table' — como punto de actividad." }
-            ],
-            clue: "at the table (punto de actividad)",
-            clueExplain: "'At the table' indica que la mesa es un punto donde ocurre una actividad (estudiar, comer, cocinar). 'On the table' = encima; 'in the table' no existe.",
-            rule: "at the table = sentado a la mesa para hacer algo (actividad)",
-            examples: ["sit at the table → actividad", "eat at the table → actividad", "work at the table → actividad"],
-            correctReason: "<span class='why-hl'>at the kitchen table</span> — la mesa es el punto de actividad donde se sientan a trabajar juntos. 'On' sería encima; 'in' es imposible."
+            parts: ["There is a bakery ", "___", " the corner of Carlos's street."],
+            answer: "on",
+            options: ["at", "next to", "in", "on"],
+            clue: "on the corner",
+            clueExplain: "'On the corner' es la expresión fija en inglés para describir la ubicación en una esquina. Se dice 'on the corner', no 'at the corner' ni 'in the corner'.",
+            errorType: "Expresión fija incorrecta",
+            errorExplain: "'On the corner' es la expresión idiomática correcta para esquinas de calle. 'In the corner' se usa solo para rincones interiores (dentro de una habitación).",
+            rule: "on the corner = en la esquina de una calle (expresión fija)",
+            examples: ["bakery on the corner → esquina de calle", "shop on the corner → esquina", "café on the corner → esquina"],
+            correctReason: "<span class='why-hl'>on the corner</span> es la expresión fija para esquinas de calle. 'In the corner' se reserva para rincones dentro de espacios cerrados."
         },
         {
             id: 4, topicType: "prep", topicLabel: "Preposition of Place",
-            options: [
-                { text: "Elena's sister watered the plants in the garden on weekends.", correct: true },
-                { text: "Elena's father drank his coffee outside at the garden every morning.", correct: false,
-                  errorWord: "at", correctWord: "in",
-                  errorType: "at en lugar de in (espacio con límites)",
-                  explanation: "'At the garden' no es natural en inglés. El jardín es un espacio con límites — se está dentro de él → 'in the garden'. 'At' se usa con lugares de actividad como tiendas o escuelas." },
-                { text: "Elena's grandmother sat on the garden before breakfast every morning.", correct: false,
-                  errorWord: "on", correctWord: "in",
-                  errorType: "on en lugar de in (espacio, no superficie)",
-                  explanation: "'On the garden' significaría estar encima del jardín — imposible. El jardín es un espacio con límites que rodea a la persona → se usa 'in'. 'On' es para superficies planas como mesas o sillas." }
-            ],
-            clue: "in the garden (espacio con límites naturales)",
-            clueExplain: "el jardín es un espacio con bordes definidos — se está dentro de él, no sobre él ni en un punto de actividad. 'In the garden' es la expresión correcta.",
-            rule: "in = dentro de un espacio con límites (garden, room, city, park)",
-            examples: ["in the garden → espacio", "in the park → espacio", "in the room → espacio"],
-            correctReason: "<span class='why-hl'>in the garden</span> — el jardín tiene límites naturales definidos. Se está dentro del espacio del jardín → 'in'. 'At' es para actividades; 'on' es para superficies planas."
+            parts: ["Elena's grandmother sat ", "___", " the garden before breakfast every morning."],
+            answer: "in",
+            options: ["on", "at", "outside", "in"],
+            clue: "in the garden",
+            clueExplain: "'In' se usa con espacios que tienen límites o paredes naturales (un jardín, una habitación, una ciudad). Se está dentro del espacio del jardín → 'in the garden'.",
+            errorType: "Preposición de espacio cerrado incorrecta",
+            errorExplain: "'On' es para superficies planas. 'At' es para actividades. El jardín es un espacio con límites → 'in the garden'. 'Outside' es un adverbio, no una preposición de lugar con the garden.",
+            rule: "in = dentro de un espacio con límites (room, garden, city, house)",
+            examples: ["in the garden → espacio", "in the room → espacio", "in the house → espacio"],
+            correctReason: "<span class='why-hl'>in the garden</span> — el jardín es un espacio con límites naturales. Cualquier espacio que 'rodea' usa 'in': in the garden, in the room, in the city."
         },
         {
             id: 5, topicType: "prep", topicLabel: "Preposition of Place",
-            options: [
-                { text: "Elena's grandmother had the room next to Elena's room.", correct: true },
-                { text: "Elena's grandmother had the room close Elena's room.", correct: false,
-                  errorWord: "close", correctWord: "next to",
-                  errorType: "close sin preposición",
-                  explanation: "'Close' como adjetivo necesita 'to': 'close to'. Sin 'to', la oración es incompleta. Pero para indicar habitación contigua, 'next to' es más preciso — inmediatamente al lado." },
-                { text: "Elena's grandmother had the room near of Elena's room.", correct: false,
-                  errorWord: "near of", correctWord: "next to",
-                  errorType: "near of — preposición incorrecta",
-                  explanation: "'Near' no lleva 'of' — es un error común por interferencia del español ('cerca de'). En inglés es solo 'near' o 'near to', pero 'near of' no existe." }
-            ],
-            clue: "next to (inmediatamente al lado)",
-            clueExplain: "'Next to' indica que dos cosas están inmediatamente una al lado de la otra — habitaciones contiguas. 'Near' es más vago (cerca en general); 'next to' es contacto directo.",
-            rule: "next to = inmediatamente al lado de (dos cosas contiguas)",
-            examples: ["room next to Elena's → contigua", "chair next to the door → contigua", "bed next to the window → contigua"],
-            correctReason: "<span class='why-hl'>next to Elena's room</span> — las habitaciones eran contiguas, inmediatamente adyacentes. 'Near of' no existe en inglés; 'close' sin 'to' es incompleto."
+            parts: ["Elena had the small lamp ", "___", " her bed so she could read at night."],
+            answer: "next to",
+            options: ["on", "in", "next to", "at"],
+            clue: "next to her bed",
+            clueExplain: "'Next to' significa 'al lado de' — indica proximidad inmediata entre dos objetos. La lámpara está justo al lado de la cama, no sobre ella ni dentro.",
+            errorType: "Preposición de proximidad incorrecta",
+            errorExplain: "'On her bed' = sobre la cama (superficie). 'In her bed' = dentro de la cama. 'Next to' = al lado de, junto a. La lámpara está al lado, no encima.",
+            rule: "next to = al lado de (proximidad inmediata entre dos objetos)",
+            examples: ["lamp next to the bed → al lado", "chair next to the table → al lado", "bag next to the door → al lado"],
+            correctReason: "<span class='why-hl'>next to</span> expresa proximidad lateral — al lado de. La lámpara está junto a la cama, no sobre ella ('on') ni dentro ('in')."
         },
 
         // ── PAST CONTINUOUS — FORMA ────────────────────────────
         {
             id: 6, topicType: "pc", topicLabel: "Past Continuous",
-            options: [
-                { text: "Ana was looking at the street while she walked to the bus stop.", correct: true },
-                { text: "Ana were looking at the street while she walked to the bus stop.", correct: false,
-                  errorWord: "were looking", correctWord: "was looking",
-                  errorType: "were con sujeto singular",
-                  explanation: "'Ana' es singular (she). Con he/she/it el Past Continuous usa 'was', nunca 'were'. 'Were' es para you/we/they." },
-                { text: "Ana is looking at the street while she walked to the bus stop.", correct: false,
-                  errorWord: "is looking", correctWord: "was looking",
-                  errorType: "Presente en lugar de pasado",
-                  explanation: "'Is looking' es Present Continuous. La historia ocurre en el pasado y necesita Past Continuous: 'was looking'." }
-            ],
-            clue: "Ana (= she, singular) + Past Continuous",
-            clueExplain: "Ana = she → Past Continuous singular → 'was looking'. 'Were' es solo para you/we/they. 'Is looking' es presente, no pasado.",
-            rule: "she/he/it + was + verbo-ing → Past Continuous singular",
-            examples: ["She was looking → singular", "He was reading → singular", "Ana was walking → singular"],
-            correctReason: "<span class='why-hl'>was looking</span> — Ana (she) es singular → 'was'. 'Were' es para plural. El contexto es pasado → no 'is'."
+            parts: ["Ana's brother ", "___", " when she left the house quietly."],
+            answer: "was sleeping",
+            options: ["slept", "was sleeping", "is sleeping", "were sleeping"],
+            clue: "was sleeping (acción en progreso en el pasado)",
+            clueExplain: "'Was sleeping' es Past Continuous — describe una acción que estaba en progreso en un momento del pasado. El hermano dormía mientras Ana salía.",
+            errorType: "Tiempo verbal incorrecto",
+            errorExplain: "'Slept' (Past Simple) describe una acción completa. 'Is sleeping' es presente. 'Were sleeping' sería para sujeto plural (they/we). El sujeto es 'her brother' (he) → 'was sleeping'.",
+            rule: "he/she/it + was + verbo-ing → Past Continuous singular",
+            examples: ["He was sleeping → singular", "She was reading → singular", "It was raining → singular"],
+            correctReason: "<span class='why-hl'>was sleeping</span> — Past Continuous para 'her brother' (he). La acción de dormir estaba en progreso cuando Ana salió. He/she/it → 'was', no 'were'."
         },
         {
             id: 7, topicType: "pc", topicLabel: "Past Continuous",
-            options: [
-                { text: "David's roommates were noticing the smell from the kitchen.", correct: true },
-                { text: "David's roommates was noticing the smell from the kitchen.", correct: false,
-                  errorWord: "was noticing", correctWord: "were noticing",
-                  errorType: "was con sujeto plural",
-                  explanation: "'David's roommates' son varias personas → plural (they). Con they/we/you el Past Continuous usa 'were', no 'was'. 'Was' es solo para he/she/it." },
-                { text: "David's roommates were notice the smell from the kitchen.", correct: false,
-                  errorWord: "were notice", correctWord: "were noticing",
-                  errorType: "Verbo base en lugar de -ing",
-                  explanation: "El Past Continuous siempre requiere: were + verbo-ING. 'Were notice' usa la forma base — falta la terminación '-ing'. La forma correcta es 'were noticing'." }
-            ],
-            clue: "roommates (= they, plural) + Past Continuous",
-            clueExplain: "'Roommates' = they → Past Continuous plural → 'were noticing'. 'Was' es para singular. 'Were notice' olvida el '-ing' obligatorio.",
-            rule: "they/we/you + were + verbo-ING → Past Continuous plural",
-            examples: ["They were noticing → plural", "We were cooking → plural", "You were reading → plural"],
-            correctReason: "<span class='why-hl'>were noticing</span> — 'roommates' = they (plural) → 'were'. Además, Past Continuous siempre necesita '-ing': 'were noticing', no 'were notice'."
+            parts: ["David's roommates ", "___", " what was in the pot when he got home."],
+            answer: "were asking",
+            options: ["asked", "are asking", "were asking", "was asking"],
+            clue: "were asking (sujeto plural en progreso)",
+            clueExplain: "'Were asking' es Past Continuous para sujeto plural (his roommates = they). Describe la acción en progreso en el pasado — estaban preguntando continuamente.",
+            errorType: "Forma de Past Continuous incorrecta",
+            errorExplain: "'Was asking' sería para sujeto singular (he/she/it). 'His roommates' = they → 'were'. 'Asked' es Past Simple (acción completa). 'Are asking' es presente.",
+            rule: "they/we/you + were + verbo-ing → Past Continuous plural",
+            examples: ["They were asking → plural", "We were cooking → plural", "You were reading → plural"],
+            correctReason: "<span class='why-hl'>were asking</span> — 'his roommates' = they (plural) → 'were'. La acción de preguntar estaba en progreso cuando él llegó."
         },
         {
             id: 8, topicType: "pc", topicLabel: "Past Continuous",
-            options: [
-                { text: "Carlos was preparing his next lesson between classes.", correct: true },
-                { text: "Carlos were preparing his next lesson between classes.", correct: false,
-                  errorWord: "were preparing", correctWord: "was preparing",
-                  errorType: "were con sujeto singular",
-                  explanation: "'Carlos' es singular (he). El Past Continuous para he/she/it usa 'was', nunca 'were'. 'Were' es para you/we/they." },
-                { text: "Carlos was prepare his next lesson between classes.", correct: false,
-                  errorWord: "was prepare", correctWord: "was preparing",
-                  errorType: "Verbo base en lugar de -ing",
-                  explanation: "Past Continuous = was/were + verbo-ING. 'Was prepare' usa la forma base — incorrecto. La forma correcta es 'was preparing'." }
-            ],
-            clue: "Carlos (= he, singular) + verbo-ING obligatorio",
-            clueExplain: "Carlos = he → Past Continuous → 'was preparing'. 'Were' es error de número. 'Was prepare' olvida el '-ing' — el Past Continuous siempre lo exige.",
-            rule: "he + was + verbo-ING (nunca forma base, nunca were)",
-            examples: ["He was preparing → correcto", "He was reading → correcto", "He was cooking → correcto"],
-            correctReason: "<span class='why-hl'>was preparing</span> — Carlos (he) → 'was' (no 'were'). Y Past Continuous siempre lleva '-ing': 'preparing', no 'prepare'."
+            parts: ["Elena ", "___", " her homework on her bed when her mother came in to say goodnight."],
+            answer: "was doing",
+            options: ["were doing", "is doing", "did", "was doing"],
+            clue: "was doing (acción larga en progreso — Elena = she)",
+            clueExplain: "'Was doing' es Past Continuous para 'Elena' (she — singular). La tarea era la acción larga en progreso que fue interrumpida por la llegada de su madre.",
+            errorType: "Tiempo verbal incorrecto para acción en progreso",
+            errorExplain: "'Did' (Past Simple) describe la tarea como completada. 'Were doing' sería para plural. 'Is doing' es presente. Elena (she) estaba haciendo la tarea cuando su madre llegó → 'was doing'.",
+            rule: "she/he/it + was + verbo-ing = acción larga en progreso (Past Continuous)",
+            examples: ["She was doing homework → en progreso", "He was reading → en progreso", "She was cooking → en progreso"],
+            correctReason: "<span class='why-hl'>was doing</span> — Elena (she) + 'was' + doing. La tarea era la acción larga interrumpida. Past Continuous = acción que estaba ocurriendo."
         },
         {
             id: 9, topicType: "pc", topicLabel: "Past Continuous",
-            options: [
-                { text: "Elena and her sister was doing homework on their beds in the afternoon.", correct: false,
-                  errorWord: "was doing", correctWord: "were doing",
-                  errorType: "was con sujeto plural",
-                  explanation: "'Elena and her sister' son dos personas → plural (they). Con they el Past Continuous usa 'were doing', no 'was doing'. 'Was' es solo para he/she/it." },
-                { text: "Elena and her sister were doing homework on their beds in the afternoon.", correct: true },
-                { text: "Elena and her sister were do homework on their beds in the afternoon.", correct: false,
-                  errorWord: "were do", correctWord: "were doing",
-                  errorType: "Verbo base en lugar de -ing",
-                  explanation: "Past Continuous = were + verbo-ING. 'Were do' usa la forma base — incorrecto. Con sujeto plural → 'were doing'." }
-            ],
-            clue: "Elena and her sister (= they, plural) + were + -ING",
-            clueExplain: "dos personas = they (plural) → 'were doing'. 'Was' es para singular. 'Were do' olvida el '-ing' obligatorio del Past Continuous.",
-            rule: "they (dos o más) + were + verbo-ING → Past Continuous plural",
-            examples: ["They were doing homework → plural", "Elena and her sister were reading → plural", "We were studying → plural"],
-            correctReason: "<span class='why-hl'>were doing</span> — Elena and her sister = they (plural) → 'were'. El Past Continuous siempre necesita '-ing': 'doing', no 'do'."
+            parts: ["Carlos ", "___", " over his notes between classes at school."],
+            answer: "was going",
+            options: ["went", "goes", "was going", "were going"],
+            clue: "was going (acción en progreso entre clases)",
+            clueExplain: "'Was going over' describe la acción en progreso durante un período de tiempo en el pasado (entre clases). Carlos (he) → 'was'.",
+            errorType: "Tiempo verbal incorrecto",
+            errorExplain: "'Went' (Past Simple) describe ir a algún lugar como acción completada. 'Were going' es plural. 'Goes' es presente. Carlos (he) estaba repasando sus notas → 'was going'.",
+            rule: "he + was + going + over = Past Continuous de 'go over'",
+            examples: ["He was going over notes → en progreso", "She was going through the book → en progreso", "He was going for a run → en progreso"],
+            correctReason: "<span class='why-hl'>was going</span> — Carlos (he) + 'was' + going. Describe la actividad en curso entre clases, no una acción completada."
         },
         {
             id: 10, topicType: "pc", topicLabel: "Past Continuous",
-            options: [
-                { text: "David was learning from every meal, good or bad.", correct: true },
-                { text: "David were learning from every meal, good or bad.", correct: false,
-                  errorWord: "were learning", correctWord: "was learning",
-                  errorType: "were con sujeto singular",
-                  explanation: "'David' es singular (he). Past Continuous singular → 'was learning'. 'Were' es para you/we/they — error de concordancia de número." },
-                { text: "David was learn from every meal, good or bad.", correct: false,
-                  errorWord: "was learn", correctWord: "was learning",
-                  errorType: "Forma base en lugar de -ing",
-                  explanation: "Past Continuous = was + verbo-ING. 'Was learn' usa la forma base incorrectamente. La forma correcta es 'was learning'." }
-            ],
-            clue: "David (= he, singular) + was + -ING",
-            clueExplain: "David = he → Past Continuous → 'was learning'. 'Were' es para plural. 'Was learn' olvida el '-ing' — siempre obligatorio en Past Continuous.",
-            rule: "he + was + verbo-ING → única forma correcta para singular masculino",
-            examples: ["He was learning → correcto", "David was cooking → correcto", "He was reading → correcto"],
-            correctReason: "<span class='why-hl'>was learning</span> — David (he) → 'was' (no 'were'). Y la terminación '-ing' es obligatoria en Past Continuous: 'learning', no 'learn'."
+            parts: ["David and his mother ", "___", " the rice dish together for the first time."],
+            answer: "were making",
+            options: ["made", "was making", "were making", "are making"],
+            clue: "were making (David and his mother = they)",
+            clueExplain: "'Were making' es Past Continuous plural — David and his mother = they → 'were'. Describe la acción en progreso: el proceso de cocinar juntos.",
+            errorType: "Forma de Past Continuous incorrecta",
+            errorExplain: "'Was making' sería solo para sujeto singular. 'David and his mother' = dos personas = they → 'were'. 'Made' es Past Simple (completado). 'Are making' es presente.",
+            rule: "they (dos o más) + were + verbo-ing → Past Continuous plural",
+            examples: ["They were making rice → plural", "David and his mother were cooking → plural", "We were learning → plural"],
+            correctReason: "<span class='why-hl'>were making</span> — 'David and his mother' = they (plural) → 'were making'. La acción de preparar el plato estaba en progreso."
         },
 
-        // ── PAST SIMPLE vs PAST CONTINUOUS ─────────────────────
+        // ── PAST SIMPLE vs PAST CONTINUOUS ────────────────────
         {
             id: 11, topicType: "pspc", topicLabel: "PS vs PC",
-            options: [
-                { text: "Ana was washing the dishes when her father called her from the hallway.", correct: true },
-                { text: "Ana washed the dishes when her father called her from the hallway.", correct: false,
-                  errorWord: "washed", correctWord: "was washing",
-                  errorType: "PS en lugar de PC para acción larga",
-                  explanation: "'Washed' (Past Simple) haría dos acciones secuenciales. Pero 'when her father called' es la interrupción (PS corta). Lavar los platos era la actividad en progreso → Past Continuous." },
-                { text: "Ana was washing the dishes when her father was calling her from the hallway.", correct: false,
-                  errorWord: "was calling", correctWord: "called",
-                  errorType: "PC para acción puntual de interrupción",
-                  explanation: "'Llamar' desde el pasillo fue un acto puntual e instantáneo — la interrupción. Las interrupciones con 'when' van en Past Simple: 'called', no 'was calling'." }
-            ],
-            clue: "was washing (larga) + when + called (interrupción puntual)",
-            clueExplain: "lavar los platos era la actividad en progreso (PC). 'When her father called' es la acción puntual que interrumpe (PS). La interrupción no va en PC.",
-            rule: "PC (acción larga) + when + PS (interrupción puntual)",
-            examples: ["was washing when he called → PC + when + PS", "was cooking when she arrived → PC + when + PS", "was reading when it rang → PC + when + PS"],
-            correctReason: "<span class='why-hl'>was washing</span> (actividad en progreso) + <span class='why-hl'>called</span> (interrupción puntual). Las interrupciones siempre van en Past Simple."
+            parts: ["Carlos ", "___", " his coffee at the kitchen window when his phone rang."],
+            answer: "was drinking",
+            options: ["drank", "is drinking", "was drinking", "were drinking"],
+            clue: "when his phone rang → acción larga interrumpida",
+            clueExplain: "'When' introduce la acción corta que interrumpe ('rang' — Past Simple). La acción larga que estaba en progreso antes de la interrupción → Past Continuous ('was drinking').",
+            errorType: "PS en lugar de PC para acción larga",
+            errorExplain: "'Drank' (Past Simple) daría dos acciones completas y secuenciales, no una interrupción. Aquí 'drinking' era la actividad en curso cuando el teléfono sonó → Past Continuous.",
+            rule: "PC (acción larga) + when + PS (interrupción corta)",
+            examples: ["was drinking when it rang → PC + when + PS", "was reading when she arrived → PC + when + PS", "was cooking when he called → PC + when + PS"],
+            correctReason: "<span class='why-hl'>was drinking</span> — beber el café era la acción en progreso que fue interrumpida por el teléfono. Fórmula: PC + when + PS (interrupción)."
         },
         {
             id: 12, topicType: "pspc", topicLabel: "PS vs PC",
-            options: [
-                { text: "While Elena was reading in bed, her mother turned off the big light.", correct: true },
-                { text: "While Elena was reading in bed, her mother was turning off the big light.", correct: false,
-                  errorWord: "was turning off", correctWord: "turned off",
-                  errorType: "PC para acción puntual",
-                  explanation: "Apagar la luz fue una acción puntual e instantánea. Las acciones puntuales que ocurren durante una actividad en progreso van en Past Simple: 'turned off', no 'was turning off'." },
-                { text: "While Elena read in bed, her mother turned off the big light.", correct: false,
-                  errorWord: "read", correctWord: "was reading",
-                  errorType: "PS en lugar de PC para acción de fondo",
-                  explanation: "Leer en la cama era la actividad de fondo — larga y en progreso. 'While' + actividad de fondo → Past Continuous: 'was reading'. 'Read' (PS) la haría una acción completada." }
-            ],
-            clue: "while + was reading (fondo) → turned off (puntual)",
-            clueExplain: "'While' introduce la actividad de fondo (PC). La acción puntual que ocurre durante ese fondo → Past Simple. Apagar una luz es instantáneo → PS.",
-            rule: "while + PC (fondo) → PS (acción puntual dentro del fondo)",
-            examples: ["while was reading → turned off (PS puntual)", "while was cooking → arrived (PS puntual)", "while was sleeping → rang (PS puntual)"],
-            correctReason: "<span class='why-hl'>was reading</span> (fondo continuo con 'while') + <span class='why-hl'>turned off</span> (acción instantánea → PS). Apagar la luz es puntual, no continuo."
+            parts: ["David's mother ", "___", " him the recipe while he was writing it down."],
+            answer: "was telling",
+            options: ["is telling", "was telling", "were telling", "told"],
+            clue: "while he was writing → dos acciones simultáneas en progreso",
+            clueExplain: "'While' conecta dos acciones que ocurrían al mismo tiempo en el pasado — ambas en Past Continuous. Mientras él escribía, ella también estaba explicando (acción paralela).",
+            errorType: "PS en lugar de PC para acción simultánea",
+            errorExplain: "'Told' (Past Simple) indicaría que explicar terminó antes de que él escribiera. 'While' con Past Continuous indica simultaneidad — las dos acciones ocurrían al mismo tiempo.",
+            rule: "while + PC → PC (dos acciones simultáneas en el pasado)",
+            examples: ["was telling while he was writing → simultáneas", "was cooking while she was reading → simultáneas", "was talking while they were eating → simultáneas"],
+            correctReason: "<span class='why-hl'>was telling</span> — 'while' + PC indica dos acciones simultáneas. Ella explicaba mientras él escribía — las dos en progreso al mismo tiempo."
         },
         {
             id: 13, topicType: "pspc", topicLabel: "PS vs PC",
-            options: [
-                { text: "Carlos was cooking dinner when he heard a knock at the door.", correct: true },
-                { text: "Carlos cooked dinner when he heard a knock at the door.", correct: false,
-                  errorWord: "cooked", correctWord: "was cooking",
-                  errorType: "PS en lugar de PC para actividad de fondo",
-                  explanation: "Cocinar era la actividad en progreso — el fondo — cuando ocurrió la interrupción. 'Cooked' (PS) convertiría cocinar en una acción completa anterior, no una actividad en curso." },
-                { text: "Carlos was cooking dinner when he was hearing a knock at the door.", correct: false,
-                  errorWord: "was hearing", correctWord: "heard",
-                  errorType: "PC para verbo de percepción puntual",
-                  explanation: "'Hear' es un verbo de percepción — describe una experiencia instantánea e involuntaria. Normalmente no va en forma continua. La interrupción 'heard' es puntual → Past Simple." }
-            ],
-            clue: "was cooking (fondo) + when + heard (percepción puntual)",
-            clueExplain: "cocinar era la actividad de fondo en progreso (PC). 'Heard' es una percepción puntual — escuchar un golpe fue instantáneo → Past Simple.",
-            rule: "PC (actividad en curso) + when + PS (percepción / evento puntual)",
-            examples: ["was cooking when heard → PC + when + PS", "was walking when saw → PC + when + PS", "was reading when felt → PC + when + PS"],
-            correctReason: "<span class='why-hl'>was cooking</span> (actividad en progreso) + <span class='why-hl'>heard</span> (percepción instantánea → PS). Los verbos de percepción son puntuales."
+            parts: ["Ana ", "___", " to music while she was walking to the bus stop."],
+            answer: "was listening",
+            options: ["listens", "were listening", "listened", "was listening"],
+            clue: "while she was walking → dos acciones simultáneas",
+            clueExplain: "'While' conecta dos acciones paralelas en el pasado. Caminar y escuchar música ocurrían al mismo tiempo — ambas son Past Continuous.",
+            errorType: "PS en lugar de PC con 'while'",
+            errorExplain: "'Listened' (Past Simple) sugiere que escuchar terminó — no captura la simultaneidad. 'While' + PC indica que las dos acciones estaban ocurriendo al mismo tiempo.",
+            rule: "PC + while + PC = dos acciones paralelas en el pasado",
+            examples: ["was listening while walking → paralelas", "was reading while eating → paralelas", "was talking while cooking → paralelas"],
+            correctReason: "<span class='why-hl'>was listening</span> — escuchar y caminar eran dos acciones simultáneas. 'While' + Past Continuous indica que las dos ocurrían en paralelo."
         },
         {
             id: 14, topicType: "pspc", topicLabel: "PS vs PC",
-            options: [
-                { text: "David burned the rice while he was talking to his roommate.", correct: true },
-                { text: "David was burning the rice while he was talking to his roommate.", correct: false,
-                  errorWord: "was burning", correctWord: "burned",
-                  errorType: "PC para evento puntual / resultado",
-                  explanation: "Quemar el arroz fue el resultado — un evento que ocurrió en un momento concreto, no una actividad en progreso. Los eventos puntuales van en Past Simple: 'burned'." },
-                { text: "David burned the rice while he talked to his roommate.", correct: false,
-                  errorWord: "talked", correctWord: "was talking",
-                  errorType: "PS en lugar de PC para actividad de fondo con while",
-                  explanation: "Hablar con el compañero era la actividad de fondo en progreso durante la cual ocurrió el evento (quemar). 'While' + actividad de fondo → Past Continuous: 'was talking'." }
-            ],
-            clue: "burned (evento puntual) + while + was talking (fondo)",
-            clueExplain: "quemar el arroz fue un evento instantáneo (PS). Hablar era la actividad de fondo en progreso (PC). 'While' + fondo → PC; el evento resultante → PS.",
-            rule: "PS (evento/resultado) + while + PC (actividad de fondo)",
-            examples: ["burned while was talking → PS + while + PC", "fell while was running → PS + while + PC", "spilled while was cooking → PS + while + PC"],
-            correctReason: "<span class='why-hl'>burned</span> (evento puntual → PS) + <span class='why-hl'>was talking</span> (fondo en progreso con 'while' → PC)."
+            parts: ["Elena's father ", "___", " his coffee outside when she looked at him from the kitchen window."],
+            answer: "was drinking",
+            options: ["were drinking", "was drinking", "drinks", "drank"],
+            clue: "when she looked → acción puntual interrumpe acción larga",
+            clueExplain: "'When she looked' es la acción corta y puntual (Past Simple). La acción larga que estaba en progreso en ese momento → Past Continuous ('was drinking').",
+            errorType: "PS en lugar de PC para acción de fondo",
+            errorExplain: "'Drank' colocaría beber y mirar como dos acciones completas separadas. Pero aquí beber era la actividad en curso — el 'fondo' — cuando Elena lo miró.",
+            rule: "PC (fondo/acción larga) + when + PS (acción puntual)",
+            examples: ["was drinking when she looked → PC fondo + PS puntual", "was reading when he arrived → fondo + puntual", "was cooking when it rang → fondo + puntual"],
+            correctReason: "<span class='why-hl'>was drinking</span> — beber el café era la acción de fondo en progreso. 'When she looked' (PS) es la acción puntual que ocurre durante ese fondo."
         },
         {
             id: 15, topicType: "pspc", topicLabel: "PS vs PC",
-            options: [
-                { text: "Elena's grandmother was sitting in the garden when Elena brought her tea.", correct: true },
-                { text: "Elena's grandmother sat in the garden when Elena brought her tea.", correct: false,
-                  errorWord: "sat", correctWord: "was sitting",
-                  errorType: "PS en lugar de PC para estado en progreso",
-                  explanation: "Estar sentada en el jardín era la situación en progreso — el estado de fondo — cuando Elena llegó con el té. 'Sat' (PS) lo haría un evento puntual completado, no una situación continua." },
-                { text: "Elena's grandmother was sitting in the garden when Elena was bringing her tea.", correct: false,
-                  errorWord: "was bringing", correctWord: "brought",
-                  errorType: "PC para acción puntual de llegada",
-                  explanation: "Traer el té fue una acción puntual y completada — el evento que ocurre durante la situación de fondo. Las acciones puntuales con 'when' van en Past Simple: 'brought'." }
-            ],
-            clue: "was sitting (estado en progreso) + when + brought (acción puntual)",
-            clueExplain: "estar sentada era el estado de fondo continuo (PC). 'When Elena brought' es la acción puntual que ocurrió durante ese fondo → Past Simple.",
-            rule: "PC (estado de fondo) + when + PS (acción puntual de llegada/evento)",
-            examples: ["was sitting when arrived → PC + when + PS", "was waiting when called → PC + when + PS", "was sleeping when rang → PC + when + PS"],
-            correctReason: "<span class='why-hl'>was sitting</span> (estado continuo → PC) + <span class='why-hl'>brought</span> (acción puntual → PS). 'When' introduce la acción que ocurre durante el estado de fondo."
+            parts: ["David ", "___", " the cookbook when his roommates came home and smelled the food."],
+            answer: "was using",
+            options: ["used", "were using", "was using", "uses"],
+            clue: "when his roommates came home → acción larga interrumpida",
+            clueExplain: "'When his roommates came home' es la acción puntual (Past Simple). Usar el cookbook era la actividad larga en progreso en ese momento → Past Continuous.",
+            errorType: "PS en lugar de PC para acción en progreso",
+            errorExplain: "'Used' (Past Simple) hace que usar el libro y llegar los compañeros sean dos acciones secuenciales completadas. La estructura correcta muestra que cocinar con el libro estaba en curso cuando ellos llegaron.",
+            rule: "PC (acción en curso) + when + PS (llegada / interrupción)",
+            examples: ["was using the book when they arrived → PC + when + PS", "was cooking when she called → PC + when + PS", "was reading when he walked in → PC + when + PS"],
+            correctReason: "<span class='why-hl'>was using</span> — David usaba el cookbook (acción en progreso) cuando llegaron los compañeros (acción puntual). Past Continuous = la actividad de fondo."
         }
     ];
 
-    // ── SHUFFLE ──
+    // ── SHUFFLE HELPER ──
     function shuffle(arr) {
         const a = [...arr];
         for (let i = a.length - 1; i > 0; i--) {
@@ -519,7 +425,7 @@
 
     function initQuiz() {
         // Shuffle options for every question at load time
-        quizData.forEach(q => { q.shuffled = shuffle(q.options); });
+        quizData.forEach(q => { q.shuffledOptions = shuffle(q.options); });
         const container = document.getElementById('questionsContainer');
         container.innerHTML = '';
         quizData.forEach((q, i) => container.appendChild(createCard(q, i)));
@@ -531,24 +437,27 @@
         const card = document.createElement('div');
         card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
         card.id = `question-${index}`;
-        const letters = ['A','B','C'];
+
         const badge = `<span class="topic-badge ${q.topicType}">${q.topicLabel}</span>`;
+        const sentenceHTML = q.parts[0]
+            + `<input class="blank-input" id="input-${index}" type="text" maxlength="20"
+                autocomplete="off" autocorrect="off" spellcheck="false"
+                placeholder="___" oninput="onInput(${index})">`
+            + q.parts[2];
+        // Use pre-shuffled options
+        const chipsHTML = q.shuffledOptions.map(opt =>
+            `<span class="option-chip" onclick="fillBlank(${index}, '${opt}')">${opt}</span>`
+        ).join('');
 
         card.innerHTML = `
             <div class="q-header">
                 <div class="question-number">${index + 1}</div>
-                <span class="q-label">Elige la oración gramaticalmente correcta:</span>
+                <span style="font-size:0.88rem;color:var(--text-medium);font-weight:600;flex:1;">Completa con la opción correcta:</span>
                 ${badge}
             </div>
-            <div class="sentence-options" id="options-${index}">
-                ${q.shuffled.map((opt, i) => `
-                    <button class="sent-option" onclick="selectOption(${index}, ${i})">
-                        <div class="option-letter">${letters[i]}</div>
-                        <div class="option-text">${opt.text}</div>
-                        <div class="option-status">${opt.correct ? '✅' : '❌'}</div>
-                    </button>
-                `).join('')}
-            </div>
+            <div class="sentence-area">${sentenceHTML}</div>
+            <div class="options-row" id="chips-${index}">${chipsHTML}</div>
+            <button class="check-btn" id="check-${index}" onclick="checkAnswer(${index})" disabled>Comprobar ✓</button>
             <div class="feedback" id="feedback-${index}"></div>
             <div class="nav-buttons">
                 <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Anterior</button>
@@ -560,77 +469,77 @@
         return card;
     }
 
-    function selectOption(qi, optIdx) {
+    function fillBlank(qi, value) {
+        if (answered[qi]) return;
+        const input = document.getElementById(`input-${qi}`);
+        input.value = value;
+        document.querySelectorAll(`#chips-${qi} .option-chip`).forEach(c =>
+            c.classList.toggle('used', c.textContent === value));
+        document.getElementById(`check-${qi}`).disabled = false;
+    }
+
+    function onInput(qi) {
+        if (answered[qi]) return;
+        const val = document.getElementById(`input-${qi}`).value.trim();
+        document.getElementById(`check-${qi}`).disabled = val.length === 0;
+        document.querySelectorAll(`#chips-${qi} .option-chip`).forEach(c =>
+            c.classList.toggle('used', c.textContent === val));
+    }
+
+    function checkAnswer(qi) {
         if (answered[qi]) return;
         answered[qi] = true;
         const q = quizData[qi];
-        const selected = q.shuffled[optIdx];
-        const isCorrect = selected.correct;
-        const correctOpt = q.shuffled.find(o => o.correct);
+        const input = document.getElementById(`input-${qi}`);
+        const userAnswer = input.value.trim().toLowerCase();
+        const isCorrect = userAnswer === q.answer.toLowerCase();
+
+        input.classList.add(isCorrect ? 'correct' : 'incorrect');
+        input.disabled = true;
+        document.getElementById(`check-${qi}`).disabled = true;
+        document.querySelectorAll(`#chips-${qi} .option-chip`).forEach(c => c.style.pointerEvents = 'none');
+
         if (isCorrect) score++;
-
-        document.querySelectorAll(`#options-${qi} .sent-option`).forEach((btn, i) => {
-            btn.classList.add('disabled');
-            if (q.shuffled[i].correct) btn.classList.add('correct');
-            else if (i === optIdx)      btn.classList.add('incorrect');
-        });
-
-        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        buildFeedback(qi, userAnswer, isCorrect, q);
         document.getElementById(`next-${qi}`).disabled = false;
         updateProgress();
     }
 
-    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+    function buildFeedback(qi, userAnswer, isCorrect, q) {
         const el = document.getElementById(`feedback-${qi}`);
         el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
 
-        function markError(text, word) {
-            if (!word) return text;
-            return text.replace(word, `<span class="error-highlight">${word}</span>`);
-        }
-        function markCorrect(text, word) {
-            if (!word) return text;
-            return text.replace(word, `<span class="correct-highlight">${word}</span>`);
-        }
-
         const ruleExamples = q.examples.map(e => {
             const p = e.split(' → ');
-            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="past">${p[1]}</span></span>`;
+            return `<span class="rule-ex"><span class="base">${p[0]}</span><span class="arrow">→</span><span class="result">${p[1]}</span></span>`;
         }).join('');
+
+        const correctSentence = q.parts[0] + `<span class="hl-correct">${q.answer}</span>` + q.parts[2];
+        const wrongSentence   = q.parts[0] + `<span class="hl-wrong">${userAnswer || '(vacío)'}</span>` + q.parts[2];
 
         if (isCorrect) {
             el.innerHTML = `
                 <div class="fb-header">
                     <span class="fb-icon">✅</span>
                     <div>
-                        <div class="fb-title">¡Correcto! Identificaste bien la oración</div>
-                        <div class="fb-subtitle">Veamos por qué las otras estaban mal</div>
+                        <div class="fb-title">¡Correcto!</div>
+                        <div class="fb-subtitle">Elegiste la forma adecuada</div>
                     </div>
                 </div>
                 <div class="fb-body">
                     <div class="fb-block fb-signal">
-                        <div class="fb-block-title">🔍 Señal clave en las oraciones</div>
+                        <div class="fb-block-title">🔍 Señal clave</div>
                         <div style="font-size:0.92rem;color:var(--text-dark);line-height:1.55;">
                             <span class="signal-tag">${q.clue}</span> ${q.clueExplain}
                         </div>
                     </div>
-                    ${q.shuffled.filter(o => !o.correct && o.errorType).map(err => `
-                    <div class="fb-block fb-error">
-                        <div class="fb-block-title">⚠️ Error en una opción: <span class="error-badge">${err.errorType}</span></div>
-                        <div class="word-swap">
-                            <span class="ws-box ws-wrong">${err.errorWord}</span>
-                            <span class="ws-arrow">→</span>
-                            <span class="ws-box ws-right">${err.correctWord}</span>
-                        </div>
-                        <div class="error-text">${err.explanation}</div>
-                    </div>`).join('')}
                     <div class="fb-block fb-rule">
                         <div class="fb-block-title">📐 Regla aplicada</div>
                         <div class="rule-formula">${q.rule}</div>
                         <div class="rule-examples">${ruleExamples}</div>
                     </div>
                     <div class="fb-block fb-why">
-                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-block-title">💡 ¿Por qué es correcto?</div>
                         <div class="fb-why-text">${q.correctReason}</div>
                     </div>
                 </div>
@@ -641,7 +550,7 @@
                     <span class="fb-icon">❌</span>
                     <div>
                         <div class="fb-title">Incorrecto — revisemos juntos</div>
-                        <div class="fb-subtitle">Identifica la diferencia entre las oraciones</div>
+                        <div class="fb-subtitle">La respuesta correcta era: <strong>${q.answer}</strong></div>
                     </div>
                 </div>
                 <div class="fb-body">
@@ -652,24 +561,24 @@
                         </div>
                     </div>
                     <div class="fb-block fb-compare">
-                        <div class="fb-block-title">🔄 Tu elección vs. la correcta</div>
+                        <div class="fb-block-title">🔄 Tu respuesta vs. la correcta</div>
                         <div class="compare-row">
-                            <span class="compare-label wrong">Elegiste</span>
-                            <span class="compare-text">${markError(selected.text, selected.errorWord)}</span>
+                            <span class="compare-label wrong">Escribiste</span>
+                            <span class="compare-text">${wrongSentence}</span>
                         </div>
                         <div class="compare-row">
-                            <span class="compare-label right">Correcta</span>
-                            <span class="compare-text">${markCorrect(correctOpt.text, selected.correctWord)}</span>
+                            <span class="compare-label right">Correcto</span>
+                            <span class="compare-text">${correctSentence}</span>
                         </div>
                     </div>
                     <div class="fb-block fb-error">
-                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="fb-block-title">⚠️ El error: <span class="error-badge">${q.errorType}</span></div>
                         <div class="word-swap">
-                            <span class="ws-box ws-wrong">${selected.errorWord}</span>
+                            <span class="ws-box ws-wrong">${userAnswer || '(vacío)'}</span>
                             <span class="ws-arrow">→</span>
-                            <span class="ws-box ws-right">${selected.correctWord}</span>
+                            <span class="ws-box ws-right">${q.answer}</span>
                         </div>
-                        <div class="error-text">${selected.explanation}</div>
+                        <div class="error-text">${q.errorExplain}</div>
                     </div>
                     <div class="fb-block fb-rule">
                         <div class="fb-block-title">📐 La regla correcta</div>
@@ -677,7 +586,7 @@
                         <div class="rule-examples">${ruleExamples}</div>
                     </div>
                     <div class="fb-block fb-why">
-                        <div class="fb-block-title">💡 ¿Por qué la oración correcta ES correcta?</div>
+                        <div class="fb-block-title">💡 ¿Por qué es correcto "${q.answer}"?</div>
                         <div class="fb-why-text">${q.correctReason}</div>
                     </div>
                 </div>
@@ -689,6 +598,8 @@
         document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
         document.getElementById('currentQ').textContent = i + 1;
         currentQuestion = i;
+        const inp = document.getElementById(`input-${i}`);
+        if (inp && !answered[i]) setTimeout(() => inp.focus(), 300);
     }
     function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
     function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
@@ -703,9 +614,9 @@
         document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
         const stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
         document.getElementById('resultsMessage').textContent = pct >= 90
-            ? '¡Excelente! Identificas perfectamente. 🏆'
+            ? '¡Excelente! Dominas el tema perfectamente. 🏆'
             : pct >= 70 ? '¡Muy bien! Sigue practicando. 💪'
-            : 'Buen esfuerzo. Repasa los errores y vuelve a intentarlo. 📚';
+            : 'Buen esfuerzo. Repasa las reglas e inténtalo de nuevo. 📚';
         document.querySelectorAll('.star').forEach((s, i) => {
             if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
         });
