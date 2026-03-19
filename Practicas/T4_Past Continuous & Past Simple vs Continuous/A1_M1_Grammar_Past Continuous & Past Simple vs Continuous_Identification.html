@@ -272,21 +272,21 @@
         {
             id: 4, topicType: "prep", topicLabel: "Preposition of Place",
             options: [
-                { text: "Elena's sister watered the plants in the garden on weekends.", correct: false,
-                  errorWord: "in", correctWord: "in",
-                  errorType: "",
-                  explanation: "" },
-                { text: "Elena's father drank his coffee outside in the garden every morning.", correct: true },
+                { text: "Elena's sister watered the plants in the garden on weekends.", correct: true },
                 { text: "Elena's father drank his coffee outside at the garden every morning.", correct: false,
                   errorWord: "at", correctWord: "in",
                   errorType: "at en lugar de in (espacio con límites)",
-                  explanation: "'At the garden' no es natural en inglés. El jardín es un espacio con límites — se está dentro de él → 'in the garden'. 'At' se usa con lugares de actividad como tiendas o escuelas." }
+                  explanation: "'At the garden' no es natural en inglés. El jardín es un espacio con límites — se está dentro de él → 'in the garden'. 'At' se usa con lugares de actividad como tiendas o escuelas." },
+                { text: "Elena's grandmother sat on the garden before breakfast every morning.", correct: false,
+                  errorWord: "on", correctWord: "in",
+                  errorType: "on en lugar de in (espacio, no superficie)",
+                  explanation: "'On the garden' significaría estar encima del jardín — imposible. El jardín es un espacio con límites que rodea a la persona → se usa 'in'. 'On' es para superficies planas como mesas o sillas." }
             ],
             clue: "in the garden (espacio con límites naturales)",
             clueExplain: "el jardín es un espacio con bordes definidos — se está dentro de él, no sobre él ni en un punto de actividad. 'In the garden' es la expresión correcta.",
             rule: "in = dentro de un espacio con límites (garden, room, city, park)",
             examples: ["in the garden → espacio", "in the park → espacio", "in the room → espacio"],
-            correctReason: "<span class='why-hl'>in the garden</span> — el jardín tiene límites definidos. Se está dentro del espacio del jardín → 'in'. 'At the garden' no es natural en inglés."
+            correctReason: "<span class='why-hl'>in the garden</span> — el jardín tiene límites naturales definidos. Se está dentro del espacio del jardín → 'in'. 'At' es para actividades; 'on' es para superficies planas."
         },
         {
             id: 5, topicType: "prep", topicLabel: "Preposition of Place",
