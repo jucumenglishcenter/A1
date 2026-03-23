@@ -4,269 +4,485 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Práctica de Listening | A1 — Daily Life & Personal Routines</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-  --primary: #2196F3;
-  --primary-dark: #0D47A1;
-  --primary-mid: #1565C0;
-  --bg-start: #E3F2FD;
-  --bg-end: #BBDEFB;
-  --shadow-s: 0 4px 20px rgba(33,150,243,0.15);
-  --shadow-l: 0 8px 30px rgba(33,150,243,0.28);
-  --level-gradient: linear-gradient(135deg,#1565C0 0%,#2196F3 60%,#64B5F6 100%);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
-  min-height: 100vh;
-  padding: 20px;
+:root {
+  --blue-dark:   #0D47A1;
+  --blue-mid:    #1565C0;
+  --blue:        #2196F3;
+  --blue-light:  #64B5F6;
+  --blue-pale:   #E3F2FD;
+  --blue-pale2:  #BBDEFB;
+  --green:       #4CAF50;
+  --green-dark:  #2E7D32;
+  --green-pale:  #E8F5E9;
+  --orange:      #FF9800;
+  --orange-dark: #E65100;
+  --orange-pale: #FFF3E0;
+  --red:         #f44336;
+  --red-dark:    #C62828;
+  --red-pale:    #FFEBEE;
+  --purple:      #9C27B0;
+  --gold:        #FFA000;
+  --gold-pale:   #FFF8E1;
+  --bg:          #F0F7FF;
+  --card:        #FFFFFF;
+  --text:        #1a2744;
+  --text-soft:   #5a6a8a;
+  --border:      #D6E8FB;
+  --grad-main:   linear-gradient(135deg, #0D47A1 0%, #2196F3 60%, #64B5F6 100%);
+  --shadow-s:    0 2px 12px rgba(21,101,192,0.12);
+  --shadow-m:    0 4px 20px rgba(21,101,192,0.18);
+  --shadow-l:    0 8px 32px rgba(21,101,192,0.26);
+  --radius:      16px;
+  --radius-s:    10px;
 }
 
-.container { max-width: 820px; margin: 0 auto; }
+body {
+  font-family: 'Nunito', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  padding: 20px 16px 48px;
+  color: var(--text);
+}
+
+.container { max-width: 840px; margin: 0 auto; }
 
 /* ── HEADER ── */
 .header {
-  background: var(--level-gradient);
-  border-radius: 20px; padding: 24px 20px; text-align: center;
-  margin-bottom: 18px; color: white; box-shadow: var(--shadow-l);
-  position: relative; overflow: hidden;
+  background: var(--grad-main);
+  border-radius: 22px;
+  padding: 28px 24px 22px;
+  text-align: center;
+  margin-bottom: 16px;
+  color: white;
+  box-shadow: var(--shadow-l);
+  position: relative;
+  overflow: hidden;
 }
 .header::before {
-  content:''; position:absolute; top:-40%; right:-10%;
-  width:220px; height:220px; background:rgba(255,255,255,0.08); border-radius:50%;
+  content: '';
+  position: absolute; top: -50%; right: -8%;
+  width: 240px; height: 240px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 50%;
 }
-.header h1 { font-size: 1.7rem; margin-bottom: 6px; position:relative; z-index:1; }
-.header-badges { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-top:10px; position:relative; z-index:1; }
-.badge { background:rgba(255,255,255,0.22); padding:5px 13px; border-radius:18px; font-size:0.82rem; }
+.header::after {
+  content: '';
+  position: absolute; bottom: -60%; left: -5%;
+  width: 180px; height: 180px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+.header h1 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin-bottom: 10px;
+  position: relative; z-index: 1;
+}
+.header-badges {
+  display: flex; justify-content: center; gap: 8px; flex-wrap: wrap;
+  position: relative; z-index: 1;
+}
+.badge {
+  background: rgba(255,255,255,0.2);
+  backdrop-filter: blur(4px);
+  padding: 5px 14px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
 
 /* ── NAV ── */
-.nav-wrap { text-align:center; margin-bottom:18px; }
+.nav-wrap { text-align: center; margin-bottom: 16px; }
 .nav-btn {
-  display:inline-flex; align-items:center; gap:7px;
-  padding:11px 22px; border:none; border-radius:25px;
-  font-size:0.92rem; font-weight:700; cursor:pointer;
-  text-decoration:none; transition:all 0.3s;
-  background:linear-gradient(135deg,#607D8B 0%,#455A64 100%); color:white;
-  font-family:inherit;
+  display: inline-flex; align-items: center; gap: 7px;
+  padding: 10px 22px;
+  background: white;
+  color: var(--blue-mid);
+  border: 2px solid var(--border);
+  border-radius: 24px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s;
+  box-shadow: var(--shadow-s);
 }
-.nav-btn:hover { transform:translateY(-2px); box-shadow:0 4px 15px rgba(69,90,100,0.4); }
+.nav-btn:hover {
+  background: var(--blue-pale);
+  border-color: var(--blue);
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-m);
+}
 
-/* ── CONTROLS ROW ── */
-.controls-row { display:flex; gap:14px; margin-bottom:18px; flex-wrap:wrap; }
+/* ── CONTROLS ── */
+.controls-row { display: flex; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
 .ctrl-box {
-  flex:1; min-width:220px; background:white; border-radius:14px;
-  padding:16px 18px; box-shadow:var(--shadow-s); text-align:center;
+  flex: 1; min-width: 220px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  box-shadow: var(--shadow-s);
+  border: 1.5px solid var(--border);
 }
-.ctrl-box h3 { color:var(--primary); margin-bottom:12px; font-size:1rem; }
-.btn-row { display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
+.ctrl-box h3 {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+  color: var(--blue-mid);
+  margin-bottom: 11px;
+  text-align: center;
+}
+.btn-row { display: flex; justify-content: center; gap: 7px; flex-wrap: wrap; }
 .ctrl-btn {
-  padding:9px 16px; border:2px solid var(--primary);
-  background:white; color:var(--primary);
-  border-radius:22px; font-size:0.85rem; font-weight:700;
-  cursor:pointer; transition:all 0.25s; font-family:inherit;
+  padding: 8px 15px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text-soft);
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.ctrl-btn:hover { background:var(--bg-start); }
+.ctrl-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
 .ctrl-btn.active {
-  background:var(--level-gradient);
-  color:white; box-shadow:var(--shadow-s); border-color:transparent;
+  background: var(--grad-main);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 2px 10px rgba(33,150,243,0.3);
 }
 
 /* ── INSTRUCTIONS ── */
 .instructions {
-  background:white; border-radius:14px; padding:18px 20px;
-  margin-bottom:18px; border-left:4px solid var(--primary); box-shadow:var(--shadow-s);
+  background: white;
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+  border-left: 4px solid var(--blue);
+  box-shadow: var(--shadow-s);
+  border: 1.5px solid var(--border);
+  border-left: 4px solid var(--blue);
 }
-.instructions h3 { color:var(--primary); margin-bottom:8px; }
-.instructions ul { margin-left:18px; color:#555; }
-.instructions li { margin:6px 0; line-height:1.6; font-size:0.9rem; }
+.instructions h3 {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--blue-mid);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 9px;
+}
+.instructions ul { margin-left: 18px; }
+.instructions li {
+  color: var(--text-soft);
+  font-size: 0.87rem;
+  line-height: 1.65;
+  margin: 5px 0;
+}
 
 /* ── STORY TABS ── */
 .story-tabs-wrap {
-  background:white; border-radius:14px; padding:14px 16px;
-  margin-bottom:20px; box-shadow:var(--shadow-s);
+  background: white;
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-s);
+  border: 1.5px solid var(--border);
 }
-.story-tabs-label { color:#888; font-size:0.78rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:10px; }
-.story-tabs { display:flex; gap:8px; flex-wrap:wrap; }
+.story-tabs-label {
+  color: var(--text-soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 10px;
+}
+.story-tabs { display: flex; gap: 8px; flex-wrap: wrap; }
 .story-tab {
-  padding:10px 18px; border:2px solid #E0E0E0;
-  background:#FAFAFA; border-radius:22px;
-  font-size:0.85rem; font-weight:700; cursor:pointer;
-  transition:all 0.25s; font-family:inherit;
+  padding: 9px 18px;
+  border: 2px solid var(--border);
+  background: var(--bg);
+  color: var(--text-soft);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.22s;
 }
-.story-tab:hover { border-color:var(--primary); background:var(--bg-start); }
+.story-tab:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-pale); }
 .story-tab.active {
-  background:var(--level-gradient);
-  color:white; border-color:var(--primary-dark); box-shadow:var(--shadow-s);
+  background: var(--grad-main);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 3px 12px rgba(33,150,243,0.3);
 }
 
 /* ── SCORE PANEL ── */
 .score-panel {
-  background:white; border-radius:12px; padding:13px 22px;
-  margin-bottom:18px; display:flex; justify-content:space-between;
-  align-items:center; box-shadow:var(--shadow-s); flex-wrap:wrap; gap:8px;
+  background: white;
+  border-radius: var(--radius);
+  padding: 13px 20px;
+  margin-bottom: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: var(--shadow-s);
+  border: 1.5px solid var(--border);
+  flex-wrap: wrap; gap: 8px;
 }
-.score-item { text-align:center; flex:1; min-width:70px; }
-.score-item .slabel { font-size:0.68rem; color:#888; text-transform:uppercase; letter-spacing:0.05em; }
-.score-item .sval { font-size:1.25rem; font-weight:700; color:var(--primary); }
-.score-item .sval.c { color:#4CAF50; }
-.score-item .sval.i { color:#f44336; }
+.score-item { text-align: center; flex: 1; min-width: 70px; }
+.score-item .slabel {
+  font-size: 0.67rem;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+}
+.score-item .sval {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--blue);
+}
+.score-item .sval.c { color: var(--green); }
+.score-item .sval.i { color: var(--red); }
 
 /* ── LEVEL SECTIONS ── */
-.level-section { margin-bottom:26px; }
+.level-section { margin-bottom: 22px; }
 .level-header {
-  padding:13px 18px; border-radius:13px; margin-bottom:14px;
-  display:flex; align-items:center; gap:10px;
+  padding: 11px 16px;
+  border-radius: var(--radius);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
 }
-.level-header.easy   { background:linear-gradient(135deg,#E8F5E9 0%,#C8E6C9 100%); border-left:5px solid #4CAF50; }
-.level-header.medium { background:linear-gradient(135deg,#FFF3E0 0%,#FFE0B2 100%); border-left:5px solid #FF9800; }
-.level-header.hard   { background:linear-gradient(135deg,#FFEBEE 0%,#FFCDD2 100%); border-left:5px solid #f44336; }
-.level-header .lhicon  { font-size:1.3rem; }
-.level-header .lhtitle { font-size:1rem; font-weight:700; }
-.level-header.easy   .lhtitle { color:#2E7D32; }
-.level-header.medium .lhtitle { color:#E65100; }
-.level-header.hard   .lhtitle { color:#C62828; }
-.level-header .lhsub { font-size:0.82rem; color:#666; margin-left:auto; }
+.level-header.easy   { background: linear-gradient(135deg,#E8F5E9,#C8E6C9); border-left: 5px solid var(--green); }
+.level-header.medium { background: linear-gradient(135deg,#FFF3E0,#FFE0B2); border-left: 5px solid var(--orange); }
+.level-header.hard   { background: linear-gradient(135deg,#FFEBEE,#FFCDD2); border-left: 5px solid var(--red); }
+.level-header .lhicon  { font-size: 1.2rem; }
+.level-header .lhtitle {
+  font-family: 'Fredoka', sans-serif;
+  font-size: 0.97rem;
+  font-weight: 600;
+}
+.level-header.easy   .lhtitle { color: var(--green-dark); }
+.level-header.medium .lhtitle { color: var(--orange-dark); }
+.level-header.hard   .lhtitle { color: var(--red-dark); }
+.level-header .lhsub { font-size: 0.78rem; color: var(--text-soft); margin-left: auto; font-weight: 700; }
 
 /* ── AUDIO CARD ── */
 .audio-card {
-  background:white; border-radius:18px; padding:22px;
-  margin-bottom:18px; box-shadow:var(--shadow-s); transition:all 0.3s;
+  background: white;
+  border-radius: var(--radius);
+  padding: 20px;
+  margin-bottom: 14px;
+  box-shadow: var(--shadow-s);
+  border: 1.5px solid var(--border);
+  transition: box-shadow 0.2s, transform 0.2s;
 }
-.audio-card:hover { box-shadow:var(--shadow-l); transform:translateY(-2px); }
+.audio-card:hover { box-shadow: var(--shadow-m); transform: translateY(-1px); }
 .audio-header {
-  display:flex; align-items:center; gap:13px;
-  margin-bottom:18px; padding-bottom:13px;
-  border-bottom:2px solid var(--bg-start);
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 16px; padding-bottom: 12px;
+  border-bottom: 1.5px solid var(--border);
 }
 .audio-num {
-  width:42px; height:42px; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-size:1rem; font-weight:700; color:white; flex-shrink:0;
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem; font-weight: 700; color: white; flex-shrink: 0;
 }
-.audio-num.easy   { background:linear-gradient(135deg,#4CAF50 0%,#388E3C 100%); }
-.audio-num.medium { background:linear-gradient(135deg,#FF9800 0%,#F57C00 100%); }
-.audio-num.hard   { background:linear-gradient(135deg,#f44336 0%,#d32f2f 100%); }
-.audio-meta h3 { color:#333; font-size:0.97rem; }
-.audio-meta p  { color:#888; font-size:0.78rem; margin-top:2px; }
+.audio-num.easy   { background: linear-gradient(135deg,#4CAF50,#388E3C); }
+.audio-num.medium { background: linear-gradient(135deg,#FF9800,#F57C00); }
+.audio-num.hard   { background: linear-gradient(135deg,#f44336,#d32f2f); }
+.audio-meta h3 { font-size: 0.95rem; font-weight: 700; color: var(--text); }
+.audio-meta p  { font-size: 0.77rem; color: var(--text-soft); margin-top: 2px; }
 
 /* ── PLAYER ── */
 .player {
-  background:linear-gradient(135deg, var(--bg-start) 0%, var(--bg-end) 100%);
-  border-radius:13px; padding:18px; margin-bottom:13px; text-align:center;
+  background: linear-gradient(135deg, var(--blue-pale) 0%, var(--blue-pale2) 100%);
+  border-radius: var(--radius-s);
+  padding: 16px;
+  margin-bottom: 12px;
+  text-align: center;
 }
 .play-btn {
-  width:64px; height:64px; border-radius:50%; border:none;
-  background:var(--level-gradient);
-  color:white; font-size:1.6rem; cursor:pointer;
-  box-shadow:var(--shadow-s); transition:all 0.3s;
+  width: 62px; height: 62px;
+  border-radius: 50%;
+  border: none;
+  background: var(--grad-main);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(33,150,243,0.35);
+  transition: all 0.25s;
 }
-.play-btn:hover { transform:scale(1.1); box-shadow:var(--shadow-l); }
-.play-btn.playing { background:linear-gradient(135deg,#f44336 0%,#d32f2f 100%); }
+.play-btn:hover { transform: scale(1.1); box-shadow: 0 6px 22px rgba(33,150,243,0.45); }
+.play-btn.playing { background: linear-gradient(135deg,#f44336,#d32f2f); }
 
-.text-btns { margin-top:13px; display:flex; justify-content:center; gap:8px; flex-wrap:wrap; }
+.text-btns { margin-top: 12px; display: flex; justify-content: center; gap: 7px; flex-wrap: wrap; }
 .text-btn {
-  padding:7px 14px; border:2px solid var(--primary);
-  background:white; color:var(--primary);
-  border-radius:18px; font-size:0.77rem; cursor:pointer;
-  transition:all 0.25s; font-family:inherit; font-weight:600;
+  padding: 6px 13px;
+  border: 2px solid var(--blue);
+  background: white;
+  color: var(--blue);
+  border-radius: 17px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s;
 }
-.text-btn:hover { background:var(--bg-start); }
-.text-btn.active { background:var(--level-gradient); color:white; border-color:transparent; }
-.text-btn.es-btn { border-color:#FFA000; color:#F57C00; }
-.text-btn.es-btn:hover { background:#FFF8E1; }
-.text-btn.es-btn.active { background:linear-gradient(135deg,#FFA000 0%,#F57C00 100%); color:white; border-color:transparent; }
+.text-btn:hover { background: var(--blue-pale); }
+.text-btn.active { background: var(--grad-main); color: white; border-color: transparent; }
+.text-btn.es-btn { border-color: var(--gold); color: var(--orange-dark); }
+.text-btn.es-btn:hover { background: var(--gold-pale); }
+.text-btn.es-btn.active { background: linear-gradient(135deg,#FFA000,#F57C00); color: white; border-color: transparent; }
 
 .text-box {
-  margin-top:12px; padding:13px 15px;
-  background:rgba(255,255,255,0.95); border-radius:9px;
-  text-align:left; border-left:4px solid var(--primary);
-  display:none; margin-bottom:8px;
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.95);
+  border-radius: var(--radius-s);
+  border-left: 4px solid var(--blue);
+  display: none;
+  margin-bottom: 6px;
+  text-align: left;
 }
-.text-box.show { display:block; }
-.text-box p { color:#333; line-height:1.7; font-size:0.9rem; }
-.text-box .tblabel { font-size:0.68rem; color:var(--primary); font-weight:700; margin-bottom:6px; text-transform:uppercase; }
+.text-box.show { display: block; }
+.text-box p { color: var(--text); line-height: 1.7; font-size: 0.88rem; }
+.tblabel { font-size: 0.67rem; color: var(--blue); font-weight: 800; margin-bottom: 5px; text-transform: uppercase; letter-spacing: 0.06em; }
+
 .es-box {
-  margin-top:8px; padding:13px 15px;
-  background:#FFF8E1; border-radius:9px;
-  text-align:left; border-left:4px solid #FFA000; display:none;
+  margin-top: 8px;
+  padding: 12px 14px;
+  background: var(--gold-pale);
+  border-radius: var(--radius-s);
+  border-left: 4px solid var(--gold);
+  display: none;
+  text-align: left;
 }
-.es-box.show { display:block; }
-.es-box p { color:#5D4037; line-height:1.7; font-size:0.9rem; }
-.es-box .tblabel { font-size:0.68rem; color:#F57C00; font-weight:700; margin-bottom:6px; text-transform:uppercase; }
+.es-box.show { display: block; }
+.es-box p { color: #5D4037; line-height: 1.7; font-size: 0.88rem; }
+.es-box .tblabel { color: var(--orange-dark); }
 
 /* ── QUESTION ── */
 .show-q-btn {
-  width:100%; padding:13px; border:2px dashed #9C27B0;
-  background:linear-gradient(135deg,#F3E5F5 0%,#E1BEE7 100%);
-  color:#7B1FA2; border-radius:11px; font-size:0.92rem;
-  font-weight:700; cursor:pointer; transition:all 0.3s; font-family:inherit;
+  width: 100%; padding: 12px;
+  border: 2px dashed var(--purple);
+  background: linear-gradient(135deg,#F3E5F5,#E1BEE7);
+  color: #7B1FA2;
+  border-radius: var(--radius-s);
+  font-size: 0.9rem; font-weight: 700;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  transition: all 0.25s;
 }
-.show-q-btn:hover { background:linear-gradient(135deg,#E1BEE7 0%,#CE93D8 100%); transform:translateY(-1px); }
-.show-q-btn.active { background:linear-gradient(135deg,#9C27B0 0%,#7B1FA2 100%); color:white; border-style:solid; }
+.show-q-btn:hover { background: linear-gradient(135deg,#E1BEE7,#CE93D8); transform: translateY(-1px); }
+.show-q-btn.active { background: linear-gradient(135deg,#9C27B0,#7B1FA2); color: white; border-style: solid; }
 
-.q-section { margin-top:13px; display:none; }
-.q-section.show { display:block; }
-.q-section h4 { color:var(--primary); margin-bottom:10px; font-size:0.92rem; }
+.q-section { margin-top: 12px; display: none; }
+.q-section.show { display: block; }
+.q-section h4 {
+  font-family: 'Fredoka', sans-serif;
+  color: var(--blue-mid);
+  margin-bottom: 9px;
+  font-size: 0.93rem;
+  font-weight: 600;
+}
 .q-text {
-  background:#F5F5F5; padding:11px 14px; border-radius:9px;
-  margin-bottom:11px; font-size:0.95rem; color:#333; font-weight:600; line-height:1.5;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  padding: 11px 14px;
+  border-radius: var(--radius-s);
+  margin-bottom: 10px;
+  font-size: 0.93rem;
+  color: var(--text);
+  font-weight: 700;
+  line-height: 1.5;
 }
-.options { display:flex; flex-direction:column; gap:7px; }
+.options { display: flex; flex-direction: column; gap: 6px; }
 .opt {
-  display:flex; align-items:center; gap:11px;
-  padding:12px 14px; background:#FAFAFA;
-  border:2px solid #E0E0E0; border-radius:9px;
-  cursor:pointer; transition:all 0.2s;
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 13px;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-s);
+  cursor: pointer;
+  transition: all 0.18s;
 }
-.opt:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-start); }
-.opt.correct      { border-color:#4CAF50; background:#E8F5E9; }
-.opt.incorrect    { border-color:#f44336; background:#FFEBEE; }
-.opt.show-correct { border-color:#4CAF50; background:#E8F5E9; }
-.opt.disabled { pointer-events:none; }
+.opt:hover:not(.disabled) { border-color: var(--blue); background: var(--blue-pale); }
+.opt.correct      { border-color: var(--green); background: var(--green-pale); }
+.opt.incorrect    { border-color: var(--red); background: var(--red-pale); }
+.opt.show-correct { border-color: var(--green); background: var(--green-pale); }
+.opt.disabled { pointer-events: none; }
 .opt-letter {
-  width:28px; height:28px; background:#E0E0E0; border-radius:50%;
-  display:flex; align-items:center; justify-content:center;
-  font-weight:700; font-size:0.85rem; color:#666; flex-shrink:0;
+  width: 27px; height: 27px;
+  background: var(--border);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fredoka', sans-serif;
+  font-weight: 700; font-size: 0.82rem; color: var(--text-soft); flex-shrink: 0;
 }
 .opt.correct      .opt-letter,
-.opt.show-correct .opt-letter { background:#4CAF50; color:white; }
-.opt.incorrect    .opt-letter { background:#f44336; color:white; }
-.opt-text { flex:1; color:#333; font-size:0.9rem; }
+.opt.show-correct .opt-letter { background: var(--green); color: white; }
+.opt.incorrect    .opt-letter { background: var(--red); color: white; }
+.opt-text { flex: 1; color: var(--text); font-size: 0.88rem; font-weight: 600; }
 
-.feedback { margin-top:11px; padding:12px 14px; border-radius:8px; display:none; font-size:0.86rem; line-height:1.6; }
-.feedback.show { display:block; }
-.feedback.correct   { background:#E8F5E9; border:1px solid #A5D6A7; color:#2E7D32; }
-.feedback.incorrect { background:#FFEBEE; border:1px solid #EF9A9A; color:#C62828; }
+.feedback {
+  margin-top: 10px; padding: 11px 13px;
+  border-radius: var(--radius-s); display: none;
+  font-size: 0.84rem; line-height: 1.6; font-weight: 600;
+}
+.feedback.show { display: block; }
+.feedback.correct   { background: var(--green-pale); border: 1.5px solid #A5D6A7; color: var(--green-dark); }
+.feedback.incorrect { background: var(--red-pale); border: 1.5px solid #EF9A9A; color: var(--red-dark); }
 
 /* ── RESULTS ── */
 .results-panel {
-  display:none;
-  background:var(--level-gradient);
-  border-radius:18px; padding:28px; text-align:center; color:white;
-  margin-top:18px; box-shadow:var(--shadow-l);
+  display: none;
+  background: var(--grad-main);
+  border-radius: 20px; padding: 28px; text-align: center;
+  color: white; margin-top: 18px; box-shadow: var(--shadow-l);
 }
-.results-panel.show { display:block; animation:fadeIn 0.4s ease; }
-@keyframes fadeIn { from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-.trophy { font-size:3.5rem; margin-bottom:12px; }
-.results-panel h2 { font-size:1.7rem; margin-bottom:8px; }
-.results-score { font-size:2.8rem; font-weight:700; margin:12px 0; }
-.results-breakdown { display:flex; justify-content:center; gap:16px; margin:16px 0; flex-wrap:wrap; }
-.bd-item { background:rgba(255,255,255,0.2); padding:13px 20px; border-radius:13px; text-align:center; }
-.bd-item .bdname  { font-size:0.77rem; opacity:0.9; margin-bottom:4px; }
-.bd-item .bdscore { font-size:1.4rem; font-weight:700; }
-.results-msg { font-size:0.97rem; opacity:0.9; margin-top:13px; }
+.results-panel.show { display: block; animation: fadeUp 0.4s ease; }
+@keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+.trophy { font-size: 3.5rem; margin-bottom: 10px; }
+.results-panel h2 { font-family: 'Fredoka', sans-serif; font-size: 1.7rem; margin-bottom: 6px; }
+.results-score { font-family: 'Fredoka', sans-serif; font-size: 3rem; font-weight: 700; margin: 10px 0; }
+.results-breakdown { display: flex; justify-content: center; gap: 14px; margin: 14px 0; flex-wrap: wrap; }
+.bd-item {
+  background: rgba(255,255,255,0.18);
+  padding: 12px 18px; border-radius: 13px; text-align: center;
+}
+.bd-item .bdname  { font-size: 0.75rem; opacity: 0.9; margin-bottom: 3px; font-weight: 700; }
+.bd-item .bdscore { font-family: 'Fredoka', sans-serif; font-size: 1.4rem; font-weight: 700; }
+.results-msg { font-size: 0.93rem; opacity: 0.92; margin-top: 11px; line-height: 1.6; }
 .btn-retry {
-  margin-top:18px; padding:13px 36px; background:white; color:var(--primary-dark);
-  border:none; border-radius:28px; font-size:0.97rem; font-weight:700;
-  cursor:pointer; transition:all 0.3s; font-family:inherit;
+  margin-top: 16px; padding: 12px 34px;
+  background: white; color: var(--blue-dark);
+  border: none; border-radius: 26px;
+  font-family: 'Fredoka', sans-serif;
+  font-size: 1rem; font-weight: 700;
+  cursor: pointer; transition: all 0.25s;
 }
-.btn-retry:hover { transform:scale(1.05); box-shadow:0 4px 15px rgba(0,0,0,0.2); }
+.btn-retry:hover { transform: scale(1.05); box-shadow: 0 4px 16px rgba(0,0,0,0.18); }
 
-@media (max-width:600px) {
-  .header h1 { font-size:1.3rem; }
-  .controls-row { flex-direction:column; }
-  .results-breakdown { flex-direction:column; }
-  .story-tabs { gap:5px; }
+@media (max-width: 600px) {
+  .header h1 { font-size: 1.35rem; }
+  .controls-row { flex-direction: column; }
+  .results-breakdown { flex-direction: column; }
+  .story-tabs { gap: 5px; }
+  .play-btn { width: 54px; height: 54px; font-size: 1.3rem; }
 }
 </style>
 </head>
@@ -285,7 +501,7 @@ body {
 
   <!-- NAVEGACIÓN -->
   <div class="nav-wrap">
-    <a href="https://jucumenglishcenter.github.io/TALLER-DE-VERANO/" class="nav-btn">🏠 Volver al Panel Principal</a>
+    <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="nav-btn">🏠 Volver al Panel Principal</a>
   </div>
 
   <!-- CONTROLES -->
@@ -349,12 +565,9 @@ body {
     <button class="btn-retry" onclick="retryStory()">🔄 Intentar de nuevo</button>
   </div>
 
-</div><!-- /container -->
+</div>
 
 <script>
-// ─────────────────────────────────────────────
-// UTILIDADES
-// ─────────────────────────────────────────────
 function shuffle(arr) {
   const a = [...arr];
   for (let i = a.length - 1; i > 0; i--) {
@@ -364,8 +577,6 @@ function shuffle(arr) {
   return a;
 }
 
-// mk: construye una actividad con opciones shuffleadas
-// correctAnswer = texto completo de la opción correcta
 function mk(id, level, title, desc, audio, spanish, question, correctAnswer, wrong1, wrong2, fbOk, fbErr) {
   const raw = shuffle([
     { text: correctAnswer, ok: true },
@@ -382,391 +593,253 @@ function mk(id, level, title, desc, audio, spanish, question, correctAnswer, wro
   };
 }
 
-// ─────────────────────────────────────────────
-// STORIES — A1 · Daily Life & Personal Routines
-// 7 preguntas por story: 3 fáciles · 2 intermedias · 2 difíciles
-// Audios tomados literalmente de las stories del módulo.
-// Preguntas: solo comprensión directa (quién, qué, dónde, cuándo, cuántos).
-// ─────────────────────────────────────────────
 const STORIES = {
-
-  // ══════════════════════════════════════
-  // S1 — The Hour Before School (Ana)
-  // ══════════════════════════════════════
   s1: {
     label: 'S1', emoji: '🌅', title: 'S1 — The Hour Before School',
     activities: [
-
-      mk(1,'easy',
-        'La hora de Ana','Ana se despierta',
+      mk(1,'easy','La hora de Ana','Ana se despierta',
         'Ana wakes up at half past six every morning.',
         'Ana se despierta a las seis y media cada mañana.',
         '¿A qué hora se despierta Ana?',
-        'A las seis y media',
-        'A las seis',
-        'A las siete',
+        'A las seis y media','A las seis','A las siete',
         '✔ ¡Correcto! Ana dijo <em>"Ana wakes up at half past six."</em> — "half past six" = las seis y media.',
         '✗ Escucha el tiempo: <em>"Ana wakes up at half past six."</em> — "half past six" = las seis y media. ¡Escucha otra vez!'
       ),
-
-      mk(2,'easy',
-        'Lo primero que hace','La rutina de la mañana',
+      mk(2,'easy','Lo primero que hace','La rutina de la mañana',
         'The first thing she does is open the window in her room.',
         'Lo primero que hace es abrir la ventana de su cuarto.',
         '¿Qué es lo primero que hace Ana al levantarse?',
-        'Abrir la ventana de su cuarto',
-        'Ir a la cocina',
-        'Vestirse',
+        'Abrir la ventana de su cuarto','Ir a la cocina','Vestirse',
         '✔ ¡Correcto! Se escucha: <em>"The first thing she does is open the window."</em> — abre la ventana.',
         '✗ La frase clave es: <em>"The first thing she does is open the window."</em> — abre la ventana de su cuarto. ¡Escucha otra vez!'
       ),
-
-      mk(3,'easy',
-        'Lo que hace el padre','El papá de Ana por las mañanas',
+      mk(3,'easy','Lo que hace el padre','El papá de Ana por las mañanas',
         'Her father always wakes up before her. He puts water on for tea and cuts some fruit.',
         'Su padre siempre se despierta antes que ella. Él pone agua para el té y corta fruta.',
         '¿Qué hace el padre de Ana por las mañanas?',
-        'Pone agua para el té y corta fruta',
-        'Hace tostadas y huevos',
-        'Prepara el desayuno y sale a trabajar',
+        'Pone agua para el té y corta fruta','Hace tostadas y huevos','Prepara el desayuno y sale a trabajar',
         '✔ ¡Correcto! Se escucha: <em>"He puts water on for tea and cuts some fruit."</em>',
         '✗ Escucha bien: <em>"He puts water on for tea and cuts some fruit."</em> — hace el té y corta fruta. ¡Escucha otra vez!'
       ),
-
-      mk(4,'medium',
-        'El papel de Ana','Ana ayuda en la cocina',
+      mk(4,'medium','El papel de Ana','Ana ayuda en la cocina',
         'Ana pours the tea and sets the cups on the table.',
         'Ana sirve el té y pone las tazas en la mesa.',
         '¿Qué hace Ana en la cocina durante el desayuno?',
-        'Sirve el té y pone las tazas en la mesa',
-        'Corta la fruta y hace el té',
-        'Lava los platos y prepara las tazas',
+        'Sirve el té y pone las tazas en la mesa','Corta la fruta y hace el té','Lava los platos y prepara las tazas',
         '✔ ¡Correcto! Se escucha: <em>"Ana pours the tea and sets the cups on the table."</em>',
         '✗ La frase exacta es: <em>"Ana pours the tea and sets the cups on the table."</em> — sirve el té y pone las tazas. ¡Escucha otra vez!'
       ),
-
-      mk(5,'medium',
-        'Antes de salir de casa','Ana revisa su mochila',
+      mk(5,'medium','Antes de salir de casa','Ana revisa su mochila',
         'She makes sure she has her books, her notebook, and her bus card before she leaves the house.',
         'Se asegura de tener sus libros, su cuaderno y su tarjeta del autobús antes de salir.',
         '¿Cuántas cosas verifica Ana antes de salir de casa?',
-        'Tres cosas',
-        'Dos cosas',
-        'Cuatro cosas',
+        'Tres cosas','Dos cosas','Cuatro cosas',
         '✔ ¡Correcto! Se escucha: <em>"her books, her notebook, and her bus card"</em> — son tres cosas.',
         '✗ Cuenta en el audio: <em>"her books, her notebook, and her bus card"</em> — son tres cosas exactamente. ¡Escucha otra vez!'
       ),
-
-      mk(6,'hard',
-        'El camino a la parada','Ana camina sola',
+      mk(6,'hard','El camino a la parada','Ana camina sola',
         'The walk to the bus stop takes about five minutes. She usually listens to music or just looks at the street.',
         'La caminata hasta la parada del autobús tarda unos cinco minutos. Generalmente escucha música o simplemente mira la calle.',
         '¿Cuánto tiempo tarda Ana en llegar a la parada del autobús?',
-        'Unos cinco minutos',
-        'Unos diez minutos',
-        'Unos tres minutos',
+        'Unos cinco minutos','Unos diez minutos','Unos tres minutos',
         '✔ ¡Correcto! Se escucha: <em>"The walk to the bus stop takes about five minutes."</em>',
         '✗ Escucha el número: <em>"The walk to the bus stop takes about five minutes."</em> — cinco minutos. ¡Escucha otra vez!'
       ),
-
-      mk(7,'hard',
-        'La tarea después de clases','Ana en casa por la tarde',
+      mk(7,'hard','La tarea después de clases','Ana en casa por la tarde',
         'After school, Ana comes home and has a snack. She eats some bread or a piece of fruit. Then she does her homework at the kitchen table.',
         'Después de clases, Ana llega a casa y come algo. Come pan o una fruta. Luego hace su tarea en la mesa de la cocina.',
         '¿Dónde hace Ana su tarea después de la escuela?',
-        'En la mesa de la cocina',
-        'En su cuarto',
-        'En la sala',
+        'En la mesa de la cocina','En su cuarto','En la sala',
         '✔ ¡Correcto! Se escucha: <em>"she does her homework at the kitchen table."</em> — en la mesa de la cocina.',
         '✗ La frase clave es: <em>"she does her homework at the kitchen table."</em> — en la cocina, no en su cuarto. ¡Escucha otra vez!'
       )
     ]
   },
-
-  // ══════════════════════════════════════
-  // S2 — The Cookbook (David)
-  // ══════════════════════════════════════
   s2: {
     label: 'S2', emoji: '🍳', title: 'S2 — The Cookbook',
     activities: [
-
-      mk(1,'easy',
-        'El regalo de la mamá','La mamá visita a David',
+      mk(1,'easy','El regalo de la mamá','La mamá visita a David',
         'One day, his mother came to visit and gave him a small cookbook.',
         'Un día, su mamá vino a visitarlo y le dio un pequeño libro de cocina.',
         '¿Qué le dio la mamá de David cuando lo visitó?',
-        'Un libro de cocina pequeño',
-        'Dinero para comprar comida',
-        'Una olla y utensilios de cocina',
+        'Un libro de cocina pequeño','Dinero para comprar comida','Una olla y utensilios de cocina',
         '✔ ¡Correcto! Se escucha: <em>"gave him a small cookbook."</em> — "cookbook" = libro de cocina.',
         '✗ La palabra clave es "cookbook": <em>"gave him a small cookbook."</em> — un libro de cocina. ¡Escucha otra vez!'
       ),
-
-      mk(2,'easy',
-        'Las primeras recetas','David empieza a cocinar',
+      mk(2,'easy','Las primeras recetas','David empieza a cocinar',
         'He started with the easy ones. He made rice, soup, and eggs.',
         'Empezó con las fáciles. Hacía arroz, sopa y huevos.',
         '¿Con qué tipo de recetas empezó David?',
-        'Con las recetas fáciles',
-        'Con las recetas de su libro favorito',
-        'Con las recetas más difíciles',
+        'Con las recetas fáciles','Con las recetas de su libro favorito','Con las recetas más difíciles',
         '✔ ¡Correcto! Se escucha: <em>"He started with the easy ones."</em> — empezó con las fáciles.',
         '✗ La frase es: <em>"He started with the easy ones."</em> — "easy ones" = las fáciles. ¡Escucha otra vez!'
       ),
-
-      mk(3,'easy',
-        'El mercado del sábado','David va de compras',
+      mk(3,'easy','El mercado del sábado','David va de compras',
         'He went to the market every Saturday morning. He bought vegetables, eggs, and sometimes chicken.',
         'Iba al mercado cada sábado por la mañana. Compraba verduras, huevos y a veces pollo.',
         '¿Cuándo iba David al mercado?',
-        'Cada sábado por la mañana',
-        'Cada domingo por la tarde',
-        'Todos los días antes de clases',
+        'Cada sábado por la mañana','Cada domingo por la tarde','Todos los días antes de clases',
         '✔ ¡Correcto! Se escucha: <em>"He went to the market every Saturday morning."</em>',
         '✗ Escucha el día: <em>"He went to the market every Saturday morning."</em> — cada sábado por la mañana. ¡Escucha otra vez!'
       ),
-
-      mk(4,'medium',
-        'Los compañeros de cuarto','David cocina para más personas',
+      mk(4,'medium','Los compañeros de cuarto','David cocina para más personas',
         'His roommates began to notice. Before long, David was cooking dinner for all of them several nights a week.',
         'Sus compañeros de cuarto empezaron a notar. En poco tiempo, David cocinaba la cena para todos ellos varias noches a la semana.',
         '¿Para quién cocinaba David varias noches a la semana?',
-        'Para todos sus compañeros de cuarto',
-        'Solo para él mismo',
-        'Para sus amigos de la universidad',
+        'Para todos sus compañeros de cuarto','Solo para él mismo','Para sus amigos de la universidad',
         '✔ ¡Correcto! Se escucha: <em>"David was cooking dinner for all of them several nights a week."</em>',
         '✗ La frase exacta es: <em>"cooking dinner for all of them"</em> — cocinaba para todos sus compañeros. ¡Escucha otra vez!'
       ),
-
-      mk(5,'medium',
-        'Llamadas del fin de semana','David y su mamá',
+      mk(5,'medium','Llamadas del fin de semana','David y su mamá',
         'David also called his mother on weekends. He told her what he made during the week.',
         'David también llamaba a su mamá los fines de semana. Le contaba lo que había hecho durante la semana.',
         '¿Cuándo llamaba David a su mamá?',
-        'Los fines de semana',
-        'Todos los días por las noches',
-        'Solo cuando tenía un problema',
+        'Los fines de semana','Todos los días por las noches','Solo cuando tenía un problema',
         '✔ ¡Correcto! Se escucha: <em>"David also called his mother on weekends."</em> — los fines de semana.',
         '✗ La frase es clara: <em>"called his mother on weekends."</em> — los fines de semana. ¡Escucha otra vez!'
       ),
-
-      mk(6,'hard',
-        'El libro de cocina hoy','David y el libro de su mamá',
+      mk(6,'hard','El libro de cocina hoy','David y el libro de su mamá',
         'Now, several years later, cooking is one of the things David enjoys most. After a long day, making a good meal feels like a reward. He still uses his mother\'s old cookbook.',
         'Ahora, varios años después, cocinar es una de las cosas que David más disfruta. Después de un día largo, preparar una buena comida se siente como una recompensa. Todavía usa el viejo libro de cocina de su mamá.',
         '¿Qué siente David cuando cocina después de un día largo?',
-        'Que es una recompensa',
-        'Que es una obligación',
-        'Que es muy difícil',
+        'Que es una recompensa','Que es una obligación','Que es muy difícil',
         '✔ ¡Correcto! Se escucha: <em>"making a good meal feels like a reward."</em> — se siente como una recompensa.',
         '✗ La frase clave es: <em>"making a good meal feels like a reward."</em> — "reward" = recompensa. ¡Escucha otra vez!'
       ),
-
-      mk(7,'hard',
-        'Lo que le enseñó su mamá','El consejo de la madre',
+      mk(7,'hard','Lo que le enseñó su mamá','El consejo de la madre',
         'He tried to spend only a little money. His mother had taught him to plan before buying.',
         'Intentaba gastar solo un poco de dinero. Su madre le había enseñado a planificar antes de comprar.',
         '¿Qué le había enseñado su madre a David?',
-        'A planificar antes de comprar',
-        'A comprar todo en el mercado',
-        'A gastar poco dinero en libros',
+        'A planificar antes de comprar','A comprar todo en el mercado','A gastar poco dinero en libros',
         '✔ ¡Correcto! Se escucha: <em>"His mother had taught him to plan before buying."</em> — planificar antes de comprar.',
         '✗ La frase exacta es: <em>"taught him to plan before buying."</em> — planificar antes de comprar. ¡Escucha otra vez!'
       )
     ]
   },
-
-  // ══════════════════════════════════════
-  // S3 — The House on Calle Verde (Elena)
-  // ══════════════════════════════════════
   s3: {
     label: 'S3', emoji: '🏡', title: 'S3 — The House on Calle Verde',
     activities: [
-
-      mk(1,'easy',
-        'La casa de Elena','Descripción de la casa',
+      mk(1,'easy','La casa de Elena','Descripción de la casa',
         'The house had three bedrooms and one bathroom.',
         'La casa tenía tres dormitorios y un baño.',
         '¿Cuántos dormitorios tenía la casa de Elena?',
-        'Tres dormitorios',
-        'Dos dormitorios',
-        'Cuatro dormitorios',
+        'Tres dormitorios','Dos dormitorios','Cuatro dormitorios',
         '✔ ¡Correcto! Se escucha: <em>"The house had three bedrooms."</em> — "three bedrooms" = tres dormitorios.',
         '✗ Escucha el número: <em>"The house had three bedrooms."</em> — son tres. ¡Escucha otra vez!'
       ),
-
-      mk(2,'easy',
-        'El cuarto más importante','La cocina de la familia',
+      mk(2,'easy','El cuarto más importante','La cocina de la familia',
         'The kitchen was the most important room in the house.',
         'La cocina era el cuarto más importante de la casa.',
         '¿Cuál era el cuarto más importante de la casa?',
-        'La cocina',
-        'La sala',
-        'El jardín',
+        'La cocina','La sala','El jardín',
         '✔ ¡Correcto! Se escucha: <em>"The kitchen was the most important room."</em> — la cocina.',
         '✗ La frase es: <em>"The kitchen was the most important room."</em> — "kitchen" = cocina. ¡Escucha otra vez!'
       ),
-
-      mk(3,'easy',
-        'La mañana del padre','El papá en el jardín',
+      mk(3,'easy','La mañana del padre','El papá en el jardín',
         'In the mornings, Elena\'s father woke up early. He opened the door to the garden and drank his coffee outside.',
         'En las mañanas, el padre de Elena se despertaba temprano. Abría la puerta al jardín y tomaba su café afuera.',
         '¿Dónde tomaba su café el padre de Elena?',
-        'Afuera en el jardín',
-        'En la cocina junto a la ventana',
-        'En la sala con la familia',
+        'Afuera en el jardín','En la cocina junto a la ventana','En la sala con la familia',
         '✔ ¡Correcto! Se escucha: <em>"drank his coffee outside."</em> — tomaba su café afuera.',
         '✗ La frase es: <em>"drank his coffee outside."</em> — "outside" = afuera, en el jardín. ¡Escucha otra vez!'
       ),
-
-      mk(4,'medium',
-        'La abuela en casa','La abuela de Elena',
+      mk(4,'medium','La abuela en casa','La abuela de Elena',
         'Her grandmother lived in the house too. She was a quiet woman who woke up very early and sat in the garden before breakfast.',
         'Su abuela también vivía en la casa. Era una mujer tranquila que se despertaba muy temprano y se sentaba en el jardín antes del desayuno.',
         '¿Qué hacía la abuela de Elena antes del desayuno?',
-        'Se sentaba en el jardín',
-        'Preparaba el desayuno para todos',
-        'Leía en su cuarto',
+        'Se sentaba en el jardín','Preparaba el desayuno para todos','Leía en su cuarto',
         '✔ ¡Correcto! Se escucha: <em>"sat in the garden before breakfast."</em> — se sentaba en el jardín.',
         '✗ La frase clave es: <em>"sat in the garden before breakfast."</em> — se sentaba en el jardín antes de desayunar. ¡Escucha otra vez!'
       ),
-
-      mk(5,'medium',
-        'El trabajo del jardín','La familia en el jardín',
+      mk(5,'medium','El trabajo del jardín','La familia en el jardín',
         'On weekends, the whole family worked in the garden together. Her father cut the grass. Her sister watered the plants. Elena picked up leaves from the floor.',
         'Los fines de semana, toda la familia trabajaba en el jardín juntos. Su padre cortaba el pasto. Su hermana regaba las plantas. Elena recogía hojas del suelo.',
         '¿Qué hacía Elena específicamente en el jardín?',
-        'Recogía hojas del suelo',
-        'Regaba las plantas',
-        'Cortaba el pasto',
+        'Recogía hojas del suelo','Regaba las plantas','Cortaba el pasto',
         '✔ ¡Correcto! Se escucha: <em>"Elena picked up leaves from the floor."</em> — recogía hojas.',
         '✗ Cada uno tenía su tarea. La de Elena: <em>"Elena picked up leaves from the floor."</em> — recogía hojas. ¡Escucha otra vez!'
       ),
-
-      mk(6,'hard',
-        'Las tardes de la familia','La cena en familia',
+      mk(6,'hard','Las tardes de la familia','La cena en familia',
         'The evenings were always lively. Elena\'s father came home from work at around six. Then everyone ate together.',
         'Las tardes siempre eran animadas. El padre de Elena llegaba del trabajo alrededor de las seis. Luego todos comían juntos.',
         '¿A qué hora llegaba el padre de Elena del trabajo?',
-        'Alrededor de las seis',
-        'Alrededor de las cinco',
-        'Alrededor de las siete',
+        'Alrededor de las seis','Alrededor de las cinco','Alrededor de las siete',
         '✔ ¡Correcto! Se escucha: <em>"Elena\'s father came home from work at around six."</em> — alrededor de las seis.',
         '✗ El número está en: <em>"came home from work at around six."</em> — "six" = seis. ¡Escucha otra vez!'
       ),
-
-      mk(7,'hard',
-        'Lo que aprendió Elena','Las lecciones de la casa',
+      mk(7,'hard','Lo que aprendió Elena','Las lecciones de la casa',
         'Elena learned many things in that house. She learned to cook by watching her mother. She learned to read by sitting on her bed with a book and a lamp.',
         'Elena aprendió muchas cosas en esa casa. Aprendió a cocinar observando a su mamá. Aprendió a leer sentada en su cama con un libro y una lámpara.',
         '¿Cómo aprendió Elena a cocinar?',
-        'Observando a su mamá',
-        'Leyendo libros de recetas',
-        'Tomando clases en la escuela',
+        'Observando a su mamá','Leyendo libros de recetas','Tomando clases en la escuela',
         '✔ ¡Correcto! Se escucha: <em>"She learned to cook by watching her mother."</em> — observando a su mamá.',
         '✗ La frase es: <em>"learned to cook by watching her mother."</em> — "watching" = observando. ¡Escucha otra vez!'
       )
     ]
   },
-
-  // ══════════════════════════════════════
-  // S4 — A Day Well Used (Carlos)
-  // ══════════════════════════════════════
   s4: {
     label: 'S4', emoji: '📚', title: 'S4 — A Day Well Used',
     activities: [
-
-      mk(1,'easy',
-        'Carlos se despierta','El inicio del día de Carlos',
+      mk(1,'easy','Carlos se despierta','El inicio del día de Carlos',
         'Carlos\'s days start early. He wakes up at six and goes for a short run.',
         'Los días de Carlos empiezan temprano. Se despierta a las seis y sale a correr un poco.',
         '¿A qué hora se despierta Carlos?',
-        'A las seis',
-        'A las cinco y media',
-        'A las seis y media',
+        'A las seis','A las cinco y media','A las seis y media',
         '✔ ¡Correcto! Se escucha: <em>"He wakes up at six."</em> — "six" = las seis.',
         '✗ El número es claro: <em>"He wakes up at six."</em> — "six" = seis en punto. ¡Escucha otra vez!'
       ),
-
-      mk(2,'easy',
-        'Las clases de Carlos','Carlos en la escuela',
+      mk(2,'easy','Las clases de Carlos','Carlos en la escuela',
         'He teaches four classes in the morning.',
         'Enseña cuatro clases en la mañana.',
         '¿Cuántas clases enseña Carlos por la mañana?',
-        'Cuatro clases',
-        'Tres clases',
-        'Cinco clases',
+        'Cuatro clases','Tres clases','Cinco clases',
         '✔ ¡Correcto! Se escucha: <em>"He teaches four classes in the morning."</em> — cuatro.',
         '✗ El número está claro: <em>"He teaches four classes."</em> — "four" = cuatro. ¡Escucha otra vez!'
       ),
-
-      mk(3,'easy',
-        'La parte favorita del día','Carlos llega a casa',
+      mk(3,'easy','La parte favorita del día','Carlos llega a casa',
         'He gets home around five and changes his clothes. Then he cooks. This is the part of the day he likes most.',
         'Llega a casa alrededor de las cinco y se cambia de ropa. Luego cocina. Esta es la parte del día que más le gusta.',
         '¿Cuál es la parte del día que más le gusta a Carlos?',
-        'Cocinar en casa',
-        'Correr por la mañana',
-        'Enseñar sus clases',
+        'Cocinar en casa','Correr por la mañana','Enseñar sus clases',
         '✔ ¡Correcto! Se escucha: <em>"Then he cooks. This is the part of the day he likes most."</em> — cocinar.',
         '✗ La frase clave es: <em>"he cooks. This is the part of the day he likes most."</em> — cocinar es lo que más le gusta. ¡Escucha otra vez!'
       ),
-
-      mk(4,'medium',
-        'El almuerzo de Carlos','Carlos en la sala de profesores',
+      mk(4,'medium','El almuerzo de Carlos','Carlos en la sala de profesores',
         'At midday, he eats lunch in the teachers\' room. He likes to eat with other teachers and talk about the morning.',
         'Al mediodía, almuerza en la sala de profesores. Le gusta comer con otros maestros y hablar sobre la mañana.',
         '¿Dónde almuerza Carlos al mediodía?',
-        'En la sala de profesores',
-        'En su salón de clases',
-        'En su casa',
+        'En la sala de profesores','En su salón de clases','En su casa',
         '✔ ¡Correcto! Se escucha: <em>"he eats lunch in the teachers\' room."</em> — en la sala de profesores.',
         '✗ La frase es: <em>"eats lunch in the teachers\' room."</em> — en la sala de profesores. ¡Escucha otra vez!'
       ),
-
-      mk(5,'medium',
-        'Las noches de Carlos','Después de cenar',
+      mk(5,'medium','Las noches de Carlos','Después de cenar',
         'After dinner, he reads for about an hour. He usually reads history books — not for work, but because he enjoys it. He goes to bed at ten.',
         'Después de cenar, lee durante aproximadamente una hora. Generalmente lee libros de historia — no por trabajo, sino porque lo disfruta. Se va a dormir a las diez.',
         '¿Por qué lee Carlos libros de historia por las noches?',
-        'Porque lo disfruta, no por trabajo',
-        'Para preparar sus clases del día siguiente',
-        'Porque sus estudiantes se lo piden',
+        'Porque lo disfruta, no por trabajo','Para preparar sus clases del día siguiente','Porque sus estudiantes se lo piden',
         '✔ ¡Correcto! Se escucha: <em>"not for work, but because he enjoys it."</em> — lo hace por gusto.',
         '✗ La frase exacta es: <em>"not for work, but because he enjoys it."</em> — lo disfruta, no es una obligación. ¡Escucha otra vez!'
       ),
-
-      mk(6,'hard',
-        'Carlos los viernes','Quedarse más tiempo',
+      mk(6,'hard','Carlos los viernes','Quedarse más tiempo',
         'On Fridays, Carlos stays a little later at school. He talks with students who need extra help. He never says he is too busy.',
         'Los viernes, Carlos se queda un poco más tarde en la escuela. Habla con los estudiantes que necesitan ayuda extra. Nunca dice que está demasiado ocupado.',
         '¿Qué hace Carlos los viernes después de sus clases?',
-        'Se queda más tarde para hablar con estudiantes que necesitan ayuda',
-        'Va directamente a casa a descansar',
-        'Va al mercado a comprar comida para el fin de semana',
+        'Se queda más tarde para hablar con estudiantes que necesitan ayuda','Va directamente a casa a descansar','Va al mercado a comprar comida para el fin de semana',
         '✔ ¡Correcto! Se escucha: <em>"Carlos stays a little later at school. He talks with students who need extra help."</em>',
         '✗ La frase es: <em>"stays a little later... talks with students who need extra help."</em> — se queda para ayudar. ¡Escucha otra vez!'
       ),
-
-      mk(7,'hard',
-        'Los sábados de Carlos','Carlos en el mercado',
+      mk(7,'hard','Los sábados de Carlos','Carlos en el mercado',
         'On Saturdays, he goes to the market early. He buys fresh vegetables and sometimes fish. He takes his time and talks to the sellers.',
         'Los sábados, va al mercado temprano. Compra verduras frescas y a veces pescado. Se toma su tiempo y habla con los vendedores.',
         '¿Qué compra Carlos en el mercado los sábados?',
-        'Verduras frescas y a veces pescado',
-        'Verduras, huevos y a veces pollo',
-        'Pan, fruta y a veces carne',
+        'Verduras frescas y a veces pescado','Verduras, huevos y a veces pollo','Pan, fruta y a veces carne',
         '✔ ¡Correcto! Se escucha: <em>"He buys fresh vegetables and sometimes fish."</em> — verduras y a veces pescado.',
         '✗ La frase exacta es: <em>"fresh vegetables and sometimes fish."</em> — verduras y pescado, no pollo. ¡Escucha otra vez!'
       )
     ]
   }
-
 };
 
-// ─────────────────────────────────────────────
-// ESTADO
-// ─────────────────────────────────────────────
 let currentKey = 's1';
 let currentSpeed = 1;
 let currentAccent = 'american';
@@ -781,9 +854,6 @@ function resetState(k) {
   storyState[k] = { answered:0, correct:0, incorrect:0, easyOk:0, medOk:0, hardOk:0, answered_q:{} };
 }
 
-// ─────────────────────────────────────────────
-// VOCES
-// ─────────────────────────────────────────────
 const VPREF = {
   american: ['Google US English','Samantha','Microsoft Zira','en-US'],
   british:  ['Google UK English Female','Daniel','Microsoft Hazel','en-GB']
@@ -805,9 +875,6 @@ function selectVoice(accent) {
 }
 if (synth) { loadVoices(); synth.onvoiceschanged = loadVoices; }
 
-// ─────────────────────────────────────────────
-// CONTROLES
-// ─────────────────────────────────────────────
 function setAccent(a) {
   currentAccent = a;
   selectVoice(a);
@@ -822,9 +889,6 @@ function resetPlayBtns() {
   document.querySelectorAll('.play-btn').forEach(b => { b.classList.remove('playing'); b.textContent = '▶️'; });
 }
 
-// ─────────────────────────────────────────────
-// TABS
-// ─────────────────────────────────────────────
 function buildTabs() {
   const wrap = document.getElementById('storyTabsContainer');
   wrap.innerHTML = '';
@@ -853,17 +917,14 @@ function retryStory() {
   updateScore();
 }
 
-// ─────────────────────────────────────────────
-// RENDER
-// ─────────────────────────────────────────────
 function render() {
   const container = document.getElementById('activitiesContainer');
   const acts = STORIES[currentKey].activities;
   const st = storyState[currentKey];
   const levelInfo = {
-    easy:   ['🟢','Fácil',      '1 – 3'],
-    medium: ['🟡','Intermedio', '4 – 5'],
-    hard:   ['🔴','Difícil',    '6 – 7']
+    easy:   ['🟢','Fácil','1 – 3'],
+    medium: ['🟡','Intermedio','4 – 5'],
+    hard:   ['🔴','Difícil','6 – 7']
   };
   let html = '';
   let curLevel = '';
@@ -891,7 +952,7 @@ function render() {
         <div class="audio-meta"><h3>${act.title}</h3><p>${act.desc}</p></div>
       </div>
       <div class="player">
-        <button class="play-btn${ans ? '' : ''}" onclick="playAudio('${sid}')" id="pb_${sid}">▶️</button>
+        <button class="play-btn" onclick="playAudio('${sid}')" id="pb_${sid}">▶️</button>
         <div class="text-btns">
           <button class="text-btn" onclick="toggleBox('en_${sid}','tb_en_${sid}','📤 Ver texto en inglés','📤 Ocultar inglés')" id="tb_en_${sid}">📤 Ver texto en inglés</button>
           <button class="text-btn es-btn" onclick="toggleBox('es_${sid}','tb_es_${sid}','🇪🇸 Ver en español','🇪🇸 Ocultar español')" id="tb_es_${sid}">🇪🇸 Ver en español</button>
@@ -928,9 +989,6 @@ function render() {
   container.innerHTML = html;
 }
 
-// ─────────────────────────────────────────────
-// AUDIO
-// ─────────────────────────────────────────────
 function playAudio(sid) {
   const btn = document.getElementById(`pb_${sid}`);
   if (isPlaying) { synth.cancel(); isPlaying = false; resetPlayBtns(); return; }
@@ -947,9 +1005,6 @@ function playAudio(sid) {
   synth.speak(utt);
 }
 
-// ─────────────────────────────────────────────
-// TOGGLES
-// ─────────────────────────────────────────────
 function toggleBox(boxId, btnId, labelShow, labelHide) {
   const box = document.getElementById(boxId);
   const btn = document.getElementById(btnId);
@@ -965,9 +1020,6 @@ function toggleQ(secId, btnId) {
   btn.textContent = sec.classList.contains('show') ? '❓ Ocultar Pregunta' : '❓ Mostrar Pregunta';
 }
 
-// ─────────────────────────────────────────────
-// RESPUESTA
-// ─────────────────────────────────────────────
 function answer(storyKey, id, sel) {
   const st = storyState[storyKey];
   if (st.answered_q[id]) return;
@@ -997,9 +1049,6 @@ function answer(storyKey, id, sel) {
   if (st.answered === 7) setTimeout(showResults, 900);
 }
 
-// ─────────────────────────────────────────────
-// PUNTUACIÓN / RESULTADOS
-// ─────────────────────────────────────────────
 function updateScore() {
   const st = storyState[currentKey];
   document.getElementById('answeredCount').textContent = `${st.answered}/7`;
@@ -1025,9 +1074,6 @@ function showResults() {
   panel.scrollIntoView({ behavior:'smooth' });
 }
 
-// ─────────────────────────────────────────────
-// INIT
-// ─────────────────────────────────────────────
 buildTabs();
 render();
 updateScore();
