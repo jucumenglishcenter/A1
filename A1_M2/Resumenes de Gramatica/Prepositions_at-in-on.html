@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Summary — Prepositions — at / in / on | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&family=Fredoka:wght@400;500;600;700&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+--bg:#FAFAF6;--card:#fff;--text:#2A2A2A;--text-soft:#777;--border:#E8E5DC;
+--shadow:0 3px 16px rgba(0,0,0,.06);--radius:14px;
+--lp:#2196F3;--ld:#0D47A1;--ll:#E3F2FD;--lm:#BBDEFB;
+--lg:linear-gradient(135deg,#1565C0,#2196F3);--lglow:rgba(33,150,243,.15);
+--badge-text:#0A2A5E;
+--subj:#1565C0;--subj-bg:#E3F2FD;
+--verb:#E53935;--verb-bg:#FFEBEE;
+--comp:#00897B;--comp-bg:#E0F2F1;
+--neg:#AD1457;--neg-bg:#FCE4EC;
+--quest:#7B1FA2;--quest-bg:#F3E5F5;
+--ok:#2E7D32;--ok-bg:#E8F5E9;
+--err:#C62828;--err-bg:#FFEBEE;
+--note-bg:#FFFDE7;--note-border:#FBC02D;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem;-webkit-font-smoothing:antialiased}
+.container{max-width:780px;margin:0 auto}
+
+.level-header{text-align:center;padding:2rem;border-radius:20px;color:#fff;position:relative;overflow:hidden;margin-bottom:1.2rem;background:var(--lg)}
+.level-header::before{content:'';position:absolute;top:-40%;right:-15%;width:250px;height:250px;background:rgba(255,255,255,.1);border-radius:50%}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.8rem;font-weight:600;position:relative;z-index:1}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.1rem;font-weight:500;opacity:.95;position:relative;z-index:1;margin-top:.2rem}
+.level-header .subtitle{opacity:.8;font-size:.85rem;position:relative;z-index:1;margin-top:.15rem}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;background:var(--ll);color:var(--badge-text);padding:4px 12px;border-radius:20px;border:1.5px solid var(--lm);margin-bottom:.8rem;position:relative;z-index:1}
+
+.step-tabs{display:flex;gap:.35rem;margin-bottom:1rem;flex-wrap:wrap}
+.step-tab{padding:.45rem .85rem;border-radius:8px;font-size:.78rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:.2s;font-family:'Nunito',sans-serif}
+.step-tab:hover{background:var(--ll)}
+.step-tab.active{background:var(--ll);border-color:var(--lp);color:var(--ld)}
+.step-tab.done{background:var(--ok-bg);border-color:var(--ok);color:var(--ok)}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-bottom:1.2rem;box-shadow:var(--shadow);border-top:3.5px solid var(--lp);display:none}
+.card.active{display:block;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+
+.section-label{display:flex;align-items:center;gap:.5rem;font-size:.7rem;font-weight:800;text-transform:uppercase;letter-spacing:.12em;color:var(--ld);margin-bottom:.3rem}
+.section-label::before{content:"";width:20px;height:3px;background:var(--lp);border-radius:2px}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.25rem;font-weight:600;margin-bottom:.1rem}
+.section-desc{font-size:.85rem;color:var(--text-soft);margin-bottom:1rem;line-height:1.6}
+
+/* GRAMMAR TAGS - inline-block prevents overlap */
+.g-subj,.g-verb,.g-comp,.g-neg,.g-quest,.g-prep,.g-time,.g-art{display:inline-block;padding:1px 7px;border-radius:4px;font-weight:700;margin:0 1px;line-height:1.5}
+.g-subj{background:var(--subj-bg);color:var(--subj);border-bottom:2.5px solid var(--subj)}
+.g-verb{background:var(--verb-bg);color:var(--verb);border-bottom:2.5px solid var(--verb)}
+.g-comp{background:var(--comp-bg);color:var(--comp);border-bottom:2.5px solid var(--comp)}
+.g-neg{background:var(--neg-bg);color:var(--neg);border-bottom:2.5px solid var(--neg)}
+.g-quest{background:var(--quest-bg);color:var(--quest);border-bottom:2.5px solid var(--quest)}
+.g-prep{background:#FFE0B2;color:#E65100;border-bottom:2.5px solid #FB8C00}
+.g-time{background:#F8BBD0;color:#AD1457;border-bottom:2.5px solid #C2185B}
+.g-art{background:#FFF59D;color:#F57F17;border-bottom:2.5px solid #FBC02D}
+
+.g-table{width:100%;border-collapse:separate;border-spacing:0;margin:.8rem 0;border-radius:10px;overflow:hidden;font-size:.83rem;border:1px solid var(--border)}
+.g-table th{background:var(--lg);color:#fff;padding:.65rem .6rem;font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase}
+.g-table td{padding:.6rem;border-bottom:1px solid #f0f0f0;vertical-align:middle;line-height:1.65}
+.g-table tr:nth-child(even) td{background:var(--ll)}
+.g-table tr:last-child td{border-bottom:none}
+
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;margin:.8rem 0}
+.compare-card{padding:1rem;border-radius:12px;text-align:center}
+.compare-card.esp{background:var(--ll);border:2px solid var(--lm)}
+.compare-card.eng{background:var(--subj-bg);border:2px solid #90CAF9}
+.compare-card h4{font-family:'Fredoka',sans-serif;font-size:.85rem;margin-bottom:.5rem}
+.compare-card.esp h4{color:var(--ld)}
+.compare-card.eng h4{color:var(--subj)}
+.compare-card ul{list-style:none;font-size:.82rem;color:var(--text-soft)}
+.compare-card li{padding:3px 0;line-height:1.5}
+
+.formula-box{background:var(--note-bg);border:2px solid var(--note-border);border-radius:12px;padding:1rem;margin:.8rem 0;text-align:center;font-family:'Fredoka',sans-serif;font-size:.95rem;color:var(--ld);line-height:2.1}
+.tip-card{background:var(--ll);border-radius:10px;padding:.8rem 1rem;margin:.5rem 0;font-size:.83rem;border-left:3px solid var(--lp);line-height:1.65}
+.tip-card strong{color:var(--ld)}
+.alert-card{background:var(--err-bg);border:2px solid #EF5350;border-radius:10px;padding:.8rem 1rem;margin:.8rem 0}
+.alert-card .atitle{font-family:'Fredoka',sans-serif;color:var(--err);font-size:.82rem;margin-bottom:.3rem}
+.alert-card p{font-size:.82rem;color:var(--text-soft);line-height:1.65}
+
+.viz-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;margin:.8rem 0}
+.viz-item{padding:.7rem .5rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--lm);font-size:.82rem}
+.viz-item .ico{font-size:1.6rem;display:block;margin-bottom:.3rem}
+.viz-item .lbl{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.95rem;display:block}
+.viz-item .es{font-style:italic;color:var(--text-soft);font-size:.74rem;display:block;margin-top:2px}
+
+.rule-grid{display:grid;grid-template-columns:1fr;gap:.5rem;margin:.8rem 0}
+.rule-item{padding:.7rem 1rem;border-radius:10px;background:var(--card);border:1.5px solid var(--lm);display:flex;align-items:flex-start;gap:.7rem}
+.rule-item .num{font-family:'Fredoka',sans-serif;background:var(--lp);color:#fff;min-width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:.9rem}
+.rule-item .info{flex:1;font-size:.85rem;line-height:1.6}
+.rule-item .info strong{color:var(--ld);display:block;margin-bottom:2px}
+
+.timeline{display:flex;align-items:center;justify-content:space-between;margin:1rem 0;padding:.8rem;background:var(--ll);border-radius:12px;border:1.5px solid var(--lm);gap:.4rem;flex-wrap:wrap}
+.tl-point{flex:1;min-width:75px;text-align:center;padding:.5rem .3rem;background:#fff;border-radius:8px;border:2px solid var(--lm)}
+.tl-point .ico{font-size:1.3rem;display:block}
+.tl-point .lbl{font-family:'Fredoka',sans-serif;font-size:.78rem;color:var(--ld);margin-top:2px;display:block}
+.tl-arrow{color:var(--lp);font-size:1.2rem;font-weight:700}
+
+.ex-row{display:flex;align-items:flex-start;gap:.6rem;padding:.6rem .8rem;border-radius:10px;margin:.4rem 0;font-size:.88rem;transition:background .2s}
+.ex-row:hover{background:var(--lglow)}
+.ex-row .icon{font-size:1.2rem;flex-shrink:0;margin-top:1px}
+.ex-row .body{flex:1;min-width:0}
+.ex-row .en{font-weight:700;color:var(--text);line-height:1.7;word-spacing:1px}
+.ex-row .es{font-family:'Lora',serif;font-style:italic;font-size:.82rem;color:var(--text-soft);margin-top:3px;line-height:1.5}
+.ex-right{border-left:3px solid var(--ok);background:var(--ok-bg)}
+.ex-wrong{border-left:3px solid var(--err);background:var(--err-bg)}
+
+.ex-section{margin-top:1.2rem;padding-top:1rem;border-top:2px dashed var(--lm)}
+.ex-section h3{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.95rem;margin-bottom:.8rem}
+.exercise{background:#fafafa;border-radius:12px;padding:1rem;margin-bottom:.7rem;border:2px solid #eee;transition:.2s}
+.exercise.correct{border-color:var(--ok);background:var(--ok-bg)}
+.exercise.incorrect{border-color:var(--err);background:var(--err-bg)}
+.exercise-q{font-size:.9rem;margin-bottom:.7rem;line-height:1.55;font-weight:600}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:.4rem}
+.opt-btn{padding:.7rem .55rem;border:2px solid #e0e0e0;border-radius:10px;background:var(--card);color:var(--text);font-size:.85rem;font-weight:600;cursor:pointer;transition:.15s;font-family:'Nunito',sans-serif;text-align:center;line-height:1.35}
+.opt-btn:hover:not(:disabled){border-color:var(--lp);background:var(--ll)}
+.opt-btn:disabled{cursor:not-allowed;opacity:.7}
+.opt-btn.sel-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+.opt-btn.sel-bad{background:var(--err);color:#fff;border-color:var(--err)}
+.opt-btn.show-ok{background:var(--ok);color:#fff;border-color:var(--ok)}
+
+.fb{margin-top:.7rem;padding:0;border-radius:12px;font-size:.82rem;display:none;line-height:1.6;overflow:hidden}
+.fb.show{display:block;animation:fbSlide .35s ease}
+@keyframes fbSlide{from{opacity:0;max-height:0;transform:translateY(-8px)}to{opacity:1;max-height:600px;transform:translateY(0)}}
+.fb-header{display:flex;align-items:center;gap:.5rem;padding:.7rem 1rem;font-family:'Fredoka',sans-serif;font-size:.88rem;font-weight:600}
+.fb.fb-ok .fb-header{background:#C8E6C9;color:var(--ok)}
+.fb.fb-bad .fb-header{background:#FFCDD2;color:var(--err)}
+.fb-header .fb-icon{font-size:1.2rem}
+.fb-body{padding:.8rem 1rem}
+.fb.fb-ok .fb-body{background:var(--ok-bg)}
+.fb.fb-bad .fb-body{background:var(--err-bg)}
+.fb-row{display:flex;align-items:flex-start;gap:.5rem;margin-bottom:.5rem}
+.fb-row:last-child{margin-bottom:0}
+.fb-row .fb-dot{font-size:.95rem;flex-shrink:0;margin-top:1px}
+.fb-row .fb-text{flex:1;line-height:1.55}
+.fb-row .fb-text strong{color:var(--text)}
+.fb-correct-answer{color:var(--ok);font-weight:700}
+.fb-wrong-reason{color:var(--err);font-weight:600}
+.fb-example{display:inline-block;margin-top:.5rem;padding:5px 12px;border-radius:6px;font-size:.79rem;font-weight:700}
+.fb.fb-ok .fb-example{background:#A5D6A7;color:#1B5E20}
+.fb.fb-bad .fb-example{background:#EF9A9A;color:#B71C1C}
+.fb-tip{margin-top:.5rem;padding:.5rem .75rem;border-radius:8px;background:var(--note-bg);border:1px solid var(--note-border);font-size:.78rem;color:#6D4C00;line-height:1.5}
+.fb-tip strong{color:var(--ld)}
+
+.score-bar{text-align:center;padding:.8rem;background:var(--ll);border-radius:10px;margin-top:.8rem;border:1px solid var(--lm)}
+.score-bar .num{font-family:'Fredoka',sans-serif;font-size:1.4rem;color:var(--ld)}
+.score-bar .lbl{font-size:.7rem;color:var(--lp);font-weight:700;text-transform:uppercase;letter-spacing:1px}
+
+.summary-final{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.6rem;margin-top:1rem;box-shadow:var(--shadow);border-top:3.5px solid var(--ok);display:none}
+.summary-final.show{display:block;animation:fadeIn .4s ease}
+.summary-final h3{font-family:'Fredoka',sans-serif;color:var(--ok);margin-bottom:.6rem;font-size:1.15rem}
+.summary-final ul{list-style:none}
+.summary-final li{padding:5px 0 5px 22px;position:relative;font-size:.85rem;color:var(--text-soft);line-height:1.6}
+.summary-final li:before{content:"\2713";position:absolute;left:0;color:var(--lp);font-weight:700;font-size:1rem}
+.summary-final .total-score{margin-top:1rem;padding:.8rem;background:var(--ll);border-radius:10px;text-align:center;font-family:'Fredoka',sans-serif}
+.summary-final .total-score .big{font-size:1.6rem;color:var(--ld)}
+.summary-final .total-score .small{font-size:.8rem;color:var(--text-soft);font-weight:600}
+
+@media(max-width:600px){
+.level-header h1{font-size:1.4rem}
+.card{padding:1.2rem}
+.compare-grid,.viz-grid{grid-template-columns:1fr 1fr}
+.timeline{flex-direction:column}
+.tl-arrow{transform:rotate(90deg)}
+.opts{grid-template-columns:1fr}
+}
+
+.why-box{background:#EDF7ED;border:1.5px solid #A5D6A7;border-left:4px solid var(--ok);border-radius:10px;padding:.7rem .9rem;margin:.7rem 0;font-size:.83rem;line-height:1.6}.why-box .wt{font-family:'Fredoka',sans-serif;color:var(--ok);font-size:.8rem;display:block;margin-bottom:.2rem}.note-box{background:var(--note-bg);border:1.5px solid var(--note-border);border-left:4px solid var(--lp);border-radius:10px;padding:.7rem .9rem;margin:.7rem 0;font-size:.83rem;line-height:1.6}.note-box .nt{font-family:'Fredoka',sans-serif;color:var(--ld);font-size:.8rem;display:block;margin-bottom:.2rem}.illus{display:flex;justify-content:center;align-items:center;gap:.5rem;margin:.4rem 0 1rem;background:linear-gradient(135deg,#E3F2FD,#BBDEFB);border:2px dashed var(--lm);border-radius:16px;padding:1rem}.illus .big{font-size:3.2rem;line-height:1}.illus .big.sm{font-size:2.4rem}.info-illus{display:flex;align-items:center;gap:.8rem;background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:.8rem 1rem;margin:.6rem 0}.info-illus .emo{font-size:2.4rem;line-height:1;flex-shrink:0}.info-illus .txt{font-size:.85rem;line-height:1.55}.info-illus .txt b{color:var(--ld)}.eg-card{position:relative;display:flex;align-items:center;gap:.7rem;background:#E3F2FD;border:2px solid #64B5F6;border-radius:12px;padding:1rem .9rem .9rem;margin:.4rem 0 1.1rem}.eg-card .eg-emo{font-size:2.3rem;line-height:1;flex-shrink:0}.eg-card .eg-body .en{font-weight:800;color:#0D47A1;font-size:.95rem;line-height:1.4}.eg-card .eg-body .es{font-family:'Lora',serif;font-style:italic;color:#1565C0;font-size:.82rem;margin-top:3px}.eg-card::before{content:'\1F4DD EJEMPLO';position:absolute;top:-11px;left:14px;background:#1565C0;color:#fff;font-family:'Fredoka',sans-serif;font-size:.62rem;font-weight:600;letter-spacing:.06em;padding:2px 9px;border-radius:20px}.eg-card.ok{background:#E8F5E9;border-color:#81C784}.eg-card.ok .en{color:#1B5E20}.eg-card.ok .es{color:#2E7D32}.eg-card.ok::before{content:'\2705 BIEN';background:#2E7D32}.eg-card.bad{background:#FFEBEE;border-color:#EF9A9A}.eg-card.bad .en{color:#B71C1C}.eg-card.bad .es{color:#C62828}.eg-card.bad::before{content:'\274C MAL';background:#C62828}
+.art-hero{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin:.8rem 0}.art-hero.three{grid-template-columns:1fr 1fr 1fr}.art-box{background:#fff;border:2px solid var(--lm);border-radius:16px;padding:1rem .9rem;text-align:center;box-shadow:0 2px 10px rgba(33,150,243,.10)}.art-box .word{font-family:'Fredoka',sans-serif;font-size:2.6rem;font-weight:700;color:var(--ld);line-height:1;background:linear-gradient(135deg,#E3F2FD,#90CAF9);border-radius:12px;padding:.5rem 0;margin-bottom:.5rem}.art-box.eng .word{background:linear-gradient(135deg,#E3F2FD,#90CAF9);color:#0D47A1}.art-box .role{font-family:'Fredoka',sans-serif;font-size:.78rem;color:var(--lp);font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin-bottom:.35rem}.art-box.eng .role{color:#1976D2}.art-box .desc{font-size:.8rem;color:var(--text-soft);line-height:1.5}.vs-grid{margin:.8rem 0}.vs-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:.5rem;margin:.55rem 0}.vs-side{border-radius:12px;padding:.7rem .8rem;font-size:.84rem;line-height:1.45}.vs-side .flag{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:.2rem;opacity:.85}.vs-side.es{background:var(--ll);border:1.5px solid var(--lm)}.vs-side.es .flag{color:var(--ld)}.vs-side.en{background:#E3F2FD;border:1.5px solid #90CAF9}.vs-side.en .flag{color:#1565C0}.vs-mid{display:flex;align-items:center;justify-content:center;font-size:1.3rem;color:var(--lp)}@media(max-width:600px){.art-hero,.art-hero.three{grid-template-columns:1fr}.vs-row{grid-template-columns:1fr;gap:.3rem}.vs-mid{transform:rotate(90deg);padding:.1rem 0}}.conj-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;margin:.8rem 0}.conj-item{padding:.6rem;border-radius:10px;text-align:center;background:var(--card);border:1.5px solid var(--border)}.conj-item .pron{font-size:.75rem;color:var(--subj);font-weight:800}.conj-item .vrb{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--verb)}.conj-item .meaning{font-size:.65rem;color:var(--text-soft)}@media(max-width:600px){.conj-grid{grid-template-columns:1fr}}</style>
+</head>
+<body>
+<div class="container">
+<div class="level-header">
+<div class="level-badge">A1 · Shopping, Services & Money</div>
+<h1>Grammar Summary</h1>
+<div class="module-name">📍 Prepositions — at / in / on</div>
+<p class="subtitle">Preposiciones de lugar y tiempo · 5 pasos × 5 ejercicios</p>
+</div>
+<div class="step-tabs" id="stepTabs"></div>
+<div id="cardArea"></div>
+<div class="summary-final" id="summaryFinal">
+<h3>🎓 Resumen del Tema</h3>
+<ul id="summaryList"></ul>
+<div class="total-score" id="totalScore"></div>
+</div>
+</div>
+<script>
+const ICON_PARTY="🎉";
+const ICON_CHECK="✅";
+const ICON_X="❌";
+const ICON_BULB="💡";
+const ICON_NOTE="📝";
+const ICON_THINK="😕";
+const DASH="—";
+const TEXT_CORRECT="¡Correcto!";
+const TEXT_INCORRECT="No es correcto";
+const TEXT_OTHER_OPT="La otra opción";
+const TEXT_CORRECT_IS="La respuesta correcta es";
+const TEXT_REMEMBER="Recuerda";
+const TEXT_SCORE="Puntuación";
+const TEXT_TOTAL="Total del tema";
+const EX_HEADER="✏️ Ejercicios —";
+
+const DATA={"name": "Prepositions — at / in / on", "summary": ["<b>AT</b> = punto específico: at home, at the bank, at 5 pm, at night", "<b>IN</b> = dentro de / dentro de un período: in the shop, in Lima, in 2026, in July", "<b>ON</b> = sobre una superficie / día específico: on the table, on Monday, on May 5th", "<b>Tiempo:</b> at (hora) · on (día/fecha) · in (mes/año/estación)", "<b>Lugar:</b> at (punto) · in (espacio cerrado) · on (superficie)", "Frases fijas: <b>at home</b>, <b>at work</b>, <b>at school</b>, <b>in bed</b>, <b>on foot</b>"], "steps": [{"icon": "🇪🇸", "title": "Repaso en Español", "html": "<div class=\"section-label\">Paso 1</div>\n<div class=\"section-title\">Paso 1: 🇪🇸 Repaso en Español</div>\n<div class=\"section-desc\">En español tenemos \"en\" que cubre casi todo. En inglés hay TRES preposiciones: at, in, on. Cada una tiene su uso específico.</div>\n<div class=\"compare-grid\">\n<div class=\"compare-card esp\"><h4>🇪🇸 Español (casi todo \"en\")</h4><ul><li><b>En</b> casa</li><li><b>En</b> la tienda</li><li><b>En</b> Lima</li><li><b>En</b> la mesa</li><li><b>En</b> lunes / el lunes</li></ul></div>\n<div class=\"compare-card eng\"><h4>🇬🇧 English (3 preposiciones)</h4><ul><li><b>at</b> home</li><li><b>in</b> the shop</li><li><b>in</b> Lima</li><li><b>on</b> the table</li><li><b>on</b> Monday</li></ul></div>\n</div>\n<div class=\"ex-row\"><div class=\"icon\">🏠</div><div><div class=\"en\">Estoy <b>en</b> casa.</div><div class=\"es\">En inglés: I'm <b>at</b> home — \"at\" para frases fijas</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">🕔</div><div><div class=\"en\">Trabajo <b>a las</b> 5 pm.</div><div class=\"es\">En inglés: I work <b>at</b> 5 pm — \"at\" para horas exactas</div></div></div>\n<div class=\"ex-row\"><div class=\"icon\">📅</div><div><div class=\"en\">Compro <b>el</b> lunes.</div><div class=\"es\">En inglés: I shop <b>on</b> Monday — \"on\" para días</div></div></div>\n<div class=\"tip-card\"><strong>💡 Idea clave:</strong> El español usa \"en\" para casi todo. El inglés usa <b>at / in / on</b> según el CONTEXTO (punto, espacio, superficie o momento).</div>", "exercises": [{"q": "\"En casa\" en inglés:", "a": "b", "o": ["in home", "at home"], "fc": "Frase fija: \"at home\" (nunca \"in home\").", "fi": "\"In home\" no existe en inglés natural.", "ex": "I'm at home → Estoy en casa", "tip": "at home, at work, at school — frases fijas"}, {"q": "\"A las 5 pm\" en inglés:", "a": "a", "o": ["at 5 pm", "on 5 pm"], "fc": "Para horas exactas → \"at\".", "fi": "\"On 5 pm\" no es natural; \"on\" es para días.", "ex": "I work at 5 pm → Trabajo a las 5 pm"}, {"q": "\"El lunes\" (para día de la semana) en inglés:", "a": "a", "o": ["on Monday", "in Monday"], "fc": "Días de la semana → \"on\".", "fi": "\"In Monday\" no es correcto para días.", "ex": "I shop on Monday → Compro el lunes"}, {"q": "\"En Lima\" (ciudad) en inglés:", "a": "b", "o": ["at Lima", "in Lima"], "fc": "Ciudades y países → \"in\".", "fi": "\"At Lima\" es para un punto muy específico, no la ciudad.", "ex": "I live in Lima → Vivo en Lima"}, {"q": "\"En la mesa\" (superficie) en inglés:", "a": "a", "o": ["on the table", "in the table"], "fc": "Sobre una superficie → \"on\".", "fi": "\"In the table\" significaría DENTRO de la mesa.", "ex": "The bag is on the table → El bolso está en la mesa"}]}, {"icon": "🤝", "title": "Similitudes", "html": "<div class=\"section-label\">Paso 2</div>\n<div class=\"section-title\">Paso 2: 🤝 Similitudes ESP ↔ ENG</div>\n<table class=\"g-table\">\n<tr><th>Similitud</th><th>🇪🇸 Español</th><th>🇬🇧 English</th></tr>\n<tr><td>Preposición antes del lugar</td><td>en la tienda</td><td><b>in</b> the shop</td></tr>\n<tr><td>Preposición antes del tiempo</td><td>a las 5</td><td><b>at</b> 5</td></tr>\n<tr><td>Año</td><td>en 2026</td><td><b>in</b> 2026</td></tr>\n<tr><td>Día específico</td><td>el lunes</td><td><b>on</b> Monday</td></tr>\n<tr><td>Mes</td><td>en julio</td><td><b>in</b> July</td></tr>\n</table>\n<div class=\"section-label\">AT / IN / ON — mapa visual</div>\n<div class=\"conj-grid\">\n<div class=\"conj-item\"><div class=\"pron\">AT</div><div class=\"vrb\">📍 punto</div><div class=\"meaning\">at home, at 5pm</div></div>\n<div class=\"conj-item\"><div class=\"pron\">IN</div><div class=\"vrb\">📦 dentro</div><div class=\"meaning\">in Lima, in July</div></div>\n<div class=\"conj-item\"><div class=\"pron\">ON</div><div class=\"vrb\">📄 superficie</div><div class=\"meaning\">on table, on Monday</div></div>\n</div>\n<div class=\"tip-card\"><strong>💡 Similitud clave:</strong> En ambos idiomas la preposición va ANTES del sustantivo. La diferencia es CUÁL preposición elegir.</div>", "exercises": [{"q": "\"En 2026\" (año) en inglés:", "a": "b", "o": ["at 2026", "in 2026"], "fc": "Años → \"in\".", "fi": "\"At 2026\" no funciona para años; \"at\" es para horas.", "ex": "In 2026, I will travel → En 2026 viajaré"}, {"q": "\"En julio\" (mes) en inglés:", "a": "a", "o": ["in July", "on July"], "fc": "Meses → \"in\".", "fi": "\"On July\" no es correcto para meses enteros.", "ex": "I travel in July → Viajo en julio"}, {"q": "\"En la tienda\" en inglés:", "a": "b", "o": ["on the shop", "in the shop"], "fc": "Espacio cerrado → \"in\".", "fi": "\"On the shop\" sería SOBRE la tienda.", "ex": "I work in the shop → Trabajo en la tienda"}, {"q": "\"El 5 de mayo\" (fecha) en inglés:", "a": "a", "o": ["on May 5th", "in May 5th"], "fc": "Fechas específicas → \"on\".", "fi": "\"In May 5th\" mezcla reglas; el día específico pide \"on\".", "ex": "I was born on May 5th → Nací el 5 de mayo", "tip": "on + date / on + day"}, {"q": "\"En la noche\" en inglés:", "a": "b", "o": ["in night", "at night"], "fc": "\"At night\" es la frase fija.", "fi": "\"In night\" no existe en inglés.", "ex": "I shop at night → Compro de noche"}]}, {"icon": "⚡", "title": "Diferencias", "html": "<div class=\"section-label\">Paso 3</div>\n<div class=\"section-title\">Paso 3: ⚡ Diferencias Importantes</div>\n<table class=\"g-table\">\n<tr><th>🇪🇸 Español</th><th>🇬🇧 Inglés</th><th>💡 Explicación</th></tr>\n<tr><td>En casa</td><td><b>at</b> home</td><td>Frase fija — NO \"in home\"</td></tr>\n<tr><td>En el trabajo</td><td><b>at</b> work</td><td>Frase fija — NO \"in work\"</td></tr>\n<tr><td>En lunes / El lunes</td><td><b>on</b> Monday</td><td>Días → \"on\"</td></tr>\n<tr><td>En enero</td><td><b>in</b> January</td><td>Meses → \"in\"</td></tr>\n<tr><td>A las 3</td><td><b>at</b> 3</td><td>Horas exactas → \"at\"</td></tr>\n<tr><td>En la mañana</td><td><b>in</b> the morning</td><td>Partes del día → \"in\"</td></tr>\n<tr><td>En la noche</td><td><b>at</b> night</td><td>EXCEPCIÓN: night → \"at\"</td></tr>\n</table>\n<div class=\"alert-card\"><div class=\"atitle\">⚠️ ¡Frases fijas!</div><p>Hay frases FIJAS que debes memorizar:<br>✅ <b>at home</b>, <b>at work</b>, <b>at school</b>, <b>at night</b><br>✅ <b>in the morning / afternoon / evening</b><br>✅ <b>on foot</b> (a pie), <b>on holiday</b> (de vacaciones)</p></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">✅</div><div><div class=\"en\">I'm <b>at</b> home <b>at</b> 5 pm.</div><div class=\"es\">Estoy en casa a las 5 pm — ambos \"at\"</div></div></div>\n<div class=\"ex-row ex-wrong\"><div class=\"icon\">❌</div><div><div class=\"en\">I'm <b>in</b> home <b>on</b> 5 pm.</div><div class=\"es\">ERROR: home pide \"at\" y horas piden \"at\"</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">✅</div><div><div class=\"en\">I work <b>on</b> Monday <b>in</b> the morning.</div><div class=\"es\">Trabajo el lunes en la mañana</div></div></div>", "exercises": [{"q": "\"Estoy en el trabajo\" en inglés:", "a": "a", "o": ["I'm at work", "I'm in work"], "fc": "\"At work\" es frase fija.", "fi": "\"In work\" no existe; es siempre \"at work\".", "ex": "I'm at work → Estoy en el trabajo", "tip": "at home, at work, at school — memorizar"}, {"q": "\"En la mañana\" en inglés:", "a": "b", "o": ["at the morning", "in the morning"], "fc": "Partes del día → \"in the morning/afternoon/evening\".", "fi": "\"At the morning\" no es correcto.", "ex": "I work in the morning → Trabajo en la mañana"}, {"q": "\"En la noche\" en inglés (excepción):", "a": "a", "o": ["at night", "in the night"], "fc": "EXCEPCIÓN: \"at night\" (sin \"the\").", "fi": "\"In the night\" no es la frase estándar.", "ex": "I shop at night → Compro de noche"}, {"q": "\"A las 9 del lunes\" en inglés:", "a": "b", "o": ["on 9 at Monday", "at 9 on Monday"], "fc": "Hora → \"at\" · Día → \"on\".", "fi": "\"On 9 at Monday\" invierte ambas reglas.", "ex": "I start at 9 on Monday → Empiezo a las 9 el lunes"}, {"q": "\"En verano\" (estación) en inglés:", "a": "a", "o": ["in summer", "on summer"], "fc": "Estaciones → \"in\".", "fi": "\"On summer\" no es correcto para estaciones.", "ex": "I travel in summer → Viajo en verano"}]}, {"icon": "💡", "title": "Consejos", "html": "<div class=\"section-label\">Paso 4</div>\n<div class=\"section-title\">Paso 4: 💡 Consejos Prácticos</div>\n<div class=\"tip-card\"><strong>Tip 1:</strong> <b>AT</b> = punto específico (hora, dirección, frases fijas). Memoriza: <i>at home, at work, at night</i>.</div>\n<div class=\"tip-card\"><strong>Tip 2:</strong> <b>IN</b> = dentro de algo (país, ciudad, mes, año, espacio). Lo más general.</div>\n<div class=\"tip-card\"><strong>Tip 3:</strong> <b>ON</b> = sobre una superficie (mesa, pared) o día específico (lunes, 5 de mayo).</div>\n<div class=\"tip-card\"><strong>Tip 4:</strong> Regla rápida para TIEMPO: <b>at hora · on día · in mes/año/estación</b>.</div>\n<div class=\"formula-box\">⏰ TIEMPO: <b>at</b> 5 pm · <b>on</b> Monday · <b>in</b> July / 2026 / summer<br>📍 LUGAR: <b>at</b> home · <b>in</b> Lima · <b>on</b> the table<br>❗ Frases fijas: <b>at home / at work / at night</b></div>\n<div class=\"section-label\">Usos principales</div>\n<table class=\"g-table\">\n<tr><th>Preposición</th><th>Lugar</th><th>Tiempo</th></tr>\n<tr><td><b>AT</b></td><td>at the door, at home</td><td>at 3 pm, at night</td></tr>\n<tr><td><b>IN</b></td><td>in Lima, in the shop</td><td>in July, in 2026</td></tr>\n<tr><td><b>ON</b></td><td>on the table, on the wall</td><td>on Monday, on May 5th</td></tr>\n</table>", "exercises": [{"q": "\"Voy a la escuela\" → \"Estoy ___ escuela\":", "a": "a", "o": ["at school", "in school"], "fc": "\"At school\" es la frase fija.", "fi": "\"In school\" no es la estándar para esta frase.", "ex": "I'm at school → Estoy en la escuela", "tip": "at home, at work, at school — SIEMPRE at"}, {"q": "\"En la pared\" en inglés:", "a": "b", "o": ["in the wall", "on the wall"], "fc": "Superficie vertical → \"on\".", "fi": "\"In the wall\" sería DENTRO de la pared.", "ex": "The picture is on the wall → La foto está en la pared"}, {"q": "\"A las 8 de la mañana\" en inglés:", "a": "b", "o": ["on 8 in the morning", "at 8 in the morning"], "fc": "Hora → \"at\" + \"in the morning\".", "fi": "\"On 8\" no es correcto para horas.", "ex": "I work at 8 in the morning → Trabajo a las 8 de la mañana"}, {"q": "\"En el banco\" en inglés:", "a": "a", "o": ["at the bank", "on the bank"], "fc": "Lugar puntual/institución → \"at the bank\".", "fi": "\"On the bank\" significaría SOBRE el banco (edificio).", "ex": "I'm at the bank → Estoy en el banco"}, {"q": "\"En el verano\" en inglés:", "a": "a", "o": ["in summer", "at summer"], "fc": "Estaciones → \"in\".", "fi": "\"At summer\" no es correcto para estaciones.", "ex": "In summer, I travel → En verano viajo"}]}, {"icon": "✨", "title": "Práctica Final", "html": "<div class=\"section-label\">Paso 5</div>\n<div class=\"section-title\">Paso 5: ✨ Práctica Final</div>\n<div class=\"formula-box\">⏰ <b>AT</b> hora · <b>ON</b> día/fecha · <b>IN</b> mes/año/estación<br>📍 <b>AT</b> punto · <b>IN</b> espacio cerrado · <b>ON</b> superficie</div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">🏦</div><div><div class=\"en\"><span class=\"g-subj\">She</span> <span class=\"g-verb\">works</span> <b>at</b> the bank <b>on</b> Mondays.</div><div class=\"es\">Trabaja en el banco los lunes.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">🌍</div><div><div class=\"en\"><span class=\"g-subj\">We</span> <span class=\"g-verb\">live</span> <b>in</b> Lima.</div><div class=\"es\">Vivimos en Lima.</div></div></div>\n<div class=\"ex-row ex-right\"><div class=\"icon\">📋</div><div><div class=\"en\">The money <span class=\"g-verb\">is</span> <b>on</b> the table.</div><div class=\"es\">El dinero está en la mesa.</div></div></div>\n<div class=\"alert-card\"><div class=\"atitle\">⚠️ Errores Comunes</div><p>❌ \"I'm in home\" → ✅ \"I'm <b>at</b> home\" (frase fija)<br>❌ \"On July\" → ✅ \"<b>In</b> July\" (meses con \"in\")<br>❌ \"In Monday\" → ✅ \"<b>On</b> Monday\" (días con \"on\")</p></div>", "exercises": [{"q": "\"Compro pan ___ la mañana.\" (en)", "a": "b", "o": ["on the morning", "in the morning"], "fc": "Partes del día → \"in the morning\".", "fi": "\"On the morning\" no es correcto.", "ex": "I buy bread in the morning → Compro pan en la mañana"}, {"q": "\"Trabaja ___ sábado.\" (el)", "a": "a", "o": ["on Saturday", "in Saturday"], "fc": "Días → \"on\".", "fi": "\"In Saturday\" no es correcto para días.", "ex": "She works on Saturday → Trabaja el sábado"}, {"q": "\"Estoy ___ casa ___ las 7 pm.\":", "a": "b", "o": ["in home on 7 pm", "at home at 7 pm"], "fc": "Ambos usan \"at\": frase fija + hora.", "fi": "\"In home on 7 pm\" rompe las dos reglas.", "ex": "I'm at home at 7 pm → Estoy en casa a las 7 pm", "tip": "at home + at + hora"}, {"q": "\"Nací ___ 2010.\" (en)", "a": "a", "o": ["in 2010", "on 2010"], "fc": "Años → \"in\".", "fi": "\"On 2010\" no funciona para años.", "ex": "I was born in 2010 → Nací en 2010"}, {"q": "\"La tienda está ___ la esquina.\" (en)", "a": "b", "o": ["in the corner", "at the corner"], "fc": "Punto/esquina externa → \"at\".", "fi": "\"In the corner\" es esquina interior de una habitación.", "ex": "The shop is at the corner → La tienda está en la esquina"}]}]};
+
+let curStep=0;const scores={};const answered={};
+
+function renderStepTabs(){
+var c=document.getElementById("stepTabs");c.innerHTML="";
+DATA.steps.forEach(function(s,i){
+var b=document.createElement("button");
+b.className="step-tab"+(i===curStep?" active":"");
+if(allAnswered(i)&&i!==curStep)b.classList.add("done");
+b.textContent=(i+1)+". "+s.icon+" "+s.title;
+b.addEventListener("click",function(){curStep=i;renderStepTabs();renderCard();document.getElementById("summaryFinal").classList.remove("show")});
+c.appendChild(b);
+});
+}
+
+function allAnswered(stepIdx){
+for(var i=0;i<5;i++){if(!answered["s"+stepIdx+"e"+i])return false}
+return true;
+}
+
+function renderCard(){
+var s=DATA.steps[curStep];
+var k="s"+curStep;
+if(scores[k]===undefined)scores[k]=0;
+var area=document.getElementById("cardArea");
+area.innerHTML="";
+
+var card=document.createElement("div");
+card.className="card active";
+card.innerHTML=s.html;
+
+var exSec=document.createElement("div");
+exSec.className="ex-section";
+var h3=document.createElement("h3");
+h3.textContent=EX_HEADER+" "+s.title;
+exSec.appendChild(h3);
+
+s.exercises.forEach(function(e,i){
+var eid=k+"e"+i;
+var div=document.createElement("div");
+div.className="exercise";
+div.id=eid;
+
+var qDiv=document.createElement("div");
+qDiv.className="exercise-q";
+qDiv.innerHTML=(i+1)+". "+e.q;
+div.appendChild(qDiv);
+
+var opts=document.createElement("div");
+opts.className="opts";
+var btnA=document.createElement("button");
+btnA.className="opt-btn";
+btnA.textContent="a) "+e.o[0];
+btnA.addEventListener("click",function(){chk(eid,"a",e.a)});
+opts.appendChild(btnA);
+var btnB=document.createElement("button");
+btnB.className="opt-btn";
+btnB.textContent="b) "+e.o[1];
+btnB.addEventListener("click",function(){chk(eid,"b",e.a)});
+opts.appendChild(btnB);
+div.appendChild(opts);
+
+var fbOk=document.createElement("div");
+fbOk.className="fb fb-ok";
+fbOk.id="fbok-"+eid;
+var correctText=e.o[e.a==="a"?0:1];
+var fbOkParts=[];
+fbOkParts.push("<div class=\"fb-header\"><span class=\"fb-icon\">"+ICON_PARTY+"</span> "+TEXT_CORRECT+"</div>");
+fbOkParts.push("<div class=\"fb-body\">");
+fbOkParts.push("<div class=\"fb-row\"><span class=\"fb-dot\">"+ICON_CHECK+"</span><div class=\"fb-text\"><span class=\"fb-correct-answer\">"+correctText+"</span> "+DASH+" "+e.fc+"</div></div>");
+fbOkParts.push("<div class=\"fb-row\"><span class=\"fb-dot\">"+ICON_BULB+"</span><div class=\"fb-text\">"+TEXT_OTHER_OPT+": "+e.fi+"</div></div>");
+if(e.ex)fbOkParts.push("<div class=\"fb-example\">"+ICON_NOTE+" "+e.ex+"</div>");
+if(e.tip)fbOkParts.push("<div class=\"fb-tip\"><strong>"+ICON_BULB+" "+TEXT_REMEMBER+":</strong> "+e.tip+"</div>");
+fbOkParts.push("</div>");
+fbOk.innerHTML=fbOkParts.join("");
+div.appendChild(fbOk);
+
+var fbBad=document.createElement("div");
+fbBad.className="fb fb-bad";
+fbBad.id="fbbad-"+eid;
+var fbBadParts=[];
+fbBadParts.push("<div class=\"fb-header\"><span class=\"fb-icon\">"+ICON_THINK+"</span> "+TEXT_INCORRECT+"</div>");
+fbBadParts.push("<div class=\"fb-body\">");
+fbBadParts.push("<div class=\"fb-row\"><span class=\"fb-dot\">"+ICON_X+"</span><div class=\"fb-text\"><span class=\"fb-wrong-reason\">"+e.fi+"</span></div></div>");
+fbBadParts.push("<div class=\"fb-row\"><span class=\"fb-dot\">"+ICON_CHECK+"</span><div class=\"fb-text\">"+TEXT_CORRECT_IS+" <span class=\"fb-correct-answer\">"+correctText+"</span> "+DASH+" "+e.fc+"</div></div>");
+if(e.ex)fbBadParts.push("<div class=\"fb-example\">"+ICON_NOTE+" "+e.ex+"</div>");
+if(e.tip)fbBadParts.push("<div class=\"fb-tip\"><strong>"+ICON_BULB+" "+TEXT_REMEMBER+":</strong> "+e.tip+"</div>");
+fbBadParts.push("</div>");
+fbBad.innerHTML=fbBadParts.join("");
+div.appendChild(fbBad);
+
+exSec.appendChild(div);
+
+if(answered[eid]){
+var btns=div.querySelectorAll(".opt-btn");
+btns.forEach(function(b){b.disabled=true});
+var sel=answered[eid].sel;
+var correct=e.a;
+if(sel===correct){
+div.classList.add("correct");
+btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok")});
+fbOk.classList.add("show");
+}else{
+div.classList.add("incorrect");
+btns.forEach(function(b){
+if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+});
+fbBad.classList.add("show");
+}
+}
+});
+
+var sb=document.createElement("div");
+sb.className="score-bar";
+sb.innerHTML="<div class=\"num\" id=\"sc-"+k+"\">"+scores[k]+"/5</div><div class=\"lbl\">"+TEXT_SCORE+"</div>";
+exSec.appendChild(sb);
+
+card.appendChild(exSec);
+area.appendChild(card);
+}
+
+function chk(eid,sel,correct){
+if(answered[eid])return;
+answered[eid]={sel:sel};
+var ex=document.getElementById(eid);
+var btns=ex.querySelectorAll(".opt-btn");
+btns.forEach(function(b){b.disabled=true});
+var k=eid.match(/s\d+/)[0];
+if(sel===correct){
+ex.classList.add("correct");
+btns.forEach(function(b){if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-ok")});
+document.getElementById("fbok-"+eid).classList.add("show");
+scores[k]=(scores[k]||0)+1;
+}else{
+ex.classList.add("incorrect");
+btns.forEach(function(b){
+if(b.textContent.indexOf(sel+")")===0)b.classList.add("sel-bad");
+if(b.textContent.indexOf(correct+")")===0)b.classList.add("show-ok");
+});
+document.getElementById("fbbad-"+eid).classList.add("show");
+}
+document.getElementById("sc-"+k).textContent=scores[k]+"/5";
+
+if(allAnswered(curStep)){
+renderStepTabs();
+}
+
+if(curStep===4&&allAnswered(4)){
+setTimeout(function(){
+var sf=document.getElementById("summaryFinal");
+var sl=document.getElementById("summaryList");
+sl.innerHTML=DATA.summary.map(function(s){return "<li>"+s+"</li>"}).join("");
+var total=0;
+for(var i=0;i<5;i++)total+=(scores["s"+i]||0);
+var ts=document.getElementById("totalScore");
+if(ts)ts.innerHTML="<div class=\"big\">"+total+"/25</div><div class=\"small\">"+TEXT_TOTAL+"</div>";
+sf.classList.add("show");
+sf.scrollIntoView({behavior:"smooth"});
+},500);
+}
+}
+
+renderStepTabs();renderCard();
+
+
+</script>
+</body>
+</html>

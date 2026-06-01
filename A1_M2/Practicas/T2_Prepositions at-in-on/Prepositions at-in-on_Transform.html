@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A1 M2 · Prepositions at/in/on | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #29B6F6; --primary-light: #B3E5FC; --primary-dark: #0277BD; --primary-darker: #01579B;
+            --accent: #4FC3F7; --bg-gradient-start: #F0F9FF; --bg-gradient-end: #E1F5FE;
+            --text-dark: #01579B; --text-medium: #0277BD; --text-light: #0288D1;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --orange: #F97316; --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(41,182,246,0.18);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#0288D1,#29B6F6,#4FC3F7); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.9); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .ref-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.5rem; }
+        .ref-col { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:10px; padding:0.6rem 0.5rem; text-align:center; }
+        .ref-col-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:800; color:var(--primary-darker); margin-bottom:0.4rem; padding:0.15rem; background:white; border-radius:6px; }
+        .ref-col-text { font-size:0.72rem; color:var(--text-dark); line-height:1.45; }
+        .ref-col-text strong { color:var(--primary-darker); }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; background:var(--primary-light); color:var(--primary-darker); }
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:1rem; font-weight:600; color:var(--text-dark); line-height:1.5; }
+        .prep-chip { display:inline-block; background:var(--primary); color:white; padding:0.3rem 0.9rem; border-radius:10px; font-weight:800; font-size:1.1rem; font-family:'Fredoka',sans-serif; }
+        .goal-chip { display:inline-block; background:var(--primary); color:white; padding:0.25rem 0.7rem; border-radius:8px; font-weight:800; font-size:0.92rem; font-family:'Fredoka',sans-serif; }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.2rem 0; }
+        .translate-bar { display:flex; justify-content:flex-end; margin-bottom:0.5rem; }
+        .translate-btn { background:white; border:1.5px dashed var(--primary); color:var(--primary-dark); padding:0.35rem 0.8rem; border-radius:20px; font-family:'Nunito',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem; transition:all .2s; }
+        .translate-btn:hover { background:var(--bg-gradient-start); }
+        .translate-btn.active { background:var(--primary); color:white; border-style:solid; }
+        .translation-box { background:#FFF8E1; border:1px solid #FFE082; border-radius:10px; padding:0.6rem 0.85rem; margin-bottom:0.85rem; font-size:0.88rem; color:#5D4037; font-style:italic; display:none; line-height:1.5; }
+        .translation-box.show { display:block; animation:fadeUp .3s ease; }
+        .translation-box .tr-label { font-weight:800; font-style:normal; color:#E65100; margin-right:0.3rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; }
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.85rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:center; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-darker); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.96rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-btn.correct .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.45rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:8px; font-size:0.92rem; font-weight:600; line-height:1.45; }
+        .tf-step.present { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.past-wrong { background:var(--error-light); color:var(--error-dark); border:1px solid #FECACA; }
+        .tf-step.past-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #A7F3D0; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; opacity:.85; }
+        .tf-arrow { text-align:center; font-size:1rem; color:#94A3B8; }
+        .vb-highlight { background:rgba(255,255,255,0.7); padding:0 4px; border-radius:4px; font-weight:800; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.55rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">🩵 A1 · Module 2 · Prepositions at / in / on</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Match the preposition with the right noun</div>
+                <div class="instructions-text">You see a preposition (at / in / on). Choose the noun phrase that fits with it. Tap <strong>"Ver en español"</strong> if you need a translation.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Quiz Complete!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [
+        // Q1 — pos 0 — AT
+        {
+            id: 1, topic: "AT · time",
+            preposition: "AT",
+            translation: "Algo que va con la preposición AT.",
+            goal: "Find what goes with AT",
+            options: [
+                { text: "8:30 AM", correct: true },
+                { text: "September", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'September' is a month. Months take a different preposition (in September), not AT." },
+                { text: "Monday", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'Monday' is a day of the week. Days take a different preposition (on Monday), not AT." }
+            ],
+            clue: "AT + clock time",
+            clueExplain: "is used for specific clock times.",
+            rule: "AT + clock time",
+            examples: ["at 8 AM", "at 6 PM", "at noon", "at midnight"],
+            correctReason: "Specific clock times always go with AT: at 8:30 AM, at 3 PM, at noon."
+        },
+        // Q2 — pos 1 — IN
+        {
+            id: 2, topic: "IN · season",
+            preposition: "IN",
+            translation: "Algo que va con la preposición IN.",
+            goal: "Find what goes with IN",
+            options: [
+                { text: "Friday", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Friday' is a day of the week. Days take a different preposition (on Friday), not IN." },
+                { text: "summer", correct: true },
+                { text: "the bus stop", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'The bus stop' is a specific point. It takes a different preposition (at the bus stop), not IN." }
+            ],
+            clue: "IN + season",
+            clueExplain: "is used for seasons, months, and years.",
+            rule: "IN + season / month / year",
+            examples: ["in summer", "in winter", "in July"],
+            correctReason: "Seasons (summer, winter, spring, fall) always go with IN."
+        },
+        // Q3 — pos 2 — ON
+        {
+            id: 3, topic: "ON · day",
+            preposition: "ON",
+            translation: "Algo que va con la preposición ON.",
+            goal: "Find what goes with ON",
+            options: [
+                { text: "the morning", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'The morning' is a part of the day. It takes a different preposition (in the morning), not ON." },
+                { text: "noon", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'Noon' is a specific time of day. It takes a different preposition (at noon), not ON." },
+                { text: "Tuesday", correct: true }
+            ],
+            clue: "ON + day of the week",
+            clueExplain: "is used for days of the week and specific dates.",
+            rule: "ON + day / date",
+            examples: ["on Monday", "on Tuesday", "on July 5th"],
+            correctReason: "Days of the week always go with ON: on Monday, on Tuesday, on Sunday."
+        },
+        // Q4 — pos 0 — AT (place)
+        {
+            id: 4, topic: "AT · specific point",
+            preposition: "AT",
+            translation: "Algo que va con la preposición AT.",
+            goal: "Find what goes with AT",
+            options: [
+                { text: "the door", correct: true },
+                { text: "the kitchen", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'The kitchen' is a room (an enclosed space). It takes a different preposition (in the kitchen), not AT." },
+                { text: "the table", correct: false,
+                  errorType: "Doesn't fit AT (as a surface)",
+                  explanation: "'The table' is a surface. When something rests on top of it, it takes a different preposition (on the table)." }
+            ],
+            clue: "AT + specific point",
+            clueExplain: "is used for specific points/locations like doors, windows, bus stops.",
+            rule: "AT + specific point / location",
+            examples: ["at the door", "at the bus stop", "at the entrance"],
+            correctReason: "Specific points (door, window, gate, entrance) always go with AT."
+        },
+        // Q5 — pos 1 — IN (city)
+        {
+            id: 5, topic: "IN · city",
+            preposition: "IN",
+            translation: "Algo que va con la preposición IN.",
+            goal: "Find what goes with IN",
+            options: [
+                { text: "the wall", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'The wall' is a surface. Things attached to it take a different preposition (on the wall), not IN." },
+                { text: "Lima", correct: true },
+                { text: "Saturday", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Saturday' is a day of the week. Days take a different preposition (on Saturday), not IN." }
+            ],
+            clue: "IN + city",
+            clueExplain: "is used for cities, countries, and large areas.",
+            rule: "IN + city / country / continent",
+            examples: ["in Lima", "in Peru", "in South America"],
+            correctReason: "Cities, countries, and large areas always go with IN: in Lima, in Peru, in Europe."
+        },
+        // Q6 — pos 2 — ON (surface)
+        {
+            id: 6, topic: "ON · surface",
+            preposition: "ON",
+            translation: "Algo que va con la preposición ON.",
+            goal: "Find what goes with ON",
+            options: [
+                { text: "school", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'School' is a fixed expression. It takes a different preposition (at school), not ON." },
+                { text: "summer", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'Summer' is a season. Seasons take a different preposition (in summer), not ON." },
+                { text: "the table", correct: true }
+            ],
+            clue: "ON + surface",
+            clueExplain: "is used for surfaces — when something rests on top of them.",
+            rule: "ON + surface",
+            examples: ["on the table", "on the wall", "on the floor"],
+            correctReason: "Surfaces (tables, walls, floors, shelves) always go with ON. The object rests on top of them."
+        },
+        // Q7 — pos 0 — AT (night, fixed)
+        {
+            id: 7, topic: "AT · 'at night'",
+            preposition: "AT",
+            translation: "Algo que va con la preposición AT.",
+            goal: "Find what goes with AT",
+            options: [
+                { text: "night", correct: true },
+                { text: "the morning", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'The morning' is a part of the day with article 'the'. It takes a different preposition (in the morning), not AT." },
+                { text: "April", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'April' is a month. Months take a different preposition (in April), not AT." }
+            ],
+            clue: "AT night (fixed)",
+            clueExplain: "is a fixed exception — different from 'in the morning', 'in the afternoon', 'in the evening'.",
+            rule: "AT night (fixed) — but IN the morning",
+            examples: ["at night", "in the morning", "in the afternoon"],
+            correctReason: "'Night' is a special exception — it always goes with AT (no article). Other parts of the day go with IN + 'the' (in the morning)."
+        },
+        // Q8 — pos 1 — IN (year)
+        {
+            id: 8, topic: "IN · year",
+            preposition: "IN",
+            translation: "Algo que va con la preposición IN.",
+            goal: "Find what goes with IN",
+            options: [
+                { text: "midnight", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Midnight' is a specific time. It takes a different preposition (at midnight), not IN." },
+                { text: "2025", correct: true },
+                { text: "December 31st", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'December 31st' is a specific date. Dates with numbers take a different preposition (on December 31st), not IN." }
+            ],
+            clue: "IN + year",
+            clueExplain: "is used for years (and decades).",
+            rule: "IN + year",
+            examples: ["in 2025", "in 2010", "in the 90s"],
+            correctReason: "Years always go with IN: in 2025, in 2010, in 1995."
+        },
+        // Q9 — pos 2 — ON (date)
+        {
+            id: 9, topic: "ON · specific date",
+            preposition: "ON",
+            translation: "Algo que va con la preposición ON.",
+            goal: "Find what goes with ON",
+            options: [
+                { text: "the box", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'The box' is a container. When something is INSIDE it, a different preposition is used (in the box)." },
+                { text: "summer", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'Summer' is a season. Seasons take a different preposition (in summer), not ON." },
+                { text: "July 15th", correct: true }
+            ],
+            clue: "ON + specific date",
+            clueExplain: "is used for specific dates with numbers.",
+            rule: "ON + specific date",
+            examples: ["on July 15th", "on May 3rd", "on December 25th"],
+            correctReason: "Specific dates with day numbers (July 15th, May 3rd) always go with ON. The month alone goes with IN (in July)."
+        },
+        // Q10 — pos 0 — AT (home)
+        {
+            id: 10, topic: "AT · 'at home'",
+            preposition: "AT",
+            translation: "Algo que va con la preposición AT.",
+            goal: "Find what goes with AT",
+            options: [
+                { text: "home", correct: true },
+                { text: "the kitchen", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'The kitchen' is a room. Rooms take a different preposition (in the kitchen), not AT." },
+                { text: "the wall", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'The wall' is a surface. Surfaces take a different preposition (on the wall), not AT." }
+            ],
+            clue: "AT home (fixed)",
+            clueExplain: "is a fixed expression — uses AT and no article.",
+            rule: "AT home / school / work",
+            examples: ["at home", "at school", "at work"],
+            correctReason: "'Home', 'school', 'work' are fixed expressions that always go with AT and NO article. We don't say 'at the home'."
+        },
+        // Q11 — pos 1 — IN (room)
+        {
+            id: 11, topic: "IN · enclosed space",
+            preposition: "IN",
+            translation: "Algo que va con la preposición IN.",
+            goal: "Find what goes with IN",
+            options: [
+                { text: "Friday morning", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Friday morning' combines a day with a part of the day. It takes a different preposition (on Friday morning), not IN." },
+                { text: "the bedroom", correct: true },
+                { text: "noon", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Noon' is a specific time. It takes a different preposition (at noon), not IN." }
+            ],
+            clue: "IN + enclosed space",
+            clueExplain: "is used for enclosed spaces and rooms.",
+            rule: "IN + room / enclosed space",
+            examples: ["in the bedroom", "in the office", "in the car"],
+            correctReason: "Rooms (bedroom, kitchen, office) and enclosed spaces (car, box) always go with IN — you are INSIDE them."
+        },
+        // Q12 — pos 2 — ON (weekend)
+        {
+            id: 12, topic: "ON · weekends",
+            preposition: "ON",
+            translation: "Algo que va con la preposición ON.",
+            goal: "Find what goes with ON",
+            options: [
+                { text: "the morning", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'The morning' takes a different preposition (in the morning), not ON." },
+                { text: "January", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'January' is a month. Months take a different preposition (in January), not ON." },
+                { text: "weekends", correct: true }
+            ],
+            clue: "ON + weekends",
+            clueExplain: "is grouped with days of the week.",
+            rule: "ON + weekends / days",
+            examples: ["on weekends", "on Mondays", "on Saturday night"],
+            correctReason: "'Weekends' is grouped with days of the week and always goes with ON (American English standard)."
+        },
+        // Q13 — pos 0 — AT (school)
+        {
+            id: 13, topic: "AT · 'at school'",
+            preposition: "AT",
+            translation: "Algo que va con la preposición AT.",
+            goal: "Find what goes with AT",
+            options: [
+                { text: "school", correct: true },
+                { text: "Lima", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'Lima' is a city. Cities take a different preposition (in Lima), not AT." },
+                { text: "the floor", correct: false,
+                  errorType: "Doesn't fit AT",
+                  explanation: "'The floor' is a surface. Surfaces take a different preposition (on the floor), not AT." }
+            ],
+            clue: "AT school (fixed)",
+            clueExplain: "is a fixed expression — uses AT and no article.",
+            rule: "AT school / home / work",
+            examples: ["at school", "at home", "at work"],
+            correctReason: "'School', 'home', 'work' are fixed expressions that go with AT and NO article."
+        },
+        // Q14 — pos 1 — IN (morning)
+        {
+            id: 14, topic: "IN · 'in the morning'",
+            preposition: "IN",
+            translation: "Algo que va con la preposición IN.",
+            goal: "Find what goes with IN",
+            options: [
+                { text: "March 8th", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'March 8th' is a specific date. Dates take a different preposition (on March 8th), not IN." },
+                { text: "the morning", correct: true },
+                { text: "midnight", correct: false,
+                  errorType: "Doesn't fit IN",
+                  explanation: "'Midnight' is a specific time. Specific times take a different preposition (at midnight), not IN." }
+            ],
+            clue: "IN the morning",
+            clueExplain: "is a fixed expression for parts of the day (except 'night').",
+            rule: "IN the morning / afternoon / evening",
+            examples: ["in the morning", "in the afternoon", "in the evening"],
+            correctReason: "Parts of the day (except night) go with IN + 'the': in the morning, in the afternoon, in the evening. Only 'night' is different (at night)."
+        },
+        // Q15 — pos 2 — ON (wall)
+        {
+            id: 15, topic: "ON · vertical surface",
+            preposition: "ON",
+            translation: "Algo que va con la preposición ON.",
+            goal: "Find what goes with ON",
+            options: [
+                { text: "the box", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'The box' is a container. When something is INSIDE the box, it takes a different preposition (in the box). Only if something rests on top of the box would ON apply." },
+                { text: "winter", correct: false,
+                  errorType: "Doesn't fit ON",
+                  explanation: "'Winter' is a season. Seasons take a different preposition (in winter), not ON." },
+                { text: "the wall", correct: true }
+            ],
+            clue: "ON + surface (vertical)",
+            clueExplain: "is used for surfaces — including vertical ones like walls.",
+            rule: "ON + surface",
+            examples: ["on the wall", "on the door", "on the screen"],
+            correctReason: "Walls are vertical surfaces. Things attached to them (pictures, posters, signs) always go with ON: on the wall, on the door."
+        }
+    ];
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge">${q.topic}</span>
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">📝 Preposition</span>
+                    <div class="transform-sentence"><span class="prep-chip">${q.preposition}</span> + ?</div>
+                </div>
+                <div class="transform-arrow">⬇ Match it ⬇</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence"><span class="goal-chip">${q.goal}</span></div>
+                </div>
+            </div>
+            <div class="translate-bar">
+                <button class="translate-btn" id="trBtn-${index}" onclick="toggleTranslation(${index})">🇪🇸 Ver en español</button>
+            </div>
+            <div class="translation-box" id="trBox-${index}">
+                <span class="tr-label">ES:</span>${q.translation}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${q.preposition.toLowerCase()} <strong>${opt.text}</strong></div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi) {
+        const box = document.getElementById(`trBox-${qi}`);
+        const btn = document.getElementById(`trBtn-${qi}`);
+        const open = box.classList.toggle('show');
+        btn.classList.toggle('active', open);
+        btn.innerHTML = open ? '🇬🇧 Hide translation' : '🇪🇸 Ver en español';
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            const opt = q.shuffled[i];
+            if (opt.correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+        const ruleExamples = q.examples.map(e => `<span class="rule-ex">${e}</span>`).join('');
+
+        const correctHL = `<span class="vb-highlight">${q.preposition.toLowerCase()} ${correctOpt.text}</span>`;
+        const wrongHL = !isCorrect ? `<span class="vb-highlight">${q.preposition.toLowerCase()} ${selected.text}</span>` : null;
+
+        const transformFlow = `
+            <div class="transform-flow">
+                ${wrongHL ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer:</span>${wrongHL}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct match:</span>${correctHL}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct match!</div>
+                        <div class="fb-subtitle">You picked the right combination</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 The match</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Wrong match</div>
+                        <div class="fb-subtitle">Let's review the combinations</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Compare</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master prepositions. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

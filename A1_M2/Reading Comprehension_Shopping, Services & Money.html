@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading Comprehension | Module 2 | A1 | JUCUM</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --lvl: #29B6F6;
+  --lvl-dark: #0277BD;
+  --lvl-darker: #01579B;
+  --lvl-light: #E1F5FE;
+  --lvl-mid: #B3E5FC;
+  --lvl-grad: linear-gradient(135deg, #0288D1 0%, #29B6F6 60%, #4FC3F7 100%);
+  --lvl-glow: rgba(41,182,246,0.12);
+  --radius: 14px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:linear-gradient(135deg,#E1F5FE 0%,#B3E5FC 100%);min-height:100vh;padding:15px;padding-bottom:40px;color:#1a2a3a;}
+.container{max-width:620px;margin:0 auto;}
+
+/* HEADER */
+.header{background:var(--lvl-grad);border-radius:20px;padding:28px 22px;text-align:center;margin-bottom:20px;box-shadow:0 8px 28px rgba(2,136,209,0.35);position:relative;overflow:hidden;}
+.header::before{content:'';position:absolute;top:-40%;right:-8%;width:260px;height:260px;background:rgba(255,255,255,0.08);border-radius:50%;}
+.header::after{content:'';position:absolute;bottom:-40%;left:-5%;width:180px;height:180px;background:rgba(255,255,255,0.06);border-radius:50%;}
+.header h1{color:white;font-size:1.7rem;margin-bottom:6px;text-shadow:2px 2px 4px rgba(0,0,0,0.2);position:relative;}
+.header .subtitle{color:rgba(255,255,255,0.9);font-size:0.95rem;margin-bottom:10px;position:relative;}
+.level-badge{display:inline-block;background:var(--lvl-light);padding:5px 16px;border-radius:20px;font-size:0.82rem;color:var(--lvl-darker);font-weight:800;border:1.5px solid var(--lvl-mid);position:relative;}
+
+/* KRASHEN */
+.krashen-box{background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);border-radius:var(--radius);padding:16px 18px;margin-bottom:20px;border-left:5px solid #2196f3;}
+.krashen-box .icon-title{display:flex;align-items:center;gap:10px;margin-bottom:8px;}
+.krashen-box h4{color:#1565c0;font-size:0.95rem;}
+.krashen-box p{color:#555;font-size:0.83rem;line-height:1.65;}
+
+/* ACHIEVEMENTS */
+.achievements-section{background:white;border-radius:var(--radius);padding:18px;margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,0.07);}
+.achievements-section h3{text-align:center;color:var(--lvl-dark);font-size:0.98rem;margin-bottom:3px;}
+.achievements-section .sub{text-align:center;color:#888;font-size:0.78rem;margin-bottom:12px;}
+.achievements-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;}
+.achievement{text-align:center;padding:10px 6px;border-radius:10px;background:#f5f5f5;opacity:0.5;transition:all 0.3s;}
+.achievement.unlocked{background:linear-gradient(135deg,var(--lvl-light) 0%,var(--lvl-mid) 100%);opacity:1;box-shadow:0 3px 10px rgba(41,182,246,0.25);}
+.achievement .icon{font-size:1.4rem;margin-bottom:4px;}
+.achievement .name{font-size:0.62rem;color:#666;line-height:1.3;}
+.achievement.unlocked .name{color:var(--lvl-dark);font-weight:700;}
+
+/* STORY SELECTOR GRID */
+.story-selector{background:white;border-radius:var(--radius);padding:18px;margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,0.07);}
+.story-selector h3{text-align:center;color:var(--lvl-dark);font-size:0.98rem;margin-bottom:14px;}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.story-card-btn{padding:14px 12px;border:2.5px solid var(--lvl-mid);border-radius:12px;background:white;cursor:pointer;transition:all 0.25s;text-align:left;position:relative;}
+.story-card-btn:hover{border-color:var(--lvl);background:var(--lvl-light);transform:translateY(-2px);}
+.story-card-btn.active{background:var(--lvl-grad);border-color:var(--lvl-dark);color:white;}
+.story-card-btn .s-num{font-size:0.7rem;font-weight:800;color:var(--lvl-dark);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:4px;}
+.story-card-btn.active .s-num{color:rgba(255,255,255,0.8);}
+.story-card-btn .s-title{font-size:0.88rem;font-weight:700;color:#333;line-height:1.3;}
+.story-card-btn.active .s-title{color:white;}
+.story-card-btn .s-desc{font-size:0.72rem;color:#888;margin-top:3px;line-height:1.3;}
+.story-card-btn.active .s-desc{color:rgba(255,255,255,0.8);}
+.done-badge{position:absolute;top:8px;right:8px;font-size:0.9rem;}
+
+/* STORY PANEL */
+.story-panel{background:white;border-radius:var(--radius);margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,0.07);overflow:hidden;display:none;}
+.story-panel.active{display:block;}
+.story-header{background:var(--lvl-grad);padding:14px 18px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;}
+.story-header h3{color:white;font-size:0.98rem;display:flex;align-items:center;gap:8px;}
+.story-toggle{color:white;font-size:1.1rem;transition:transform 0.3s;}
+.story-toggle.open{transform:rotate(180deg);}
+.story-content{max-height:0;overflow:hidden;transition:max-height 0.5s ease;}
+.story-content.open{max-height:3000px;}
+.story-inner{padding:18px;max-height:420px;overflow-y:auto;}
+.story-inner::-webkit-scrollbar{width:6px;}
+.story-inner::-webkit-scrollbar-track{background:#e1f5fe;border-radius:3px;}
+.story-inner::-webkit-scrollbar-thumb{background:var(--lvl);border-radius:3px;}
+.story-line{margin-bottom:13px;padding:11px 14px;background:#f0f9ff;border-radius:9px;border-left:4px solid var(--lvl);}
+.story-line .english{color:#333;font-size:0.93rem;margin-bottom:5px;line-height:1.55;font-family:'Lora',serif;}
+.story-line .spanish{color:#888;font-size:0.82rem;font-style:italic;display:none;}
+.story-line .spanish.show{display:block;}
+.story-line .vocab{color:var(--lvl-dark);font-weight:700;}
+.story-line .gram{color:#1565c0;font-style:italic;}
+.reveal-line-btn{background:none;border:none;cursor:pointer;font-size:0.74rem;color:#9c27b0;background:#f3e5f5;padding:2px 8px;border-radius:5px;margin-top:4px;font-family:'Nunito',sans-serif;}
+.global-trans-btn{display:flex;align-items:center;gap:6px;margin:0 18px 12px;background:#f3e5f5;border:1.5px solid #ce93d8;color:#7b1fa2;font-size:0.8rem;font-weight:700;padding:6px 14px;border-radius:8px;cursor:pointer;font-family:'Nunito',sans-serif;width:fit-content;}
+.global-trans-btn.active{background:#ce93d8;color:white;}
+
+/* MODE SELECTOR */
+.mode-section{background:white;border-radius:var(--radius);padding:18px;margin-bottom:20px;box-shadow:0 4px 14px rgba(0,0,0,0.07);}
+.mode-section h3{text-align:center;color:#666;font-size:0.9rem;margin-bottom:13px;}
+.mode-buttons{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.mode-btn{padding:16px 12px;border:2.5px solid var(--lvl-mid);border-radius:12px;background:white;cursor:pointer;transition:all 0.25s;text-align:center;}
+.mode-btn:hover{transform:translateY(-2px);box-shadow:0 5px 16px rgba(41,182,246,0.25);}
+.mode-btn.active{background:var(--lvl-grad);border-color:var(--lvl-dark);}
+.mode-btn .flags{font-size:1.4rem;margin-bottom:6px;}
+.mode-btn .mode-title{font-weight:700;color:var(--lvl-dark);font-size:0.87rem;margin-bottom:3px;}
+.mode-btn.active .mode-title{color:white;}
+.mode-btn .mode-desc{font-size:0.73rem;color:#888;}
+.mode-btn.active .mode-desc{color:rgba(255,255,255,0.85);}
+
+/* QUIZ */
+.quiz-section{background:white;border-radius:var(--radius);padding:18px;box-shadow:0 4px 14px rgba(0,0,0,0.07);display:none;}
+.quiz-section.active{display:block;}
+.quiz-header{text-align:center;margin-bottom:18px;}
+.quiz-header h3{color:var(--lvl-dark);font-size:1.05rem;margin-bottom:4px;}
+.quiz-header .mode-indicator{color:#888;font-size:0.83rem;}
+.progress-container{margin-bottom:18px;}
+.progress-bar{height:9px;background:#e0e0e0;border-radius:5px;overflow:hidden;}
+.progress-fill{height:100%;background:var(--lvl-grad);border-radius:5px;transition:width 0.5s ease;width:0%;}
+.progress-text{text-align:center;font-size:0.78rem;color:#888;margin-top:7px;}
+.question-card{background:#f8fbff;border-radius:12px;padding:18px;margin-bottom:14px;border:2px solid #e0e0e0;transition:all 0.3s;}
+.question-card.correct{border-color:#4caf50;background:linear-gradient(135deg,#e8f5e9 0%,#c8e6c9 100%);}
+.question-card.incorrect{border-color:#f44336;background:linear-gradient(135deg,#ffebee 0%,#ffcdd2 100%);}
+.question-badge{display:inline-block;background:var(--lvl-grad);color:white;padding:4px 11px;border-radius:12px;font-size:0.72rem;font-weight:700;margin-bottom:10px;}
+.question-text{font-size:0.97rem;color:#333;margin-bottom:13px;line-height:1.5;}
+.options-grid{display:flex;flex-direction:column;gap:9px;}
+.option-btn{padding:13px 16px;border:2px solid #e0e0e0;border-radius:10px;background:white;color:#555;font-size:0.88rem;cursor:pointer;transition:all 0.2s;text-align:left;font-family:'Nunito',sans-serif;}
+.option-btn:hover:not(:disabled){border-color:var(--lvl);background:var(--lvl-light);transform:translateX(4px);}
+.option-btn:disabled{cursor:not-allowed;}
+.option-btn.selected-correct{background:linear-gradient(135deg,#4caf50,#66bb6a);color:white;border-color:#4caf50;}
+.option-btn.selected-wrong{background:linear-gradient(135deg,#f44336,#ef5350);color:white;border-color:#f44336;}
+.option-btn.show-correct{background:linear-gradient(135deg,#4caf50,#66bb6a);color:white;border-color:#4caf50;}
+.feedback{margin-top:13px;padding:13px;border-radius:10px;display:none;animation:fadeIn 0.3s ease;}
+.feedback.show{display:block;}
+.feedback.correct-fb{background:#e8f5e9;border:2px solid #a5d6a7;}
+.feedback.incorrect-fb{background:#ffebee;border:2px solid #ef9a9a;}
+.feedback-layers{display:flex;flex-direction:column;gap:6px;margin-top:6px;}
+.feedback-layer{font-size:0.8rem;color:#555;line-height:1.5;padding:6px 10px;border-radius:7px;background:rgba(255,255,255,0.6);}
+.feedback-layer strong{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;display:block;margin-bottom:2px;}
+.feedback-layer.ev strong{color:#0277bd;}
+.feedback-layer.gr strong{color:#2e7d32;}
+.feedback-layer.vo strong{color:#6a1b9a;}
+.feedback-layer.es strong{color:#e65100;}
+.feedback-title{font-weight:700;font-size:0.97rem;margin-bottom:4px;}
+.feedback.correct-fb .feedback-title{color:#2e7d32;}
+.feedback.incorrect-fb .feedback-title{color:#c62828;}
+
+/* SUBMIT BTN */
+.submit-section{display:none;text-align:center;margin-top:16px;}
+.submit-btn{background:var(--lvl-grad);color:white;border:none;padding:14px 38px;border-radius:28px;font-size:1rem;font-weight:700;cursor:pointer;transition:all 0.3s;font-family:'Nunito',sans-serif;}
+.submit-btn:hover{transform:scale(1.04);box-shadow:0 6px 20px rgba(2,136,209,0.4);}
+
+/* COMPLETION */
+.completion-card{display:none;background:var(--lvl-grad);border-radius:18px;padding:28px;text-align:center;margin-top:18px;box-shadow:0 8px 25px rgba(2,136,209,0.4);animation:bounceIn 0.5s ease;}
+.completion-card.show{display:block;}
+.completion-icon{font-size:3.5rem;margin-bottom:12px;}
+.completion-title{color:white;font-size:1.4rem;margin-bottom:8px;}
+.completion-score{font-size:2.8rem;font-weight:800;color:white;text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
+.completion-message{color:rgba(255,255,255,0.92);font-size:0.97rem;margin:12px 0;}
+.stats-card{background:rgba(255,255,255,0.2);border-radius:12px;padding:14px;margin:16px 0;display:flex;justify-content:center;gap:24px;}
+.stat-item{text-align:center;color:white;}
+.stat-num{font-size:1.5rem;font-weight:800;}
+.stat-label{font-size:0.72rem;opacity:0.85;margin-top:2px;}
+.completion-krashen{background:rgba(255,255,255,0.18);border-radius:10px;padding:13px;margin:16px 0;color:white;}
+.completion-krashen h4{font-size:0.87rem;margin-bottom:6px;}
+.completion-krashen p{font-size:0.78rem;opacity:0.9;line-height:1.5;}
+.reset-btn{background:white;color:var(--lvl-dark);border:none;padding:13px 36px;border-radius:28px;font-size:0.97rem;font-weight:700;cursor:pointer;transition:all 0.3s;margin-top:8px;font-family:'Nunito',sans-serif;}
+.reset-btn:hover{transform:scale(1.04);box-shadow:0 5px 18px rgba(0,0,0,0.18);}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.6);z-index:1000;justify-content:center;align-items:center;}
+.modal-overlay.show{display:flex;}
+.modal-content{background:white;border-radius:18px;padding:28px;text-align:center;max-width:300px;margin:20px;animation:bounceIn 0.4s ease;}
+.modal-icon{font-size:3.5rem;margin-bottom:12px;}
+.modal-title{color:var(--lvl-dark);font-size:1.2rem;margin-bottom:8px;}
+.modal-text{color:#666;font-size:0.88rem;margin-bottom:18px;}
+.modal-btn{background:var(--lvl-grad);color:white;border:none;padding:10px 32px;border-radius:22px;font-size:0.95rem;font-weight:700;cursor:pointer;font-family:'Nunito',sans-serif;}
+
+.hidden{display:none!important;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-8px);}to{opacity:1;transform:translateY(0);}}
+@keyframes bounceIn{0%{transform:scale(0.5);opacity:0;}70%{transform:scale(1.05);}100%{transform:scale(1);opacity:1;}}
+@keyframes shimmer{0%,100%{transform:rotate(0deg);}50%{transform:rotate(180deg);}}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- HEADER -->
+<header class="header">
+  <h1>📚 Reading Comprehension</h1>
+  <div class="subtitle">Module 2 • Shopping, Services & Money</div>
+  <div class="level-badge">🔵 A1</div>
+</header>
+
+<!-- KRASHEN -->
+<div class="krashen-box">
+  <div class="icon-title">
+    <span style="font-size:1.4rem">🧠</span>
+    <h4>Input Comprensible (Krashen)</h4>
+  </div>
+  <p>Según Stephen Krashen, adquirimos un idioma cuando entendemos mensajes en contexto. Lee cada historia con calma — tu cerebro absorbe patrones del inglés mientras sigue la narrativa. ¡Este es el "input comprensible" en acción!</p>
+</div>
+
+<!-- ACHIEVEMENTS -->
+<div class="achievements-section">
+  <h3>🏆 Logros por Desbloquear</h3>
+  <p class="sub">Responde correctamente para ganar insignias</p>
+  <div class="achievements-grid">
+    <div class="achievement" id="ach-first"><div class="icon">🌱</div><div class="name">Primera Respuesta</div></div>
+    <div class="achievement" id="ach-streak"><div class="icon">🔥</div><div class="name">3 Seguidas</div></div>
+    <div class="achievement" id="ach-literal"><div class="icon">📖</div><div class="name">Comprensión Literal</div></div>
+    <div class="achievement" id="ach-inferential"><div class="icon">🔍</div><div class="name">Comprensión Inferencial</div></div>
+    <div class="achievement" id="ach-critical"><div class="icon">🎓</div><div class="name">Pensamiento Crítico</div></div>
+    <div class="achievement" id="ach-perfect"><div class="icon">⭐</div><div class="name">Perfección</div></div>
+    <div class="achievement" id="ach-shopper"><div class="icon">🛍️</div><div class="name">Comprador Sabio</div></div>
+    <div class="achievement" id="ach-saver"><div class="icon">💰</div><div class="name">Ahorrador</div></div>
+  </div>
+</div>
+
+<!-- STORY SELECTOR -->
+<div class="story-selector">
+  <h3>📖 Selecciona una Historia</h3>
+  <div class="story-grid">
+    <button class="story-card-btn active" onclick="selectStory(1)" id="sbtn-1">
+      <div class="s-num">Historia 1</div>
+      <div class="s-title">The Hat in the Window</div>
+      <div class="s-desc">Clara busca el sombrero perfecto</div>
+      <span class="done-badge" id="done-1"></span>
+    </button>
+    <button class="story-card-btn" onclick="selectStory(2)" id="sbtn-2">
+      <div class="s-num">Historia 2</div>
+      <div class="s-title">The Receipt</div>
+      <div class="s-desc">Pedro aprende a guardar recibos</div>
+      <span class="done-badge" id="done-2"></span>
+    </button>
+    <button class="story-card-btn" onclick="selectStory(3)" id="sbtn-3">
+      <div class="s-num">Historia 3</div>
+      <div class="s-title">Fifty a Week</div>
+      <div class="s-desc">Ana y su plan de ahorro mensual</div>
+      <span class="done-badge" id="done-3"></span>
+    </button>
+    <button class="story-card-btn" onclick="selectStory(4)" id="sbtn-4">
+      <div class="s-num">Historia 4</div>
+      <div class="s-title">Carlos's Long Shift</div>
+      <div class="s-desc">Un día en el trabajo del supervisor</div>
+      <span class="done-badge" id="done-4"></span>
+    </button>
+  </div>
+</div>
+
+<!-- ═══ STORY 1 ═══ -->
+<div class="story-panel active" id="story-panel-1">
+  <div class="story-header" onclick="toggleStory(1)">
+    <h3>📖 The Hat in the Window</h3>
+    <span class="story-toggle open" id="story-toggle-1">▼</span>
+  </div>
+  <div class="story-content open" id="story-content-1">
+    <button class="global-trans-btn" id="gtrans-1" onclick="toggleAllTrans(1)">🌐 Mostrar traducciones</button>
+    <div class="story-inner">
+      <div class="story-line">
+        <div class="english">Clara loved shopping on Saturday mornings. <span class="gram">She would</span> walk slowly down the street, her <span class="vocab">feet</span> moving from one window to the next.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">A Clara le encantaba ir de compras los sábados por la mañana. Caminaba despacio por la calle, sus pies moviéndose de un escaparate al siguiente.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">That morning, <span class="gram">she saw</span> a hat — wide-brimmed and deep <span class="vocab">green</span> — sitting on a stand in the display. <span class="gram">She stopped</span> walking immediately. It stirred a quiet <span class="vocab">emotion</span> she could not quite name.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Esa mañana, vio un sombrero — de ala ancha y verde oscuro — posado en un soporte del escaparate. Dejó de caminar de inmediato. Despertó una emoción tranquila que no podía nombrar.</div>
+      </div>
+      <div class="story-line">
+        <div class="english"><span class="gram">She went</span> inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked <span class="vocab">underneath</span> the shelves and bags hanging on every wall. Clara pointed at the hat and asked if it <span class="gram">was</span> still for <span class="vocab">sale</span>.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Entró y encontró a un dependiente cerca de la entrada. La tienda era pequeña pero llena de cosas. Había cajas apiladas debajo de las estanterías y bolsas colgadas en cada pared. Clara señaló el sombrero y preguntó si todavía estaba en venta.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">The clerk explained that it <span class="gram">was</span> the last one. She also described the <span class="vocab">material</span> — it was a soft felt, made to keep its <span class="vocab">shape</span> even on windy days. Clara tried it on. It felt just right. But the price <span class="gram">was</span> more than she had planned to spend.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">El dependiente explicó que era el último. También describió el material — era un fieltro suave, hecho para mantener su forma incluso en días de viento. Clara se lo probó. Le quedaba perfectamente. Pero el precio era más de lo que había planeado gastar.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">She stood there for a moment, thinking. <span class="gram">She had been</span> saving a little money each week since January. <span class="vocab">Despite</span> the cost being slightly over her <span class="vocab">estimate</span>, she decided it was worth it. Good things on this <span class="vocab">earth</span> require a bit more effort sometimes.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Se quedó parada un momento, pensando. Había estado ahorrando un poco de dinero cada semana desde enero. A pesar de que el costo era ligeramente mayor que su estimado, decidió que valía la pena. Las cosas buenas en esta tierra a veces requieren un poco más de esfuerzo.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Clara paid and walked out into the sunshine wearing the hat. She felt happy. A few people on the street smiled at her. One woman said it was a great color — just right for the season. Clara smiled back and kept walking, her <span class="vocab">energy</span> suddenly better than before.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Clara pagó y salió al sol con el sombrero puesto. Se sentía feliz. Algunas personas en la calle le sonrieron. Una mujer dijo que era un gran color — perfecto para la temporada. Clara le devolvió la sonrisa y siguió caminando, con más energía que antes.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">On the way home, <span class="gram">she stopped</span> at a small market and got a box of <span class="vocab">eggs</span> and some fresh bread. It had been a good morning — one of those days when everything just <span class="gram">seemed</span> to go well. She was already thinking about what she might look for next Saturday.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">De camino a casa, se detuvo en un pequeño mercado y compró una caja de huevos y algo de pan fresco. Había sido una buena mañana — uno de esos días en que todo parece ir bien. Ya estaba pensando en qué podría buscar el próximo sábado.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STORY 2 ═══ -->
+<div class="story-panel" id="story-panel-2">
+  <div class="story-header" onclick="toggleStory(2)">
+    <h3>📖 The Receipt</h3>
+    <span class="story-toggle open" id="story-toggle-2">▼</span>
+  </div>
+  <div class="story-content open" id="story-content-2">
+    <button class="global-trans-btn" id="gtrans-2" onclick="toggleAllTrans(2)">🌐 Mostrar traducciones</button>
+    <div class="story-inner">
+      <div class="story-line">
+        <div class="english">Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a <span class="vocab">gold</span> base — elegant and solid. He paid sixty dollars for it, which <span class="gram">was</span> more than he usually spent on things for the house. But he really liked the way it looked.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Pedro compró una lámpara en una tienda cerca de su apartamento. Era una lámpara de pie alta con base dorada — elegante y sólida. Pagó sesenta dólares por ella, que era más de lo que normalmente gastaba en cosas para la casa. Pero realmente le gustaba el aspecto que tenía.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Three days later, the lamp <span class="gram">fell</span> while he was moving furniture. The base broke in two <span class="vocab">separate</span> pieces. He tried to <span class="vocab">fix</span> it himself, but the <span class="vocab">material</span> was too hard to work with. He felt frustrated — but he stayed calm. He thought the best <span class="vocab">solution</span> was to go back to the shop and explain what happened.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Tres días después, la lámpara cayó mientras movía muebles. La base se rompió en dos piezas separadas. Intentó arreglarla él mismo, pero el material era demasiado duro para trabajar. Se sintió frustrado, pero se mantuvo tranquilo. Pensó que la mejor solución era volver a la tienda.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">At the shop, the clerk was polite but firm. She <span class="gram">said</span> the store did not cover damage from accidents. Pedro asked if there <span class="gram">was</span> any other <span class="vocab">solution</span>. The clerk said she could <span class="vocab">demonstrate</span> the repair service they offered — but it would <span class="vocab">cost</span> extra. Pedro <span class="gram">was</span> disappointed. He had not thought about that.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">En la tienda, la dependiente fue amable pero firme. Dijo que la tienda no cubría daños por accidentes. Pedro preguntó si había otra solución. La dependiente dijo que podía demostrar el servicio de reparación — pero costaría más. Pedro se decepcionó.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt <span class="gram">was gone</span>. He had not kept it. <span class="vocab">Since</span> he had no proof of purchase, there was nothing they could do for a refund. He left feeling <span class="vocab">sorry</span> he had not been more careful.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Entonces ella pidió el recibo. Buscó en su chaqueta, su bolso e incluso sus notas antiguas. El recibo había desaparecido. No lo había guardado. Como no tenía prueba de compra, no podían hacer nada para el reembolso. Se fue sintiéndose arrepentido de no haber sido más cuidadoso.</div>
+      </div>
+      <div class="story-line">
+        <div class="english"><span class="vocab">Despite</span> the bad experience, Pedro decided to <span class="vocab">handle</span> it with a positive attitude. He found a local repair shop a few streets away. An older man there <span class="gram">said</span> he could <span class="vocab">fix</span> the base for fifteen dollars. That <span class="gram">was</span> a much better option. Pedro got the lamp back the next day, good as new.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">A pesar de la mala experiencia, Pedro decidió manejarlo con una actitud positiva. Encontró una tienda de reparación local a unas pocas calles de distancia. Un hombre mayor allí dijo que podía arreglar la base por quince dólares. Esa era una opción mucho mejor. Pedro recuperó la lámpara al día siguiente, como nueva.</div>
+      </div>
+      <div class="story-line">
+        <div class="english"><span class="vocab">Since</span> that day, Pedro <span class="gram">has kept</span> every receipt in a small box on his desk. He learned that a simple piece of paper can <span class="vocab">save</span> you a lot of trouble. He also learned that a good <span class="vocab">solution</span> is not always where you first look for it — sometimes it's just around the corner.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Desde ese día, Pedro guarda todos los recibos en una pequeña caja sobre su escritorio. Aprendió que un simple trozo de papel puede ahorrarte muchos problemas. También aprendió que una buena solución no siempre está donde la buscas primero — a veces está justo a la vuelta de la esquina.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STORY 3 ═══ -->
+<div class="story-panel" id="story-panel-3">
+  <div class="story-header" onclick="toggleStory(3)">
+    <h3>📖 Fifty a Week</h3>
+    <span class="story-toggle open" id="story-toggle-3">▼</span>
+  </div>
+  <div class="story-content open" id="story-content-3">
+    <button class="global-trans-btn" id="gtrans-3" onclick="toggleAllTrans(3)">🌐 Mostrar traducciones</button>
+    <div class="story-inner">
+      <div class="story-line">
+        <div class="english">Ana <span class="vocab">earn</span>s a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied. <span class="vocab">Despite</span> the long hours, she enjoys her job. The people there are kind, and she has learned to <span class="vocab">manage</span> her time and <span class="vocab">energy</span> well.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Ana gana un pequeño salario en el mercado cerca de su casa. Trabaja seis días a la semana y termina cada turno sintiéndose cansada pero satisfecha. A pesar de las largas horas, disfruta su trabajo. La gente allí es amable, y ha aprendido a gestionar bien su tiempo y energía.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Each month, she sits down with a pen and paper to <span class="vocab">estimate</span> her expenses. She <span class="vocab">mainly</span> spends money on food, transportation, and rent. She grew up on a <span class="vocab">farm</span>, far from the city and its <span class="vocab">factories</span>, so she learned early to be careful with money. She tries to <span class="vocab">save</span> at least fifty dollars every month. It's not a lot, but she is consistent.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Cada mes, se sienta con lápiz y papel para estimar sus gastos. Principalmente gasta dinero en comida, transporte y alquiler. Creció en una granja, lejos de la ciudad y sus fábricas, así que aprendió pronto a ser cuidadosa con el dinero. Intenta ahorrar al menos cincuenta dólares cada mes.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Sometimes it's hard. When something breaks, or when a bill arrives that she didn't expect, the <span class="vocab">math</span> doesn't work out perfectly. Last month, her phone required a repair that <span class="vocab">cost</span> more than she had planned. She had to use part of her savings to cover it. The <span class="vocab">fear</span> of losing all her savings <span class="gram">felt</span> very real that Tuesday — her dream of traveling suddenly <span class="gram">felt</span> very far away. But she kept going.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">A veces es difícil. Cuando algo se rompe, o cuando llega una factura inesperada, las matemáticas no cuadran perfectamente. El mes pasado, su teléfono requirió una reparación que costó más de lo planeado. Tuvo que usar parte de sus ahorros para cubrirlo. El miedo de perder todos sus ahorros se sintió muy real ese martes. Pero siguió adelante.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">She <span class="gram">told</span> herself that most people face these moments and that the important thing is to not let them <span class="vocab">define</span> your whole plan. She <span class="vocab">decided</span> to work one extra shift that month to <span class="vocab">earn</span> a little more. Her manager <span class="gram">said</span> yes right away. <span class="vocab">Everyone</span> at the shop knew she was reliable.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Se dijo que la mayoría de las personas enfrentan estos momentos y que lo importante es no dejar que definan todo tu plan. Decidió trabajar un turno extra ese mes para ganar un poco más. Su gerente dijo que sí de inmediato. Todos en la tienda sabían que era confiable.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">By the end of the month, she had saved thirty dollars — not fifty, but still something. She <span class="vocab">mark</span>ed it in her notebook. Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort <span class="gram">was gone</span>. She would try again next month.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Al final del mes, había ahorrado treinta dólares — no cincuenta, pero aún algo. Lo marcó en su cuaderno. Las pequeñas victorias importan, pensó. No iba a dejar que un mes difícil la hiciera sentir que todo el esfuerzo se había ido. Lo intentaría de nuevo el próximo mes.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">Ana's goal is to <span class="vocab">save</span> enough money to visit the <span class="vocab">sea</span> one day — a <span class="vocab">distant</span> place she has only <span class="gram">seen</span> in photos. It doesn't matter if it takes two more years. She is patient. She knows that most things worth having take time, and she is willing to wait for them.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">La meta de Ana es ahorrar suficiente dinero para visitar el mar algún día — un lugar distante que solo ha visto en fotos. No importa si tarda dos años más. Ella es paciente. Sabe que la mayoría de las cosas que valen la pena requieren tiempo, y está dispuesta a esperar por ellas.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STORY 4 ═══ -->
+<div class="story-panel" id="story-panel-4">
+  <div class="story-header" onclick="toggleStory(4)">
+    <h3>📖 Carlos's Long Shift</h3>
+    <span class="story-toggle open" id="story-toggle-4">▼</span>
+  </div>
+  <div class="story-content open" id="story-content-4">
+    <button class="global-trans-btn" id="gtrans-4" onclick="toggleAllTrans(4)">🌐 Mostrar traducciones</button>
+    <div class="story-inner">
+      <div class="story-line">
+        <div class="english">Carlos has worked at the same <span class="vocab">shop</span> for three years. He is the shift supervisor now, which means he is <span class="vocab">mainly</span> responsible for making sure everything runs well. He <span class="gram">led</span> his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Carlos ha trabajado en la misma tienda por tres años. Es el supervisor de turno ahora, lo que significa que es principalmente responsable de asegurarse de que todo funcione bien. Dirigió su primer equipo a los veintitrés — joven para el puesto, pero lo consiguió porque era tranquilo y organizado.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">His morning started, as always, with a walkthrough of the shop floor. He checked that all items <span class="gram">were</span> in their right place and that the price marks <span class="gram">were</span> correct. He noticed a few boxes left <span class="vocab">underneath</span> a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Su mañana comenzó, como siempre, con un recorrido por la planta de la tienda. Comprobó que todos los artículos estuvieran en su lugar correcto y que las marcas de precio fueran correctas. Notó algunas cajas dejadas debajo de una mesa cerca de la entrada. Hizo una nota para hablar sobre ello en la reunión del equipo.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">By mid-morning, the shop was busy. <span class="vocab">Everyone</span> <span class="gram">seemed</span> to be shopping at once. Carlos helped two customers find items they were looking for, and he also tried to <span class="vocab">persuade</span> a third customer not to leave after a misunderstanding about a price. He stayed patient. He knew that how you <span class="vocab">handle</span> those moments matters.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">A media mañana, la tienda estaba llena. Todo el mundo parecía estar comprando a la vez. Carlos ayudó a dos clientes a encontrar artículos, y también intentó convencer a un tercer cliente para que no se fuera después de un malentendido sobre un precio. Se mantuvo paciente.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">At lunch, he sat in the break room with two colleagues. The conversation was light — they talked about a football match from the night before, and someone mentioned a <span class="vocab">music</span> concert happening in the city on the weekend. Carlos laughed and <span class="gram">said</span> he hadn't been to a concert since he was a student. He missed those days.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">En el almuerzo, se sentó en la sala de descanso con dos compañeros. La conversación fue ligera — hablaron de un partido de fútbol de la noche anterior, y alguien mencionó un concierto de música en la ciudad el fin de semana. Carlos se rió y dijo que no había ido a un concierto desde que era estudiante.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month <span class="gram">were</span> good — everyone had done well. She asked Carlos to <span class="vocab">define</span> a new system for tracking inventory. A key <span class="vocab">element</span>, he explained, was making it easy enough that anyone could figure out how to use it. He also offered to <span class="vocab">proofread</span> the new form before it went out — a small but thoughtful gesture.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Por la tarde, tuvo una corta reunión con la gerente de la tienda. Ella dijo que las cifras de ventas del mes eran buenas. Le pidió a Carlos que definiera un nuevo sistema para rastrear el inventario. Un elemento clave, explicó, era hacerlo lo suficientemente fácil para que cualquiera lo usara. También ofreció corregir el nuevo formulario antes de que saliera.</div>
+      </div>
+      <div class="story-line">
+        <div class="english">By the end of his shift, Carlos <span class="gram">felt</span> tired but good. He had managed the day well. He turned off the lights in the back room, made sure the doors <span class="gram">were</span> locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the <span class="vocab">field</span> path, enjoying the quiet.</div>
+        <button class="reveal-line-btn" onclick="toggleLine(this)">🇪🇸 ver</button>
+        <div class="spanish">Al final de su turno, Carlos se sentía cansado pero bien. Había manejado bien el día. Apagó las luces en la sala trasera, se aseguró de que las puertas estuvieran cerradas con llave, y envió un corto mensaje al chat grupal del equipo. Luego caminó a casa por el camino del campo, disfrutando del silencio.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODE SELECTOR -->
+<div class="mode-section">
+  <h3>Selecciona el modo de práctica</h3>
+  <div class="mode-buttons">
+    <button class="mode-btn active" onclick="setMode('es-es')" id="mbtn-es-es">
+      <div class="flags">🇪🇸➡️🇪🇸</div>
+      <div class="mode-title">Español → Español</div>
+      <div class="mode-desc">Comprensión total</div>
+    </button>
+    <button class="mode-btn" onclick="setMode('es-en')" id="mbtn-es-en">
+      <div class="flags">🇪🇸➡️🇬🇧</div>
+      <div class="mode-title">Español → English</div>
+      <div class="mode-desc">Desafío bilingüe</div>
+    </button>
+  </div>
+</div>
+
+<!-- QUIZ for each story (4 stories × 2 modes = 8 quiz containers, all generated by JS) -->
+<div class="quiz-section" id="quiz-section">
+  <div class="quiz-header">
+    <h3>✏️ Preguntas de Comprensión</h3>
+    <div class="mode-indicator" id="mode-display">Modo: Español → Español</div>
+  </div>
+  <div class="progress-container">
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="progress-text" id="progress-text">0 de 7 preguntas</div>
+  </div>
+  <div id="questions-container"></div>
+  <div class="submit-section" id="submit-section">
+    <button class="submit-btn" onclick="showCompletion()">📊 Ver Resultados</button>
+  </div>
+  <div class="completion-card" id="completion-card">
+    <div class="completion-icon">🏆</div>
+    <div class="completion-title">¡Completado!</div>
+    <div class="completion-score" id="final-score">0/7</div>
+    <div class="completion-message" id="completion-message"></div>
+    <div class="stats-card">
+      <div class="stat-item"><div class="stat-num" id="stat-literal">0/3</div><div class="stat-label">Literal</div></div>
+      <div class="stat-item"><div class="stat-num" id="stat-inferencial">0/3</div><div class="stat-label">Inferencial</div></div>
+      <div class="stat-item"><div class="stat-num" id="stat-critical">0/1</div><div class="stat-label">Crítico</div></div>
+    </div>
+    <div class="completion-krashen">
+      <h4>🧠 ¿Sabías que...?</h4>
+      <p>Al completar este quiz, expusiste tu cerebro a patrones naturales del inglés. Según Krashen, <strong>la adquisición ocurre inconscientemente</strong> cuando entendemos mensajes. ¡Cada historia que lees construye tu competencia lingüística!</p>
+    </div>
+    <button class="reset-btn" onclick="resetQuiz()">🔄 Intentar de Nuevo</button>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<!-- ACHIEVEMENT MODAL -->
+<div class="modal-overlay" id="achievement-modal">
+  <div class="modal-content">
+    <div class="modal-icon" id="modal-icon">🏆</div>
+    <h3 class="modal-title">¡Logro Desbloqueado!</h3>
+    <p class="modal-text" id="modal-text">Has completado algo increíble</p>
+    <button class="modal-btn" onclick="closeModal()">¡Genial!</button>
+  </div>
+</div>
+
+<script>
+// ════════════════════════════════════════════
+// QUIZ DATA — 4 stories × 2 modes × 7 questions
+// Each question: { q, opts, correct (index into opts), type, evid, gram, voc, estrat }
+// ════════════════════════════════════════════
+
+const QUIZ_DATA = {
+  // STORY 1 — The Hat in the Window
+  1: {
+    'es-es': [
+      { q:'¿Qué tipo de objeto vio Clara en el escaparate?', opts:['Un vestido azul','Un sombrero verde de ala ancha','Un par de zapatos','Una bolsa de cuero'], correct:1, type:'literal',
+        evid:'La historia dice: "she saw a hat — wide-brimmed and deep green."',
+        gram:'"She saw" es pasado simple del verbo "see" (ver), usado para acciones concretas en el pasado.',
+        voc:'"Hat" = sombrero. "Wide-brimmed" = de ala ancha. "Deep green" = verde oscuro.',
+        estrat:'Las preguntas literales buscan información directa en el texto. Vuelve a la primera parte de la historia.' },
+      { q:'¿Cuál era el problema de Clara con el sombrero?', opts:['No le quedaba bien la talla','La tienda no lo vendía','El precio era más alto de lo que planeaba gastar','El color no le gustaba'], correct:2, type:'literal',
+        evid:'"The price was more than she had planned to spend."',
+        gram:'"Had planned" es past perfect, indica que el plan existía antes del momento de comprar.',
+        voc:'"Price" = precio. "Spend" = gastar. "Plan" = planear.',
+        estrat:'Identifica el conflicto principal que enfrenta el personaje. Aquí es un problema económico.' },
+      { q:'¿Qué compró Clara además del sombrero?', opts:['Huevos y pan fresco','Pan y leche','Una chaqueta verde','Flores para su casa'], correct:0, type:'literal',
+        evid:'"She stopped at a small market and got a box of eggs and some fresh bread."',
+        gram:'"Got" es pasado de "get" (conseguir/comprar). "Some" indica cantidad indefinida.',
+        voc:'"Eggs" = huevos. "Fresh bread" = pan fresco. "Market" = mercado.',
+        estrat:'Los detalles específicos de las acciones finales del personaje dan pistas importantes.' },
+      { q:'¿Por qué Clara finalmente decidió comprar el sombrero?', opts:['Era el único que había','Su amiga le dijo que lo comprara','Estaba en oferta','Había ahorrado dinero cada semana y decidió que valía la pena'], correct:3, type:'inferential',
+        evid:'"She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it."',
+        gram:'"Had been saving" es past perfect continuous, muestra una acción que continuó hasta un momento pasado.',
+        voc:'"Despite" = a pesar de. "Estimate" = estimado/presupuesto. "Worth it" = vale la pena.',
+        estrat:'Conecta dos datos: el ahorro previo y la decisión final. Esta es comprensión inferencial.' },
+      { q:'¿Cómo reaccionó la gente en la calle cuando vio a Clara con el sombrero?', opts:['Algunas personas le sonrieron y una le dijo que era un gran color','La ignoraron completamente','Le preguntaron dónde lo compró','Se rieron de ella'], correct:0, type:'literal',
+        evid:'"A few people on the street smiled at her. One woman said it was a great color — just right for the season."',
+        gram:'"Smiled" y "said" son verbos en pasado simple, narrando reacciones específicas.',
+        voc:'"Smiled" = sonrieron. "Great color" = gran color. "Season" = temporada.',
+        estrat:'Busca las reacciones de personajes secundarios para entender el impacto de las acciones del protagonista.' },
+      { q:'¿Qué nos indica la frase final sobre Clara?', opts:['Está arrepentida de haber comprado el sombrero','Está cansada y quiere descansar','Está contenta y ya piensa en volver a comprar el siguiente sábado','No le gustó el sombrero después de todo'], correct:2, type:'inferential',
+        evid:'"She was already thinking about what she might look for next Saturday."',
+        gram:'"Was thinking" es past continuous, describe un proceso mental en progreso.',
+        voc:'"Already" = ya. "Next Saturday" = el próximo sábado. "Look for" = buscar.',
+        estrat:'Las últimas frases frecuentemente revelan el estado emocional del personaje al final de la historia.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['El dinero no importa cuando algo es bonito','A veces ahorrar y esperar hace que las cosas valgan más la pena','Ir de compras los sábados es una pérdida de tiempo','Es mejor comprar cosas baratas'], correct:1, type:'critical',
+        evid:'"Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes."',
+        gram:'"Require" (requieren) es un verbo que expresa necesidad o condición.',
+        voc:'"Worth it" = vale la pena. "Effort" = esfuerzo. "Earth" = tierra/mundo.',
+        estrat:'El pensamiento crítico conecta las acciones del personaje con un valor universal: el esfuerzo y la paciencia tienen recompensa.' }
+    ],
+    'es-en': [
+      { q:'¿Qué tipo de objeto vio Clara en el escaparate?', opts:['A blue dress','A pair of shoes','A wide-brimmed green hat','A leather bag'], correct:2, type:'literal',
+        evid:'"She saw a hat — wide-brimmed and deep green — sitting on a stand in the display."',
+        gram:'"She saw" is simple past of "see". The noun phrase "wide-brimmed green hat" uses adjectives before the noun.',
+        voc:'"Hat" = sombrero. "Wide-brimmed" = de ala ancha. "Display" = escaparate.',
+        estrat:'Literal questions ask for direct information from the text. Find the sentence that describes what Clara saw.' },
+      { q:'¿Cuál era el problema de Clara con el sombrero?', opts:['The price was more than she had planned to spend','The size was wrong','The store would not sell it','She did not like the color'], correct:0, type:'literal',
+        evid:'"The price was more than she had planned to spend."',
+        gram:'"Had planned" is past perfect. It shows a plan that existed before the shopping moment.',
+        voc:'"Price" = precio. "Spend" = gastar. "Planned" = planeado.',
+        estrat:'Identify the main conflict the character faces. Here it is a financial problem.' },
+      { q:'¿Qué compró Clara además del sombrero?', opts:['Bread and milk','A green jacket','Flowers for her home','A box of eggs and fresh bread'], correct:3, type:'literal',
+        evid:'"She stopped at a small market and got a box of eggs and some fresh bread."',
+        gram:'"Got" is simple past of "get". "Some" indicates an indefinite quantity.',
+        voc:'"Eggs" = huevos. "Fresh bread" = pan fresco. "Market" = mercado.',
+        estrat:'Final actions of the story often include specific details. Look at what Clara did on the way home.' },
+      { q:'¿Por qué Clara finalmente decidió comprar el sombrero?', opts:['It was the only one left','She had been saving money and decided it was worth it','Her friend told her to buy it','It was on sale'], correct:1, type:'inferential',
+        evid:'"She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it."',
+        gram:'"Had been saving" is past perfect continuous, showing an action that continued up to a past moment.',
+        voc:'"Despite" = a pesar de. "Worth it" = vale la pena. "Estimate" = estimado.',
+        estrat:'Connect two pieces of information: prior saving and the final decision. This is inferential reading.' },
+      { q:'¿Cómo reaccionó la gente en la calle cuando vio a Clara con el sombrero?', opts:['They completely ignored her','They asked where she bought it','They laughed at her','A few people smiled and one said it was a great color'], correct:3, type:'literal',
+        evid:'"A few people on the street smiled at her. One woman said it was a great color — just right for the season."',
+        gram:'"Smiled" and "said" are both simple past verbs, narrating specific reactions.',
+        voc:'"Smiled" = sonrieron. "Season" = temporada. "Just right" = exactamente correcto.',
+        estrat:'Look for secondary characters\' reactions to understand the impact of the protagonist\'s actions.' },
+      { q:'¿Qué nos indica la frase final sobre Clara?', opts:['She is happy and already thinking about shopping next Saturday','She regrets buying the hat','She is tired and wants to rest','She did not like the hat after all'], correct:0, type:'inferential',
+        evid:'"She was already thinking about what she might look for next Saturday."',
+        gram:'"Was thinking" is past continuous, describing a mental process in progress.',
+        voc:'"Already" = ya. "Next Saturday" = el próximo sábado. "Look for" = buscar.',
+        estrat:'Final sentences often reveal the character\'s emotional state at the end of the story.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['Money does not matter if something is beautiful','Shopping on Saturdays is a waste of time','Saving and waiting can make things more rewarding','It is better to buy cheap things'], correct:2, type:'critical',
+        evid:'"Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes."',
+        gram:'"Require" expresses a condition or necessity. "Worth it" is a common English expression.',
+        voc:'"Worth it" = vale la pena. "Effort" = esfuerzo. "Earth" = tierra/mundo.',
+        estrat:'Critical thinking connects the character\'s actions to a universal value: patience and effort bring reward.' }
+    ]
+  },
+
+  // STORY 2 — The Receipt
+  2: {
+    'es-es': [
+      { q:'¿Cuánto pagó Pedro por la lámpara?', opts:['Sesenta dólares','Cuarenta dólares','Quince dólares','Ochenta dólares'], correct:0, type:'literal',
+        evid:'"He paid sixty dollars for it."',
+        gram:'"Paid" es el pasado de "pay" (pagar). "Sixty" = sesenta.',
+        voc:'"Lamp" = lámpara. "Pay" = pagar. "Dollars" = dólares.',
+        estrat:'Las preguntas literales buscan números y detalles específicos directamente en el texto.' },
+      { q:'¿Por qué la lámpara se rompió?', opts:['Era de mala calidad','Un cliente la tiró','Pedro la golpeó sin querer','Cayó mientras Pedro movía muebles'], correct:3, type:'literal',
+        evid:'"Three days later, the lamp fell while he was moving furniture."',
+        gram:'"Fell" es el pasado de "fall" (caer). "While" introduce una acción simultánea.',
+        voc:'"Fell" = cayó. "Furniture" = muebles. "Moving" = moviendo.',
+        estrat:'Busca la causa directa del accidente. El texto lo explica claramente con "while".' },
+      { q:'¿Qué problema tuvo Pedro en la tienda sin el recibo?', opts:['No recordaba cuánto pagó','La tienda ya estaba cerrada','No podían darle un reembolso porque no tenía prueba de compra','El empleado no lo reconoció'], correct:2, type:'literal',
+        evid:'"Since he had no proof of purchase, there was nothing they could do for a refund."',
+        gram:'"Since" aquí significa "como/debido a que" (causa). "Had no" = no tenía.',
+        voc:'"Proof" = prueba. "Purchase" = compra. "Refund" = reembolso.',
+        estrat:'La palabra "since" indica causa-efecto. Identifica el resultado de no tener el recibo.' },
+      { q:'¿Por qué Pedro no pudo obtener una solución en la tienda original?', opts:['La tienda estaba cerrada permanentemente','La tienda no cubría daños por accidentes y él no tenía el recibo','El gerente no estaba disponible','Pedro no llevó dinero suficiente'], correct:1, type:'inferential',
+        evid:'"She said the store did not cover damage from accidents." y "Since he had no proof of purchase, there was nothing they could do."',
+        gram:'Dos razones conectadas: la política de la tienda ("did not cover") y la falta de prueba ("had no proof").',
+        voc:'"Cover" = cubrir. "Damage" = daño. "Accident" = accidente.',
+        estrat:'Infiere combinando dos piezas de información: la política de la tienda y la falta de recibo.' },
+      { q:'¿Qué aprendió Pedro de esta experiencia?', opts:['Que guardar los recibos puede ahorrarte problemas','Que no debe comprar artículos caros','Que las tiendas siempre ayudan a los clientes','Que es mejor reparar todo uno mismo'], correct:0, type:'inferential',
+        evid:'"He learned that a simple piece of paper can save you a lot of trouble."',
+        gram:'"Can save" es una posibilidad o capacidad. "Save" aquí significa "ahorrarte problemas", no dinero.',
+        voc:'"Receipt" = recibo. "Trouble" = problemas. "Simple" = simple.',
+        estrat:'La moraleja de la historia aparece en las últimas líneas. Busca las frases "He learned that...".' },
+      { q:'¿Cómo resolvió Pedro el problema de la lámpara rota?', opts:['La tiró a la basura y compró una nueva','La tienda original la reparó gratis','Él mismo la reparó en casa','La llevó a una tienda de reparación local donde la arreglaron por 15 dólares'], correct:3, type:'inferential',
+        evid:'"He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars."',
+        gram:'"Could fix" es pasado de posibilidad/capacidad. "A few streets away" = a pocas calles.',
+        voc:'"Repair shop" = taller de reparaciones. "Fix" = arreglar. "Base" = base.',
+        estrat:'La solución alternativa está en el párrafo posterior al fracaso en la tienda original.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['Es mejor no comprar cosas caras','Las tiendas nunca ayudan a los clientes','Una solución no siempre está donde primero la buscas; ser organizado y positivo ayuda','Pedro debió haber comprado una lámpara más barata'], correct:2, type:'critical',
+        evid:'"He also learned that a good solution is not always where you first look for it — sometimes it\'s just around the corner."',
+        gram:'"It\'s just around the corner" es una expresión idiomática que significa "está muy cerca".',
+        voc:'"Solution" = solución. "Corner" = esquina. "Around the corner" = a la vuelta de la esquina.',
+        estrat:'La última lección de la historia combina practicidad (guardar recibos) con resiliencia (buscar alternativas).' }
+    ],
+    'es-en': [
+      { q:'¿Cuánto pagó Pedro por la lámpara?', opts:['Forty dollars','Fifteen dollars','Eighty dollars','Sixty dollars'], correct:3, type:'literal',
+        evid:'"He paid sixty dollars for it."',
+        gram:'"Paid" is the past tense of "pay". "Sixty" = sesenta.',
+        voc:'"Lamp" = lámpara. "Pay" = pagar. "Gold base" = base dorada.',
+        estrat:'Literal questions look for numbers and specific details directly in the text.' },
+      { q:'¿Por qué la lámpara se rompió?', opts:['It was low quality','It fell while Pedro was moving furniture','A customer knocked it over','Pedro accidentally hit it'], correct:1, type:'literal',
+        evid:'"Three days later, the lamp fell while he was moving furniture."',
+        gram:'"Fell" is the past tense of "fall". "While" introduces a simultaneous action.',
+        voc:'"Fell" = cayó. "Furniture" = muebles. "Moving" = moviendo.',
+        estrat:'Find the direct cause of the accident. The text explains it clearly with "while".' },
+      { q:'¿Qué problema tuvo Pedro en la tienda sin el recibo?', opts:['They could not give him a refund because he had no proof of purchase','He could not remember how much he paid','The store was already closed','The employee did not recognize him'], correct:0, type:'literal',
+        evid:'"Since he had no proof of purchase, there was nothing they could do for a refund."',
+        gram:'"Since" here means "because" (cause). "Had no" = no tenía.',
+        voc:'"Proof" = prueba. "Purchase" = compra. "Refund" = reembolso.',
+        estrat:'"Since" indicates cause and effect. Identify the result of not having the receipt.' },
+      { q:'¿Por qué Pedro no pudo obtener una solución en la tienda original?', opts:['The store was permanently closed','The manager was not available','The store did not cover accidents and he had no receipt','Pedro did not bring enough money'], correct:2, type:'inferential',
+        evid:'"She said the store did not cover damage from accidents." and "Since he had no proof of purchase, there was nothing they could do."',
+        gram:'Two connected reasons: store policy ("did not cover") and missing proof ("had no proof").',
+        voc:'"Cover" = cubrir. "Damage" = daño. "Proof" = prueba.',
+        estrat:'Infer by combining two pieces of information: the store\'s policy and the missing receipt.' },
+      { q:'¿Qué aprendió Pedro de esta experiencia?', opts:['He should not buy expensive things','Stores always help their customers','It is better to repair everything yourself','Keeping receipts can save you a lot of trouble'], correct:3, type:'inferential',
+        evid:'"He learned that a simple piece of paper can save you a lot of trouble."',
+        gram:'"Can save" expresses possibility. "Save" here means "prevent problems", not money.',
+        voc:'"Receipt" = recibo. "Trouble" = problemas. "Simple" = sencillo.',
+        estrat:'The story\'s lesson appears in the last lines. Look for "He learned that...".' },
+      { q:'¿Cómo resolvió Pedro el problema de la lámpara rota?', opts:['He threw it away and bought a new one','He took it to a local repair shop where they fixed it for fifteen dollars','The original store repaired it for free','He fixed it himself at home'], correct:1, type:'inferential',
+        evid:'"He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars."',
+        gram:'"Could fix" is past possibility/ability. "A few streets away" = a pocas calles.',
+        voc:'"Repair shop" = taller de reparaciones. "Fix" = arreglar. "Base" = base.',
+        estrat:'The alternative solution comes in the paragraph after the failure at the original store.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['A solution is not always where you first look; being organized and positive helps','It is better not to buy expensive things','Stores never help customers','Pedro should have bought a cheaper lamp'], correct:0, type:'critical',
+        evid:'"He also learned that a good solution is not always where you first look for it — sometimes it\'s just around the corner."',
+        gram:'"It\'s just around the corner" is an idiom meaning "it\'s very close / nearly here".',
+        voc:'"Solution" = solución. "Corner" = esquina. "Around the corner" = a la vuelta de la esquina.',
+        estrat:'The final lesson combines practicality (keep receipts) with resilience (look for alternatives).' }
+    ]
+  },
+
+  // STORY 3 — Fifty a Week
+  3: {
+    'es-es': [
+      { q:'¿Dónde trabaja Ana?', opts:['En una fábrica','En una tienda de ropa','En un mercado cerca de su casa','En una oficina en la ciudad'], correct:2, type:'literal',
+        evid:'"Ana earns a small salary at the market near her home."',
+        gram:'"Earns" es presente simple, tercera persona. Indica trabajo habitual.',
+        voc:'"Market" = mercado. "Near her home" = cerca de su casa. "Salary" = salario.',
+        estrat:'La primera oración de la historia generalmente presenta al personaje y su situación básica.' },
+      { q:'¿Cuánto dinero intenta ahorrar Ana cada mes?', opts:['Cincuenta dólares','Treinta dólares','Cien dólares','Veinte dólares'], correct:0, type:'literal',
+        evid:'"She tries to save at least fifty dollars every month."',
+        gram:'"Tries to save" = intenta ahorrar. "At least" = por lo menos.',
+        voc:'"Save" = ahorrar. "At least" = al menos. "Every month" = cada mes.',
+        estrat:'Los números específicos en el texto son datos literales importantes. Búscalos con atención.' },
+      { q:'¿Cuál es el sueño o meta de Ana?', opts:['Comprar una casa','Abrir su propio negocio','Mudarse a la ciudad','Visitar el mar algún día'], correct:3, type:'literal',
+        evid:'"Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos."',
+        gram:'"Goal" = meta. "To visit" es infinitivo de propósito (para visitar).',
+        voc:'"Sea" = mar. "Distant" = distante. "Photos" = fotos.',
+        estrat:'La meta del personaje suele aparecer al final de la historia como conclusión.' },
+      { q:'¿Por qué Ana tuvo que usar sus ahorros el mes pasado?', opts:['Quería comprar ropa nueva','Su teléfono necesitó una reparación cara','Tuvo que pagar el alquiler atrasado','Ayudó a un familiar con dinero'], correct:1, type:'inferential',
+        evid:'"Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it."',
+        gram:'"Required" = requirió. "Had to" = tuvo que. "Cover" = cubrir el gasto.',
+        voc:'"Repair" = reparación. "Savings" = ahorros. "Cover" = cubrir.',
+        estrat:'Busca la causa y el efecto: ¿qué ocurrió y qué consecuencia tuvo para Ana?' },
+      { q:'¿Qué decidió hacer Ana para recuperar sus ahorros?', opts:['Pidió dinero prestado a un amigo','Redujo su gasto en comida','Trabajó un turno extra ese mes','Buscó otro trabajo mejor pagado'], correct:2, type:'inferential',
+        evid:'"She decided to work one extra shift that month to earn a little more."',
+        gram:'"Decided to work" = decidió trabajar. "Extra shift" = turno adicional.',
+        voc:'"Extra" = adicional. "Shift" = turno de trabajo. "Earn" = ganar.',
+        estrat:'La respuesta de Ana al problema revela su carácter. Busca qué acción específica tomó.' },
+      { q:'¿Qué nos dice la historia sobre el origen de Ana y su relación con el dinero?', opts:['Creció en una granja lejos de la ciudad y aprendió desde joven a ser cuidadosa con el dinero','Creció en la ciudad y aprendió a ahorrar en el trabajo','Sus padres eran ricos y le enseñaron a ahorrar','Estudió finanzas en la universidad'], correct:0, type:'inferential',
+        evid:'"She grew up on a farm, far from the city and its factories, so she learned early to be careful with money."',
+        gram:'"Grew up" = creció. "So" introduce la consecuencia lógica.',
+        voc:'"Farm" = granja. "Factories" = fábricas. "Careful" = cuidadosa.',
+        estrat:'El contexto de infancia del personaje explica sus hábitos actuales. Conecta pasado y presente.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['Es imposible ahorrar con un salario pequeño','Es mejor gastar el dinero en el presente y no pensar en el futuro','Ana debería buscar un trabajo mejor','La consistencia y la actitud positiva ante las dificultades son clave para alcanzar las metas'], correct:3, type:'critical',
+        evid:'"Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone."',
+        gram:'"Matter" = importan. "Let" = dejar/permitir. "Effort" = esfuerzo.',
+        voc:'"Consistent" = constante. "Small wins" = pequeñas victorias. "Effort" = esfuerzo.',
+        estrat:'El pensamiento crítico identifica el valor que guía al personaje: persistencia y actitud positiva.' }
+    ],
+    'es-en': [
+      { q:'¿Dónde trabaja Ana?', opts:['At a market near her home','In a factory','In a clothing store','In an office in the city'], correct:0, type:'literal',
+        evid:'"Ana earns a small salary at the market near her home."',
+        gram:'"Earns" is simple present, third person. It indicates a habitual action.',
+        voc:'"Market" = mercado. "Near" = cerca de. "Salary" = salario.',
+        estrat:'The first sentence of a story usually introduces the character and their basic situation.' },
+      { q:'¿Cuánto dinero intenta ahorrar Ana cada mes?', opts:['Thirty dollars','One hundred dollars','Twenty dollars','Fifty dollars'], correct:3, type:'literal',
+        evid:'"She tries to save at least fifty dollars every month."',
+        gram:'"Tries to save" expresses a repeated attempt. "At least" = por lo menos.',
+        voc:'"Save" = ahorrar. "At least" = al menos. "Every month" = cada mes.',
+        estrat:'Specific numbers in the text are important literal data. Look for them carefully.' },
+      { q:'¿Cuál es el sueño o meta de Ana?', opts:['To buy a house','To visit the sea one day','To open her own business','To move to the city'], correct:1, type:'literal',
+        evid:'"Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos."',
+        gram:'"Goal" = meta. "To visit" is an infinitive of purpose.',
+        voc:'"Sea" = mar. "Distant" = distante. "Seen" = visto (past participle of see).',
+        estrat:'The character\'s goal usually appears at the end of the story as a conclusion.' },
+      { q:'¿Por qué Ana tuvo que usar sus ahorros el mes pasado?', opts:['She wanted to buy new clothes','She had to pay late rent','Her phone needed an expensive repair','She helped a family member with money'], correct:2, type:'inferential',
+        evid:'"Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it."',
+        gram:'"Required" = requirió. "Had to" = tuvo que. "Cover" = cubrir el gasto.',
+        voc:'"Repair" = reparación. "Savings" = ahorros. "Cover" = cubrir.',
+        estrat:'Look for cause and effect: what happened and what consequence did it have for Ana?' },
+      { q:'¿Qué decidió hacer Ana para recuperar sus ahorros?', opts:['She worked one extra shift that month','She borrowed money from a friend','She reduced her food spending','She looked for a better-paying job'], correct:0, type:'inferential',
+        evid:'"She decided to work one extra shift that month to earn a little more."',
+        gram:'"Decided to work" = decidió trabajar. "Extra shift" = turno adicional.',
+        voc:'"Extra" = adicional. "Shift" = turno de trabajo. "Earn" = ganar.',
+        estrat:'Ana\'s response to the problem reveals her character. Find the specific action she took.' },
+      { q:'¿Qué nos dice la historia sobre el origen de Ana y su relación con el dinero?', opts:['She grew up in the city and learned to save at work','Her parents were rich and taught her to save','She studied finance at university','She grew up on a farm far from the city and learned early to be careful with money'], correct:3, type:'inferential',
+        evid:'"She grew up on a farm, far from the city and its factories, so she learned early to be careful with money."',
+        gram:'"Grew up" = creció. "So" introduces a logical consequence.',
+        voc:'"Farm" = granja. "Factories" = fábricas. "Careful" = cuidadosa.',
+        estrat:'The character\'s background explains their current habits. Connect past and present.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['It is impossible to save with a small salary','Consistency and a positive attitude toward difficulties are key to reaching goals','It is better to spend money now and not think about the future','Ana should look for a better job'], correct:1, type:'critical',
+        evid:'"Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone."',
+        gram:'"Matter" = importan. "Let" = allow/permit. "Effort" = esfuerzo.',
+        voc:'"Consistent" = constante. "Small wins" = pequeñas victorias. "Effort" = esfuerzo.',
+        estrat:'Critical thinking identifies the value guiding the character: persistence and a positive attitude.' }
+    ]
+  },
+
+  // STORY 4 — Carlos's Long Shift
+  4: {
+    'es-es': [
+      { q:'¿Cuánto tiempo lleva Carlos trabajando en la misma tienda?', opts:['Un año','Cinco años','Diez años','Tres años'], correct:3, type:'literal',
+        evid:'"Carlos has worked at the same shop for three years."',
+        gram:'"Has worked" es present perfect, indica una acción que empezó en el pasado y continúa.',
+        voc:'"Shop" = tienda. "For three years" = durante tres años.',
+        estrat:'Los datos biográficos del personaje aparecen al inicio de la historia. Búscalos en el primer párrafo.' },
+      { q:'¿Qué encontró Carlos debajo de la mesa cerca de la entrada?', opts:['Artículos sin precio','Cajas que nadie había guardado','Bolsas de clientes olvidadas','Un cartel caído'], correct:1, type:'literal',
+        evid:'"He noticed a few boxes left underneath a table near the entrance — no one had put them away."',
+        gram:'"Had put" es past perfect. "Underneath" = debajo de.',
+        voc:'"Boxes" = cajas. "Underneath" = debajo. "Entrance" = entrada.',
+        estrat:'Los detalles del recorrido matutino de Carlos revelan sus responsabilidades como supervisor.' },
+      { q:'¿De qué hablaron Carlos y sus compañeros durante el almuerzo?', opts:['De un partido de fútbol y un concierto de música','Del trabajo del día siguiente','De las ventas del mes','Del nuevo sistema de inventario'], correct:0, type:'literal',
+        evid:'"They talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend."',
+        gram:'"Talked about" = hablar sobre algo. "From the night before" = de la noche anterior.',
+        voc:'"Football match" = partido de fútbol. "Concert" = concierto. "Weekend" = fin de semana.',
+        estrat:'Los detalles de conversaciones informales dan información sobre la vida social de los personajes.' },
+      { q:'¿Por qué Carlos consiguió el puesto de supervisor siendo tan joven?', opts:['Era el más antiguo en la tienda','Era el amigo del gerente','Era calmado y organizado','Tenía más estudios que los demás'], correct:2, type:'inferential',
+        evid:'"...he got the job because he was calm and organized."',
+        gram:'"Because" introduce la causa directa. "Was" es pasado del verbo "be".',
+        voc:'"Calm" = calmado. "Organized" = organizado. "Role" = puesto/cargo.',
+        estrat:'La palabra "because" señala directamente la razón. Busca la causa explícita en el texto.' },
+      { q:'¿Qué le pidió la gerente a Carlos en la reunión de la tarde?', opts:['Que entrenara a nuevos empleados','Que organizara el escaparate de la tienda','Que hiciera el horario de la semana siguiente','Que definiera un nuevo sistema de seguimiento de inventario'], correct:3, type:'inferential',
+        evid:'"She asked Carlos to define a new system for tracking inventory."',
+        gram:'"Asked to define" = pidió que definiera. "System" = sistema.',
+        voc:'"Define" = definir. "Tracking" = seguimiento. "Inventory" = inventario.',
+        estrat:'Las peticiones directas de personajes superiores son datos fáciles de identificar en el texto.' },
+      { q:'¿Qué nos dice la reacción de Carlos al final de su turno sobre su carácter?', opts:['Es una persona muy ambiciosa que quiere más responsabilidades','Es alguien que trabaja con dedicación y se preocupa por su equipo','Es una persona cansada que no disfruta su trabajo','Es alguien que prefiere trabajar solo'], correct:1, type:'inferential',
+        evid:'"He turned off the lights, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job."',
+        gram:'"Made sure" = se aseguró de. "Great job" = excelente trabajo.',
+        voc:'"Locked" = cerradas con llave. "Group chat" = chat grupal. "Great job" = excelente trabajo.',
+        estrat:'Las acciones finales del personaje revelan sus valores y forma de ser. Lee el último párrafo con cuidado.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['La responsabilidad, la paciencia y el cuidado de tu equipo definen a un buen líder','El trabajo de supervisor es fácil y bien pagado','Carlos debería buscar un trabajo mejor','Lo más importante en el trabajo es llegar temprano'], correct:0, type:'critical',
+        evid:'"He stayed patient. He knew that how you handle those moments matters." y "sent a short message... to say everyone had done a great job."',
+        gram:'"Handle" = manejar/afrontar. "Matters" = importa.',
+        voc:'"Patient" = paciente. "Handle" = manejar. "Matters" = importa.',
+        estrat:'El pensamiento crítico conecta las acciones de Carlos (paciencia, organización, reconocimiento al equipo) con el concepto de liderazgo.' }
+    ],
+    'es-en': [
+      { q:'¿Cuánto tiempo lleva Carlos trabajando en la misma tienda?', opts:['One year','Three years','Five years','Ten years'], correct:1, type:'literal',
+        evid:'"Carlos has worked at the same shop for three years."',
+        gram:'"Has worked" is present perfect, indicating an action that started in the past and continues.',
+        voc:'"Shop" = tienda. "For three years" = durante tres años.',
+        estrat:'Biographical details of the character appear at the beginning. Look in the first paragraph.' },
+      { q:'¿Qué encontró Carlos debajo de la mesa cerca de la entrada?', opts:['Items without price tags','Forgotten customer bags','Boxes that no one had put away','A fallen sign'], correct:2, type:'literal',
+        evid:'"He noticed a few boxes left underneath a table near the entrance — no one had put them away."',
+        gram:'"Had put" is past perfect. "Underneath" = debajo de.',
+        voc:'"Boxes" = cajas. "Underneath" = debajo. "Entrance" = entrada.',
+        estrat:'Details from Carlos\'s morning walkthrough reveal his supervisor responsibilities.' },
+      { q:'¿De qué hablaron Carlos y sus compañeros durante el almuerzo?', opts:['About the next day\'s work','About the month\'s sales','About the new inventory system','About a football match and a music concert'], correct:3, type:'literal',
+        evid:'"They talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend."',
+        gram:'"Talked about" = hablar sobre. "From the night before" = de la noche anterior.',
+        voc:'"Football match" = partido de fútbol. "Concert" = concierto. "Weekend" = fin de semana.',
+        estrat:'Details of informal conversations give information about the characters\' social lives.' },
+      { q:'¿Por qué Carlos consiguió el puesto de supervisor siendo tan joven?', opts:['He was calm and organized','He was the most senior at the store','He was a friend of the manager','He had more qualifications than the others'], correct:0, type:'inferential',
+        evid:'"...he got the job because he was calm and organized."',
+        gram:'"Because" introduces the direct cause. "Was" is the past of the verb "be".',
+        voc:'"Calm" = calmado. "Organized" = organizado. "Role" = puesto/cargo.',
+        estrat:'The word "because" directly signals the reason. Find the explicit cause in the text.' },
+      { q:'¿Qué le pidió la gerente a Carlos en la reunión de la tarde?', opts:['To train new employees','To define a new inventory tracking system','To organize the store display','To make next week\'s schedule'], correct:1, type:'inferential',
+        evid:'"She asked Carlos to define a new system for tracking inventory."',
+        gram:'"Asked to define" is a reported request. "System" = sistema.',
+        voc:'"Define" = definir. "Tracking" = seguimiento. "Inventory" = inventario.',
+        estrat:'Direct requests from senior characters are easy to identify in the text.' },
+      { q:'¿Qué nos dice la reacción de Carlos al final de su turno sobre su carácter?', opts:['He is very ambitious and wants more responsibilities','He is a tired person who does not enjoy his work','He works with dedication and cares about his team','He prefers to work alone'], correct:2, type:'inferential',
+        evid:'"He turned off the lights, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job."',
+        gram:'"Made sure" = se aseguró de. "Great job" = excelente trabajo.',
+        voc:'"Locked" = cerradas con llave. "Group chat" = chat grupal.',
+        estrat:'The character\'s final actions reveal their values and personality. Read the last paragraph carefully.' },
+      { q:'¿Cuál es el mensaje principal de esta historia?', opts:['Being a supervisor is easy and well paid','Carlos should look for a better job','The most important thing at work is arriving early','Responsibility, patience, and caring for your team define a good leader'], correct:3, type:'critical',
+        evid:'"He stayed patient. He knew that how you handle those moments matters." and "sent a short message... to say everyone had done a great job."',
+        gram:'"Handle" = manejar. "Matters" = importa. "Great job" = gran trabajo.',
+        voc:'"Patient" = paciente. "Handle" = manejar. "Matters" = importa.',
+        estrat:'Critical thinking connects Carlos\'s actions (patience, organization, team recognition) to the concept of good leadership.' }
+    ]
+  }
+};
+
+// ════════════════════════════════════════════
+// STATE
+// ════════════════════════════════════════════
+let currentStory = 1;
+let currentMode = 'es-es';
+let score = 0;
+let answered = new Set();
+let streak = 0;
+let literalCorrect = 0;
+let inferentialCorrect = 0;
+let criticalCorrect = false;
+let storyDone = { 1: false, 2: false, 3: false, 4: false };
+const totalQ = 7;
+
+// ════════════════════════════════════════════
+// FISHER-YATES SHUFFLE with correct index remapping
+// ════════════════════════════════════════════
+function shuffleQuestion(q) {
+  const indices = [0, 1, 2, 3];
+  // Fisher-Yates
+  for (let i = indices.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [indices[i], indices[j]] = [indices[j], indices[i]];
+  }
+  const newOpts = indices.map(i => q.opts[i]);
+  const newCorrect = indices.indexOf(q.correct);
+  return { ...q, opts: newOpts, correct: newCorrect };
+}
+
+// ════════════════════════════════════════════
+// STORY SELECTION
+// ════════════════════════════════════════════
+function selectStory(n) {
+  currentStory = n;
+  // Update selector buttons
+  document.querySelectorAll('.story-card-btn').forEach((b, i) => b.classList.toggle('active', i + 1 === n));
+  // Show correct story panel
+  document.querySelectorAll('.story-panel').forEach((p, i) => p.classList.toggle('active', i + 1 === n));
+  // Reset & render quiz
+  resetQuiz(false);
+}
+
+// ════════════════════════════════════════════
+// STORY TOGGLE
+// ════════════════════════════════════════════
+function toggleStory(n) {
+  const c = document.getElementById('story-content-' + n);
+  const t = document.getElementById('story-toggle-' + n);
+  c.classList.toggle('open');
+  t.classList.toggle('open');
+}
+
+// ════════════════════════════════════════════
+// TRANSLATIONS
+// ════════════════════════════════════════════
+function toggleLine(btn) {
+  const sp = btn.nextElementSibling;
+  sp.classList.toggle('show');
+  btn.textContent = sp.classList.contains('show') ? '🇪🇸 ocultar' : '🇪🇸 ver';
+}
+
+let storyTransState = { 1: false, 2: false, 3: false, 4: false };
+function toggleAllTrans(n) {
+  storyTransState[n] = !storyTransState[n];
+  const panel = document.getElementById('story-panel-' + n);
+  const sp = panel.querySelectorAll('.spanish');
+  const btns = panel.querySelectorAll('.reveal-line-btn');
+  sp.forEach(el => el.classList.toggle('show', storyTransState[n]));
+  btns.forEach(b => b.textContent = storyTransState[n] ? '🇪🇸 ocultar' : '🇪🇸 ver');
+  const gtBtn = document.getElementById('gtrans-' + n);
+  gtBtn.textContent = storyTransState[n] ? '🌐 Ocultar traducciones' : '🌐 Mostrar traducciones';
+  gtBtn.classList.toggle('active', storyTransState[n]);
+}
+
+// ════════════════════════════════════════════
+// MODE
+// ════════════════════════════════════════════
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('mbtn-' + mode).classList.add('active');
+  document.getElementById('mode-display').textContent = mode === 'es-es' ? 'Modo: Español → Español' : 'Modo: Español → English';
+  resetQuiz(false);
+}
+
+// ════════════════════════════════════════════
+// BUILD QUIZ
+// ════════════════════════════════════════════
+function buildQuiz() {
+  const container = document.getElementById('questions-container');
+  container.innerHTML = '';
+  const rawQs = QUIZ_DATA[currentStory][currentMode];
+  const shuffled = rawQs.map(q => shuffleQuestion(q));
+
+  const typeLabels = { literal: 'Literal 📖', inferential: 'Inferencial 🔍', critical: 'Pensamiento Crítico 🎓' };
+
+  shuffled.forEach((q, i) => {
+    const qid = `q${i + 1}-s${currentStory}-${currentMode}`;
+    const card = document.createElement('div');
+    card.className = 'question-card';
+    card.id = qid;
+
+    const letters = ['a', 'b', 'c', 'd'];
+    const optsHTML = q.opts.map((opt, oi) =>
+      `<button class="option-btn" onclick="checkAnswer('${qid}', ${oi}, ${q.correct}, '${q.type}', ${i})">${letters[oi]}) ${opt}</button>`
+    ).join('');
+
+    card.innerHTML = `
+      <span class="question-badge">Pregunta ${i + 1}/7 • ${typeLabels[q.type]}</span>
+      <div class="question-text">${q.q}</div>
+      <div class="options-grid">${optsHTML}</div>
+      <div class="feedback correct-fb" id="fb-${qid}-correct">
+        <div class="feedback-title">✅ ¡Correcto!</div>
+        <div class="feedback-layers">
+          <div class="feedback-layer ev"><strong>📌 Evidencia</strong>${q.evid}</div>
+          <div class="feedback-layer gr"><strong>📐 Gramática</strong>${q.gram}</div>
+          <div class="feedback-layer vo"><strong>📚 Vocabulario</strong>${q.voc}</div>
+          <div class="feedback-layer es"><strong>🧭 Estrategia</strong>${q.estrat}</div>
+        </div>
+      </div>
+      <div class="feedback incorrect-fb" id="fb-${qid}-incorrect">
+        <div class="feedback-title">❌ Incorrecto</div>
+        <div class="feedback-layers">
+          <div class="feedback-layer ev"><strong>📌 Evidencia</strong>${q.evid}</div>
+          <div class="feedback-layer gr"><strong>📐 Gramática</strong>${q.gram}</div>
+          <div class="feedback-layer vo"><strong>📚 Vocabulario</strong>${q.voc}</div>
+          <div class="feedback-layer es"><strong>🧭 Estrategia</strong>${q.estrat}</div>
+        </div>
+      </div>`;
+    container.appendChild(card);
+  });
+
+  document.getElementById('quiz-section').classList.add('active');
+  updateProgress();
+}
+
+// ════════════════════════════════════════════
+// CHECK ANSWER
+// ════════════════════════════════════════════
+function checkAnswer(qid, selected, correct, type, qIndex) {
+  if (answered.has(qid)) return;
+  answered.add(qid);
+
+  const isCorrect = selected === correct;
+  const card = document.getElementById(qid);
+  const btns = card.querySelectorAll('.option-btn');
+
+  btns.forEach(b => b.disabled = true);
+  btns[selected].classList.add(isCorrect ? 'selected-correct' : 'selected-wrong');
+  if (!isCorrect) btns[correct].classList.add('show-correct');
+
+  document.getElementById(`fb-${qid}-${isCorrect ? 'correct' : 'incorrect'}`).classList.add('show');
+  card.classList.add(isCorrect ? 'correct' : 'incorrect');
+
+  if (isCorrect) {
+    score++;
+    streak++;
+    if (type === 'literal') literalCorrect++;
+    if (type === 'inferential') inferentialCorrect++;
+    if (type === 'critical') criticalCorrect = true;
+    checkAchievements();
+  } else {
+    streak = 0;
+  }
+
+  updateProgress();
+
+  if (answered.size === totalQ) {
+    setTimeout(() => {
+      document.getElementById('submit-section').style.display = 'block';
+      document.getElementById('submit-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }, 600);
+  }
+}
+
+// ════════════════════════════════════════════
+// PROGRESS
+// ════════════════════════════════════════════
+function updateProgress() {
+  const pct = (answered.size / totalQ) * 100;
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-text').textContent = `${answered.size} de ${totalQ} preguntas`;
+}
+
+// ════════════════════════════════════════════
+// ACHIEVEMENTS
+// ════════════════════════════════════════════
+let modalQueue = [];
+let modalShowing = false;
+
+function checkAchievements() {
+  if (answered.size === 1 && score === 1) unlock('ach-first', '🌱', '¡Primera Respuesta Correcta!');
+  if (streak === 3) unlock('ach-streak', '🔥', '¡3 Respuestas Correctas Seguidas!');
+  if (literalCorrect >= 3) unlock('ach-literal', '📖', '¡Comprensión Literal Dominada!');
+  if (inferentialCorrect >= 2) unlock('ach-inferential', '🔍', '¡Comprensión Inferencial Lograda!');
+  if (criticalCorrect) {
+    unlock('ach-critical', '🎓', '¡Pensamiento Crítico Activado!');
+    unlock('ach-shopper', '🛍️', '¡Comprador Sabio: Entendiste la historia!');
+  }
+}
+
+function unlock(id, icon, text) {
+  const el = document.getElementById(id);
+  if (!el.classList.contains('unlocked')) {
+    el.classList.add('unlocked');
+    queueModal(icon, text);
+  }
+}
+
+function queueModal(icon, text) {
+  modalQueue.push({ icon, text });
+  if (!modalShowing) showNextModal();
+}
+
+function showNextModal() {
+  if (!modalQueue.length) { modalShowing = false; return; }
+  modalShowing = true;
+  const { icon, text } = modalQueue.shift();
+  document.getElementById('modal-icon').textContent = icon;
+  document.getElementById('modal-text').textContent = text;
+  document.getElementById('achievement-modal').classList.add('show');
+}
+
+function closeModal() {
+  document.getElementById('achievement-modal').classList.remove('show');
+  setTimeout(showNextModal, 300);
+}
+
+// ════════════════════════════════════════════
+// COMPLETION
+// ════════════════════════════════════════════
+function showCompletion() {
+  document.getElementById('submit-section').style.display = 'none';
+  document.getElementById('completion-card').classList.add('show');
+  document.getElementById('final-score').textContent = `${score}/${totalQ}`;
+
+  const msgs = ['¡Sigue practicando! 💪', 'Buen intento. Lee la historia otra vez. 📖', '¡Muy bien! Tienes buena comprensión. 👍', '¡Excelente comprensión lectora! 🌟'];
+  const msgIdx = score <= 2 ? 0 : score <= 4 ? 1 : score <= 6 ? 2 : 3;
+  document.getElementById('completion-message').textContent = msgs[msgIdx];
+
+  // Count total literal/inferential/critical in current quiz
+  const currentQs = QUIZ_DATA[currentStory][currentMode];
+  const totalLiteral = currentQs.filter(q=>q.type==='literal').length;
+  const totalInferential = currentQs.filter(q=>q.type==='inferential').length;
+  document.getElementById('stat-literal').textContent = `${literalCorrect}/${totalLiteral}`;
+  document.getElementById('stat-inferencial').textContent = `${inferentialCorrect}/${totalInferential}`;
+  document.getElementById('stat-critical').textContent = `${criticalCorrect ? 1 : 0}/1`;
+
+  if (score === 7) unlock('ach-perfect', '⭐', '¡Puntuación Perfecta!');
+  if (score >= 5) unlock('ach-saver', '💰', '¡Ahorrador: Gran rendimiento en comprensión!');
+
+  storyDone[currentStory] = true;
+  document.getElementById('done-' + currentStory).textContent = '✅';
+
+  document.getElementById('completion-card').scrollIntoView({ behavior: 'smooth', block: 'center' });
+}
+
+// ════════════════════════════════════════════
+// RESET
+// ════════════════════════════════════════════
+function resetQuiz(scrollUp = true) {
+  score = 0;
+  answered = new Set();
+  streak = 0;
+  literalCorrect = 0;
+  inferentialCorrect = 0;
+  criticalCorrect = false;
+
+  document.getElementById('completion-card').classList.remove('show');
+  document.getElementById('submit-section').style.display = 'none';
+  buildQuiz();
+
+  if (scrollUp) window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// ════════════════════════════════════════════
+// INIT
+// ════════════════════════════════════════════
+buildQuiz();
+</script>
+</body>
+</html>

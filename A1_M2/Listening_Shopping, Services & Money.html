@@ -1,0 +1,1822 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comprensión Auditiva | A1 Bloque I — Módulo 2: Shopping, Services &amp; Money</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root {
+  --gold: #29B6F6;
+  --gold-dark: #0277BD;
+  --gold-light: #E1F5FE;
+  --gold-mid: #B3E5FC;
+  --gold-glow: rgba(41,182,246,0.16);
+  --bg: #F0F9FF;
+  --card: #FFFFFF;
+  --border: #CDE9F8;
+  --text: #2A2A2A;
+  --text-soft: #777;
+  --shadow: 0 3px 20px rgba(0,0,0,0.07);
+  --radius: 16px;
+  --green: #43A047;
+  --green-bg: #E8F5E9;
+  --red: #E53935;
+  --red-bg: #FFEBEE;
+  --pts-easy: #43A047;
+  --pts-med: #FB8C00;
+  --pts-hard: #E53935;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased;}
+
+/* ── HEADER ── */
+.page-header{background:linear-gradient(135deg,#0288D1 0%,#29B6F6 60%,#4FC3F7 100%);padding:1.8rem 1.5rem 1.4rem;text-align:center;position:relative;overflow:hidden;}
+.page-header::before{content:'';position:absolute;top:-50%;right:-10%;width:300px;height:300px;background:rgba(255,255,255,0.08);border-radius:50%;}
+.page-header::after{content:'';position:absolute;bottom:-30%;left:-8%;width:220px;height:220px;background:rgba(255,255,255,0.05);border-radius:50%;}
+.page-header h1{font-family:'Fredoka',sans-serif;font-size:1.9rem;font-weight:700;color:#FFFFFF;position:relative;z-index:1;}
+.page-header .sub{font-size:0.88rem;color:#FFFFFF;opacity:0.9;margin-top:0.35rem;position:relative;z-index:1;font-weight:600;}
+.back-link{display:inline-flex;align-items:center;gap:6px;font-size:0.82rem;font-weight:700;color:#FFFFFF;background:rgba(255,255,255,0.35);border:1.5px solid rgba(255,255,255,0.5);padding:6px 16px;border-radius:20px;text-decoration:none;margin-bottom:1rem;transition:all 0.2s;position:relative;z-index:1;}
+.back-link:hover{background:rgba(255,255,255,0.55);}
+
+/* ── INSTRUCCIONES ── */
+.instructions-box{background:#fff;border:1.5px solid var(--gold-mid);border-left:4px solid var(--gold);border-radius:12px;padding:1.2rem 1.4rem;margin:1rem 1rem 0;box-shadow:0 2px 10px var(--gold-glow);}
+.instructions-box summary{font-family:'Fredoka',sans-serif;font-size:1.05rem;font-weight:600;color:var(--gold-dark);cursor:pointer;list-style:none;display:flex;align-items:center;gap:8px;}
+.instructions-box summary::-webkit-details-marker{display:none;}
+.instructions-box summary::after{content:'▼';font-size:0.7rem;margin-left:auto;transition:transform 0.2s;}
+.instructions-box[open] summary::after{transform:rotate(180deg);}
+.inst-body{margin-top:0.9rem;}
+.inst-body ol{padding-left:1.4rem;color:#555;}
+.inst-body li{margin:0.45rem 0;font-size:0.88rem;line-height:1.6;}
+.inst-body .inst-tip{display:flex;align-items:flex-start;gap:8px;background:var(--gold-light);border-radius:8px;padding:0.6rem 0.9rem;margin-top:0.8rem;font-size:0.84rem;color:#0C4A6E;}
+.pts-legend{display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:0.8rem;}
+.pts-badge{display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:20px;font-size:0.8rem;font-weight:700;}
+.pts-badge.e{background:#E8F5E9;color:#2E7D32;}
+.pts-badge.m{background:#FFF3E0;color:#BF360C;}
+.pts-badge.h{background:#FFEBEE;color:#B71C1C;}
+
+/* ── ACCENT SELECTOR ── */
+.accent-bar{display:flex;align-items:center;gap:0.8rem;padding:0.8rem 1rem;margin:0.8rem 1rem 0;background:var(--card);border:1.5px solid var(--border);border-radius:12px;flex-wrap:wrap;}
+.accent-bar label{font-size:0.82rem;font-weight:800;color:var(--gold-dark);}
+.accent-btn{display:inline-flex;align-items:center;gap:5px;padding:6px 14px;border:2px solid var(--border);background:var(--bg);border-radius:20px;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.2s;color:var(--text-soft);}
+.accent-btn:hover{border-color:var(--gold);color:var(--gold-dark);}
+.accent-btn.active{background:var(--gold-mid);border-color:var(--gold);color:var(--gold-dark);}
+
+/* ── TOTAL SCORE DISPLAY ── */
+.total-score-bar{display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:0.9rem 1rem;margin:0.8rem 1rem 0;background:linear-gradient(135deg,#01579B 0%,#0277BD 100%);border-radius:12px;color:#E1F5FE;flex-wrap:wrap;}
+.total-score-bar .ts-label{font-size:0.78rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;opacity:0.8;}
+.total-score-bar .ts-pts{font-family:'Fredoka',sans-serif;font-size:1.9rem;font-weight:700;color:#4FC3F7;}
+.total-score-bar .ts-name{font-size:0.78rem;opacity:0.7;}
+.xp-float{position:fixed;font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:700;pointer-events:none;z-index:9999;animation:floatUp 1.1s ease forwards;}
+@keyframes floatUp{0%{opacity:1;transform:translateY(0) scale(1);}60%{opacity:1;transform:translateY(-50px) scale(1.2);}100%{opacity:0;transform:translateY(-90px) scale(0.9);}}
+
+/* ── STORY TABS ── */
+.story-nav{display:flex;gap:0;border-bottom:2px solid var(--border);background:var(--card);position:sticky;top:0;z-index:100;box-shadow:0 2px 12px rgba(0,0,0,0.06);overflow-x:auto;}
+.story-tab{flex:1;min-width:90px;padding:0.9rem 0.5rem;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:700;color:var(--text-soft);background:transparent;border:none;cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;transition:all 0.2s;white-space:nowrap;}
+.story-tab.active{color:var(--gold-dark);border-bottom-color:var(--gold);}
+.story-tab:hover:not(.active){color:var(--text);background:var(--gold-light);}
+
+/* ── STORY PANEL ── */
+.story-panel{display:none;padding:1.5rem;max-width:780px;margin:0 auto;}
+.story-panel.active{display:block;animation:fadeUp 0.3s ease;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+
+.story-intro{background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-mid) 100%);border:1.5px solid var(--gold);border-radius:var(--radius);padding:1.1rem 1.3rem;margin-bottom:1.2rem;display:flex;align-items:flex-start;gap:1rem;}
+.story-icon{font-size:2rem;line-height:1;}
+.story-intro h2{font-family:'Fredoka',sans-serif;font-size:1.2rem;color:var(--gold-dark);}
+.story-intro p{font-size:0.83rem;color:#075985;margin-top:0.15rem;}
+
+/* ── SCORE BAR ── */
+.score-bar{display:flex;gap:0.5rem;align-items:center;flex-wrap:wrap;background:var(--card);border:1.5px solid var(--border);border-radius:12px;padding:0.7rem 1.1rem;margin-bottom:1.2rem;box-shadow:var(--shadow);}
+.score-stat{text-align:center;flex:1;min-width:60px;}
+.score-stat .lbl{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text-soft);}
+.score-stat .val{font-size:1.35rem;font-weight:800;color:var(--gold-dark);}
+.score-stat .val.c{color:var(--green);}
+.score-stat .val.w{color:var(--red);}
+.score-stat .val.pts{color:#0277BD;font-family:'Fredoka',sans-serif;font-size:1.5rem;}
+.score-divider{width:1px;height:36px;background:var(--border);}
+
+/* ── DIFF HEADERS ── */
+.diff-header{display:flex;align-items:center;gap:10px;padding:0.7rem 1rem;border-radius:12px;margin-bottom:0.9rem;font-weight:800;font-size:0.88rem;}
+.diff-header.easy{background:#E8F5E9;color:#2E7D32;border-left:4px solid #43A047;}
+.diff-header.medium{background:#FFF3E0;color:#BF360C;border-left:4px solid #FB8C00;}
+.diff-header.hard{background:#FFEBEE;color:#B71C1C;border-left:4px solid #E53935;}
+.diff-pts{margin-left:auto;font-size:0.75rem;background:rgba(0,0,0,0.07);padding:2px 10px;border-radius:10px;font-weight:700;}
+
+/* ── QUESTION CARD ── */
+.q-card{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);margin-bottom:1.1rem;box-shadow:var(--shadow);overflow:hidden;}
+.q-card.easy{border-top:3px solid #43A047;}
+.q-card.medium{border-top:3px solid #FB8C00;}
+.q-card.hard{border-top:3px solid #E53935;}
+.q-card.answered-correct{box-shadow:0 0 0 2px #43A047,0 3px 20px rgba(67,160,71,0.12);}
+.q-card.answered-wrong{box-shadow:0 0 0 2px #E53935,0 3px 20px rgba(229,57,53,0.08);}
+
+/* ── AUDIO SECTION ── */
+.q-audio{padding:1.1rem 1.2rem;background:#F5FBFE;border-bottom:1px solid var(--border);}
+.q-num-row{display:flex;align-items:center;gap:8px;margin-bottom:0.9rem;}
+.q-num{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.85rem;color:#fff;flex-shrink:0;}
+.q-num.easy{background:#43A047;} .q-num.medium{background:#FB8C00;} .q-num.hard{background:#E53935;}
+.q-label{font-size:0.78rem;font-weight:700;color:var(--text-soft);text-transform:uppercase;letter-spacing:0.07em;}
+.pts-chip{margin-left:auto;font-size:0.72rem;font-weight:800;padding:2px 9px;border-radius:10px;}
+.pts-chip.easy{background:#E8F5E9;color:#2E7D32;}
+.pts-chip.medium{background:#FFF3E0;color:#BF360C;}
+.pts-chip.hard{background:#FFEBEE;color:#B71C1C;}
+
+/* ── AUDIO CONTROLS ── */
+.audio-controls{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:8px;}
+.play-main{display:inline-flex;align-items:center;gap:6px;background:linear-gradient(135deg,#0288D1 0%,#29B6F6 100%);color:#fff;border:none;border-radius:10px;padding:9px 16px;font-family:'Nunito',sans-serif;font-size:0.85rem;font-weight:800;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.play-main:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(41,182,246,0.4);}
+.play-main.playing{background:linear-gradient(135deg,#E53935 0%,#B71C1C 100%);}
+.pause-btn{display:inline-flex;align-items:center;gap:4px;background:#fff;border:2px solid var(--border);color:var(--text-soft);border-radius:10px;padding:8px 13px;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;transition:all 0.2s;white-space:nowrap;}
+.pause-btn:hover{border-color:var(--gold);color:var(--gold-dark);}
+.pause-btn.active{border-color:#E91E63;color:#E91E63;background:#FCE4EC;}
+
+/* ── SPEED PILL ── */
+.speed-wrap{display:flex;align-items:center;gap:7px;background:var(--gold-light);border:1.5px solid var(--gold-mid);border-radius:20px;padding:5px 13px;margin-top:4px;}
+.speed-wrap label{font-size:0.72rem;font-weight:700;color:var(--gold-dark);white-space:nowrap;}
+.speed-wrap input[type=range]{width:90px;accent-color:var(--gold-dark);cursor:pointer;height:4px;}
+.speed-wrap .sv{font-size:0.73rem;font-weight:800;color:var(--gold-dark);min-width:30px;}
+.speed-ticks{display:flex;gap:4px;margin-left:2px;}
+.speed-tick{font-size:0.68rem;font-weight:700;color:var(--gold-dark);background:rgba(41,182,246,0.18);border-radius:6px;padding:2px 6px;cursor:pointer;border:1px solid transparent;transition:all 0.15s;}
+.speed-tick:hover{background:rgba(41,182,246,0.4);}
+.speed-tick.on{background:var(--gold);color:#fff;border-color:var(--gold-dark);}
+
+/* ── TEXT TOGGLES ── */
+.text-toggles{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+.text-toggle{font-family:'Nunito',sans-serif;font-size:0.76rem;font-weight:700;border:1.5px solid var(--border);background:var(--bg);color:var(--text-soft);padding:4px 12px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.text-toggle:hover{border-color:var(--gold);color:var(--gold-dark);}
+.text-toggle.on{background:var(--gold-mid);border-color:var(--gold);color:var(--gold-dark);}
+.audio-text-box{display:none;margin-top:8px;padding:10px 13px;background:rgba(255,255,255,0.9);border-left:3px solid var(--gold);border-radius:8px;font-size:0.87rem;line-height:1.7;color:#333;}
+.audio-text-box.show{display:block;animation:fadeUp 0.2s ease;}
+.audio-text-box.es{border-left-color:#FB8C00;background:#FFF8E1;color:#5D4037;}
+
+/* ── QUESTION BODY ── */
+.q-body{padding:1.1rem 1.2rem;}
+.show-q-btn{width:100%;padding:0.82rem;border:2px dashed #AB47BC;background:linear-gradient(135deg,#F3E5F5 0%,#E8D0F0 100%);color:#7B1FA2;border-radius:10px;font-family:'Nunito',sans-serif;font-size:0.88rem;font-weight:800;cursor:pointer;transition:all 0.2s;}
+.show-q-btn:hover{background:linear-gradient(135deg,#E1BEE7 0%,#CE93D8 100%);transform:translateY(-1px);}
+.show-q-btn.open{background:linear-gradient(135deg,#9C27B0 0%,#7B1FA2 100%);color:#fff;border-style:solid;}
+
+.q-question-area{display:none;margin-top:1rem;}
+.q-question-area.show{display:block;animation:fadeUp 0.2s ease;}
+.q-text{background:#F5F5F5;border-radius:10px;padding:0.85rem 1.1rem;font-size:0.94rem;color:#333;margin-bottom:0.9rem;line-height:1.6;}
+
+/* ── OPTIONS ── */
+.options{display:flex;flex-direction:column;gap:7px;}
+.opt{display:flex;align-items:center;gap:11px;padding:0.82rem 1rem;background:#FAFAFA;border:2px solid #E0E0E0;border-radius:10px;cursor:pointer;transition:all 0.18s;-webkit-tap-highlight-color:transparent;}
+.opt:hover:not(.locked){border-color:var(--gold);background:var(--gold-light);transform:translateX(3px);}
+.opt.correct{border-color:var(--green);background:var(--green-bg);}
+.opt.wrong{border-color:var(--red);background:var(--red-bg);}
+.opt.show-ans{border-color:var(--green);background:var(--green-bg);}
+.opt.locked{pointer-events:none;}
+.opt-letter{width:30px;height:30px;border-radius:50%;background:#E0E0E0;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:0.85rem;color:#666;flex-shrink:0;}
+.opt.correct .opt-letter,.opt.show-ans .opt-letter{background:var(--green);color:#fff;}
+.opt.wrong .opt-letter{background:var(--red);color:#fff;}
+.opt-text{flex:1;font-size:0.9rem;color:#333;}
+
+/* ── FEEDBACK ── */
+.q-feedback{display:none;margin-top:10px;padding:10px 13px;border-radius:8px;font-size:0.85rem;line-height:1.5;}
+.q-feedback.show{display:block;animation:fadeUp 0.2s ease;}
+.q-feedback.correct{background:var(--green-bg);border:1px solid #A5D6A7;color:#2E7D32;}
+.q-feedback.wrong{background:var(--red-bg);border:1px solid #EF9A9A;color:#C62828;}
+.pts-earned{display:inline-block;background:var(--gold);color:#FFFFFF;font-weight:800;border-radius:8px;padding:1px 9px;font-size:0.82rem;margin-left:6px;}
+
+/* ── RESULTS PANEL ── */
+.results-panel{display:none;background:linear-gradient(135deg,var(--gold) 0%,var(--gold-dark) 100%);border-radius:var(--radius);padding:2rem;text-align:center;color:#FFFFFF;margin-top:1.5rem;box-shadow:0 8px 30px rgba(41,182,246,0.35);}
+.results-panel.show{display:block;animation:fadeUp 0.4s ease;}
+.trophy{font-size:4rem;margin-bottom:0.6rem;}
+.results-panel h2{font-family:'Fredoka',sans-serif;font-size:2rem;margin-bottom:0.3rem;}
+.big-score{font-size:3.2rem;font-weight:800;margin:0.4rem 0;}
+.big-pts{font-family:'Fredoka',sans-serif;font-size:1.4rem;background:rgba(255,255,255,0.3);display:inline-block;border-radius:12px;padding:4px 20px;margin-bottom:0.8rem;}
+.breakdown{display:flex;justify-content:center;gap:0.8rem;flex-wrap:wrap;margin:0.8rem 0;}
+.bk-item{background:rgba(255,255,255,0.3);border-radius:12px;padding:0.7rem 1.2rem;backdrop-filter:blur(10px);}
+.bk-item .bn{font-size:0.73rem;font-weight:700;opacity:0.85;}
+.bk-item .bv{font-size:1.3rem;font-weight:800;}
+.results-msg{font-size:0.93rem;opacity:0.9;margin-top:0.4rem;font-weight:600;}
+.retry-btn{margin-top:1.1rem;padding:0.85rem 2.4rem;background:#fff;color:var(--gold-dark);border:none;border-radius:30px;font-family:'Nunito',sans-serif;font-size:0.94rem;font-weight:800;cursor:pointer;transition:all 0.2s;}
+.retry-btn:hover{transform:scale(1.05);box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+.gif-celebrate{font-size:2rem;margin-top:0.5rem;display:block;}
+
+/* ── STAR ANIMATION ── */
+.star-pop{position:fixed;pointer-events:none;z-index:9998;animation:starAnim 0.7s ease forwards;}
+@keyframes starAnim{0%{opacity:1;transform:scale(0.5);}50%{opacity:1;transform:scale(1.4);}100%{opacity:0;transform:scale(1) translateY(-30px);}}
+
+/* ── STORY READER ── */
+.story-reader{background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);margin-bottom:1.4rem;box-shadow:var(--shadow);overflow:hidden;}
+.story-reader-header{display:flex;align-items:center;gap:10px;padding:0.9rem 1.2rem;background:linear-gradient(135deg,var(--gold-light) 0%,var(--gold-mid) 100%);border-bottom:1.5px solid var(--gold);}
+.story-reader-header .sr-icon{font-size:1.5rem;}
+.story-reader-header h3{font-family:'Fredoka',sans-serif;font-size:1.1rem;color:var(--gold-dark);flex:1;}
+.story-reader-header .sr-badge{font-size:0.72rem;font-weight:800;background:rgba(41,182,246,0.28);color:#075985;padding:3px 10px;border-radius:10px;}
+
+.story-paragraphs{padding:1.2rem 1.3rem 0;}
+.sp-item{margin-bottom:0.9rem;transition:opacity 0.4s;}
+.sp-item.hidden{display:none;}
+.sp-text{font-size:0.97rem;line-height:1.85;color:var(--text);padding:0.6rem 0.8rem;border-radius:8px;cursor:pointer;transition:background 0.18s;border-left:3px solid transparent;}
+.sp-text:hover{background:var(--gold-glow);border-left-color:var(--gold);}
+.sp-text.playing-para{background:var(--gold-glow);border-left-color:var(--gold-dark);outline:1.5px solid var(--gold);}
+.sp-num{display:inline-block;font-size:0.68rem;font-weight:800;color:var(--text-soft);margin-right:4px;vertical-align:middle;opacity:0.5;}
+.sp-es{display:none;font-size:0.84rem;font-style:italic;color:#777;margin-top:3px;padding:4px 10px;border-left:2px solid #CE93D8;background:#F9F3FF;border-radius:0 6px 6px 0;}
+.sp-es.show{display:block;animation:fadeUp 0.2s ease;}
+.sp-controls{display:flex;gap:5px;margin-top:4px;flex-wrap:wrap;}
+.sp-btn{font-family:'Nunito',sans-serif;font-size:0.7rem;font-weight:700;border:1.5px solid var(--border);background:var(--bg);color:var(--text-soft);padding:3px 9px;border-radius:7px;cursor:pointer;transition:all 0.15s;}
+.sp-btn:hover{border-color:var(--gold);color:var(--gold-dark);}
+.sp-btn.playing{border-color:var(--red);color:var(--red);background:#FFEBEE;}
+
+.story-slider-wrap{padding:1rem 1.3rem 1.2rem;border-top:1px solid var(--border);margin-top:0.5rem;}
+.story-slider-label{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.6rem;}
+.story-slider-label span{font-size:0.78rem;font-weight:700;color:var(--gold-dark);}
+.story-slider-label .sr-count{font-size:0.75rem;color:var(--text-soft);}
+.story-range{width:100%;accent-color:var(--gold-dark);cursor:pointer;height:6px;}
+.slider-ticks{display:flex;justify-content:space-between;margin-top:5px;}
+.slider-ticks span{font-size:0.65rem;color:var(--text-soft);}
+.story-reader-btns{display:flex;gap:8px;padding:0 1.3rem 1.2rem;flex-wrap:wrap;}
+.sr-action-btn{display:inline-flex;align-items:center;gap:5px;font-family:'Nunito',sans-serif;font-size:0.78rem;font-weight:700;border:1.5px solid var(--border);background:var(--bg);color:var(--text-soft);padding:5px 13px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.sr-action-btn:hover{border-color:var(--gold);color:var(--gold-dark);}
+.sr-action-btn.all-visible{border-color:var(--green);color:var(--green);background:var(--green-bg);}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .page-header h1{font-size:1.5rem;}
+  .story-panel{padding:1rem;}
+  .speed-wrap input[type=range]{width:65px;}
+  .breakdown{flex-direction:column;}
+  .accent-bar{gap:0.5rem;}
+  .total-score-bar{gap:0.8rem;}
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══════════ HEADER ══════════ -->
+<div class="page-header">
+  <a href="https://jucumenglishcenter.github.io/a1/panel-a1.html" class="back-link">🏠 Volver al Panel</a>
+  <h1>🎧 Comprensión Auditiva</h1>
+  <div class="sub">🔵 A1 Bloque I · Shopping, Services &amp; Money · 4 Stories · 40 preguntas</div>
+</div>
+
+<!-- ══════════ INSTRUCCIONES ══════════ -->
+<details class="instructions-box" style="margin:0.9rem 1rem 0;" open>
+  <summary>📋 ¿Cómo funciona esta actividad?</summary>
+  <div class="inst-body">
+    <ol>
+      <li><strong>Selecciona tu acento</strong> con los botones de abajo: 🇺🇸 Americano o 🇬🇧 Británico. Puedes cambiarlo en cualquier momento.</li>
+      <li>Cada pregunta tiene un <strong>botón ▶ Escuchar</strong>. Presiona para escuchar el audio. Puedes escucharlo tantas veces como necesites.</li>
+      <li>Usa el botón <strong>⏸ Pausar</strong> para detener el audio en cualquier momento si quieres repetir una parte.</li>
+      <li>Ajusta la <strong>velocidad 🎚️</strong> con el slider de cada pregunta. Empieza despacio y sube al ritmo normal poco a poco.</li>
+      <li>Si necesitas ayuda, presiona <strong>🔤 Ver en inglés</strong> o <strong>🇪🇸 Ver en español</strong> para leer el texto del audio.</li>
+      <li>Cuando estés listo, presiona <strong>❓ Mostrar Pregunta</strong> y elige la respuesta correcta.</li>
+      <li><strong>¡Gana puntos!</strong> Cada respuesta correcta suma puntos según la dificultad:</li>
+    </ol>
+    <div class="pts-legend">
+      <span class="pts-badge e">🟢 Fácil → +10 pts</span>
+      <span class="pts-badge m">🟡 Intermedio → +20 pts</span>
+      <span class="pts-badge h">🔴 Difícil → +30 pts</span>
+    </div>
+    <div class="inst-tip">💡 <span>La respuesta correcta <strong>siempre se dice en el audio</strong>. ¡Escucha con atención y busca las palabras clave!</span></div>
+  </div>
+</details>
+
+<!-- ══════════ ACCENT SELECTOR ══════════ -->
+<div class="accent-bar">
+  <label>🌍 Acento:</label>
+  <button class="accent-btn active" id="acc-us" onclick="setAccent('us')">🇺🇸 Americano</button>
+  <button class="accent-btn" id="acc-gb" onclick="setAccent('gb')">🇬🇧 Británico</button>
+</div>
+
+<!-- ══════════ TOTAL POINTS ══════════ -->
+<div class="total-score-bar">
+  <div>
+    <div class="ts-label">Puntos totales</div>
+    <div class="ts-pts" id="total-pts">0</div>
+  </div>
+  <div style="width:1px;height:40px;background:rgba(255,255,255,0.15);"></div>
+  <div>
+    <div class="ts-label">Máximo posible</div>
+    <div style="color:#B3E5FC;font-family:'Fredoka',sans-serif;font-size:1.4rem;font-weight:700;">800</div>
+  </div>
+  <div style="width:1px;height:40px;background:rgba(255,255,255,0.15);"></div>
+  <div>
+    <div class="ts-label">🏆 Ranking</div>
+    <div class="ts-pts" id="rank-label" style="font-size:1.1rem;">—</div>
+  </div>
+</div>
+
+<!-- ══════════ STORY TABS ══════════ -->
+<div class="story-nav">
+  <button class="story-tab active" onclick="showStory('s1')">🎩 S1 · The Hat</button>
+  <button class="story-tab" onclick="showStory('s2')">🧾 S2 · The Receipt</button>
+  <button class="story-tab" onclick="showStory('s3')">💵 S3 · Fifty a Week</button>
+  <button class="story-tab" onclick="showStory('s4')">🕐 S4 · Long Shift</button>
+</div>
+
+<div class="story-panel active" id="panel-s1">
+  <div class="story-intro"><div class="story-icon">🎩</div><div><h2>The Hat in the Window</h2><p>Clara busca un sombrero especial un sábado por la mañana.</p></div></div>
+
+  <div class="story-reader" id="sr-s1">
+    <div class="story-reader-header">
+      <span class="sr-icon">📖</span>
+      <h3>Lee la historia antes de responder</h3>
+      <span class="sr-badge">10 párrafos</span>
+    </div>
+    <div class="story-paragraphs" id="sr-s1-paras">
+      <div class="sp-item" data-idx="0">
+        <div class="sp-text" onclick="speakPara(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.','s1',0)">
+          <span class="sp-num">1.</span>Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">A Clara le encantaba ir de compras los sábados por la mañana. Caminaba despacio por la calle, mirando de escaparate en escaparate.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="1">
+        <div class="sp-text" onclick="speakPara(this,'That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.','s1',1)">
+          <span class="sp-num">2.</span>That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Esa mañana vio un sombrero —de ala ancha y verde oscuro— posado en un soporte del escaparate.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="2">
+        <div class="sp-text" onclick="speakPara(this,'The clerk explained that it was the last one.','s1',2)">
+          <span class="sp-num">3.</span>The clerk explained that it was the last one.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'The clerk explained that it was the last one.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'The clerk explained that it was the last one.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">El dependiente explicó que era el último.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="3">
+        <div class="sp-text" onclick="speakPara(this,'She also described the material — it was a soft felt, made to keep its shape even on windy days.','s1',3)">
+          <span class="sp-num">4.</span>She also described the material — it was a soft felt, made to keep its shape even on windy days.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She also described the material — it was a soft felt, made to keep its shape even on windy days.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She also described the material — it was a soft felt, made to keep its shape even on windy days.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">También describió el material — era un fieltro suave, hecho para mantener su forma incluso en días de viento.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="4">
+        <div class="sp-text" onclick="speakPara(this,'Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.','s1',4)">
+          <span class="sp-num">5.</span>Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">A pesar de que el costo era ligeramente mayor que su estimado, decidió que valía la pena. Se dijo que ya no dudaría más.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="5">
+        <div class="sp-text" onclick="speakPara(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.','s1',5)">
+          <span class="sp-num">6.</span>Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Clara pagó y salió al sol con el sombrero puesto. Se sentía feliz. Una mujer dijo que era un gran color — perfecto para la temporada.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="6">
+        <div class="sp-text" onclick="speakPara(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread.','s1',6)">
+          <span class="sp-num">7.</span>On the way home, she stopped at a small market and got a box of eggs and some fresh bread.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">De camino a casa, se detuvo en un pequeño mercado y compró una caja de huevos y algo de pan fresco.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="7">
+        <div class="sp-text" onclick="speakPara(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.','s1',7)">
+          <span class="sp-num">8.</span>She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Entró y encontró a un dependiente cerca de la entrada. La tienda era pequeña pero llena de cosas. Había cajas apiladas debajo de las estanterías y bolsas en cada pared. Clara señaló el sombrero y preguntó si estaba en venta.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="8">
+        <div class="sp-text" onclick="speakPara(this,'She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.','s1',8)">
+          <span class="sp-num">9.</span>She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Había estado ahorrando un poco de dinero cada semana desde enero. A pesar de que el costo superaba ligeramente su estimado, decidió que valía la pena. Las cosas buenas a veces requieren un poco más de esfuerzo.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="9">
+        <div class="sp-text" onclick="speakPara(this,'It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.','s1',9)">
+          <span class="sp-num">10.</span>It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Había sido una buena mañana — uno de esos días en que todo parece ir bien. Ya estaba pensando en qué podría buscar el próximo sábado.</div>
+      </div>
+    </div>
+    <div class="story-slider-wrap">
+      <div class="story-slider-label">
+        <span>📖 Descubre la historia párrafo a párrafo</span>
+        <span class="sr-count" id="sr-s1-count">1 / 10</span>
+      </div>
+      <input type="range" class="story-range" id="sr-s1-range" min="1" max="10" value="1" oninput="updateStorySlider('s1',this.value,10)">
+      <div class="slider-ticks"><span>Párrafo 1</span><span>5</span><span>10 (completo)</span></div>
+    </div>
+    <div class="story-reader-btns">
+      <button class="sr-action-btn" onclick="revealAllParas('s1',10)" id="sr-s1-showall">👁 Ver historia completa</button>
+      <button class="sr-action-btn" onclick="hideAllParas('s1')">🔒 Ocultar de nuevo</button>
+    </div>
+  </div>
+
+  <div class="score-bar">
+    <div class="score-stat"><div class="lbl">Respondidas</div><div class="val" id="s1-ans">0/10</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Correctas</div><div class="val c" id="s1-cor">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Incorrectas</div><div class="val w" id="s1-inc">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">⭐ Puntos</div><div class="val pts" id="s1-pts">0</div></div>
+  </div>
+  <div class="diff-header easy">🟢 Nivel Fácil · Preguntas 1–4 <span class="diff-pts">+10 pts c/u</span></div>
+  <div id="s1-cards"></div>
+  <div class="diff-header medium">🟡 Nivel Intermedio · Preguntas 5–7 <span class="diff-pts">+20 pts c/u</span></div>
+  <div id="s1-cards-m"></div>
+  <div class="diff-header hard">🔴 Nivel Difícil · Preguntas 8–10 <span class="diff-pts">+30 pts c/u</span></div>
+  <div id="s1-cards-h"></div>
+  <div class="results-panel" id="s1-results">
+    <div class="trophy" id="s1-trophy">🏆</div>
+    <h2 id="s1-rtitle">¡Excelente!</h2>
+    <div class="big-score" id="s1-score">0/10</div>
+    <div class="big-pts" id="s1-bpts">⭐ 0 puntos</div>
+    <div class="breakdown">
+      <div class="bk-item"><div class="bn">🟢 Fácil</div><div class="bv" id="s1-easy">0/4</div></div>
+      <div class="bk-item"><div class="bn">🟡 Intermedio</div><div class="bv" id="s1-med">0/3</div></div>
+      <div class="bk-item"><div class="bn">🔴 Difícil</div><div class="bv" id="s1-hard">0/3</div></div>
+    </div>
+    <div class="results-msg" id="s1-rmsg"></div>
+    <span class="gif-celebrate" id="s1-gif"></span>
+    <br><button class="retry-btn" onclick="retryStory('s1')">🔄 Intentar de nuevo</button>
+  </div>
+</div>
+
+<div class="story-panel" id="panel-s2">
+  <div class="story-intro"><div class="story-icon">🧾</div><div><h2>The Receipt</h2><p>Pedro compra una lámpara y aprende por qué el recibo importa.</p></div></div>
+
+  <div class="story-reader" id="sr-s2">
+    <div class="story-reader-header">
+      <span class="sr-icon">📖</span>
+      <h3>Lee la historia antes de responder</h3>
+      <span class="sr-badge">10 párrafos</span>
+    </div>
+    <div class="story-paragraphs" id="sr-s2-paras">
+      <div class="sp-item" data-idx="0">
+        <div class="sp-text" onclick="speakPara(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.','s2',0)">
+          <span class="sp-num">1.</span>Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Pedro compró una lámpara en una tienda cerca de su apartamento. Era una lámpara de pie alta con base dorada — elegante y sólida.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="1">
+        <div class="sp-text" onclick="speakPara(this,'He paid sixty dollars for it, which was more than he usually spent on things for the house.','s2',1)">
+          <span class="sp-num">2.</span>He paid sixty dollars for it, which was more than he usually spent on things for the house.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'He paid sixty dollars for it, which was more than he usually spent on things for the house.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'He paid sixty dollars for it, which was more than he usually spent on things for the house.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Pagó sesenta dólares por ella, que era más de lo que normalmente gastaba en cosas para la casa.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="2">
+        <div class="sp-text" onclick="speakPara(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.','s2',2)">
+          <span class="sp-num">3.</span>Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Tres días después, la lámpara cayó mientras movía muebles. La base se rompió en dos piezas separadas.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="3">
+        <div class="sp-text" onclick="speakPara(this,'The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.','s2',3)">
+          <span class="sp-num">4.</span>The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">El recibo había desaparecido. No lo había guardado. Como no tenía prueba de compra, no podían hacer nada para el reembolso.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="4">
+        <div class="sp-text" onclick="speakPara(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.','s2',4)">
+          <span class="sp-num">5.</span>At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">En la tienda, la empleada fue amable pero firme. Dijo que la tienda no cubría daños por accidentes. Pedro preguntó si había alguna otra solución.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="5">
+        <div class="sp-text" onclick="speakPara(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.','s2',5)">
+          <span class="sp-num">6.</span>Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">A pesar de la mala experiencia, Pedro decidió manejarlo con actitud positiva. Encontró una tienda de reparación a unas pocas calles. Un hombre mayor dijo que podía arreglar la base por quince dólares.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="6">
+        <div class="sp-text" onclick="speakPara(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.','s2',6)">
+          <span class="sp-num">7.</span>Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Desde ese día, Pedro guarda todos los recibos en una pequeña caja sobre su escritorio. Aprendió que un simple trozo de papel puede ahorrarte muchos problemas.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="7">
+        <div class="sp-text" onclick="speakPara(this,'He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.','s2',7)">
+          <span class="sp-num">8.</span>He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Intentó arreglarlo él mismo, pero el material era demasiado duro. Se sintió frustrado, pero se mantuvo tranquilo. Pensó que lo mejor era volver a la tienda y explicar lo que había pasado.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="8">
+        <div class="sp-text" onclick="speakPara(this,'The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.','s2',8)">
+          <span class="sp-num">9.</span>The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">La empleada dijo que podía mostrarle el servicio de reparación que ofrecían — pero costaría más. Pedro se decepcionó. No había pensado en eso.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="9">
+        <div class="sp-text" onclick="speakPara(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.','s2',9)">
+          <span class="sp-num">10.</span>Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Entonces ella pidió el recibo. Buscó en su chaqueta, su bolso e incluso sus notas antiguas. El recibo había desaparecido.</div>
+      </div>
+    </div>
+    <div class="story-slider-wrap">
+      <div class="story-slider-label">
+        <span>📖 Descubre la historia párrafo a párrafo</span>
+        <span class="sr-count" id="sr-s2-count">1 / 10</span>
+      </div>
+      <input type="range" class="story-range" id="sr-s2-range" min="1" max="10" value="1" oninput="updateStorySlider('s2',this.value,10)">
+      <div class="slider-ticks"><span>Párrafo 1</span><span>5</span><span>10 (completo)</span></div>
+    </div>
+    <div class="story-reader-btns">
+      <button class="sr-action-btn" onclick="revealAllParas('s2',10)" id="sr-s2-showall">👁 Ver historia completa</button>
+      <button class="sr-action-btn" onclick="hideAllParas('s2')">🔒 Ocultar de nuevo</button>
+    </div>
+  </div>
+
+  <div class="score-bar">
+    <div class="score-stat"><div class="lbl">Respondidas</div><div class="val" id="s2-ans">0/10</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Correctas</div><div class="val c" id="s2-cor">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Incorrectas</div><div class="val w" id="s2-inc">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">⭐ Puntos</div><div class="val pts" id="s2-pts">0</div></div>
+  </div>
+  <div class="diff-header easy">🟢 Nivel Fácil · Preguntas 1–4 <span class="diff-pts">+10 pts c/u</span></div>
+  <div id="s2-cards"></div>
+  <div class="diff-header medium">🟡 Nivel Intermedio · Preguntas 5–7 <span class="diff-pts">+20 pts c/u</span></div>
+  <div id="s2-cards-m"></div>
+  <div class="diff-header hard">🔴 Nivel Difícil · Preguntas 8–10 <span class="diff-pts">+30 pts c/u</span></div>
+  <div id="s2-cards-h"></div>
+  <div class="results-panel" id="s2-results">
+    <div class="trophy" id="s2-trophy">🏆</div>
+    <h2 id="s2-rtitle">¡Excelente!</h2>
+    <div class="big-score" id="s2-score">0/10</div>
+    <div class="big-pts" id="s2-bpts">⭐ 0 puntos</div>
+    <div class="breakdown">
+      <div class="bk-item"><div class="bn">🟢 Fácil</div><div class="bv" id="s2-easy">0/4</div></div>
+      <div class="bk-item"><div class="bn">🟡 Intermedio</div><div class="bv" id="s2-med">0/3</div></div>
+      <div class="bk-item"><div class="bn">🔴 Difícil</div><div class="bv" id="s2-hard">0/3</div></div>
+    </div>
+    <div class="results-msg" id="s2-rmsg"></div>
+    <span class="gif-celebrate" id="s2-gif"></span>
+    <br><button class="retry-btn" onclick="retryStory('s2')">🔄 Intentar de nuevo</button>
+  </div>
+</div>
+
+<div class="story-panel" id="panel-s3">
+  <div class="story-intro"><div class="story-icon">💵</div><div><h2>Fifty a Week</h2><p>Ana ahorra poco a poco cada semana para alcanzar su meta.</p></div></div>
+
+  <div class="story-reader" id="sr-s3">
+    <div class="story-reader-header">
+      <span class="sr-icon">📖</span>
+      <h3>Lee la historia antes de responder</h3>
+      <span class="sr-badge">10 párrafos</span>
+    </div>
+    <div class="story-paragraphs" id="sr-s3-paras">
+      <div class="sp-item" data-idx="0">
+        <div class="sp-text" onclick="speakPara(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.','s3',0)">
+          <span class="sp-num">1.</span>Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Ana gana un pequeño salario en el mercado cerca de su casa. Trabaja seis días a la semana y termina cada turno sintiéndose cansada pero satisfecha.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="1">
+        <div class="sp-text" onclick="speakPara(this,'She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.','s3',1)">
+          <span class="sp-num">2.</span>She tries to save at least fifty dollars every month. It's not a lot, but she is consistent.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Intenta ahorrar al menos cincuenta dólares cada mes. No es mucho, pero es constante.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="2">
+        <div class="sp-text" onclick="speakPara(this,'She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.','s3',2)">
+          <span class="sp-num">3.</span>She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Creció en una granja, lejos de la ciudad y sus fábricas, así que aprendió desde joven a ser cuidadosa con el dinero.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="3">
+        <div class="sp-text" onclick="speakPara(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.','s3',3)">
+          <span class="sp-num">4.</span>By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Al final del mes, había ahorrado treinta dólares — no cincuenta, pero aún algo. Lo marcó en su cuaderno.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="4">
+        <div class="sp-text" onclick="speakPara(this,'Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.','s3',4)">
+          <span class="sp-num">5.</span>Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">El mes pasado, su teléfono requirió una reparación que costó más de lo planeado. Tuvo que usar parte de sus ahorros para cubrirlo. El miedo de perder todos sus ahorros se sintió muy real ese martes.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="5">
+        <div class="sp-text" onclick="speakPara(this,'She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.','s3',5)">
+          <span class="sp-num">6.</span>She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Decidió trabajar un turno extra ese mes para ganar un poco más. Su gerente dijo que sí de inmediato. Todos en la tienda sabían que era confiable.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="6">
+        <div class="sp-text" onclick="speakPara(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years.','s3',6)">
+          <span class="sp-num">7.</span>Ana's goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn't matter if it takes two more years.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">La meta de Ana es ahorrar suficiente para visitar el mar algún día — un lugar distante que solo ha visto en fotos. No importa si tarda dos años más.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="7">
+        <div class="sp-text" onclick="speakPara(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.','s3',7)">
+          <span class="sp-num">8.</span>Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Cada mes, se sienta con lápiz y papel para estimar sus gastos. Principalmente gasta dinero en comida, transporte y alquiler.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="8">
+        <div class="sp-text" onclick="speakPara(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.','s3',8)">
+          <span class="sp-num">9.</span>She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Se dijo que la mayoría de las personas enfrentan estos momentos y que lo importante es no dejar que definan todo tu plan. Lo intentaría de nuevo el próximo mes.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="9">
+        <div class="sp-text" onclick="speakPara(this,'Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.','s3',9)">
+          <span class="sp-num">10.</span>Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">A pesar de las largas horas, disfruta su trabajo. La gente allí es amable, y ha aprendido a gestionar bien su tiempo y energía.</div>
+      </div>
+    </div>
+    <div class="story-slider-wrap">
+      <div class="story-slider-label">
+        <span>📖 Descubre la historia párrafo a párrafo</span>
+        <span class="sr-count" id="sr-s3-count">1 / 10</span>
+      </div>
+      <input type="range" class="story-range" id="sr-s3-range" min="1" max="10" value="1" oninput="updateStorySlider('s3',this.value,10)">
+      <div class="slider-ticks"><span>Párrafo 1</span><span>5</span><span>10 (completo)</span></div>
+    </div>
+    <div class="story-reader-btns">
+      <button class="sr-action-btn" onclick="revealAllParas('s3',10)" id="sr-s3-showall">👁 Ver historia completa</button>
+      <button class="sr-action-btn" onclick="hideAllParas('s3')">🔒 Ocultar de nuevo</button>
+    </div>
+  </div>
+
+  <div class="score-bar">
+    <div class="score-stat"><div class="lbl">Respondidas</div><div class="val" id="s3-ans">0/10</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Correctas</div><div class="val c" id="s3-cor">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Incorrectas</div><div class="val w" id="s3-inc">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">⭐ Puntos</div><div class="val pts" id="s3-pts">0</div></div>
+  </div>
+  <div class="diff-header easy">🟢 Nivel Fácil · Preguntas 1–4 <span class="diff-pts">+10 pts c/u</span></div>
+  <div id="s3-cards"></div>
+  <div class="diff-header medium">🟡 Nivel Intermedio · Preguntas 5–7 <span class="diff-pts">+20 pts c/u</span></div>
+  <div id="s3-cards-m"></div>
+  <div class="diff-header hard">🔴 Nivel Difícil · Preguntas 8–10 <span class="diff-pts">+30 pts c/u</span></div>
+  <div id="s3-cards-h"></div>
+  <div class="results-panel" id="s3-results">
+    <div class="trophy" id="s3-trophy">🏆</div>
+    <h2 id="s3-rtitle">¡Excelente!</h2>
+    <div class="big-score" id="s3-score">0/10</div>
+    <div class="big-pts" id="s3-bpts">⭐ 0 puntos</div>
+    <div class="breakdown">
+      <div class="bk-item"><div class="bn">🟢 Fácil</div><div class="bv" id="s3-easy">0/4</div></div>
+      <div class="bk-item"><div class="bn">🟡 Intermedio</div><div class="bv" id="s3-med">0/3</div></div>
+      <div class="bk-item"><div class="bn">🔴 Difícil</div><div class="bv" id="s3-hard">0/3</div></div>
+    </div>
+    <div class="results-msg" id="s3-rmsg"></div>
+    <span class="gif-celebrate" id="s3-gif"></span>
+    <br><button class="retry-btn" onclick="retryStory('s3')">🔄 Intentar de nuevo</button>
+  </div>
+</div>
+
+<div class="story-panel" id="panel-s4">
+  <div class="story-intro"><div class="story-icon">🕐</div><div><h2>Carlos's Long Shift</h2><p>Carlos lidera un turno largo y resuelve problemas en el trabajo.</p></div></div>
+
+  <div class="story-reader" id="sr-s4">
+    <div class="story-reader-header">
+      <span class="sr-icon">📖</span>
+      <h3>Lee la historia antes de responder</h3>
+      <span class="sr-badge">10 párrafos</span>
+    </div>
+    <div class="story-paragraphs" id="sr-s4-paras">
+      <div class="sp-item" data-idx="0">
+        <div class="sp-text" onclick="speakPara(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.','s4',0)">
+          <span class="sp-num">1.</span>Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Carlos ha trabajado en la misma tienda por tres años. Ahora es el supervisor de turno, lo que significa que es principalmente responsable de que todo funcione bien.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="1">
+        <div class="sp-text" onclick="speakPara(this,'He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.','s4',1)">
+          <span class="sp-num">2.</span>He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Dirigió su primer equipo a los veintitrés — joven para el puesto, pero consiguió el trabajo porque era tranquilo y organizado.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="2">
+        <div class="sp-text" onclick="speakPara(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.','s4',2)">
+          <span class="sp-num">3.</span>His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Su mañana comenzó, como siempre, con un recorrido por la planta de la tienda. Comprobó que todos los artículos estuvieran en su lugar y que las marcas de precio fueran correctas.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="3">
+        <div class="sp-text" onclick="speakPara(this,'Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student.','s4',3)">
+          <span class="sp-num">4.</span>Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn't been to a concert since he was a student.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Alguien mencionó un concierto de música en la ciudad el fin de semana. Carlos rio y dijo que no había ido a un concierto desde que era estudiante.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="4">
+        <div class="sp-text" onclick="speakPara(this,'He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.','s4',4)">
+          <span class="sp-num">5.</span>He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Notó algunas cajas dejadas debajo de una mesa cerca de la entrada — nadie las había guardado. Hizo una nota para hablar sobre ello en la reunión del equipo.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="5">
+        <div class="sp-text" onclick="speakPara(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.','s4',5)">
+          <span class="sp-num">6.</span>In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Por la tarde, tuvo una reunión corta con la gerente. Ella dijo que los números de ventas del mes eran buenos — todos lo habían hecho bien.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="6">
+        <div class="sp-text" onclick="speakPara(this,'She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.','s4',6)">
+          <span class="sp-num">7.</span>She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Ella le pidió a Carlos que definiera un nuevo sistema para rastrear inventario. Dijo que usaría un simple conjunto de formularios. Un elemento clave era hacerlo lo suficientemente fácil para que cualquiera pudiera usarlo sin entrenamiento.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="7">
+        <div class="sp-text" onclick="speakPara(this,'Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.','s4',7)">
+          <span class="sp-num">8.</span>Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Carlos ayudó a dos clientes a encontrar artículos, y también intentó persuadir a un tercer cliente para que no se fuera después de un malentendido sobre un precio. Se mantuvo paciente.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="8">
+        <div class="sp-text" onclick="speakPara(this,'He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.','s4',8)">
+          <span class="sp-num">9.</span>He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">También ofreció revisar el nuevo formulario antes de que saliera — un gesto pequeño pero considerado. La gerente sonrió y dijo que era muy bueno con los detalles.</div>
+      </div>
+      <div class="sp-item hidden" data-idx="9">
+        <div class="sp-text" onclick="speakPara(this,'By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.','s4',9)">
+          <span class="sp-num">10.</span>By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.
+        </div>
+        <div class="sp-controls">
+          <button class="sp-btn" onclick="speakParaBtn(this,'By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.')">🇺🇸 US</button>
+          <button class="sp-btn" onclick="speakParaBtn(this,'By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.','gb')">🇬🇧 UK</button>
+          <button class="sp-btn" onclick="toggleSpEs(this)">🇪🇸 traducción</button>
+        </div>
+        <div class="sp-es">Al final de su turno, Carlos se sentía cansado pero bien. Apagó las luces en la sala trasera, se aseguró de que las puertas estuvieran cerradas, y envió un mensaje al chat del equipo para decir que todos lo habían hecho muy bien. Luego caminó a casa por el camino del campo.</div>
+      </div>
+    </div>
+    <div class="story-slider-wrap">
+      <div class="story-slider-label">
+        <span>📖 Descubre la historia párrafo a párrafo</span>
+        <span class="sr-count" id="sr-s4-count">1 / 10</span>
+      </div>
+      <input type="range" class="story-range" id="sr-s4-range" min="1" max="10" value="1" oninput="updateStorySlider('s4',this.value,10)">
+      <div class="slider-ticks"><span>Párrafo 1</span><span>5</span><span>10 (completo)</span></div>
+    </div>
+    <div class="story-reader-btns">
+      <button class="sr-action-btn" onclick="revealAllParas('s4',10)" id="sr-s4-showall">👁 Ver historia completa</button>
+      <button class="sr-action-btn" onclick="hideAllParas('s4')">🔒 Ocultar de nuevo</button>
+    </div>
+  </div>
+
+  <div class="score-bar">
+    <div class="score-stat"><div class="lbl">Respondidas</div><div class="val" id="s4-ans">0/10</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Correctas</div><div class="val c" id="s4-cor">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">Incorrectas</div><div class="val w" id="s4-inc">0</div></div>
+    <div class="score-divider"></div>
+    <div class="score-stat"><div class="lbl">⭐ Puntos</div><div class="val pts" id="s4-pts">0</div></div>
+  </div>
+  <div class="diff-header easy">🟢 Nivel Fácil · Preguntas 1–4 <span class="diff-pts">+10 pts c/u</span></div>
+  <div id="s4-cards"></div>
+  <div class="diff-header medium">🟡 Nivel Intermedio · Preguntas 5–7 <span class="diff-pts">+20 pts c/u</span></div>
+  <div id="s4-cards-m"></div>
+  <div class="diff-header hard">🔴 Nivel Difícil · Preguntas 8–10 <span class="diff-pts">+30 pts c/u</span></div>
+  <div id="s4-cards-h"></div>
+  <div class="results-panel" id="s4-results">
+    <div class="trophy" id="s4-trophy">🏆</div>
+    <h2 id="s4-rtitle">¡Excelente!</h2>
+    <div class="big-score" id="s4-score">0/10</div>
+    <div class="big-pts" id="s4-bpts">⭐ 0 puntos</div>
+    <div class="breakdown">
+      <div class="bk-item"><div class="bn">🟢 Fácil</div><div class="bv" id="s4-easy">0/4</div></div>
+      <div class="bk-item"><div class="bn">🟡 Intermedio</div><div class="bv" id="s4-med">0/3</div></div>
+      <div class="bk-item"><div class="bn">🔴 Difícil</div><div class="bv" id="s4-hard">0/3</div></div>
+    </div>
+    <div class="results-msg" id="s4-rmsg"></div>
+    <span class="gif-celebrate" id="s4-gif"></span>
+    <br><button class="retry-btn" onclick="retryStory('s4')">🔄 Intentar de nuevo</button>
+  </div>
+</div>
+
+<script>
+
+// ══════════════════════════════════════════════════
+//  QUESTION DATA
+// ══════════════════════════════════════════════════
+const DATA = {
+  s1: [
+    {lvl:'easy', num:1, title:'Clara y las mañanas', desc:'Clara\'s Saturday routine',
+     audio:'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.',
+     enTxt:'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next.',
+     esTxt:'A Clara le encantaba ir de compras los sábados por la mañana. Caminaba despacio por la calle, mirando de escaparate en escaparate.',
+     q:'¿Cuándo le gustaba ir de compras a Clara?',
+     opts:['Los domingos por la tarde','Los viernes por la noche','Los sábados por la mañana'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "Clara loved shopping on Saturday mornings" — los sábados por la mañana.',
+     fno:'✗ La respuesta correcta es "los sábados por la mañana". El audio dice: "Clara loved shopping on Saturday mornings." ¡Escucha otra vez!'},
+    {lvl:'easy', num:2, title:'El sombrero en el escaparate', desc:'Clara spots the hat',
+     audio:'That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.',
+     enTxt:'That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display.',
+     esTxt:'Esa mañana vio un sombrero —de ala ancha y verde oscuro— posado en un soporte del escaparate.',
+     q:'¿De qué color era el sombrero que vio Clara?',
+     opts:['Verde oscuro','Azul claro','Marrón'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "deep green" — verde oscuro.',
+     fno:'✗ La respuesta correcta es "verde oscuro". El audio dice: "a hat — wide-brimmed and deep green." ¡Escucha otra vez!'},
+    {lvl:'easy', num:3, title:'El último sombrero', desc:'What the clerk explained',
+     audio:'The clerk explained that it was the last one.',
+     enTxt:'The clerk explained that it was the last one.',
+     esTxt:'El dependiente explicó que era el último.',
+     q:'¿Qué explicó el dependiente sobre el sombrero?',
+     opts:['Que costaba mucho','Que era el último','Que no estaba en venta'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "it was the last one" — era el último.',
+     fno:'✗ La respuesta correcta es que era el último. El audio dice: "The clerk explained that it was the last one." ¡Escucha otra vez!'},
+    {lvl:'easy', num:4, title:'El material del sombrero', desc:'Description of the felt',
+     audio:'She also described the material — it was a soft felt, made to keep its shape even on windy days.',
+     enTxt:'She also described the material — it was a soft felt, made to keep its shape even on windy days.',
+     esTxt:'También describió el material — era un fieltro suave, hecho para mantener su forma incluso en días de viento.',
+     q:'¿Cómo era el material del sombrero según el dependiente?',
+     opts:['Un fieltro suave','Duro y pesado','De plástico resistente'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "a soft felt" — un fieltro suave.',
+     fno:'✗ La respuesta correcta es "un fieltro suave". El audio dice: "it was a soft felt." ¡Escucha otra vez!'},
+    {lvl:'medium', num:5, title:'El precio y la decisión', desc:'Clara decides despite the cost',
+     audio:'Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.',
+     enTxt:'Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating.',
+     esTxt:'A pesar de que el costo era ligeramente mayor que su estimado, decidió que valía la pena. Se dijo que ya no dudaría más.',
+     q:'¿Por qué Clara decidió comprar el sombrero aunque costaba más?',
+     opts:['Porque le dieron un descuento','Porque decidió que valía la pena aunque costaba un poco más','Porque tenía mucho dinero ahorrado'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "she decided it was worth it" — decidió que valía la pena.',
+     fno:'✗ La respuesta correcta es que decidió que valía la pena. El audio dice: "she decided it was worth it." ¡Escucha otra vez!'},
+    {lvl:'medium', num:6, title:'Reacciones en la calle', desc:'People\'s comments on the hat',
+     audio:'Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.',
+     enTxt:'Clara paid and walked out into the sunshine wearing the hat. She felt happy. One woman said it was a great color — just right for the season.',
+     esTxt:'Clara pagó y salió al sol con el sombrero puesto. Se sentía feliz. Una mujer dijo que era un gran color — perfecto para la temporada.',
+     q:'¿Qué dijo una mujer sobre el sombrero de Clara?',
+     opts:['Que era demasiado grande','Que era un gran color perfecto para la temporada','Que debería devolverlo'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "it was a great color — just right for the season."',
+     fno:'✗ La respuesta correcta es que era un gran color perfecto para la temporada. ¡Escucha otra vez!'},
+    {lvl:'medium', num:7, title:'La última parada', desc:'Clara\'s stop on the way home',
+     audio:'On the way home, she stopped at a small market and got a box of eggs and some fresh bread.',
+     enTxt:'On the way home, she stopped at a small market and got a box of eggs and some fresh bread.',
+     esTxt:'De camino a casa, se detuvo en un pequeño mercado y compró una caja de huevos y algo de pan fresco.',
+     q:'¿Qué compró Clara en el mercado de camino a casa?',
+     opts:['Una caja de huevos y pan fresco','Leche y queso','Frutas y verduras'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "a box of eggs and some fresh bread."',
+     fno:'✗ La respuesta correcta es una caja de huevos y pan fresco. El audio dice: "a box of eggs and some fresh bread." ¡Escucha otra vez!'},
+    {lvl:'hard', num:8, title:'La tienda pequeña', desc:'Inside the shop',
+     audio:'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.',
+     enTxt:'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.',
+     esTxt:'Entró y encontró a un dependiente cerca de la entrada. La tienda era pequeña pero llena de cosas. Había cajas apiladas debajo de las estanterías y bolsas en cada pared. Clara señaló el sombrero y preguntó si estaba en venta.',
+     q:'¿Cómo era la tienda que visitó Clara?',
+     opts:['Grande y moderna con poca mercancía','Pequeña pero llena de cosas con cajas debajo de las estanterías','Vacía y muy ordenada'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "The shop was small but full of things. There were boxes stacked underneath the shelves."',
+     fno:'✗ La respuesta correcta es pequeña pero llena de cosas. El audio dice: "The shop was small but full of things." ¡Escucha otra vez!'},
+    {lvl:'hard', num:9, title:'El ahorro de Clara', desc:'How she justified the purchase',
+     audio:'She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.',
+     enTxt:'She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. Good things on this earth require a bit more effort sometimes.',
+     esTxt:'Había estado ahorrando un poco de dinero cada semana desde enero. A pesar de que el costo superaba ligeramente su estimado, decidió que valía la pena. Las cosas buenas a veces requieren un poco más de esfuerzo.',
+     q:'¿Desde cuándo había estado ahorrando dinero Clara?',
+     opts:['Desde marzo','Desde hace seis meses','Desde enero'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "saving a little money each week since January" — desde enero.',
+     fno:'✗ La respuesta correcta es desde enero. El audio dice: "saving a little money each week since January." ¡Escucha otra vez!'},
+    {lvl:'hard', num:10, title:'El pensamiento final de Clara', desc:'How the morning made her feel',
+     audio:'It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.',
+     enTxt:'It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.',
+     esTxt:'Había sido una buena mañana — uno de esos días en que todo parece ir bien. Ya estaba pensando en qué podría buscar el próximo sábado.',
+     q:'¿En qué estaba pensando Clara al terminar la mañana?',
+     opts:['En cuánto dinero había gastado','En qué podría buscar el próximo sábado','En devolver el sombrero'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "She was already thinking about what she might look for next Saturday."',
+     fno:'✗ La respuesta correcta es que pensaba en qué buscar el próximo sábado. ¡Escucha otra vez!'},
+  ],
+  s2: [
+    {lvl:'easy', num:1, title:'La lámpara de Pedro', desc:'What Pedro bought',
+     audio:'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.',
+     enTxt:'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid.',
+     esTxt:'Pedro compró una lámpara en una tienda cerca de su apartamento. Era una lámpara de pie alta con base dorada — elegante y sólida.',
+     q:'¿Qué compró Pedro en la tienda?',
+     opts:['Una lámpara de pie con base dorada','Una silla dorada','Un espejo grande'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "a tall floor lamp with a gold base."',
+     fno:'✗ La respuesta correcta es una lámpara de pie con base dorada. El audio dice: "a tall floor lamp with a gold base." ¡Escucha otra vez!'},
+    {lvl:'easy', num:2, title:'El precio de la lámpara', desc:'How much Pedro paid',
+     audio:'He paid sixty dollars for it, which was more than he usually spent on things for the house.',
+     enTxt:'He paid sixty dollars for it, which was more than he usually spent on things for the house.',
+     esTxt:'Pagó sesenta dólares por ella, que era más de lo que normalmente gastaba en cosas para la casa.',
+     q:'¿Cuánto pagó Pedro por la lámpara?',
+     opts:['Cuarenta dólares','Ochenta dólares','Sesenta dólares'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "He paid sixty dollars for it."',
+     fno:'✗ La respuesta correcta es sesenta dólares. El audio dice: "He paid sixty dollars for it." ¡Escucha otra vez!'},
+    {lvl:'easy', num:3, title:'La lámpara se rompe', desc:'What happened to the lamp',
+     audio:'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.',
+     enTxt:'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces.',
+     esTxt:'Tres días después, la lámpara cayó mientras movía muebles. La base se rompió en dos piezas separadas.',
+     q:'¿Cuándo se cayó la lámpara de Pedro?',
+     opts:['Al día siguiente de comprarla','Tres días después de comprarla','Una semana después'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "Three days later, the lamp fell."',
+     fno:'✗ La respuesta correcta es tres días después. El audio dice: "Three days later, the lamp fell." ¡Escucha otra vez!'},
+    {lvl:'easy', num:4, title:'Sin recibo', desc:'The missing receipt',
+     audio:'The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.',
+     enTxt:'The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund.',
+     esTxt:'El recibo había desaparecido. No lo había guardado. Como no tenía prueba de compra, no podían hacer nada para el reembolso.',
+     q:'¿Por qué no pudo obtener un reembolso Pedro?',
+     opts:['Porque la tienda no hacía devoluciones','Porque no tenía el recibo de compra','Porque la lámpara era muy cara'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "he had no proof of purchase" — no tenía prueba de compra.',
+     fno:'✗ La respuesta correcta es porque no tenía el recibo. El audio dice: "he had no proof of purchase." ¡Escucha otra vez!'},
+    {lvl:'medium', num:5, title:'La respuesta de la tienda', desc:'What the clerk said about damage',
+     audio:'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.',
+     enTxt:'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution.',
+     esTxt:'En la tienda, la empleada fue amable pero firme. Dijo que la tienda no cubría daños por accidentes. Pedro preguntó si había alguna otra solución.',
+     q:'¿Qué dijo la empleada sobre el daño de la lámpara?',
+     opts:['Que podían repararla gratis','Que le darían una lámpara nueva','Que la tienda no cubría daños por accidentes'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "the store did not cover damage from accidents."',
+     fno:'✗ La respuesta correcta es que no cubrían daños por accidentes. ¡Escucha otra vez!'},
+    {lvl:'medium', num:6, title:'La reparación local', desc:'Pedro finds a solution',
+     audio:'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.',
+     enTxt:'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars.',
+     esTxt:'A pesar de la mala experiencia, Pedro decidió manejarlo con actitud positiva. Encontró una tienda de reparación a unas pocas calles. Un hombre mayor dijo que podía arreglar la base por quince dólares.',
+     q:'¿Cuánto cobró el hombre de la tienda de reparación por arreglar la lámpara?',
+     opts:['Veinticinco dólares','Quince dólares','Diez dólares'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "he could fix the base for fifteen dollars."',
+     fno:'✗ La respuesta correcta es quince dólares. El audio dice: "fix the base for fifteen dollars." ¡Escucha otra vez!'},
+    {lvl:'medium', num:7, title:'La lección aprendida', desc:'What Pedro learned',
+     audio:'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.',
+     enTxt:'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble.',
+     esTxt:'Desde ese día, Pedro guarda todos los recibos en una pequeña caja sobre su escritorio. Aprendió que un simple trozo de papel puede ahorrarte muchos problemas.',
+     q:'¿Dónde guarda Pedro los recibos desde ese día?',
+     opts:['En su billetera','En una pequeña caja sobre su escritorio','En el cajón de la cocina'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "in a small box on his desk."',
+     fno:'✗ La respuesta correcta es en una pequeña caja sobre su escritorio. ¡Escucha otra vez!'},
+    {lvl:'hard', num:8, title:'El intento de reparación', desc:'Pedro tries to fix it himself',
+     audio:'He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.',
+     enTxt:'He tried to fix it himself, but the material was too hard to work with. He felt frustrated, but he stayed calm. He thought the best solution was to go back to the shop and explain what happened.',
+     esTxt:'Intentó arreglarlo él mismo, pero el material era demasiado duro. Se sintió frustrado, pero se mantuvo tranquilo. Pensó que lo mejor era volver a la tienda y explicar lo que había pasado.',
+     q:'¿Por qué Pedro no pudo arreglar la lámpara él mismo?',
+     opts:['Porque el material era demasiado duro para trabajar','Porque no tenía las herramientas','Porque la lámpara era muy pesada'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "the material was too hard to work with."',
+     fno:'✗ La respuesta correcta es que el material era demasiado duro. ¡Escucha otra vez!'},
+    {lvl:'hard', num:9, title:'El servicio de reparación de la tienda', desc:'The repair service option',
+     audio:'The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.',
+     enTxt:'The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.',
+     esTxt:'La empleada dijo que podía mostrarle el servicio de reparación que ofrecían — pero costaría más. Pedro se decepcionó. No había pensado en eso.',
+     q:'¿Qué ofreció la empleada como alternativa a Pedro?',
+     opts:['Un descuento en la próxima compra','Un servicio de reparación con costo adicional','Una lámpara de reemplazo gratuita'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "demonstrate the repair service they offered — but it would cost extra."',
+     fno:'✗ La respuesta correcta es un servicio de reparación con costo adicional. ¡Escucha otra vez!'},
+    {lvl:'hard', num:10, title:'La búsqueda del recibo', desc:'Where Pedro looked for the receipt',
+     audio:'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.',
+     enTxt:'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone.',
+     esTxt:'Entonces ella pidió el recibo. Buscó en su chaqueta, su bolso e incluso sus notas antiguas. El recibo había desaparecido.',
+     q:'¿En qué tres lugares buscó Pedro el recibo?',
+     opts:['En su mochila, su coche y su casa','En su chaqueta, su bolso y sus notas antiguas','En su escritorio, su bolsillo y su teléfono'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "his jacket, his bag, and even his old notes."',
+     fno:'✗ La respuesta correcta es chaqueta, bolso y notas antiguas. El audio dice: "his jacket, his bag, and even his old notes." ¡Escucha otra vez!'},
+  ],
+  s3: [
+    {lvl:'easy', num:1, title:'El trabajo de Ana', desc:'Where Ana works',
+     audio:'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.',
+     enTxt:'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied.',
+     esTxt:'Ana gana un pequeño salario en el mercado cerca de su casa. Trabaja seis días a la semana y termina cada turno sintiéndose cansada pero satisfecha.',
+     q:'¿Cuántos días a la semana trabaja Ana?',
+     opts:['Cinco días','Siete días','Seis días'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "She works six days a week."',
+     fno:'✗ La respuesta correcta es seis días. El audio dice: "She works six days a week." ¡Escucha otra vez!'},
+    {lvl:'easy', num:2, title:'La meta de ahorro', desc:'How much Ana tries to save',
+     audio:'She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.',
+     enTxt:'She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.',
+     esTxt:'Intenta ahorrar al menos cincuenta dólares cada mes. No es mucho, pero es constante.',
+     q:'¿Cuánto dinero intenta ahorrar Ana cada mes?',
+     opts:['Al menos treinta dólares','Al menos cincuenta dólares','Al menos cien dólares'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "save at least fifty dollars every month."',
+     fno:'✗ La respuesta correcta es al menos cincuenta dólares. El audio dice: "save at least fifty dollars every month." ¡Escucha otra vez!'},
+    {lvl:'easy', num:3, title:'El origen de Ana', desc:'Where Ana grew up',
+     audio:'She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.',
+     enTxt:'She grew up on a farm, far from the city and its factories, so she learned early to be careful with money.',
+     esTxt:'Creció en una granja, lejos de la ciudad y sus fábricas, así que aprendió desde joven a ser cuidadosa con el dinero.',
+     q:'¿Dónde creció Ana?',
+     opts:['En una granja lejos de la ciudad','En una ciudad grande','Cerca de una fábrica'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "She grew up on a farm, far from the city."',
+     fno:'✗ La respuesta correcta es en una granja. El audio dice: "She grew up on a farm, far from the city." ¡Escucha otra vez!'},
+    {lvl:'easy', num:4, title:'El ahorro del mes difícil', desc:'How much she saved that month',
+     audio:'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.',
+     enTxt:'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook.',
+     esTxt:'Al final del mes, había ahorrado treinta dólares — no cincuenta, pero aún algo. Lo marcó en su cuaderno.',
+     q:'¿Cuánto ahorró Ana al final del mes difícil?',
+     opts:['Nada ese mes','Cincuenta dólares','Treinta dólares'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "she had saved thirty dollars."',
+     fno:'✗ La respuesta correcta es treinta dólares. El audio dice: "she had saved thirty dollars." ¡Escucha otra vez!'},
+    {lvl:'medium', num:5, title:'La reparación del teléfono', desc:'Ana\'s unexpected expense',
+     audio:'Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.',
+     enTxt:'Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday.',
+     esTxt:'El mes pasado, su teléfono requirió una reparación que costó más de lo planeado. Tuvo que usar parte de sus ahorros para cubrirlo. El miedo de perder todos sus ahorros se sintió muy real ese martes.',
+     q:'¿Qué gasto inesperado tuvo Ana el mes pasado?',
+     opts:['La renta del apartamento','La reparación de su teléfono','Un viaje al médico'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "her phone required a repair that cost more than she had planned."',
+     fno:'✗ La respuesta correcta es la reparación de su teléfono. ¡Escucha otra vez!'},
+    {lvl:'medium', num:6, title:'La solución de Ana', desc:'How she recovered from the setback',
+     audio:'She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.',
+     enTxt:'She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.',
+     esTxt:'Decidió trabajar un turno extra ese mes para ganar un poco más. Su gerente dijo que sí de inmediato. Todos en la tienda sabían que era confiable.',
+     q:'¿Qué decidió hacer Ana para recuperar sus ahorros?',
+     opts:['Pedir dinero prestado','Gastar menos en comida','Trabajar un turno extra ese mes'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "She decided to work one extra shift that month."',
+     fno:'✗ La respuesta correcta es trabajar un turno extra. ¡Escucha otra vez!'},
+    {lvl:'medium', num:7, title:'El sueño de Ana', desc:'Ana\'s long-term goal',
+     audio:'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years.',
+     enTxt:'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years.',
+     esTxt:'La meta de Ana es ahorrar suficiente para visitar el mar algún día — un lugar distante que solo ha visto en fotos. No importa si tarda dos años más.',
+     q:'¿Cuál es la meta final de los ahorros de Ana?',
+     opts:['Comprar un coche nuevo','Visitar el mar, que solo ha visto en fotos','Mudarse a una ciudad más grande'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "save enough money to visit the sea one day."',
+     fno:'✗ La respuesta correcta es visitar el mar. El audio dice: "save enough money to visit the sea one day." ¡Escucha otra vez!'},
+    {lvl:'hard', num:8, title:'Los gastos principales de Ana', desc:'How she budgets each month',
+     audio:'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.',
+     enTxt:'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent.',
+     esTxt:'Cada mes, se sienta con lápiz y papel para estimar sus gastos. Principalmente gasta dinero en comida, transporte y alquiler.',
+     q:'¿En qué tres cosas gasta principalmente su dinero Ana?',
+     opts:['Ropa, música y viajes','Comida, transporte y alquiler','Comida, ropa y teléfono'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "food, transportation, and rent."',
+     fno:'✗ La respuesta correcta es comida, transporte y alquiler. El audio dice: "food, transportation, and rent." ¡Escucha otra vez!'},
+    {lvl:'hard', num:9, title:'La actitud de Ana ante los problemas', desc:'Her mindset when things go wrong',
+     audio:'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.',
+     enTxt:'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She would try again next month.',
+     esTxt:'Se dijo que la mayoría de las personas enfrentan estos momentos y que lo importante es no dejar que definan todo tu plan. Lo intentaría de nuevo el próximo mes.',
+     q:'¿Qué se dijo Ana a sí misma cuando las cosas salieron mal?',
+     opts:['Que la mayoría enfrenta estos momentos y no debe dejar que definan su plan','Que debería dejar de ahorrar','Que necesitaba un trabajo mejor'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "the important thing is to not let them define your whole plan."',
+     fno:'✗ La respuesta correcta es que no debía dejar que esos momentos definieran su plan. ¡Escucha otra vez!'},
+    {lvl:'hard', num:10, title:'El trabajo de Ana y sus compañeros', desc:'Her job environment',
+     audio:'Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.',
+     enTxt:'Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.',
+     esTxt:'A pesar de las largas horas, disfruta su trabajo. La gente allí es amable, y ha aprendido a gestionar bien su tiempo y energía.',
+     q:'¿Cómo describe el audio el ambiente de trabajo de Ana?',
+     opts:['Difícil y estresante con compañeros fríos','Agradable con gente amable, y ella gestiona bien su tiempo y energía','Aburrido pero bien pagado'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "The people there are kind, and she has learned to manage her time and energy well."',
+     fno:'✗ La respuesta correcta es que la gente es amable y gestiona bien su tiempo y energía. ¡Escucha otra vez!'},
+  ],
+  s4: [
+    {lvl:'easy', num:1, title:'El rol de Carlos', desc:'Carlos\'s position at the shop',
+     audio:'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.',
+     enTxt:'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well.',
+     esTxt:'Carlos ha trabajado en la misma tienda por tres años. Ahora es el supervisor de turno, lo que significa que es principalmente responsable de que todo funcione bien.',
+     q:'¿Cuál es el cargo actual de Carlos?',
+     opts:['Gerente de ventas','Cajero principal','Supervisor de turno'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "He is the shift supervisor now."',
+     fno:'✗ La respuesta correcta es supervisor de turno. El audio dice: "He is the shift supervisor now." ¡Escucha otra vez!'},
+    {lvl:'easy', num:2, title:'¿Cuándo empezó Carlos a liderar?', desc:'His age as a first team leader',
+     audio:'He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.',
+     enTxt:'He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.',
+     esTxt:'Dirigió su primer equipo a los veintitrés — joven para el puesto, pero consiguió el trabajo porque era tranquilo y organizado.',
+     q:'¿A qué edad lideró Carlos su primer equipo?',
+     opts:['A los veinticinco','A los veintitrés','A los veinte'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "He led his first team at just twenty-three."',
+     fno:'✗ La respuesta correcta es a los veintitrés. El audio dice: "He led his first team at just twenty-three." ¡Escucha otra vez!'},
+    {lvl:'easy', num:3, title:'El recorrido matutino', desc:'Carlos\'s morning walkthrough',
+     audio:'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.',
+     enTxt:'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct.',
+     esTxt:'Su mañana comenzó, como siempre, con un recorrido por la planta de la tienda. Comprobó que todos los artículos estuvieran en su lugar y que las marcas de precio fueran correctas.',
+     q:'¿Con qué empezaba Carlos su mañana?',
+     opts:['Con un recorrido por la planta de la tienda','Con una reunión de equipo','Con la revisión del correo electrónico'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "with a walkthrough of the shop floor."',
+     fno:'✗ La respuesta correcta es un recorrido por la planta. ¡Escucha otra vez!'},
+    {lvl:'easy', num:4, title:'El concierto de música', desc:'Lunch conversation topic',
+     audio:'Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student.',
+     enTxt:'Someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student.',
+     esTxt:'Alguien mencionó un concierto de música en la ciudad el fin de semana. Carlos rio y dijo que no había ido a un concierto desde que era estudiante.',
+     q:'¿De qué se habló en el almuerzo además del fútbol?',
+     opts:['De una película nueva','De un concierto de música en la ciudad','De un partido de baloncesto'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "a music concert happening in the city on the weekend."',
+     fno:'✗ La respuesta correcta es un concierto de música. El audio dice: "a music concert happening in the city." ¡Escucha otra vez!'},
+    {lvl:'medium', num:5, title:'Las cajas olvidadas', desc:'What Carlos noticed in his walkthrough',
+     audio:'He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.',
+     enTxt:'He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.',
+     esTxt:'Notó algunas cajas dejadas debajo de una mesa cerca de la entrada — nadie las había guardado. Hizo una nota para hablar sobre ello en la reunión del equipo.',
+     q:'¿Qué problema encontró Carlos durante su recorrido matutino?',
+     opts:['Precios incorrectos en todos los artículos','Cajas abandonadas debajo de una mesa cerca de la entrada','El sistema de caja no funcionaba'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "boxes left underneath a table near the entrance."',
+     fno:'✗ La respuesta correcta es cajas abandonadas debajo de una mesa. ¡Escucha otra vez!'},
+    {lvl:'medium', num:6, title:'La reunión con la gerente', desc:'The afternoon meeting results',
+     audio:'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.',
+     enTxt:'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well.',
+     esTxt:'Por la tarde, tuvo una reunión corta con la gerente. Ella dijo que los números de ventas del mes eran buenos — todos lo habían hecho bien.',
+     q:'¿Qué dijo la gerente sobre los números de ventas del mes?',
+     opts:['Que habían bajado mucho','Que necesitaban mejorar','Que eran buenos — todos lo habían hecho bien'], correct:2,
+     fok:'✔ ¡Correcto! El audio dice "the sales numbers for the month were good — everyone had done well."',
+     fno:'✗ La respuesta correcta es que eran buenos. El audio dice: "the sales numbers for the month were good." ¡Escucha otra vez!'},
+    {lvl:'medium', num:7, title:'El nuevo sistema de inventario', desc:'Carlos\'s task from the manager',
+     audio:'She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.',
+     enTxt:'She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training.',
+     esTxt:'Ella le pidió a Carlos que definiera un nuevo sistema para rastrear inventario. Dijo que usaría un simple conjunto de formularios. Un elemento clave era hacerlo lo suficientemente fácil para que cualquiera pudiera usarlo sin entrenamiento.',
+     q:'¿Cuál era el elemento clave del sistema de inventario de Carlos?',
+     opts:['Que fuera digital y automático','Que fuera tan sencillo que cualquiera pudiera usarlo sin entrenamiento','Que solo lo usara el supervisor'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "making it easy enough that anyone could figure out how to use it without training."',
+     fno:'✗ La respuesta correcta es que cualquiera pudiera usarlo sin entrenamiento. ¡Escucha otra vez!'},
+    {lvl:'hard', num:8, title:'El cliente difícil', desc:'Carlos handles a customer situation',
+     audio:'Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.',
+     enTxt:'Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient.',
+     esTxt:'Carlos ayudó a dos clientes a encontrar artículos, y también intentó persuadir a un tercer cliente para que no se fuera después de un malentendido sobre un precio. Se mantuvo paciente.',
+     q:'¿Qué hizo Carlos con el tercer cliente?',
+     opts:['Le ofreció un descuento inmediato','Intentó persuadirlo para que no se fuera tras un malentendido sobre el precio','Lo ignoró y ayudó a otros clientes'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "tried to persuade a third customer not to leave after a misunderstanding about a price."',
+     fno:'✗ La respuesta correcta es que intentó persuadirlo para que no se fuera. ¡Escucha otra vez!'},
+    {lvl:'hard', num:9, title:'El revisar los formularios', desc:'Carlos\'s thoughtful gesture',
+     audio:'He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.',
+     enTxt:'He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.',
+     esTxt:'También ofreció revisar el nuevo formulario antes de que saliera — un gesto pequeño pero considerado. La gerente sonrió y dijo que era muy bueno con los detalles.',
+     q:'¿Qué gesto adicional ofreció Carlos en la reunión?',
+     opts:['Revisar el nuevo formulario antes de que saliera','Capacitar a todo el equipo','Diseñar el sistema él solo sin ayuda'], correct:0,
+     fok:'✔ ¡Correcto! El audio dice "offered to proofread the new form before it went out."',
+     fno:'✗ La respuesta correcta es revisar el formulario antes de que saliera. ¡Escucha otra vez!'},
+    {lvl:'hard', num:10, title:'El final del turno', desc:'How Carlos ended his shift',
+     audio:'By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.',
+     enTxt:'By the end of his shift, Carlos felt tired but good. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.',
+     esTxt:'Al final de su turno, Carlos se sentía cansado pero bien. Apagó las luces en la sala trasera, se aseguró de que las puertas estuvieran cerradas, y envió un mensaje al chat del equipo para decir que todos lo habían hecho muy bien. Luego caminó a casa por el camino del campo.',
+     q:'¿Qué tres cosas hizo Carlos antes de irse al final de su turno?',
+     opts:['Habló con la gerente, cerró la caja y tomó un taxi','Apagó las luces, aseguró las puertas y envió un mensaje al equipo','Revisó el inventario, llamó a la gerente y guardó las llaves'], correct:1,
+     fok:'✔ ¡Correcto! El audio dice "turned off the lights... made sure the doors were locked... sent a short message to the team."',
+     fno:'✗ La respuesta correcta es apagar las luces, asegurar las puertas y enviar el mensaje. ¡Escucha otra vez!'},
+  ],
+};
+
+const PTS = {easy:10, medium:20, hard:30};
+
+// ══════════════════════════════════════════════════
+//  STATE
+// ══════════════════════════════════════════════════
+window._spd = {};
+const state = {};
+['s1','s2','s3','s4'].forEach(s => {
+  state[s] = {ans:0,cor:0,inc:0,easy:0,med:0,hard:0,pts:0,done:{}};
+});
+let totalPts = 0;
+
+// ══════════════════════════════════════════════════
+//  ACCENT
+// ══════════════════════════════════════════════════
+let currentAccent = 'us'; // 'us' | 'gb'
+let usVoice = null, gbVoice = null, voicesReady = false;
+
+function loadVoices() {
+  const v = speechSynthesis.getVoices();
+  if (!v.length) return;
+  voicesReady = true;
+  // US voice
+  const usPrefs = [
+    x => x.lang === 'en-US' && /samantha|allison|ava|nicky|aaron/i.test(x.name),
+    x => x.lang === 'en-US' && /google us/i.test(x.name),
+    x => x.lang === 'en-US' && /microsoft.*online/i.test(x.name),
+    x => x.lang === 'en-US',
+    x => x.lang.startsWith('en') && /us|america/i.test(x.name),
+  ];
+  for (const p of usPrefs) { const m = v.find(p); if (m) { usVoice = m; break; } }
+  // GB voice
+  const gbPrefs = [
+    x => x.lang === 'en-GB' && /google uk/i.test(x.name),
+    x => x.lang === 'en-GB' && /microsoft.*online/i.test(x.name),
+    x => x.lang === 'en-GB' && /daniel|hazel|serena/i.test(x.name),
+    x => x.lang === 'en-GB',
+    x => x.lang.startsWith('en') && /uk|brit|english/i.test(x.name),
+  ];
+  for (const p of gbPrefs) { const m = v.find(p); if (m) { gbVoice = m; break; } }
+}
+speechSynthesis.getVoices();
+if (speechSynthesis.onvoiceschanged !== undefined) speechSynthesis.onvoiceschanged = loadVoices;
+setTimeout(loadVoices, 100); setTimeout(loadVoices, 600); setTimeout(loadVoices, 1500);
+
+function setAccent(a) {
+  currentAccent = a;
+  document.getElementById('acc-us').classList.toggle('active', a === 'us');
+  document.getElementById('acc-gb').classList.toggle('active', a === 'gb');
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; currentBtn = null; }
+    if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; pauseBtn = null; }
+  }
+}
+
+// ══════════════════════════════════════════════════
+//  FISHER-YATES
+// ══════════════════════════════════════════════════
+function shuffleIdx(len) {
+  const idx = Array.from({length: len}, (_, i) => i);
+  for (let i = idx.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [idx[i], idx[j]] = [idx[j], idx[i]];
+  }
+  return idx;
+}
+
+// ══════════════════════════════════════════════════
+//  BUILD ALL CARDS
+// ══════════════════════════════════════════════════
+function buildAll() {
+  Object.entries(DATA).forEach(([story, qs]) => {
+    const containers = {easy: story+'-cards', medium: story+'-cards-m', hard: story+'-cards-h'};
+    qs.forEach((q, qi) => {
+      const id = story + 'q' + (qi + 1);
+      const card = document.createElement('div');
+      card.className = 'q-card ' + q.lvl;
+      card.id = story + '-q' + (qi + 1);
+      card.innerHTML = buildCardHTML(q, id, story, qi);
+      document.getElementById(containers[q.lvl]).appendChild(card);
+      renderOpts(story, qi, q, id);
+      // init speed
+      window._spd[id] = 0.82;
+    });
+  });
+}
+
+function buildCardHTML(q, id, story, qi) {
+  const lvlLabel = {easy:'Fácil', medium:'Intermedio', hard:'Difícil'}[q.lvl];
+  const pts = PTS[q.lvl];
+  return `
+  <div class="q-audio">
+    <div class="q-num-row">
+      <div class="q-num ${q.lvl}">${q.num}</div>
+      <div class="q-label">${lvlLabel} · Escucha y responde</div>
+      <span class="pts-chip ${q.lvl}">+${pts} pts</span>
+    </div>
+    <div class="audio-controls">
+      <button class="play-main" onclick="playAudio(this,'${q.audio.replace(/'/g,"\\'").replace(/"/g,'&quot;')}','${id}')">▶ Escuchar</button>
+      <button class="pause-btn" id="${id}-pause" onclick="pauseAudio(this,'${id}')">⏸ Pausar</button>
+    </div>
+    <div class="speed-wrap">
+      <label>🎚️ Velocidad:</label>
+      <input type="range" min="0.4" max="1.1" step="0.05" value="0.82"
+        oninput="updateSpeed(this,'${id}')">
+      <span class="sv" id="${id}-sv">0.82×</span>
+      <div class="speed-ticks">
+        <span class="speed-tick" onclick="setSpeedTick('${id}',0.5)">0.5×</span>
+        <span class="speed-tick on" onclick="setSpeedTick('${id}',0.82)">0.8×</span>
+        <span class="speed-tick" onclick="setSpeedTick('${id}',1.0)">1×</span>
+      </div>
+    </div>
+    <div class="text-toggles">
+      <button class="text-toggle" onclick="toggleTxt(this,'${id}-en')">🔤 Ver en inglés</button>
+      <button class="text-toggle" onclick="toggleTxt(this,'${id}-es')">🇪🇸 Ver en español</button>
+    </div>
+    <div class="audio-text-box" id="${id}-en">${q.enTxt}</div>
+    <div class="audio-text-box es" id="${id}-es">${q.esTxt}</div>
+  </div>
+  <div class="q-body">
+    <button class="show-q-btn" onclick="toggleQ(this,'${id}-qa')">❓ Mostrar Pregunta</button>
+    <div class="q-question-area" id="${id}-qa">
+      <div class="q-text">${q.q}</div>
+      <div class="options" id="${id}-opts"></div>
+      <div class="q-feedback" id="${id}-fb"></div>
+    </div>
+  </div>`;
+}
+
+function renderOpts(story, qi, q, id) {
+  const container = document.getElementById(id + '-opts');
+  if (!container) return;
+  container.innerHTML = '';
+  const letters = ['A', 'B', 'C'];
+  const sIdx = shuffleIdx(q.opts.length);
+  sIdx.forEach((origIdx, pos) => {
+    const div = document.createElement('div');
+    div.className = 'opt';
+    div.innerHTML = `<span class="opt-letter">${letters[pos]}</span><span class="opt-text">${q.opts[origIdx]}</span>`;
+    const isCorrect = (origIdx === q.correct);
+    div.onclick = () => selectAnswer(story, qi, div, isCorrect, q, id);
+    container.appendChild(div);
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  SELECT ANSWER
+// ══════════════════════════════════════════════════
+function selectAnswer(story, qi, clickedDiv, isCorrect, q, id) {
+  const s = state[story];
+  if (s.done[qi]) return;
+  s.done[qi] = true;
+  const container = clickedDiv.parentElement;
+  container.querySelectorAll('.opt').forEach(o => {
+    o.classList.add('locked');
+    if (o.querySelector('.opt-text').textContent === q.opts[q.correct]) o.classList.add('show-ans');
+  });
+  const card = document.getElementById(story + '-q' + (qi + 1));
+  const pts = PTS[q.lvl];
+  if (isCorrect) {
+    clickedDiv.classList.add('correct');
+    card.classList.add('answered-correct');
+    s.cor++;
+    s.pts += pts;
+    totalPts += pts;
+    if (qi < 4) s.easy++;
+    else if (qi < 7) s.med++;
+    else s.hard++;
+    spawnXP(clickedDiv, '+' + pts + ' ⭐');
+    spawnStars(clickedDiv);
+  } else {
+    clickedDiv.classList.add('wrong');
+    card.classList.add('answered-wrong');
+    s.inc++;
+  }
+  s.ans++;
+  const fb = document.getElementById(id + '-fb');
+  const ptsBadge = isCorrect ? ` <span class="pts-earned">+${pts} pts</span>` : '';
+  fb.innerHTML = (isCorrect ? q.fok : q.fno) + ptsBadge;
+  fb.className = 'q-feedback show ' + (isCorrect ? 'correct' : 'wrong');
+  updateScore(story);
+  updateTotalPts();
+  if (s.ans === 10) setTimeout(() => showResults(story), 900);
+}
+
+// ══════════════════════════════════════════════════
+//  XP FLOAT ANIMATION
+// ══════════════════════════════════════════════════
+function spawnXP(el, text) {
+  const rect = el.getBoundingClientRect();
+  const div = document.createElement('div');
+  div.className = 'xp-float';
+  div.textContent = text;
+  div.style.cssText = `left:${rect.left + rect.width/2}px;top:${rect.top + window.scrollY - 10}px;color:#0277BD;font-family:'Fredoka',sans-serif;`;
+  document.body.appendChild(div);
+  setTimeout(() => div.remove(), 1200);
+}
+
+function spawnStars(el) {
+  const rect = el.getBoundingClientRect();
+  const emojis = ['⭐','✨','🌟'];
+  emojis.forEach((e, i) => {
+    const div = document.createElement('div');
+    div.className = 'star-pop';
+    div.textContent = e;
+    div.style.cssText = `left:${rect.left + rect.width/2 + (i-1)*30}px;top:${rect.top + window.scrollY - 20}px;font-size:1.4rem;`;
+    document.body.appendChild(div);
+    setTimeout(() => div.remove(), 800);
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  SCORE / RESULTS
+// ══════════════════════════════════════════════════
+function updateScore(s) {
+  const st = state[s];
+  document.getElementById(s+'-ans').textContent = st.ans + '/10';
+  document.getElementById(s+'-cor').textContent = st.cor;
+  document.getElementById(s+'-inc').textContent = st.inc;
+  document.getElementById(s+'-pts').textContent = st.pts;
+}
+
+function updateTotalPts() {
+  document.getElementById('total-pts').textContent = totalPts;
+  const maxPts = 800;
+  const pct = (totalPts / maxPts) * 100;
+  let rank = '—';
+  if (totalPts >= 720) rank = '🏆 Maestro';
+  else if (totalPts >= 560) rank = '🥇 Experto';
+  else if (totalPts >= 400) rank = '🥈 Intermedio';
+  else if (totalPts >= 200) rank = '🥉 Aprendiz';
+  else if (totalPts > 0) rank = '📚 Inicio';
+  document.getElementById('rank-label').textContent = rank;
+}
+
+function showResults(s) {
+  const st = state[s];
+  const pct = (st.cor / 10) * 100;
+  let trophy = '📚', title = 'Sigue practicando', msg = 'Escucha los audios de nuevo. ¡Tú puedes! 💪', gif = '🙏';
+  if (pct >= 90) { trophy = '🏆'; title = '¡Excelente!'; msg = '¡Comprendes muy bien los audios! ¡Sigue así!'; gif = '🎉🎊🌟'; }
+  else if (pct >= 70) { trophy = '🥇'; title = '¡Muy bien!'; msg = 'Buen progreso. ¡Sigue practicando!'; gif = '🌟⭐✨'; }
+  else if (pct >= 50) { trophy = '🥈'; title = '¡Buen intento!'; msg = '¡Vas por buen camino! Inténtalo otra vez.'; gif = '💪🎯'; }
+  document.getElementById(s+'-trophy').textContent = trophy;
+  document.getElementById(s+'-rtitle').textContent = title;
+  document.getElementById(s+'-rmsg').textContent = msg;
+  document.getElementById(s+'-gif').textContent = gif;
+  document.getElementById(s+'-score').textContent = st.cor + '/10';
+  document.getElementById(s+'-bpts').textContent = '⭐ ' + st.pts + ' puntos';
+  document.getElementById(s+'-easy').textContent = st.easy + '/4';
+  document.getElementById(s+'-med').textContent = st.med + '/3';
+  document.getElementById(s+'-hard').textContent = st.hard + '/3';
+  const panel = document.getElementById(s + '-results');
+  panel.classList.add('show');
+  panel.scrollIntoView({behavior:'smooth', block:'nearest'});
+}
+
+// ══════════════════════════════════════════════════
+//  RETRY
+// ══════════════════════════════════════════════════
+function retryStory(s) {
+  const prevPts = state[s].pts;
+  totalPts -= prevPts;
+  state[s] = {ans:0, cor:0, inc:0, easy:0, med:0, hard:0, pts:0, done:{}};
+  updateScore(s);
+  updateTotalPts();
+  document.getElementById(s + '-results').classList.remove('show');
+  const panel = document.getElementById('panel-' + s);
+  panel.querySelectorAll('.q-feedback').forEach(f => { f.className = 'q-feedback'; f.innerHTML = ''; });
+  panel.querySelectorAll('.q-question-area').forEach(a => a.classList.remove('show'));
+  panel.querySelectorAll('.show-q-btn').forEach(b => { b.classList.remove('open'); b.textContent = '❓ Mostrar Pregunta'; });
+  panel.querySelectorAll('.q-card').forEach(c => { c.classList.remove('answered-correct','answered-wrong'); });
+  DATA[s].forEach((q, qi) => {
+    const id = s + 'q' + (qi + 1);
+    renderOpts(s, qi, q, id);
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  STORY TABS
+// ══════════════════════════════════════════════════
+function showStory(id) {
+  document.querySelectorAll('.story-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.story-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  const map = {s1:0, s2:1, s3:2, s4:3};
+  document.querySelectorAll('.story-tab')[map[id]].classList.add('active');
+  speechSynthesis.cancel();
+  if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; currentBtn = null; }
+  if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; pauseBtn = null; }
+}
+
+// ══════════════════════════════════════════════════
+//  UI HELPERS
+// ══════════════════════════════════════════════════
+function toggleTxt(btn, id) {
+  const box = document.getElementById(id);
+  box.classList.toggle('show');
+  btn.classList.toggle('on');
+  const isEn = id.endsWith('-en');
+  btn.textContent = box.classList.contains('show')
+    ? (isEn ? '🔤 Ocultar inglés' : '🇪🇸 Ocultar español')
+    : (isEn ? '🔤 Ver en inglés'  : '🇪🇸 Ver en español');
+}
+function toggleQ(btn, id) {
+  const a = document.getElementById(id);
+  a.classList.toggle('show');
+  btn.classList.toggle('open');
+  btn.textContent = a.classList.contains('show') ? '❓ Ocultar Pregunta' : '❓ Mostrar Pregunta';
+}
+function updateSpeed(input, id) {
+  const val = parseFloat(input.value);
+  window._spd[id] = val;
+  document.getElementById(id + '-sv').textContent = val.toFixed(2) + '×';
+  // update speed tick highlights
+  const wrap = input.closest('.speed-wrap');
+  wrap.querySelectorAll('.speed-tick').forEach(t => {
+    t.classList.toggle('on', Math.abs(parseFloat(t.textContent) - val) < 0.05);
+  });
+}
+function setSpeedTick(id, val) {
+  const card = document.getElementById(id.replace(/q\d+/,'') + '-q' + id.match(/q(\d+)/)[1]);
+  if (!card) return;
+  const input = card.querySelector('input[type=range]');
+  if (!input) return;
+  input.value = val;
+  window._spd[id] = val;
+  document.getElementById(id + '-sv').textContent = val.toFixed(2) + '×';
+  card.querySelectorAll('.speed-tick').forEach(t => {
+    t.classList.toggle('on', Math.abs(parseFloat(t.textContent) - val) < 0.05);
+  });
+}
+
+// ══════════════════════════════════════════════════
+//  SPEECH SYNTHESIS
+// ══════════════════════════════════════════════════
+let currentBtn = null, pauseBtn = null;
+let currentUtterance = null;
+let isPaused = false;
+
+function playAudio(btn, text, qid) {
+  // If this button is already playing → stop
+  if (currentBtn === btn && speechSynthesis.speaking && !isPaused) {
+    speechSynthesis.cancel();
+    btn.classList.remove('playing');
+    btn.textContent = '▶ Escuchar';
+    if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; }
+    currentBtn = null; pauseBtn = null; isPaused = false;
+    return;
+  }
+  // Cancel any current audio
+  if (speechSynthesis.speaking || isPaused) {
+    speechSynthesis.cancel();
+    isPaused = false;
+    if (currentBtn && currentBtn !== btn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; }
+    if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; pauseBtn = null; }
+  }
+  if (!voicesReady) loadVoices();
+  const rate = window._spd[qid] || 0.82;
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = rate; u.pitch = 1;
+  u.lang = currentAccent === 'gb' ? 'en-GB' : 'en-US';
+  const voice = currentAccent === 'gb' ? gbVoice : usVoice;
+  if (voice) u.voice = voice;
+  currentBtn = btn;
+  currentUtterance = u;
+  btn.classList.add('playing'); btn.textContent = '⏹ Detener';
+  // Link pause button
+  const card = btn.closest('.q-card') || btn.closest('.q-audio');
+  const pBtn = card ? card.querySelector('.pause-btn') : null;
+  pauseBtn = pBtn;
+  u.onend = () => {
+    btn.classList.remove('playing'); btn.textContent = '▶ Escuchar';
+    if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; }
+    if (currentBtn === btn) currentBtn = null; pauseBtn = null; isPaused = false;
+  };
+  u.onerror = () => {
+    btn.classList.remove('playing'); btn.textContent = '▶ Escuchar';
+    if (pauseBtn) { pauseBtn.classList.remove('active'); pauseBtn.textContent = '⏸ Pausar'; }
+    currentBtn = null; pauseBtn = null; isPaused = false;
+  };
+  speechSynthesis.speak(u);
+}
+
+function pauseAudio(btn, qid) {
+  if (!speechSynthesis.speaking && !isPaused) return; // nothing playing
+  if (isPaused) {
+    // resume
+    speechSynthesis.resume();
+    isPaused = false;
+    btn.classList.remove('active');
+    btn.textContent = '⏸ Pausar';
+    if (currentBtn) { currentBtn.classList.add('playing'); currentBtn.textContent = '⏹ Detener'; }
+  } else {
+    // pause
+    speechSynthesis.pause();
+    isPaused = true;
+    btn.classList.add('active');
+    btn.textContent = '▶ Continuar';
+    if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; }
+  }
+}
+
+// ══════════════════════════════════════════════════
+//  STORY READER — SLIDER & PARAGRAPH REVEAL
+// ══════════════════════════════════════════════════
+function updateStorySlider(story, val, total) {
+  const n = parseInt(val);
+  document.getElementById('sr-'+story+'-count').textContent = n + ' / ' + total;
+  const container = document.getElementById('sr-'+story+'-paras');
+  container.querySelectorAll('.sp-item').forEach((item, idx) => {
+    if (idx < n) {
+      item.classList.remove('hidden');
+    } else {
+      item.classList.add('hidden');
+    }
+  });
+  // update "ver completa" button state
+  const btn = document.getElementById('sr-'+story+'-showall');
+  if (btn) btn.classList.toggle('all-visible', n === total);
+}
+
+function revealAllParas(story, total) {
+  const range = document.getElementById('sr-'+story+'-range');
+  if (range) { range.value = total; updateStorySlider(story, total, total); }
+}
+
+function hideAllParas(story) {
+  const range = document.getElementById('sr-'+story+'-range');
+  const total = parseInt(range ? range.max : 8);
+  if (range) { range.value = 1; updateStorySlider(story, 1, total); }
+  // cancel any playing audio
+  speechSynthesis.cancel();
+  if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; currentBtn = null; }
+  document.querySelectorAll('.sp-text.playing-para').forEach(el => el.classList.remove('playing-para'));
+  document.querySelectorAll('.sp-btn.playing').forEach(el => el.classList.remove('playing'));
+}
+
+function toggleSpEs(btn) {
+  const item = btn.closest('.sp-item');
+  const es = item.querySelector('.sp-es');
+  if (!es) return;
+  es.classList.toggle('show');
+  btn.textContent = es.classList.contains('show') ? '🇪🇸 ocultar' : '🇪🇸 traducción';
+}
+
+let currentParaEl = null, currentParaBtn = null;
+
+function speakPara(el, text, story, idx) {
+  // toggle
+  if (currentParaEl === el && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    el.classList.remove('playing-para');
+    currentParaEl = null;
+    return;
+  }
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; currentBtn = null; }
+    if (currentParaBtn) { currentParaBtn.classList.remove('playing'); currentParaBtn = null; }
+    if (currentParaEl) { currentParaEl.classList.remove('playing-para'); }
+  }
+  if (!voicesReady) loadVoices();
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85; u.pitch = 1;
+  u.lang = currentAccent === 'gb' ? 'en-GB' : 'en-US';
+  const voice = currentAccent === 'gb' ? gbVoice : usVoice;
+  if (voice) u.voice = voice;
+  currentParaEl = el;
+  el.classList.add('playing-para');
+  u.onend = () => { el.classList.remove('playing-para'); if (currentParaEl === el) currentParaEl = null; };
+  u.onerror = () => { el.classList.remove('playing-para'); currentParaEl = null; };
+  speechSynthesis.speak(u);
+}
+
+function speakParaBtn(btn, text, accent) {
+  const accentToUse = accent || (currentAccent === 'gb' ? 'gb' : 'us');
+  if (currentParaBtn === btn && speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    btn.classList.remove('playing');
+    currentParaBtn = null;
+    return;
+  }
+  if (speechSynthesis.speaking) {
+    speechSynthesis.cancel();
+    if (currentBtn) { currentBtn.classList.remove('playing'); currentBtn.textContent = '▶ Escuchar'; currentBtn = null; }
+    if (currentParaBtn) { currentParaBtn.classList.remove('playing'); }
+    if (currentParaEl) { currentParaEl.classList.remove('playing-para'); currentParaEl = null; }
+  }
+  if (!voicesReady) loadVoices();
+  const u = new SpeechSynthesisUtterance(text);
+  u.rate = 0.85; u.pitch = 1;
+  u.lang = accentToUse === 'gb' ? 'en-GB' : 'en-US';
+  const voice = accentToUse === 'gb' ? gbVoice : usVoice;
+  if (voice) u.voice = voice;
+  currentParaBtn = btn;
+  btn.classList.add('playing');
+  u.onend = () => { btn.classList.remove('playing'); if (currentParaBtn === btn) currentParaBtn = null; };
+  u.onerror = () => { btn.classList.remove('playing'); currentParaBtn = null; };
+  speechSynthesis.speak(u);
+}
+
+// ══════════════════════════════════════════════════
+//  INIT
+// ══════════════════════════════════════════════════
+buildAll();
+
+</script>
+</body>
+</html>

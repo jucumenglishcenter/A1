@@ -1,0 +1,1652 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A1 · 🛍️ Shopping, Services & Money — Stories & Dialogues</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,500;0,600;0,700;0,800&family=Lora:ital,wght@0,400;0,500;1,400&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+
+:root{
+  --bg:#F0F7FF;--card:#FFFFFF;--text:#1A2A3A;--text-soft:#6B7E91;
+  --border:#C8E0F5;--shadow:0 3px 16px rgba(41,182,246,0.08);--radius:14px;
+  --sp-a:#1565C0;--sp-a-bg:#E3F2FD;--sp-b:#C46200;--sp-b-bg:#FFF3E0;
+  --sp-c:#2E7D32;--sp-c-bg:#E8F5E9;
+  --rv-bg:#F3E5F5;--rv-text:#7B1FA2;
+  /* === A1 BLUE LEVEL THEME === */
+  --level-primary:#29B6F6;--level-dark:#0277BD;--level-light:#E1F5FE;--level-mid:#B3E5FC;
+  --level-gradient:linear-gradient(135deg,#0288D1 0%,#29B6F6 60%,#4FC3F7 100%);
+  --level-glow:rgba(41,182,246,0.15);--level-badge-text:#01579B;
+  --hl-word:rgba(41,182,246,0.5);
+  --tr-text:#1A2E3A;--tr-border:#90CAF9;--tr-accent:#6B7E91;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);line-height:1.7;padding:1.5rem 1rem 6rem;-webkit-font-smoothing:antialiased;}
+.container{max-width:820px;margin:0 auto;}
+.level-header{text-align:center;padding:2.4rem 2rem 2rem;border-radius:22px;position:relative;overflow:hidden;margin-bottom:1.5rem;background:var(--level-gradient);color:#fff;box-shadow:0 6px 30px rgba(2,136,209,0.28);}
+.level-header::before{content:'';position:absolute;top:-30%;right:-10%;width:280px;height:280px;background:rgba(255,255,255,0.08);border-radius:50%;}
+.level-header h1{font-family:'Fredoka',sans-serif;font-size:1.9rem;font-weight:600;position:relative;z-index:1;color:#fff;}
+.level-header .module-name{font-family:'Fredoka',sans-serif;font-size:1.18rem;font-weight:500;position:relative;z-index:1;margin-top:0.35rem;color:#fff;}
+.level-header .subtitle{font-size:0.88rem;font-weight:500;position:relative;z-index:1;margin-top:0.25rem;color:rgba(255,255,255,0.92);}
+.legend{display:flex;flex-wrap:wrap;gap:1rem;padding:0.9rem 1.2rem;background:var(--card);border:1px solid var(--border);border-radius:10px;font-size:0.82rem;color:var(--text-soft);margin-bottom:1.2rem;box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.legend-item{display:inline-flex;align-items:center;gap:6px;}
+#voice-status{display:none;text-align:center;font-size:0.78rem;color:#01579B;margin-bottom:1rem;padding:0.5rem 1rem;background:var(--level-light);border-radius:8px;border:1px solid var(--level-primary);}
+.speed-control{display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;margin-bottom:1rem;padding:0.7rem 1.1rem;background:var(--card);border-radius:10px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.speed-control .speed-label{display:inline-flex;align-items:center;gap:6px;font-size:0.85rem;font-weight:700;color:var(--level-dark);white-space:nowrap;}
+.speed-control input[type="range"]{flex:1;min-width:140px;height:6px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,var(--level-light),var(--level-primary));border-radius:6px;outline:none;cursor:pointer;}
+.speed-control input[type="range"]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--level-primary);border:2.5px solid #fff;box-shadow:0 2px 6px rgba(41,182,246,0.5);cursor:pointer;transition:transform 0.15s;}
+.speed-control input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15);}
+.speed-control input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--level-primary);border:2.5px solid #fff;cursor:pointer;}
+.speed-value{display:inline-flex;align-items:center;justify-content:center;min-width:54px;font-family:'Fredoka',sans-serif;font-size:0.92rem;font-weight:600;color:var(--level-dark);background:var(--level-light);border:1.5px solid var(--level-mid);border-radius:8px;padding:3px 10px;}
+.speed-presets{display:flex;gap:4px;}
+.speed-preset{font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:700;color:var(--text-soft);background:transparent;border:1.5px solid var(--border);padding:3px 9px;border-radius:6px;cursor:pointer;transition:all 0.18s;}
+.speed-preset:hover,.speed-preset.active{background:var(--level-light);border-color:var(--level-primary);color:var(--level-dark);}
+.parallel-toggle{display:flex;align-items:center;gap:0.5rem;font-size:0.83rem;color:var(--text-soft);margin-bottom:1rem;padding:0.5rem 1rem;background:var(--card);border-radius:8px;border:1px solid var(--border);}
+.parallel-toggle input,.parallel-toggle label{cursor:pointer;}
+.parallel-toggle label{font-weight:600;}
+.content-tabs{display:flex;gap:0.5rem;margin-bottom:1.2rem;padding:0.4rem;background:var(--card);border-radius:14px;border:1px solid var(--border);box-shadow:0 1px 4px rgba(0,0,0,0.04);}
+.content-tab{flex:1;text-align:center;padding:0.7rem;border-radius:10px;font-size:0.88rem;font-weight:700;cursor:pointer;transition:all 0.25s;border:2px solid transparent;background:transparent;font-family:'Nunito',sans-serif;}
+.content-tab:hover{background:#EBF5FF;}
+.content-tab.active{background:var(--level-light);border-color:var(--level-primary);color:var(--level-dark);box-shadow:0 2px 8px var(--level-glow);}
+.content-panel{display:none;}
+.content-panel.active{display:block;animation:fadeIn 0.3s ease;}
+.item-tabs{display:flex;gap:0.4rem;margin-bottom:1rem;flex-wrap:wrap;}
+.item-tab{padding:0.4rem 1rem;border-radius:8px;font-size:0.83rem;font-weight:700;cursor:pointer;border:2px solid var(--border);background:var(--card);transition:all 0.2s;font-family:'Nunito',sans-serif;}
+.item-tab:hover{background:var(--level-light);}
+.item-tab.active{background:var(--level-light);border-color:var(--level-primary);color:var(--level-dark);}
+.item-panel{display:none;}
+.item-panel.active{display:block;animation:fadeIn 0.3s ease;}
+@keyframes fadeIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.story-controls{background:var(--card);border:1.5px solid var(--level-mid);border-radius:14px;padding:0.9rem 1.1rem;margin-bottom:1rem;box-shadow:0 2px 10px rgba(41,182,246,0.12);}
+.story-controls .sc-title{display:flex;align-items:center;gap:6px;font-family:'Fredoka',sans-serif;font-size:0.82rem;font-weight:600;color:var(--level-dark);margin-bottom:0.7rem;}
+.story-controls .sc-row{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:0.7rem;}
+.story-controls .sc-row:last-child{margin-bottom:0;}
+.story-controls .sc-divider{height:1px;background:var(--border);margin:0.7rem 0;}
+.story-controls .sc-speed{display:flex;align-items:center;gap:0.7rem;flex:1;min-width:200px;flex-wrap:wrap;}
+.story-controls .sc-speed-label{display:inline-flex;align-items:center;gap:5px;font-size:0.8rem;font-weight:700;color:var(--level-dark);white-space:nowrap;}
+.story-controls input[type="range"].sc-slider{flex:1;min-width:110px;height:6px;-webkit-appearance:none;appearance:none;background:linear-gradient(to right,var(--level-light),var(--level-primary));border-radius:6px;outline:none;cursor:pointer;}
+.story-controls input[type="range"].sc-slider::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--level-primary);border:2.5px solid #fff;box-shadow:0 2px 6px rgba(41,182,246,0.5);cursor:pointer;}
+.story-controls input[type="range"].sc-slider::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--level-primary);border:2.5px solid #fff;cursor:pointer;}
+.play-all-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;background:var(--level-light);color:var(--level-dark);border:1.5px solid var(--level-primary);padding:6px 16px;border-radius:10px;cursor:pointer;transition:all 0.2s;}
+.play-all-btn:hover{background:var(--level-mid);}
+.play-all-btn.playing{background:var(--level-primary);color:#01334A;}
+.play-counter{font-size:0.78rem;color:var(--text-soft);font-style:italic;}
+.accent-selector{display:inline-flex;align-items:center;gap:6px;margin-left:auto;}
+.accent-label{font-size:0.74rem;font-weight:700;color:var(--text-soft);}
+.accent-btn{font-family:'Nunito',sans-serif;font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:8px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;transition:all 0.18s;}
+.accent-btn.active{background:var(--level-light);border-color:var(--level-primary);color:var(--level-dark);}
+.global-translate-bar{display:flex;gap:8px;margin-bottom:1rem;align-items:center;flex-wrap:wrap;}
+.global-translate-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;background:#F3E5F5;color:#7B1FA2;border:1.5px solid #CE93D8;padding:6px 16px;border-radius:10px;cursor:pointer;transition:all 0.2s;}
+.global-translate-btn:hover{background:#E1BEE7;}
+.global-translate-btn.active{background:#CE93D8;color:#fff;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:1.8rem;margin-bottom:1.5rem;box-shadow:var(--shadow);border-top:3.5px solid var(--level-primary);}
+.section-label{display:flex;align-items:center;gap:0.6rem;font-size:0.73rem;font-weight:800;text-transform:uppercase;letter-spacing:0.13em;color:var(--level-dark);margin-bottom:0.4rem;}
+.section-label::before{content:'';width:20px;height:3px;background:var(--level-primary);border-radius:2px;}
+.section-title{font-family:'Fredoka',sans-serif;font-size:1.3rem;font-weight:600;margin-bottom:0.15rem;}
+.section-desc{font-size:0.87rem;color:var(--text-soft);margin-bottom:1.2rem;}
+.level-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Nunito',sans-serif;font-size:0.73rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;background:var(--level-light);color:var(--level-badge-text);padding:5px 14px;border-radius:20px;border:1.5px solid var(--level-mid);margin-bottom:1rem;}
+.reveal-line{margin-top:6px;}
+.reveal-btn{display:inline-flex;align-items:center;gap:5px;font-family:'Nunito',sans-serif;font-size:0.82rem;font-weight:700;color:#fff;background:var(--rv-text);border:none;padding:5px 13px;border-radius:8px;cursor:pointer;transition:all 0.2s;user-select:none;}
+.reveal-btn:hover{background:#6A1B9A;}
+.reveal-btn .arrow{transition:transform 0.25s;font-size:0.7rem;}
+.reveal-btn.open .arrow{transform:rotate(90deg);}
+.reveal-text{display:none;font-family:'Nunito',sans-serif;font-style:normal;font-weight:500;font-size:0.95rem;color:var(--tr-text);margin-top:6px;padding:4px 12px;border-left:3px solid var(--tr-border);animation:fadeSlide 0.25s ease;line-height:1.6;}
+.reveal-text::before{content:'🇪🇸 ';font-weight:700;color:var(--tr-accent);}
+.reveal-text.show{display:block;}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+.audio-row{display:flex;gap:6px;margin-top:6px;}
+.audio-btn{display:inline-flex;align-items:center;gap:4px;font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:700;border:1.5px solid #E0E0E0;background:#FAFAFA;color:var(--text);padding:3px 10px;border-radius:8px;cursor:pointer;transition:all 0.2s;user-select:none;}
+.audio-btn:hover{background:#F0F0F0;border-color:#BDBDBD;transform:translateY(-1px);}
+.audio-btn.playing{border-color:var(--level-primary);background:var(--level-glow);color:var(--level-dark);}
+.chat-wrapper{display:flex;flex-direction:column;gap:0.65rem;}
+.chat-msg{max-width:82%;padding:0.8rem 1.1rem;border-radius:18px;font-size:1.02rem;line-height:1.6;position:relative;cursor:pointer;transition:box-shadow 0.2s;}
+.chat-msg:hover{box-shadow:0 2px 12px rgba(0,0,0,0.1);}
+.chat-msg.reading{outline:2.5px solid var(--level-primary);outline-offset:2px;background-color:#EBF6FF !important;}
+.chat-msg .speaker-name{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:3px;}
+.chat-msg.left{align-self:flex-start;background:var(--sp-a-bg);border-bottom-left-radius:5px;}
+.chat-msg.left .speaker-name{color:var(--sp-a);}
+.chat-msg.right{align-self:flex-end;background:var(--sp-b-bg);border-bottom-right-radius:5px;text-align:right;}
+.chat-msg.right .speaker-name{color:var(--sp-b);}
+.chat-msg.right .audio-row{justify-content:flex-end;}
+.chat-msg.right .reveal-line{text-align:right;}
+.chat-msg.right .reveal-text{text-align:right;border-left:none;border-right:3px solid var(--tr-border);}
+.chat-msg.center{align-self:center;background:var(--sp-c-bg);border-radius:18px;border:1px solid #C8E6C9;}
+.chat-msg.center .speaker-name{color:var(--sp-c);}
+.word-hl{background:var(--hl-word);border-radius:3px;padding:0 2px;}
+.story-block{margin-bottom:1.1rem;}
+.story-paragraph{font-family:'Lora',serif;font-size:1.08rem;line-height:1.9;padding:0.5rem 0.7rem;border-radius:8px;transition:background 0.2s;cursor:pointer;}
+.story-paragraph:hover{background:var(--level-glow);}
+.story-paragraph.reading{background:var(--level-glow);outline:2px solid var(--level-primary);outline-offset:2px;}
+.parallel-view .reveal-text{display:block !important;}
+.parallel-view .reveal-btn{display:none;}
+.player-bar{position:fixed;bottom:0;left:0;right:0;z-index:900;background:#fff;border-top:2px solid var(--level-mid);box-shadow:0 -4px 20px rgba(0,0,0,0.1);padding:0.7rem 1rem 0.9rem;}
+.player-inner{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:0.4rem;}
+.player-top{display:flex;align-items:center;gap:0.7rem;flex-wrap:wrap;}
+.player-info{flex:1;min-width:0;}
+.player-label{font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:var(--level-dark);}
+.player-title{font-size:0.82rem;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.player-controls{display:flex;gap:6px;align-items:center;flex-shrink:0;}
+.pc-btn{font-family:'Nunito',sans-serif;font-size:0.78rem;font-weight:700;border:1.5px solid var(--border);background:var(--card);color:var(--text);padding:5px 12px;border-radius:8px;cursor:pointer;transition:all 0.18s;display:inline-flex;align-items:center;gap:4px;}
+.pc-btn:hover{background:var(--level-light);border-color:var(--level-primary);}
+.pc-btn.primary{background:var(--level-primary);border-color:var(--level-primary);color:#01334A;}
+.pc-btn.primary:hover{background:var(--level-mid);}
+.pc-btn:disabled{opacity:0.4;cursor:not-allowed;}
+.player-accent{display:flex;gap:4px;}
+.pa-btn{font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:7px;border:1.5px solid var(--border);background:var(--card);cursor:pointer;transition:all 0.18s;font-family:'Nunito',sans-serif;}
+.pa-btn.active{background:var(--level-light);border-color:var(--level-primary);color:var(--level-dark);}
+.player-progress{display:flex;align-items:center;gap:8px;}
+.progress-time{font-size:0.7rem;color:var(--text-soft);min-width:32px;font-family:'Nunito',sans-serif;}
+.progress-bar{flex:1;height:5px;background:var(--level-light);border-radius:4px;cursor:pointer;position:relative;overflow:hidden;}
+.progress-fill{height:100%;background:var(--level-primary);border-radius:4px;transition:width 0.1s linear;width:0%;}
+@media(max-width:600px){
+  .level-header h1{font-size:1.5rem;}
+  .chat-msg{max-width:90%;font-size:0.96rem;}
+  .card{padding:1.2rem;}
+  .player-top{gap:0.4rem;}
+  .pc-btn{font-size:0.7rem;padding:4px 8px;}
+  .reveal-text{font-size:0.92rem;}
+  .content-tabs{flex-direction:column;gap:0.3rem;}
+}
+
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="level-header">
+    <h1>🔵 A1 — Beginner</h1>
+    <div class="module-name">🛍️ Shopping, Services &amp; Money</div>
+    <p class="subtitle">Expresiones cotidianas · 5–9 palabras por frase · Compras, dinero y trabajo</p>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item">🖱️ <strong>Click line/paragraph</strong> → hear it with word highlight</div>
+    <div class="legend-item"><button class="reveal-btn" style="pointer-events:none">🇪🇸 <span class="arrow">›</span></button> traducción</div>
+    <div class="legend-item"><button class="audio-btn" style="pointer-events:none">🔊 US / UK</button> audio</div>
+  </div>
+
+  <div id="voice-status">⚠️ Tu navegador tiene voces limitadas. Para mejor experiencia usa <strong>Google Chrome</strong> o <strong>Microsoft Edge</strong>.</div>
+
+  <div class="speed-control">
+    <span class="speed-label">🐢 Velocidad</span>
+    <input type="range" id="speedSlider" min="0.5" max="1.2" step="0.05" value="0.82" oninput="updateSpeed(this.value)">
+    <span class="speed-value" id="speedValue">0.82×</span>
+    <div class="speed-presets">
+      <button class="speed-preset" onclick="setSpeed(0.6,this)">Lento</button>
+      <button class="speed-preset active" onclick="setSpeed(0.82,this)">Normal</button>
+      <button class="speed-preset" onclick="setSpeed(1.0,this)">Rápido</button>
+    </div>
+  </div>
+
+  <div class="parallel-toggle">
+    <input type="checkbox" id="parallelCheck" onchange="toggleParallel(this.checked)">
+    <label for="parallelCheck">🔄 Show English + Spanish side by side</label>
+  </div>
+
+  <div class="content-tabs">
+    <button class="content-tab active" onclick="switchContent('dialogues',this)">💬 Dialogues (D1–D4)</button>
+    <button class="content-tab" onclick="switchContent('stories',this)">📖 Stories (S1–S4)</button>
+  </div>
+
+  <!-- ══════════════ DIALOGUES ══════════════ -->
+  <div class="content-panel active" id="panel-dialogues">
+    <div class="item-tabs">
+      <button class="item-tab active" onclick="switchItem('dialogues','d1',this)">D1</button>
+      <button class="item-tab" onclick="switchItem('dialogues','d2',this)">D2</button>
+      <button class="item-tab" onclick="switchItem('dialogues','d3',this)">D3</button>
+      <button class="item-tab" onclick="switchItem('dialogues','d4',this)">D4</button>
+    </div>
+    <div class="story-controls">
+      <div class="sc-title">🎧 Audio del Diálogo</div>
+      <div class="sc-row">
+        <button class="play-all-btn" id="play-all-btn-d" onclick="playAllDialogue()">▶ Play full dialogue</button>
+        <span class="play-counter" id="play-counter-d"></span>
+        <div class="accent-selector">
+          <span class="accent-label">Acento:</span>
+          <button class="accent-btn active" onclick="setPlayAccent('US',this)">🇺🇸 US</button>
+          <button class="accent-btn" onclick="setPlayAccent('UK',this)">🇬🇧 UK</button>
+        </div>
+      </div>
+      <div class="sc-divider"></div>
+      <div class="sc-row">
+        <div class="sc-speed">
+          <span class="sc-speed-label">🐢 Velocidad</span>
+          <input type="range" class="sc-slider" id="diaSpeedSlider" min="0.5" max="1.2" step="0.05" value="0.82" oninput="updateSpeed(this.value)">
+          <span class="speed-value" id="diaSpeedValue">0.82×</span>
+          <div class="speed-presets">
+            <button class="speed-preset" onclick="setSpeed(0.6,this)">Lento</button>
+            <button class="speed-preset active" onclick="setSpeed(0.82,this)">Normal</button>
+            <button class="speed-preset" onclick="setSpeed(1.0,this)">Rápido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="global-translate-bar">
+      <button class="global-translate-btn" id="gtrans-d" onclick="toggleGlobalTranslate('dialogues')">🇪🇸 Show all translations</button>
+    </div>
+    <div class="item-panel active" id="dialogues-d1">
+<div class="card">
+<div class="section-label">Dialogue 1</div>
+<div class="section-title">The Green Jacket</div>
+<div class="section-desc">Sara and a store clerk compare two jackets.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left" onclick="speakMsg(this,'Excuse me. Can you help me? I want to find a jacket, but I\'m not sure which one to choose.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">Excuse me. Can you help me? I want to find a jacket, but I'm not sure which one to choose.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Excuse me. Can you help me? I want to find a jacket, but I\'m not sure which one to choose.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Excuse me. Can you help me? I want to find a jacket, but I\'m not sure which one to choose.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Disculpe. ¿Me puede ayudar? Quiero encontrar una chaqueta, pero no sé cuál seleccionar.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Of course! Let me show you two options. This first one is green. The second one is darker.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Of course! Let me show you two options. This first one is green. The second one is darker.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Of course! Let me show you two options. This first one is green. The second one is darker.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Of course! Let me show you two options. This first one is green. The second one is darker.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Claro! Déjeme mostrarle dos opciones. Esta primera es verde. La segunda es más oscura.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'I really like the green one. Can you describe the material?')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">I really like the green one. Can you describe the material?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I really like the green one. Can you describe the material?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I really like the green one. Can you describe the material?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me gusta mucho la verde. ¿Puede describir el material?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'It\'s a very soft material. It\'s warm and light at the same time. Most customers love it.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">It's a very soft material. It's warm and light at the same time. Most customers love it.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It\'s a very soft material. It\'s warm and light at the same time. Most customers love it.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It\'s a very soft material. It\'s warm and light at the same time. Most customers love it.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Es un material muy suave. Es cálido y ligero al mismo tiempo. A la mayoría de los clientes les encanta.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'What sizes do you have? I usually wear a medium, but I\'m not sure.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">What sizes do you have? I usually wear a medium, but I'm not sure.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'What sizes do you have? I usually wear a medium, but I\'m not sure.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'What sizes do you have? I usually wear a medium, but I\'m not sure.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Qué talla tienen? Normalmente uso mediana, pero no estoy segura.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'We have several sizes. The green jacket is slightly bigger than normal, so I recommend a small.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">We have several sizes. The green jacket is slightly bigger than normal, so I recommend a small.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'We have several sizes. The green jacket is slightly bigger than normal, so I recommend a small.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'We have several sizes. The green jacket is slightly bigger than normal, so I recommend a small.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Tenemos varios tallas. La chaqueta verde es ligeramente más grande de lo normal, así que recomiendo la pequeña.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'How much does it cost?')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">How much does it cost?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'How much does it cost?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'How much does it cost?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¿Cuánto cuesta?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'The green one is forty-five dollars. It\'s a great price for this quality. The other one costs fifty.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">The green one is forty-five dollars. It's a great price for this quality. The other one costs fifty.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The green one is forty-five dollars. It\'s a great price for this quality. The other one costs fifty.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The green one is forty-five dollars. It\'s a great price for this quality. The other one costs fifty.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">La verde cuesta cuarenta y cinco dólares. Es un gran precio por esta calidad. La otra cuesta cincuenta.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'That\'s a bit expensive. Is there anything else below forty dollars?')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">That's a bit expensive. Is there anything else below forty dollars?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s a bit expensive. Is there anything else below forty dollars?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s a bit expensive. Is there anything else below forty dollars?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Es un poco caro. ¿Hay algo más por debajo de cuarenta dólares?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Let me check. We have a sale section. Maybe you can find something there.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Let me check. We have a sale section. Maybe you can find something there.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Let me check. We have a sale section. Maybe you can find something there.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Let me check. We have a sale section. Maybe you can find something there.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Déjeme revisar. Tenemos una sección de rebajas. Quizás pueda encontrar algo allí.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Great. I\'ll try the green one first, just to see how it fits.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">Great. I'll try the green one first, just to see how it fits.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. I\'ll try the green one first, just to see how it fits.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. I\'ll try the green one first, just to see how it fits.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Bien. Voy a probar primero la verde, solo para ver cómo me queda.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'The fitting rooms are on the left, underneath the sign that says "Try Here."')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">The fitting rooms are on the left, underneath the sign that says "Try Here."</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The fitting rooms are on the left, underneath the sign that says "Try Here."','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The fitting rooms are on the left, underneath the sign that says "Try Here."','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Los vestidores están a la izquierda, debajo del letrero que dice "Pruebe Aquí".</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Thank you. I\'ll decide after I try it on.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">Thank you. I'll decide after I try it on.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Thank you. I\'ll decide after I try it on.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Thank you. I\'ll decide after I try it on.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Gracias. Decidiré después de probármela.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Take your time. I\'ll be right here if you need more help.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Take your time. I'll be right here if you need more help.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Take your time. I\'ll be right here if you need more help.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Take your time. I\'ll be right here if you need more help.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Tómese su tiempo. Estaré aquí si necesita más ayuda.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'It fits well, but I think it\'s still a bit too expensive for me. I need to save more money this month.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">It fits well, but I think it's still a bit too expensive for me. I need to save more money this month.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It fits well, but I think it\'s still a bit too expensive for me. I need to save more money this month.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It fits well, but I think it\'s still a bit too expensive for me. I need to save more money this month.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Me queda bien, pero creo que sigue siendo un poco cara para mí. Necesito ahorrar más dinero este mes.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'I understand. We also accept payments in two installments. Would that help?')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">I understand. We also accept payments in two installments. Would that help?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I understand. We also accept payments in two installments. Would that help?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I understand. We also accept payments in two installments. Would that help?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Entiendo. También aceptamos pagos en dos cuotas. ¿Le ayudaría eso?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Oh, that\'s a good solution. Let me consider it. I\'ll probably come back tomorrow.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">Oh, that's a good solution. Let me consider it. I'll probably come back tomorrow.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Oh, that\'s a good solution. Let me consider it. I\'ll probably come back tomorrow.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Oh, that\'s a good solution. Let me consider it. I\'ll probably come back tomorrow.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Oh, esa es una buena solución. Déjeme considerarlo. Probablemente regrese mañana.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'We\'ll keep the jacket for you until closing time today, if you want.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">We'll keep the jacket for you until closing time today, if you want.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'We\'ll keep the jacket for you until closing time today, if you want.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'We\'ll keep the jacket for you until closing time today, if you want.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Le guardaremos la chaqueta hasta la hora de cierre hoy, si quiere.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Yes, please! I\'ll send my sister a message and ask what she thinks.')">
+<div class="speaker-name">Sara</div>
+<div class="msg-text">Yes, please! I'll send my sister a message and ask what she thinks.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, please! I\'ll send my sister a message and ask what she thinks.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, please! I\'ll send my sister a message and ask what she thinks.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Sí, por favor! Le enviaré un mensaje a mi hermana y le preguntaré qué opina.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'No problem! The jacket will be here. See you later.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">No problem! The jacket will be here. See you later.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No problem! The jacket will be here. See you later.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No problem! The jacket will be here. See you later.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡No hay problema! La chaqueta estará aquí. Hasta luego.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d2">
+<div class="card">
+<div class="section-label">Dialogue 2</div>
+<div class="section-title">The Wrong Box</div>
+<div class="section-desc">Marco tries to return a blender he never opened.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left" onclick="speakMsg(this,'Hi. I bought this blender last week, but I want to return it. I still have the box and the receipt.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">Hi. I bought this blender last week, but I want to return it. I still have the box and the receipt.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Hi. I bought this blender last week, but I want to return it. I still have the box and the receipt.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Hi. I bought this blender last week, but I want to return it. I still have the box and the receipt.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Hola. Compré esta licuadora la semana pasada, pero quiero devolverla. Todavía tengo la caja y el recibo.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Sure. Can you tell me why you want to return it? Was there a problem with the machine?')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">Sure. Can you tell me why you want to return it? Was there a problem with the machine?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure. Can you tell me why you want to return it? Was there a problem with the machine?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure. Can you tell me why you want to return it? Was there a problem with the machine?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Claro. ¿Puede decirme por qué quiere devolverla? ¿Hubo algún problema con la máquina?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'No, the machine is fine. I just got one as a gift from my family. So now I have two.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">No, the machine is fine. I just got one as a gift from my family. So now I have two.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No, the machine is fine. I just got one as a gift from my family. So now I have two.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No, the machine is fine. I just got one as a gift from my family. So now I have two.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">No, la máquina está bien. Es que recibí una de regalo de mi familia. Así que ahora tengo dos.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'I see! That happens. Let me check the date on your receipt. Our return policy requires the item to be unused and returned within thirty days.')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">I see! That happens. Let me check the date on your receipt. Our return policy requires the item to be unused and returned within thirty days.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I see! That happens. Let me check the date on your receipt. Our return policy requires the item to be unused and returned within thirty days.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I see! That happens. Let me check the date on your receipt. Our return policy requires the item to be unused and returned within thirty days.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Ya veo! Eso pasa. Déjeme revisar la fecha de su recibo. Nuestra política de devolución requiere que el artículo no esté usado y sea devuelto dentro de treinta días.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Yes, I bought it just five days ago. It\'s still sealed. I didn\'t even use it once.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">Yes, I bought it just five days ago. It's still sealed. I didn't even use it once.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I bought it just five days ago. It\'s still sealed. I didn\'t even use it once.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I bought it just five days ago. It\'s still sealed. I didn\'t even use it once.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, la compré hace solo cinco días. Todavía está sellada. No la usé ni una vez.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Great. Since it\'s within the return window and the item is sealed, we can process this. Do you want a refund or store credit?')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">Great. Since it's within the return window and the item is sealed, we can process this. Do you want a refund or store credit?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. Since it\'s within the return window and the item is sealed, we can process this. Do you want a refund or store credit?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. Since it\'s within the return window and the item is sealed, we can process this. Do you want a refund or store credit?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Bien. Como está dentro del plazo de devolución y el artículo está sellado, podemos procesarlo. ¿Quiere un reembolso o crédito en tienda?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'A refund, please. I want the money back on my card.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">A refund, please. I want the money back on my card.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'A refund, please. I want the money back on my card.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'A refund, please. I want the money back on my card.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Un reembolso, por favor. Quiero el dinero de vuelta en mi tarjeta.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'No problem. Please set the box on the counter. The refund will take two to three business days to appear.')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">No problem. Please set the box on the counter. The refund will take two to three business days to appear.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No problem. Please set the box on the counter. The refund will take two to three business days to appear.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No problem. Please set the box on the counter. The refund will take two to three business days to appear.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Sin problema. Por favor coloque la caja en el mostrador. El reembolso tardará dos o tres días hábiles en aparecer.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'That\'s fine. Can I ask — do you sell kitchen sets here? I want to find a good one.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">That's fine. Can I ask — do you sell kitchen sets here? I want to find a good one.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s fine. Can I ask — do you sell kitchen sets here? I want to find a good one.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s fine. Can I ask — do you sell kitchen sets here? I want to find a good one.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Está bien. ¿Puedo preguntar — venden juegos de cocina aquí? Quiero encontrar uno bueno.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Yes, we sell several sets. You can find them in aisle four. Most are marked with the price on the box.')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">Yes, we sell several sets. You can find them in aisle four. Most are marked with the price on the box.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, we sell several sets. You can find them in aisle four. Most are marked with the price on the box.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, we sell several sets. You can find them in aisle four. Most are marked with the price on the box.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Sí, vendemos varios juegos. Los puede encontrar en el pasillo cuatro. La mayoría están marcados con el precio en la caja.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Perfect. I\'ll go take a look. Thank you for fixing this so quickly.')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">Perfect. I'll go take a look. Thank you for fixing this so quickly.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll go take a look. Thank you for fixing this so quickly.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll go take a look. Thank you for fixing this so quickly.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Perfecto. Voy a echar un vistazo. Gracias por arreglar esto tan rápido.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Happy to help. Don\'t forget — you should also keep the receipt for the new purchase!')">
+<div class="speaker-name">Agent</div>
+<div class="msg-text">Happy to help. Don't forget — you should also keep the receipt for the new purchase!</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Happy to help. Don\'t forget — you should also keep the receipt for the new purchase!','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Happy to help. Don\'t forget — you should also keep the receipt for the new purchase!','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Con gusto. No lo olvide — ¡también debe guardar el recibo de la nueva compra!</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Good point. I always forget that. Thanks again!')">
+<div class="speaker-name">Marco</div>
+<div class="msg-text">Good point. I always forget that. Thanks again!</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good point. I always forget that. Thanks again!','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good point. I always forget that. Thanks again!','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Buen punto. Siempre olvido eso. ¡Gracias de nuevo!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d3">
+<div class="card">
+<div class="section-label">Dialogue 3</div>
+<div class="section-title">Gold or Credit?</div>
+<div class="section-desc">Lena shops for a gift and asks about payment options.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left" onclick="speakMsg(this,'Good afternoon. I\'m looking for a gift for my mother. She loves jewelry. Can you show me something in gold?')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">Good afternoon. I'm looking for a gift for my mother. She loves jewelry. Can you show me something in gold?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good afternoon. I\'m looking for a gift for my mother. She loves jewelry. Can you show me something in gold?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good afternoon. I\'m looking for a gift for my mother. She loves jewelry. Can you show me something in gold?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Buenas tardes. Estoy buscando un regalo para mi madre. Le encanta la joyería. ¿Puede mostrarme algo en oro?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Of course! We have several gold pieces. This ring is very popular. The earrings next to it are also beautiful. Most customers say they match well.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Of course! We have several gold pieces. This ring is very popular. The earrings next to it are also beautiful. Most customers say they match well.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Of course! We have several gold pieces. This ring is very popular. The earrings next to it are also beautiful. Most customers say they match well.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Of course! We have several gold pieces. This ring is very popular. The earrings next to it are also beautiful. Most customers say they match well.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Claro! Tenemos varias piezas de oro. Este anillo es muy popular. Los aretes a su lado también son hermosos. La mayoría de los clientes dicen que combinan bien.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'They\'re lovely. Can you estimate the cost for the ring?')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">They're lovely. Can you estimate the cost for the ring?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'They\'re lovely. Can you estimate the cost for the ring?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'They\'re lovely. Can you estimate the cost for the ring?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Son preciosos. ¿Puede estimar el costo del anillo?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'The ring is eighty dollars. It\'s made with real gold and a small green stone. It\'s not cheap, but the quality is excellent.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">The ring is eighty dollars. It's made with real gold and a small green stone. It's not cheap, but the quality is excellent.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The ring is eighty dollars. It\'s made with real gold and a small green stone. It\'s not cheap, but the quality is excellent.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The ring is eighty dollars. It\'s made with real gold and a small green stone. It\'s not cheap, but the quality is excellent.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">El anillo cuesta ochenta dólares. Está hecho con oro real y una pequeña piedra verde. No es barato, pero la calidad es excelente.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'It is a bit expensive. Maybe I should be more careful with my budget — buy the ring now and the earrings next month.')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">It is a bit expensive. Maybe I should be more careful with my budget — buy the ring now and the earrings next month.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It is a bit expensive. Maybe I should be more careful with my budget — buy the ring now and the earrings next month.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'It is a bit expensive. Maybe I should be more careful with my budget — buy the ring now and the earrings next month.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Es un poco caro. Quizás debería separar mi presupuesto — comprar el anillo ahora y los aretes el próximo mes.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'That\'s smart! We also have a gold card for our shop. You can use it to earn points on every purchase.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">That's smart! We also have a gold card for our shop. You can use it to earn points on every purchase.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s smart! We also have a gold card for our shop. You can use it to earn points on every purchase.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That\'s smart! We also have a gold card for our shop. You can use it to earn points on every purchase.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Qué inteligente! También tenemos una tarjeta dorada para nuestra tienda. Puede usarla para ganar puntos en cada compra.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Oh! Can you explain how that works? Do I need to establish an account first?')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">Oh! Can you explain how that works? Do I need to establish an account first?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Oh! Can you explain how that works? Do I need to establish an account first?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Oh! Can you explain how that works? Do I need to establish an account first?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Oh! ¿Puede explicar cómo funciona eso? ¿Necesito establecer una cuenta primero?</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Yes, it\'s simple. You just fill out a form and send it to us. Then we send you the card by mail within five days.')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Yes, it's simple. You just fill out a form and send it to us. Then we send you the card by mail within five days.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, it\'s simple. You just fill out a form and send it to us. Then we send you the card by mail within five days.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, it\'s simple. You just fill out a form and send it to us. Then we send you the card by mail within five days.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Sí, es sencillo. Solo llena un formulario y nos lo envía. Luego le enviamos la tarjeta por correo en cinco días.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'That sounds great. I think I\'ll do that. For now, let me just buy the ring. I\'ll use my regular card.')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">That sounds great. I think I'll do that. For now, let me just buy the ring. I'll use my regular card.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That sounds great. I think I\'ll do that. For now, let me just buy the ring. I\'ll use my regular card.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That sounds great. I think I\'ll do that. For now, let me just buy the ring. I\'ll use my regular card.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Suena bien. Creo que lo haré. Por ahora, déjeme comprar solo el anillo. Usaré mi tarjeta normal.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Perfect. I\'ll get a nice box for the ring. Would you like a gift card as well?')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">Perfect. I'll get a nice box for the ring. Would you like a gift card as well?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll get a nice box for the ring. Would you like a gift card as well?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll get a nice box for the ring. Would you like a gift card as well?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Perfecto. Buscaré una bonita caja para el anillo. ¿También quiere una tarjeta de regalo?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Yes, please! My mother loves to feel special. This is a perfect gift.')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">Yes, please! My mother loves to feel special. This is a perfect gift.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, please! My mother loves to feel special. This is a perfect gift.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, please! My mother loves to feel special. This is a perfect gift.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">¡Sí, por favor! A mi madre le encanta sentirse especial. Este es un regalo perfecto.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'She\'ll love it. Do you need anything else today?')">
+<div class="speaker-name">Clerk</div>
+<div class="msg-text">She'll love it. Do you need anything else today?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She\'ll love it. Do you need anything else today?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She\'ll love it. Do you need anything else today?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Le encantará. ¿Necesita algo más hoy?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'No, that\'s everything. Thank you so much.')">
+<div class="speaker-name">Lena</div>
+<div class="msg-text">No, that's everything. Thank you so much.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No, that\'s everything. Thank you so much.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'No, that\'s everything. Thank you so much.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">No, eso es todo. Muchas gracias.</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="dialogues-d4">
+<div class="card">
+<div class="section-label">Dialogue 4</div>
+<div class="section-title">The Shift Swap</div>
+<div class="section-desc">Two store employees manage their shifts for the week.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="chat-wrapper">
+<div class="chat-msg left" onclick="speakMsg(this,'Hey, can we talk for a minute? I need to handle something personal on Thursday morning.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Hey, can we talk for a minute? I need to handle something personal on Thursday morning.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Hey, can we talk for a minute? I need to handle something personal on Thursday morning.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Hey, can we talk for a minute? I need to handle something personal on Thursday morning.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Oye, ¿podemos hablar un momento? Necesito manejar algo personal el jueves por la mañana.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Sure. What do you need? I\'m working the morning shift that day.')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">Sure. What do you need? I'm working the morning shift that day.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure. What do you need? I\'m working the morning shift that day.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure. What do you need? I\'m working the morning shift that day.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Claro. ¿Qué necesitas? Ese día estoy en el turno de la mañana en el área.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'I know. Is there any chance you could take my shift at the shop? I\'ll do yours on Friday.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">I know. Is there any chance you could take my shift at the shop? I'll do yours on Friday.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I know. Is there any chance you could take my shift at the shop? I\'ll do yours on Friday.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'I know. Is there any chance you could take my shift at the shop? I\'ll do yours on Friday.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo sé. ¿Hay alguna posibilidad de que puedas tomar mi turno en la tienda? Yo haré el tuyo el viernes.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Let me think. I mainly need Friday afternoon free because I have a music lesson. Can you finish before three?')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">Let me think. I mainly need Friday afternoon free because I have a music lesson. Can you finish before three?</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Let me think. I mainly need Friday afternoon free because I have a music lesson. Can you finish before three?','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Let me think. I mainly need Friday afternoon free because I have a music lesson. Can you finish before three?','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Déjame pensar. Principalmente necesito el viernes por la tarde libre porque tengo una clase de música. ¿Puedes terminar antes de las tres?</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Yes, I can finish at two. I\'ll manage the register in the morning and then set up the display before I go.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Yes, I can finish at two. I'll manage the register in the morning and then set up the display before I go.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I can finish at two. I\'ll manage the register in the morning and then set up the display before I go.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I can finish at two. I\'ll manage the register in the morning and then set up the display before I go.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, puedo terminar a las dos. Manejaré la caja por la mañana y luego organizaré el expositor antes de irme.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'That works for me! But let me check with the manager first. She\'ll probably say yes since everyone will be covered.')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">That works for me! But let me check with the manager first. She'll probably say yes since everyone will be covered.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That works for me! But let me check with the manager first. She\'ll probably say yes since everyone will be covered.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'That works for me! But let me check with the manager first. She\'ll probably say yes since everyone will be covered.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Eso me funciona! Pero déjame verificar primero con la gerente. Probablemente dirá que sí ya que todos estarán cubiertos.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Good idea. I don\'t want anyone to feel I\'m not doing my part. What I do affects the whole team.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Good idea. I don't want anyone to feel I'm not doing my part. What I do affects the whole team.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good idea. I don\'t want anyone to feel I\'m not doing my part. What I do affects the whole team.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Good idea. I don\'t want anyone to feel I\'m not doing my part. What I do affects the whole team.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Buena idea. No quiero que nadie sienta que no estoy haciendo mi parte. Mi acción importa para todo el equipo.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Exactly. Also, did you know the shop is trying to sell more items in the back section? We need to use that space better.')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">Exactly. Also, did you know the shop is trying to sell more items in the back section? We need to use that space better.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Exactly. Also, did you know the shop is trying to sell more items in the back section? We need to use that space better.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Exactly. Also, did you know the shop is trying to sell more items in the back section? We need to use that space better.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Exacto. Además, ¿sabías que la tienda está intentando vender más artículos en la sección trasera? Necesitamos usar mejor ese espacio.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Yes, I heard. I have a few ideas. Maybe we can talk about it on Friday when I take your shift.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Yes, I heard. I have a few ideas. Maybe we can talk about it on Friday when I take your shift.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I heard. I have a few ideas. Maybe we can talk about it on Friday when I take your shift.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Yes, I heard. I have a few ideas. Maybe we can talk about it on Friday when I take your shift.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Sí, escuché. Tengo algunas ideas. Quizás podamos hablar sobre eso el viernes cuando tome tu turno.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Great. I\'ll send you the schedule once the manager confirms. Just keep your phone on.')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">Great. I'll send you the schedule once the manager confirms. Just keep your phone on.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. I\'ll send you the schedule once the manager confirms. Just keep your phone on.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Great. I\'ll send you the schedule once the manager confirms. Just keep your phone on.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">Bien. Te enviaré el horario una vez que la gerente confirme. Solo mantén tu teléfono encendido.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Will do. By the way — do you want to go to lunch together today? There\'s a good place just past the field near here.')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Will do. By the way — do you want to go to lunch together today? There's a good place just past the field near here.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Will do. By the way — do you want to go to lunch together today? There\'s a good place just past the field near here.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Will do. By the way — do you want to go to lunch together today? There\'s a good place just past the field near here.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Lo haré. Por cierto, ¿quieres ir a almorzar juntos hoy? Hay un buen lugar justo después del campo cerca de aquí.</div>
+</div>
+</div>
+<div class="chat-msg right" onclick="speakMsg(this,'Sure! Let\'s go at one. I just need to finish organizing the items on the lower shelf — the ones below the sign.')">
+<div class="speaker-name">Rita</div>
+<div class="msg-text">Sure! Let's go at one. I just need to finish organizing the items on the lower shelf — the ones below the sign.</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure! Let\'s go at one. I just need to finish organizing the items on the lower shelf — the ones below the sign.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sure! Let\'s go at one. I just need to finish organizing the items on the lower shelf — the ones below the sign.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text" style="text-align:right;">¡Claro! Vamos a la una. Solo necesito terminar de organizar los artículos en el estante inferior — los que están debajo del letrero.</div>
+</div>
+</div>
+<div class="chat-msg left" onclick="speakMsg(this,'Perfect. I\'ll let you finish. See you at one!')">
+<div class="speaker-name">Daniel</div>
+<div class="msg-text">Perfect. I'll let you finish. See you at one!</div>
+<div class="audio-row">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll let you finish. See you at one!','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Perfect. I\'ll let you finish. See you at one!','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Perfecto. Te dejo terminar. ¡Nos vemos a la una!</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+
+  <!-- ══════════════ STORIES ══════════════ -->
+  <div class="content-panel" id="panel-stories">
+    <div class="item-tabs">
+      <button class="item-tab active" onclick="switchItem('stories','s1',this)">S1</button>
+      <button class="item-tab" onclick="switchItem('stories','s2',this)">S2</button>
+      <button class="item-tab" onclick="switchItem('stories','s3',this)">S3</button>
+      <button class="item-tab" onclick="switchItem('stories','s4',this)">S4</button>
+    </div>
+    <div class="story-controls">
+      <div class="sc-title">🎧 Audio de la Story</div>
+      <div class="sc-row">
+        <button class="play-all-btn" id="play-all-btn" onclick="playAllStory()">▶ Play full story</button>
+        <span class="play-counter" id="play-counter"></span>
+        <div class="accent-selector">
+          <span class="accent-label">Acento:</span>
+          <button class="accent-btn active" onclick="setPlayAccent('US',this)">🇺🇸 US</button>
+          <button class="accent-btn" onclick="setPlayAccent('UK',this)">🇬🇧 UK</button>
+        </div>
+      </div>
+      <div class="sc-divider"></div>
+      <div class="sc-row">
+        <div class="sc-speed">
+          <span class="sc-speed-label">🐢 Velocidad</span>
+          <input type="range" class="sc-slider" id="storySpeedSlider" min="0.5" max="1.2" step="0.05" value="0.82" oninput="updateSpeed(this.value)">
+          <span class="speed-value" id="storySpeedValue">0.82×</span>
+          <div class="speed-presets">
+            <button class="speed-preset" onclick="setSpeed(0.6,this)">Lento</button>
+            <button class="speed-preset active" onclick="setSpeed(0.82,this)">Normal</button>
+            <button class="speed-preset" onclick="setSpeed(1.0,this)">Rápido</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="global-translate-bar">
+      <button class="global-translate-btn" id="gtrans-s" onclick="toggleGlobalTranslate('stories')">🇪🇸 Show all translations</button>
+    </div>
+    <div class="item-panel active" id="stories-s1">
+<div class="card">
+<div class="section-label">Story 1</div>
+<div class="section-title">The Hat in the Window</div>
+<div class="section-desc">Clara spends a Saturday afternoon looking for the right hat.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next. That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display. She stopped walking immediately. It stirred a quiet emotion she could not quite name.')">Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next. That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display. She stopped walking immediately. It stirred a quiet emotion she could not quite name.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next. That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display. She stopped walking immediately. It stirred a quiet emotion she could not quite name.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Clara loved shopping on Saturday mornings. She would walk slowly down the street, her feet moving from one window to the next. That morning, she saw a hat — wide-brimmed and deep green — sitting on a stand in the display. She stopped walking immediately. It stirred a quiet emotion she could not quite name.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">A Clara le encantaba ir de compras los sábados por la mañana. Caminaba despacio por la calle, mirando los escaparates de cada tienda. Esa mañana, vio un sombrero — de ala ancha y verde oscuro — posado en un soporte del escaparate. Dejó de caminar de inmediato.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.')">She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She went inside and found a clerk near the entrance. The shop was small but full of things. There were boxes stacked underneath the shelves and bags hanging on every wall. Clara pointed at the hat in the window and asked if it was still for sale.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Entró y encontró a un dependiente cerca de la entrada. La tienda era pequeña pero llena de cosas. Había cajas apiladas debajo de las estanterías y bolsas colgadas en cada pared. Clara señaló el sombrero del escaparate y preguntó si todavía estaba en venta.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'The clerk explained that it was the last one. She also described the material — it was a soft felt, made to keep its shape even on windy days. Clara tried it on. It felt just right. But the price was more than she had planned to spend.')">The clerk explained that it was the last one. She also described the material — it was a soft felt, made to keep its shape even on windy days. Clara tried it on. It felt just right. But the price was more than she had planned to spend.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The clerk explained that it was the last one. She also described the material — it was a soft felt, made to keep its shape even on windy days. Clara tried it on. It felt just right. But the price was more than she had planned to spend.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'The clerk explained that it was the last one. She also described the material — it was a soft felt, made to keep its shape even on windy days. Clara tried it on. It felt just right. But the price was more than she had planned to spend.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">El dependiente explicó que era el último. También describió el material — era un fieltro suave, hecho para mantener su forma incluso en días de viento. Clara se lo probó. Le quedaba justo bien. Pero el precio era más de lo que había planeado gastar.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'She stood there for a moment, thinking. She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating. Good things on this earth require a bit more effort sometimes.')">She stood there for a moment, thinking. She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating. Good things on this earth require a bit more effort sometimes.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She stood there for a moment, thinking. She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating. Good things on this earth require a bit more effort sometimes.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She stood there for a moment, thinking. She had been saving a little money each week since January. Despite the cost being slightly over her estimate, she decided it was worth it. She told herself, once and for all, that she was done hesitating. Good things on this earth require a bit more effort sometimes.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Se quedó parada un momento, pensando. Había estado ahorrando un poco de dinero cada semana desde enero. A pesar de que el costo era ligeramente mayor que su estimado, decidió que valía la pena. Se dijo que las cosas buenas requieren un poco más de esfuerzo a veces.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. A few people on the street smiled at her. One woman said it was a great color — just right for the season. Clara smiled back and kept walking, her energy suddenly better than before.')">Clara paid and walked out into the sunshine wearing the hat. She felt happy. A few people on the street smiled at her. One woman said it was a great color — just right for the season. Clara smiled back and kept walking, her energy suddenly better than before.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. A few people on the street smiled at her. One woman said it was a great color — just right for the season. Clara smiled back and kept walking, her energy suddenly better than before.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Clara paid and walked out into the sunshine wearing the hat. She felt happy. A few people on the street smiled at her. One woman said it was a great color — just right for the season. Clara smiled back and kept walking, her energy suddenly better than before.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Clara pagó y salió al sol con el sombrero puesto. Se sentía feliz. Algunas personas en la calle le sonrieron. Una mujer dijo que era un gran color — perfecto para la temporada. Clara le devolvió la sonrisa y siguió caminando, con más energía que antes.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread. It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.')">On the way home, she stopped at a small market and got a box of eggs and some fresh bread. It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread. It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'On the way home, she stopped at a small market and got a box of eggs and some fresh bread. It had been a good morning — one of those days when everything just seemed to go well. She was already thinking about what she might look for next Saturday.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">De camino a casa, se detuvo en un pequeño mercado y compró una caja de huevos y algo de pan fresco. Había sido una buena mañana — uno de esos días en que todo parece ir bien. Ya estaba pensando en qué podría buscar el próximo sábado.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="stories-s2">
+<div class="card">
+<div class="section-label">Story 2</div>
+<div class="section-title">The Receipt</div>
+<div class="section-desc">A man tries to return a lamp and learns the importance of keeping receipts.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid. He paid sixty dollars for it, which was more than he usually spent on things for the house. But he really liked the way it looked.')">Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid. He paid sixty dollars for it, which was more than he usually spent on things for the house. But he really liked the way it looked.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid. He paid sixty dollars for it, which was more than he usually spent on things for the house. But he really liked the way it looked.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Pedro bought a lamp from a shop near his apartment. It was a tall floor lamp with a gold base — elegant and solid. He paid sixty dollars for it, which was more than he usually spent on things for the house. But he really liked the way it looked.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Pedro compró una lámpara en una tienda cerca de su apartamento. Era una lámpara de pie alta con base dorada — elegante y sólida. Pagó sesenta dólares por ella, que era más de lo que normalmente gastaba en cosas para la casa. Pero realmente le gustaba el aspecto que tenía.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces. He tried to fix it himself, but the material was too hard to work with. He felt frustrated — what terrible timing — but he stayed calm. There was clearly a deep crack in the base. He thought the best solution was to go back to the shop and explain what happened.')">Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces. He tried to fix it himself, but the material was too hard to work with. He felt frustrated — what terrible timing — but he stayed calm. There was clearly a deep crack in the base. He thought the best solution was to go back to the shop and explain what happened.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces. He tried to fix it himself, but the material was too hard to work with. He felt frustrated — what terrible timing — but he stayed calm. There was clearly a deep crack in the base. He thought the best solution was to go back to the shop and explain what happened.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Three days later, the lamp fell while he was moving furniture. The base broke in two separate pieces. He tried to fix it himself, but the material was too hard to work with. He felt frustrated — what terrible timing — but he stayed calm. There was clearly a deep crack in the base. He thought the best solution was to go back to the shop and explain what happened.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Tres días después, la lámpara cayó mientras movía muebles. La base se rompió en dos piezas separadas. Intentó arreglarla él mismo, pero el material era demasiado duro para trabajar. Se sintió frustrado, pero se mantuvo tranquilo. Pensó que la mejor solución era volver a la tienda y explicar lo que había pasado.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution. The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.')">At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution. The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution. The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'At the shop, the clerk was polite but firm. She said the store did not cover damage from accidents. Pedro asked if there was any other solution. The clerk said she could demonstrate the repair service they offered — but it would cost extra. Pedro was disappointed. He had not thought about that.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">En la tienda, el dependiente fue amable pero firme. Dijo que la tienda no cubría daños por accidentes. Pedro preguntó si había alguna otra solución. El dependiente dijo que podía demostrar el servicio de reparación que ofrecían — pero costaría más. Pedro se decepcionó. No había pensado en eso.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund. He left feeling sorry he had not been more careful.')">Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund. He left feeling sorry he had not been more careful.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund. He left feeling sorry he had not been more careful.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Then she asked for the receipt. He looked in his jacket, his bag, and even his old notes. The receipt was gone. He had not kept it. Since he had no proof of purchase, there was nothing they could do for a refund. He left feeling sorry he had not been more careful.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Entonces ella pidió el recibo. Buscó en su chaqueta, su bolso e incluso sus notas antiguas. El recibo había desaparecido. No lo había guardado. Como no tenía prueba de compra, no podían hacer nada para el reembolso. Se fue sintiéndose arrepentido de no haber sido más cuidadoso.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars. That was a much better option. Pedro got the lamp back the next day, good as new.')">Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars. That was a much better option. Pedro got the lamp back the next day, good as new.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars. That was a much better option. Pedro got the lamp back the next day, good as new.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Despite the bad experience, Pedro decided to handle it with a positive attitude. He found a local repair shop a few streets away. An older man there said he could fix the base for fifteen dollars. That was a much better option. Pedro got the lamp back the next day, good as new.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">A pesar de la mala experiencia, Pedro decidió manejarlo con una actitud positiva. Encontró una tienda de reparación local a unas pocas calles de distancia. Un hombre mayor allí dijo que podía arreglar la base por quince dólares. Esa era una opción mucho mejor. Pedro recuperó la lámpara al día siguiente, como nueva.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble. He also learned that a good solution is not always where you first look for it — sometimes it\'s just around the corner.')">Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble. He also learned that a good solution is not always where you first look for it — sometimes it's just around the corner.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble. He also learned that a good solution is not always where you first look for it — sometimes it\'s just around the corner.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Since that day, Pedro has kept every receipt in a small box on his desk. He learned that a simple piece of paper can save you a lot of trouble. He also learned that a good solution is not always where you first look for it — sometimes it\'s just around the corner.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Desde ese día, Pedro guarda todos los recibos en una pequeña caja sobre su escritorio. Aprendió que un simple trozo de papel puede ahorrarte muchos problemas. También aprendió que una buena solución no siempre está donde la buscas primero — a veces está justo a la vuelta de la esquina.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="stories-s3">
+<div class="card">
+<div class="section-label">Story 3</div>
+<div class="section-title">Fifty a Week</div>
+<div class="section-desc">How Ana manages her money every month.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied. Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.')">Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied. Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied. Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Ana earns a small salary at the market near her home. She works six days a week and finishes each shift feeling tired but satisfied. Despite the long hours, she enjoys her job. The people there are kind, and she has learned to manage her time and energy well.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Ana gana un pequeño salario en el mercado cerca de su casa. Trabaja seis días a la semana y termina cada turno sintiéndose cansada pero satisfecha. A pesar de las largas horas, disfruta su trabajo. La gente allí es amable, y ha aprendido a gestionar bien su tiempo y energía.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent. She grew up on a farm, far from the city and its factories, so she learned early to be careful with money. She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.')">Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent. She grew up on a farm, far from the city and its factories, so she learned early to be careful with money. She tries to save at least fifty dollars every month. It's not a lot, but she is consistent.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent. She grew up on a farm, far from the city and its factories, so she learned early to be careful with money. She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Each month, she sits down with a pen and paper to estimate her expenses. She mainly spends money on food, transportation, and rent. She grew up on a farm, far from the city and its factories, so she learned early to be careful with money. She tries to save at least fifty dollars every month. It\'s not a lot, but she is consistent.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Cada mes, se sienta con lápiz y papel para estimar sus gastos. Principalmente gasta dinero en comida, transporte y alquiler. Intenta ahorrar al menos cincuenta dólares cada mes. No es mucho, pero es constante. Lo ha hecho desde que consiguió su primer trabajo hace dos años.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Sometimes it\'s hard. When something breaks, or when a bill arrives that she didn\'t expect, the math doesn\'t work out perfectly. Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday — her dream of traveling suddenly felt very far away. But she kept going.')">Sometimes it's hard. When something breaks, or when a bill arrives that she didn't expect, the math doesn't work out perfectly. Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday — her dream of traveling suddenly felt very far away. But she kept going.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sometimes it\'s hard. When something breaks, or when a bill arrives that she didn\'t expect, the math doesn\'t work out perfectly. Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday — her dream of traveling suddenly felt very far away. But she kept going.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Sometimes it\'s hard. When something breaks, or when a bill arrives that she didn\'t expect, the math doesn\'t work out perfectly. Last month, her phone required a repair that cost more than she had planned. She had to use part of her savings to cover it. The fear of losing all her savings felt very real that Tuesday — her dream of traveling suddenly felt very far away. But she kept going.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">A veces es difícil. Cuando algo se rompe, o cuando llega una factura que no esperaba, las matemáticas no cuadran perfectamente. El mes pasado, su teléfono requirió una reparación que costó más de lo que había planeado. Tuvo que usar parte de sus ahorros para cubrirlo. Sintió el miedo de quedarse sin dinero — solo por un momento.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.')">She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'She told herself that most people face these moments and that the important thing is to not let them define your whole plan. She decided to work one extra shift that month to earn a little more. Her manager said yes right away. Everyone at the shop knew she was reliable.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Pero siguió adelante. Se dijo que la mayoría de las personas enfrentan estos momentos y que lo importante es no dejar que definan todo tu plan. Decidió trabajar un turno extra ese mes para ganar un poco más. Su gerente dijo que sí de inmediato. Todos en la tienda sabían que era confiable.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook. Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone. She would try again next month.')">By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook. Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone. She would try again next month.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook. Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone. She would try again next month.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By the end of the month, she had saved thirty dollars — not fifty, but still something. She marked it in her notebook. Small wins matter, she thought. She was not going to let one difficult month make her feel like the whole effort was gone. She would try again next month.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Al final del mes, había ahorrado treinta dólares — no cincuenta, pero aún algo. Lo marcó en su cuaderno. Las pequeñas victorias importan, pensó. No iba a dejar que un mes difícil la hiciera sentir que todo el esfuerzo se había ido. Lo intentaría de nuevo el próximo mes.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years. She is patient. She knows that most things worth having take time, and she is willing to wait for them.')">Ana's goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn't matter if it takes two more years. She is patient. She knows that most things worth having take time, and she is willing to wait for them.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years. She is patient. She knows that most things worth having take time, and she is willing to wait for them.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Ana\'s goal is to save enough money to visit the sea one day — a distant place she has only seen in photos. It doesn\'t matter if it takes two more years. She is patient. She knows that most things worth having take time, and she is willing to wait for them.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">La meta de Ana es ahorrar suficiente dinero para visitar el mar algún día — un lugar distante que solo ha visto en fotos. No importa si tarda dos años más. Ella es paciente. Sabe que la mayoría de las cosas que valen la pena requieren tiempo, y está dispuesta a esperar por ellas.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="item-panel" id="stories-s4">
+<div class="card">
+<div class="section-label">Story 4</div>
+<div class="section-title">Carlos's Long Shift</div>
+<div class="section-desc">A look at a typical day for a store supervisor.</div>
+<div class="level-badge">🔵 A1</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well. He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.')">Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well. He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well. He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'Carlos has worked at the same shop for three years. He is the shift supervisor now, which means he is mainly responsible for making sure everything runs well. He led his first team at just twenty-three — young for the role, but he got the job because he was calm and organized.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Carlos ha trabajado en la misma tienda por tres años. Ahora es el supervisor de turno, lo que significa que es principalmente responsable de asegurarse de que todo funcione bien. Dirigió su primer equipo a los veintitrés — joven para el puesto, pero consiguió el trabajo porque era tranquilo y organizado.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct. He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.')">His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct. He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct. He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'His morning started, as always, with a walkthrough of the shop floor. He checked that all items were in their right place and that the price marks were correct. He noticed a few boxes left underneath a table near the entrance — no one had put them away. He made a note to talk about it at the team meeting.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Su mañana comenzó, como siempre, con un recorrido por la planta de la tienda. Comprobó que todos los artículos estuvieran en su lugar correcto y que las marcas de precio fueran correctas. Notó algunas cajas dejadas debajo de una mesa cerca de la entrada — nadie las había guardado. Hizo una nota para hablar sobre ello en la reunión del equipo.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'By mid-morning, the shop was busy. Everyone seemed to be shopping at once. Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient. He knew that how you handle those moments matters.')">By mid-morning, the shop was busy. Everyone seemed to be shopping at once. Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient. He knew that how you handle those moments matters.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By mid-morning, the shop was busy. Everyone seemed to be shopping at once. Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient. He knew that how you handle those moments matters.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By mid-morning, the shop was busy. Everyone seemed to be shopping at once. Carlos helped two customers find items they were looking for, and he also tried to persuade a third customer not to leave after a misunderstanding about a price. He stayed patient. He knew that how you handle those moments matters.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">A media mañana, la tienda estaba llena. Todo el mundo parecía estar comprando a la vez. Carlos ayudó a dos clientes a encontrar artículos que buscaban, y también intentó convencer a un tercer cliente para que no se fuera después de un malentendido sobre un precio. Se mantuvo paciente. Sabía que cómo manejas esos momentos importa.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'At lunch, he sat in the break room with two colleagues. The conversation was light — they talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student. He missed those days.')">At lunch, he sat in the break room with two colleagues. The conversation was light — they talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn't been to a concert since he was a student. He missed those days.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'At lunch, he sat in the break room with two colleagues. The conversation was light — they talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student. He missed those days.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'At lunch, he sat in the break room with two colleagues. The conversation was light — they talked about a football match from the night before, and someone mentioned a music concert happening in the city on the weekend. Carlos laughed and said he hadn\'t been to a concert since he was a student. He missed those days.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">En el almuerzo, se sentó en la sala de descanso con dos compañeros. La conversación fue ligera — hablaron de un partido de fútbol de la noche anterior, y alguien mencionó un concierto de música que habría en la ciudad el fin de semana. Carlos se rió y dijo que no había ido a un concierto desde que era estudiante. Echaba de menos esos días.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well. She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training. He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.')">In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well. She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training. He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well. She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training. He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'In the afternoon, he had a short meeting with the store manager. She said the sales numbers for the month were good — everyone had done well. She asked Carlos to define a new system for tracking inventory. He said he would use a simple set of forms. A key element, he explained, was making it easy enough that anyone could figure out how to use it without training. He also offered to proofread the new form before it went out — a small but thoughtful gesture. The manager smiled and said he was great with details.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Por la tarde, tuvo una corta reunión con la gerente de la tienda. Ella dijo que las cifras de ventas del mes eran buenas — todos habían hecho un buen trabajo. Le pidió a Carlos que definiera un nuevo sistema para rastrear el inventario. Él dijo que usaría un conjunto sencillo de formularios e intentaría mantenerlo fácil para que todos lo usaran.</div>
+</div>
+</div>
+<div class="story-block">
+<div class="story-paragraph" onclick="speakStory(this,'By the end of his shift, Carlos felt tired but good. He had managed the day well. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.')">By the end of his shift, Carlos felt tired but good. He had managed the day well. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.</div>
+<div class="audio-row" style="margin-left:0.7rem">
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By the end of his shift, Carlos felt tired but good. He had managed the day well. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.','US')">🇺🇸 US</button>
+<button class="audio-btn" onclick="event.stopPropagation();speak(this,'By the end of his shift, Carlos felt tired but good. He had managed the day well. He turned off the lights in the back room, made sure the doors were locked, and sent a short message to the team group chat to say everyone had done a great job. Then he walked home through the field path, enjoying the quiet.','UK')">🇬🇧 UK</button>
+</div>
+<div class="reveal-line" style="margin-left:0.7rem">
+<button class="reveal-btn" onclick="event.stopPropagation();toggleReveal(this)">🇪🇸 <span class="arrow">›</span></button>
+<div class="reveal-text">Al final de su turno, Carlos se sentía cansado pero bien. Había manejado bien el día. Apagó las luces en la sala trasera, se aseguró de que las puertas estuvieran cerradas con llave, y envió un corto mensaje al chat grupal del equipo para decir que todos habían hecho un gran trabajo. Luego caminó a casa por el camino del campo, disfrutando del silencio.</div>
+</div>
+</div>
+</div>
+</div>
+
+  </div>
+
+</div>
+
+<!-- ════════ FIXED PLAYER BAR ════════ -->
+<div class="player-bar" id="player-bar" style="display:none">
+  <div class="player-inner">
+    <div class="player-top">
+      <div class="player-info">
+        <div class="player-label" id="player-label">📖 Playing Story</div>
+        <div class="player-title" id="player-title">—</div>
+      </div>
+      <div class="player-accent">
+        <button class="pa-btn active" id="pa-us" onclick="setPlayerAccent('US')">🇺🇸 US</button>
+        <button class="pa-btn" id="pa-uk" onclick="setPlayerAccent('UK')">🇬🇧 UK</button>
+      </div>
+      <div class="player-controls">
+        <button class="pc-btn" onclick="skipBack()" title="Previous">⏮</button>
+        <button class="pc-btn primary" id="pc-pause" onclick="pauseResume()">⏸</button>
+        <button class="pc-btn" onclick="skipFwd()" title="Next">⏭</button>
+        <button class="pc-btn" onclick="closePlayer()">✕</button>
+      </div>
+    </div>
+    <div class="player-progress">
+      <span class="progress-time" id="progress-pos">1</span>
+      <div class="progress-bar" id="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+      <span class="progress-time" id="progress-total">5</span>
+    </div>
+  </div>
+</div>
+
+<script>
+
+// ════════ STATE ════════
+let currentSpeed = 0.82;
+let playAccent = 'US';
+let voicesReady = false, usVoice = null, ukVoice = null;
+let currentAudioBtn = null;
+let currentMsgEl = null;
+let currentStoryEl = null;
+let playAllActive = false, playAllIdx = 0, playAllParas = [];
+let suppressAutoAdvance = false;
+let playMode = null;
+let playPaused = false;
+
+// ════════ SPEED ════════
+function syncSpeedUI(val){
+  ['speedSlider','diaSpeedSlider'].forEach(id=>{ const el=document.getElementById(id); if(el) el.value=val; });
+  ['speedValue','diaSpeedValue'].forEach(id=>{ const el=document.getElementById(id); if(el) el.textContent=Number(val).toFixed(2)+'×'; });
+  document.querySelectorAll('.speed-presets').forEach(group=>{
+    const btns=group.querySelectorAll('.speed-preset');
+    btns.forEach(b=>b.classList.remove('active'));
+    if(Math.abs(val-0.6)<0.025 && btns[0]) btns[0].classList.add('active');
+    else if(Math.abs(val-0.82)<0.025 && btns[1]) btns[1].classList.add('active');
+    else if(Math.abs(val-1.0)<0.025 && btns[2]) btns[2].classList.add('active');
+  });
+}
+function updateSpeed(val){
+  currentSpeed=parseFloat(val); syncSpeedUI(currentSpeed);
+  if(playAllActive && !playPaused && speechSynthesis.speaking){
+    suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments(); playCurrentSegment();
+  }
+}
+function setSpeed(val,btn){ currentSpeed=val; syncSpeedUI(val); }
+
+// ════════ VOICES ════════
+function loadVoices(){
+  const voices=speechSynthesis.getVoices(); if(!voices.length) return;
+  voicesReady=true;
+  const usP=[
+    v=>v.lang==='en-US'&&/samantha|allison|ava|tom|alex|nicky|aaron/i.test(v.name),
+    v=>v.lang==='en-US'&&/google us/i.test(v.name),
+    v=>v.lang==='en-US'&&/microsoft.*online/i.test(v.name),
+    v=>v.lang==='en-US'
+  ];
+  const ukP=[
+    v=>v.lang==='en-GB'&&/daniel|kate|serena|oliver|martha/i.test(v.name),
+    v=>v.lang==='en-GB'&&/google uk/i.test(v.name),
+    v=>v.lang==='en-GB'&&/microsoft.*online/i.test(v.name),
+    v=>v.lang==='en-GB'
+  ];
+  for(const p of usP){const m=voices.find(p); if(m){usVoice=m; break;}}
+  for(const p of ukP){const m=voices.find(v=>p(v)&&v!==usVoice); if(m){ukVoice=m; break;}}
+  if(!ukVoice) ukVoice=voices.find(v=>v.lang==='en-AU')||voices.find(v=>v.lang==='en-IE')||voices.find(v=>v.lang.startsWith('en')&&v!==usVoice);
+  const st=document.getElementById('voice-status');
+  if(!usVoice||!ukVoice||usVoice===ukVoice) st.style.display='block';
+}
+speechSynthesis.getVoices();
+if(speechSynthesis.onvoiceschanged!==undefined) speechSynthesis.onvoiceschanged=loadVoices;
+[100,500,1500].forEach(d=>setTimeout(loadVoices,d));
+function getVoice(a){ return a==='US'?usVoice:ukVoice; }
+function getLang(a){ return a==='US'?'en-US':'en-GB'; }
+
+// ════════ BASIC SPEAK (audio buttons) ════════
+function speak(btn,text,accent){
+  if(currentAudioBtn===btn&&speechSynthesis.speaking){
+    speechSynthesis.cancel(); btn.classList.remove('playing'); currentAudioBtn=null; return;
+  }
+  stopAll();
+  if(!voicesReady) loadVoices();
+  const u=new SpeechSynthesisUtterance(text);
+  u.rate=currentSpeed; u.pitch=1; u.lang=getLang(accent);
+  const v=getVoice(accent); if(v) u.voice=v;
+  btn.classList.add('playing'); currentAudioBtn=btn;
+  u.onend=()=>{ btn.classList.remove('playing'); currentAudioBtn=null; };
+  u.onerror=()=>{ btn.classList.remove('playing'); currentAudioBtn=null; };
+  speechSynthesis.speak(u);
+}
+
+// ════════ WORD HIGHLIGHT ════════
+function escHtml(s){ return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+function wordLen(plain,idx,charLength){ if(charLength) return charLength; const m=plain.substring(idx).match(/^\S+/); return m?m[0].length:4; }
+function highlightAt(el,plain,charIndex,charLength){
+  const len=wordLen(plain,charIndex,charLength);
+  el.innerHTML=escHtml(plain.substring(0,charIndex))+'<span class="word-hl">'+escHtml(plain.substring(charIndex,charIndex+len))+'</span>'+escHtml(plain.substring(charIndex+len));
+}
+
+// ════════ SPEAK MSG (click bubble) ════════
+function speakMsg(msgEl,text){
+  if(currentMsgEl&&currentMsgEl!==msgEl) clearMsg(currentMsgEl);
+  const willPlay=!msgEl.classList.contains('reading');
+  stopAll();
+  if(!willPlay) return;
+  msgEl.classList.add('reading'); currentMsgEl=msgEl;
+  if(!voicesReady) loadVoices();
+  const msgTextEl=msgEl.querySelector('.msg-text');
+  const plain=msgTextEl.textContent;
+  const u=new SpeechSynthesisUtterance(text);
+  u.rate=currentSpeed; u.pitch=1; u.lang=getLang(playAccent);
+  const v=getVoice(playAccent); if(v) u.voice=v;
+  u.onboundary=e=>{ if(e.name==='word') highlightAt(msgTextEl,plain,e.charIndex,e.charLength); };
+  u.onend=()=>{ msgTextEl.textContent=plain; if(currentMsgEl===msgEl){msgEl.classList.remove('reading'); currentMsgEl=null;} };
+  u.onerror=()=>{ msgTextEl.textContent=plain; msgEl.classList.remove('reading'); currentMsgEl=null; };
+  speechSynthesis.speak(u);
+}
+function clearMsg(el){ el.classList.remove('reading'); const mt=el.querySelector('.msg-text'); if(mt) mt.textContent=mt.textContent; }
+
+// ════════ SPEAK STORY (click paragraph) ════════
+function speakStory(paraEl,text){
+  if(currentStoryEl&&currentStoryEl!==paraEl) clearStory(currentStoryEl);
+  const willPlay=!paraEl.classList.contains('reading');
+  stopAll();
+  if(!willPlay) return;
+  paraEl.classList.add('reading'); currentStoryEl=paraEl;
+  if(!voicesReady) loadVoices();
+  const plain=paraEl.textContent;
+  const u=new SpeechSynthesisUtterance(text);
+  u.rate=currentSpeed; u.pitch=1; u.lang=getLang(playAccent);
+  const v=getVoice(playAccent); if(v) u.voice=v;
+  u.onboundary=e=>{ if(e.name==='word') highlightAt(paraEl,plain,e.charIndex,e.charLength); };
+  u.onend=()=>{ paraEl.textContent=plain; if(currentStoryEl===paraEl){paraEl.classList.remove('reading'); currentStoryEl=null;} };
+  u.onerror=()=>{ paraEl.textContent=plain; paraEl.classList.remove('reading'); currentStoryEl=null; };
+  speechSynthesis.speak(u);
+}
+function clearStory(el){ el.classList.remove('reading'); el.textContent=el.textContent; }
+
+// ════════ STOP ALL ════════
+function stopAll(){
+  speechSynthesis.cancel();
+  if(currentAudioBtn){ currentAudioBtn.classList.remove('playing'); currentAudioBtn=null; }
+  if(currentMsgEl){ clearMsg(currentMsgEl); currentMsgEl=null; }
+  if(currentStoryEl){ clearStory(currentStoryEl); currentStoryEl=null; }
+}
+
+// ════════ PLAY ALL ENGINE ════════
+function setPlayAccent(accent,btn){
+  playAccent=accent;
+  const panel=btn.closest('.story-controls');
+  if(panel){ panel.querySelectorAll('.accent-btn').forEach(b=>b.classList.remove('active')); btn.classList.add('active'); }
+  syncAccentUI();
+}
+function setPlayerAccent(accent){
+  playAccent=accent; syncAccentUI();
+  if(playAllActive&&!playPaused){ suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments(); playCurrentSegment(); }
+}
+function syncAccentUI(){
+  document.querySelectorAll('.accent-btn').forEach(b=>{ b.classList.toggle('active',b.textContent.indexOf(playAccent)>=0); });
+  const us=document.getElementById('pa-us'),uk=document.getElementById('pa-uk');
+  if(us) us.classList.toggle('active',playAccent==='US');
+  if(uk) uk.classList.toggle('active',playAccent==='UK');
+}
+function clearAllSegments(){
+  playAllParas.forEach(seg=>{
+    if(seg.classList.contains('story-paragraph')) clearStory(seg);
+    else clearMsg(seg);
+    seg.classList.remove('reading');
+  });
+}
+function segPlainText(seg){
+  if(seg.classList.contains('story-paragraph')) return seg.textContent;
+  const mt=seg.querySelector('.msg-text'); return mt?mt.textContent:seg.textContent;
+}
+function segHighlightTarget(seg){
+  if(seg.classList.contains('story-paragraph')) return seg;
+  return seg.querySelector('.msg-text');
+}
+function playAllStory(){ if(playAllActive&&playMode==='stories'){closePlayer();return;} startPlayback('stories'); }
+function playAllDialogue(){ if(playAllActive&&playMode==='dialogues'){closePlayer();return;} startPlayback('dialogues'); }
+function startPlayback(mode){
+  stopAll(); closePlayerSilent(); playMode=mode;
+  const panelSel=mode==='stories'?'#panel-stories .item-panel.active':'#panel-dialogues .item-panel.active';
+  const activePanel=document.querySelector(panelSel); if(!activePanel) return;
+  const segSel=mode==='stories'?'.story-paragraph':'.chat-msg';
+  playAllParas=Array.from(activePanel.querySelectorAll(segSel)); if(!playAllParas.length) return;
+  playAllActive=true; playAllIdx=0; suppressAutoAdvance=false; playPaused=false;
+  const btnId=mode==='stories'?'play-all-btn':'play-all-btn-d';
+  const btn=document.getElementById(btnId);
+  btn.classList.add('playing'); btn.innerHTML='⏹ Stop';
+  document.getElementById('player-label').textContent=mode==='stories'?'📖 Playing Story':'💬 Playing Dialogue';
+  playerShow();
+  document.getElementById('progress-total').textContent=playAllParas.length;
+  playCurrentSegment();
+}
+function getCounterEl(){ return document.getElementById(playMode==='stories'?'play-counter':'play-counter-d'); }
+function getPlayBtn(){ return document.getElementById(playMode==='stories'?'play-all-btn':'play-all-btn-d'); }
+function playCurrentSegment(){
+  const counter=getCounterEl(); const btn=getPlayBtn();
+  if(!playAllActive||playAllIdx>=playAllParas.length){ finishPlayback(); return; }
+  clearAllSegments();
+  const seg=playAllParas[playAllIdx]; seg.classList.add('reading');
+  seg.scrollIntoView({behavior:'smooth',block:'center'});
+  const total=playAllParas.length;
+  if(counter) counter.textContent=(playAllIdx+1)+' / '+total;
+  const plain=segPlainText(seg); const target=segHighlightTarget(seg);
+  playerUpdateProgress(playAllIdx,total,plain.trim());
+  if(!voicesReady) loadVoices();
+  const u=new SpeechSynthesisUtterance(plain);
+  u.rate=currentSpeed; u.pitch=1; u.lang=getLang(playAccent);
+  const v=getVoice(playAccent); if(v) u.voice=v;
+  u.onboundary=e=>{ if(e.name==='word'&&target) highlightAt(target,plain,e.charIndex,e.charLength); };
+  u.onend=()=>{ restoreSeg(seg,target,plain); if(suppressAutoAdvance){suppressAutoAdvance=false;return;} playAllIdx++; setTimeout(playCurrentSegment,350); };
+  u.onerror=()=>{ restoreSeg(seg,target,plain); if(suppressAutoAdvance){suppressAutoAdvance=false;return;} playAllIdx++; setTimeout(playCurrentSegment,350); };
+  speechSynthesis.speak(u);
+}
+function restoreSeg(seg,target,plain){ if(target) target.textContent=plain; seg.classList.remove('reading'); }
+function finishPlayback(){
+  playAllActive=false; playPaused=false;
+  const btn=getPlayBtn();
+  if(btn){ btn.classList.remove('playing'); btn.innerHTML=playMode==='stories'?'▶ Play full story':'▶ Play full dialogue'; }
+  const counter=getCounterEl(); if(counter) counter.textContent='';
+  clearAllSegments(); playerEnd();
+}
+function skipBack(){ if(!playAllActive) return; suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments(); playAllIdx=Math.max(0,playAllIdx-1); playPaused=false; document.getElementById('pc-pause').textContent='⏸'; playCurrentSegment(); }
+function skipFwd(){ if(!playAllActive) return; suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments(); playAllIdx=Math.min(playAllParas.length-1,playAllIdx+1); playPaused=false; document.getElementById('pc-pause').textContent='⏸'; playCurrentSegment(); }
+function pauseResume(){
+  if(!playAllActive) return;
+  if(playPaused){ playPaused=false; suppressAutoAdvance=false; document.getElementById('pc-pause').textContent='⏸'; speechSynthesis.cancel(); clearAllSegments(); playCurrentSegment(); }
+  else { playPaused=true; document.getElementById('pc-pause').textContent='▶'; suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments(); const seg=playAllParas[playAllIdx]; if(seg){seg.classList.add('reading');seg.scrollIntoView({behavior:'smooth',block:'center'});} }
+}
+function closePlayer(){ suppressAutoAdvance=true; closePlayerSilent(); }
+function closePlayerSilent(){
+  speechSynthesis.cancel();
+  if(currentAudioBtn){currentAudioBtn.classList.remove('playing');currentAudioBtn=null;}
+  if(currentMsgEl){clearMsg(currentMsgEl);currentMsgEl=null;}
+  if(currentStoryEl){clearStory(currentStoryEl);currentStoryEl=null;}
+  if(playAllParas.length) clearAllSegments();
+  playAllActive=false; playPaused=false;
+  ['play-all-btn','play-all-btn-d'].forEach(id=>{
+    const b=document.getElementById(id);
+    if(b){b.classList.remove('playing');b.innerHTML=id==='play-all-btn'?'▶ Play full story':'▶ Play full dialogue';}
+  });
+  ['play-counter','play-counter-d'].forEach(id=>{const c=document.getElementById(id);if(c)c.textContent='';});
+  playerEnd();
+}
+
+// ════════ PLAYER BAR ════════
+function playerShow(){ document.getElementById('player-bar').style.display='block'; }
+function playerEnd(){ document.getElementById('player-bar').style.display='none'; }
+function playerUpdateProgress(idx,total,label){
+  const pct=total>1?Math.round((idx/(total-1))*100):100;
+  document.getElementById('progress-fill').style.width=pct+'%';
+  document.getElementById('progress-pos').textContent=(idx+1);
+  document.getElementById('progress-total').textContent=total;
+  const short=label.length>48?label.substring(0,48)+'…':label;
+  document.getElementById('player-title').textContent=short;
+  document.getElementById('pc-pause').textContent='⏸';
+}
+document.addEventListener('DOMContentLoaded',()=>{
+  const pb=document.getElementById('progress-bar');
+  if(pb){ pb.addEventListener('click',function(e){
+    if(!playAllActive||!playAllParas.length) return;
+    const rect=this.getBoundingClientRect(); const pct=(e.clientX-rect.left)/rect.width;
+    suppressAutoAdvance=true; speechSynthesis.cancel(); clearAllSegments();
+    playAllIdx=Math.round(pct*(playAllParas.length-1));
+    playAllIdx=Math.max(0,Math.min(playAllParas.length-1,playAllIdx));
+    playPaused=false; document.getElementById('pc-pause').textContent='⏸'; playCurrentSegment();
+  }); }
+});
+
+// ════════ REVEAL ════════
+function toggleReveal(btn){ const t=btn.nextElementSibling; t.classList.toggle('show'); btn.classList.toggle('open'); }
+
+// ════════ GLOBAL TRANSLATE ════════
+let gTransD=false,gTransS=false;
+function toggleGlobalTranslate(section){
+  const btn=document.getElementById('gtrans-'+(section==='dialogues'?'d':'s'));
+  if(section==='dialogues'){
+    gTransD=!gTransD; btn.classList.toggle('active',gTransD);
+    btn.textContent=gTransD?'🇪🇸 Hide all translations':'🇪🇸 Show all translations';
+    document.querySelectorAll('#panel-dialogues .reveal-text').forEach(el=>el.classList.toggle('show',gTransD));
+    document.querySelectorAll('#panel-dialogues .reveal-btn').forEach(el=>el.classList.toggle('open',gTransD));
+  } else {
+    gTransS=!gTransS; btn.classList.toggle('active',gTransS);
+    btn.textContent=gTransS?'🇪🇸 Hide all translations':'🇪🇸 Show all translations';
+    document.querySelectorAll('#panel-stories .reveal-text').forEach(el=>el.classList.toggle('show',gTransS));
+    document.querySelectorAll('#panel-stories .reveal-btn').forEach(el=>el.classList.toggle('open',gTransS));
+  }
+}
+
+// ════════ NAV ════════
+function switchContent(type,btn){
+  closePlayer(); stopAll();
+  document.querySelectorAll('.content-panel').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.content-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById('panel-'+type).classList.add('active');
+  btn.classList.add('active');
+}
+function switchItem(section,id,btn){
+  closePlayer(); stopAll();
+  const panel=document.getElementById('panel-'+section);
+  panel.querySelectorAll('.item-panel').forEach(p=>p.classList.remove('active'));
+  panel.querySelectorAll('.item-tab').forEach(t=>t.classList.remove('active'));
+  document.getElementById(section+'-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ════════ PARALLEL ════════
+function toggleParallel(on){
+  document.querySelectorAll('.card,.item-panel').forEach(c=>{ if(on) c.classList.add('parallel-view'); else c.classList.remove('parallel-view'); });
+}
+
+// ════════ OUTSIDE CLICK ════════
+document.addEventListener('click',e=>{
+  if(!e.target.closest('.chat-msg')&&!e.target.closest('.story-paragraph')&&!e.target.closest('.audio-btn')&&!playAllActive){
+    if(currentMsgEl){clearMsg(currentMsgEl);currentMsgEl=null;}
+    if(currentStoryEl){clearStory(currentStoryEl);currentStoryEl=null;}
+  }
+});
+
+</script>
+</body>
+</html>

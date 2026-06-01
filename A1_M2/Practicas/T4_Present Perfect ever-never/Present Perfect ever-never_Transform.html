@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A1 M2 · Present Perfect (ever/never) | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #29B6F6; --primary-light: #B3E5FC; --primary-dark: #0277BD; --primary-darker: #01579B;
+            --accent: #4FC3F7; --bg-gradient-start: #F0F9FF; --bg-gradient-end: #E1F5FE;
+            --text-dark: #01579B; --text-medium: #0277BD; --text-light: #0288D1;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --orange: #F97316; --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(41,182,246,0.18);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#0288D1,#29B6F6,#4FC3F7); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.9); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; background:var(--primary-light); color:var(--primary-darker); }
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:0.98rem; font-weight:600; color:var(--text-dark); line-height:1.5; }
+        .goal-chip { display:inline-block; background:var(--primary); color:white; padding:0.25rem 0.7rem; border-radius:8px; font-weight:800; font-size:0.92rem; font-family:'Fredoka',sans-serif; }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.2rem 0; }
+        .translate-bar { display:flex; justify-content:flex-end; margin-bottom:0.5rem; }
+        .translate-btn { background:white; border:1.5px dashed var(--primary); color:var(--primary-dark); padding:0.35rem 0.8rem; border-radius:20px; font-family:'Nunito',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem; transition:all .2s; }
+        .translate-btn:hover { background:var(--bg-gradient-start); }
+        .translate-btn.active { background:var(--primary); color:white; border-style:solid; }
+        .translation-box { background:#FFF8E1; border:1px solid #FFE082; border-radius:10px; padding:0.6rem 0.85rem; margin-bottom:0.85rem; font-size:0.88rem; color:#5D4037; font-style:italic; display:none; line-height:1.5; }
+        .translation-box.show { display:block; animation:fadeUp .3s ease; }
+        .translation-box .tr-label { font-weight:800; font-style:normal; color:#E65100; margin-right:0.3rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; }
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.85rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:center; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-darker); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.96rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-btn.correct .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.45rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:8px; font-size:0.92rem; font-weight:600; line-height:1.45; }
+        .tf-step.present { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.past-wrong { background:var(--error-light); color:var(--error-dark); border:1px solid #FECACA; }
+        .tf-step.past-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #A7F3D0; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; opacity:.85; }
+        .tf-arrow { text-align:center; font-size:1rem; color:#94A3B8; }
+        .vb-highlight { background:rgba(255,255,255,0.7); padding:0 4px; border-radius:4px; font-weight:800; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.55rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">🩵 A1 · Module 2 · Present Perfect (ever/never)</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Transform the sentence</div>
+                <div class="instructions-text">Read the original sentence and the goal. Choose the option that transforms it correctly using Present Perfect with <strong>ever</strong> or <strong>never</strong>. Tap <strong>"Ver en español"</strong> if you need a translation.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Quiz Complete!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [
+        // Q1 — pos 0 — affirm → ever question 3rd
+        {
+            id: 1, topic: "Affirmative → 'ever' question",
+            base: "Lucia has visited Spain.",
+            translation: "Lucía ha visitado España.",
+            goal: "Question with 'ever'",
+            options: [
+                { text: "Has Lucia ever visited Spain?", correct: true },
+                { text: "Does Lucia ever visited Spain?", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Does' is for Present Simple. Present Perfect questions use 'have' or 'has' as the auxiliary." },
+                { text: "Lucia has ever visited Spain?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "In yes/no questions, the auxiliary 'has' must come BEFORE the subject. 'Ever' goes between the subject and the past participle." }
+            ],
+            clue: "Lucia (she) + ever question",
+            clueExplain: "moves 'has' to the start and adds 'ever' between subject and past participle.",
+            rule: "Has + subject + ever + past participle?",
+            examples: ["Has he ever been?", "Has she ever tried?", "Has it ever rained?"],
+            correctReason: "To form an 'ever' question, move 'has' to the start of the sentence and add 'ever' between the subject and the past participle."
+        },
+        // Q2 — pos 1 — affirm → never negative
+        {
+            id: 2, topic: "Affirmative → 'never' negative",
+            base: "James has eaten Korean food.",
+            translation: "James ha comido comida coreana.",
+            goal: "Negative with 'never'",
+            options: [
+                { text: "James has not never eaten Korean food.", correct: false,
+                  errorType: "Double negative",
+                  explanation: "'Never' already contains the negative meaning. Adding 'not' creates a double negative, which is not standard English." },
+                { text: "James has never eaten Korean food.", correct: true },
+                { text: "James never has eaten Korean food.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes AFTER the auxiliary 'has', not before. The order is: subject + has + never + past participle." }
+            ],
+            clue: "never (negative meaning)",
+            clueExplain: "goes between 'has' and the past participle — without 'not'.",
+            rule: "Subject + have/has + never + past participle (no 'not')",
+            examples: ["he has never eaten", "she has never been", "I have never tried"],
+            correctReason: "'Never' is its own negative — it goes alone between the auxiliary and the past participle. No 'not' is needed."
+        },
+        // Q3 — pos 2 — Past Simple → Present Perfect
+        {
+            id: 3, topic: "Past Simple → Present Perfect (life experience)",
+            base: "I traveled to Brazil last year.",
+            translation: "Viajé a Brasil el año pasado.",
+            goal: "Life experience with Present Perfect",
+            options: [
+                { text: "I traveled to Brazil ever.", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Traveled' is Past Simple (one finished action). Life experiences use Present Perfect: have + past participle." },
+                { text: "I have ever traveled to Brazil.", correct: false,
+                  errorType: "Wrong word usage",
+                  explanation: "'Ever' is used in QUESTIONS, not in affirmative statements. For affirmative life experiences, use Present Perfect without 'ever'." },
+                { text: "I have traveled to Brazil.", correct: true }
+            ],
+            clue: "life experience (no specific time)",
+            clueExplain: "shifts from Past Simple (specific time) to Present Perfect (life experience).",
+            rule: "Subject + have/has + past participle (life experience)",
+            examples: ["I have traveled", "she has visited", "they have tried"],
+            correctReason: "When we drop the specific time and talk about a general life experience, we use Present Perfect: have/has + past participle."
+        },
+        // Q4 — pos 0 — affirm → ever question 1st
+        {
+            id: 4, topic: "Affirmative → 'ever' question",
+            base: "You have tried Italian pizza.",
+            translation: "Has probado pizza italiana.",
+            goal: "Question with 'ever'",
+            options: [
+                { text: "Have you ever tried Italian pizza?", correct: true },
+                { text: "Do you ever tried Italian pizza?", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Do' is for Present Simple. Present Perfect questions use 'have' or 'has' as the auxiliary." },
+                { text: "Have you tried ever Italian pizza?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Ever' goes between the subject and the past participle, not after the past participle." }
+            ],
+            clue: "you + ever question",
+            clueExplain: "moves 'have' to the start and adds 'ever' between subject and past participle.",
+            rule: "Have + you + ever + past participle?",
+            examples: ["Have you ever tried?", "Have you ever been?", "Have you ever seen?"],
+            correctReason: "To turn an affirmative into an 'ever' question, move 'have' to the start and add 'ever' before the past participle."
+        },
+        // Q5 — pos 1 — affirm → never (3rd person)
+        {
+            id: 5, topic: "Affirmative → 'never' negative",
+            base: "Carlos has met a famous singer.",
+            translation: "Carlos ha conocido a un cantante famoso.",
+            goal: "Negative with 'never'",
+            options: [
+                { text: "Carlos hasn't never met a famous singer.", correct: false,
+                  errorType: "Double negative",
+                  explanation: "'Hasn't never' is a double negative. With 'never', do NOT use 'not' or 'n't'. Just 'has never' is correct." },
+                { text: "Carlos has never met a famous singer.", correct: true },
+                { text: "Carlos has met never a famous singer.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes BEFORE the past participle, not after it. The order is: has + never + past participle." }
+            ],
+            clue: "Carlos (he) + never",
+            clueExplain: "uses 'has never' + past participle in the fixed order.",
+            rule: "He/She/It + has + never + past participle",
+            examples: ["he has never met", "she has never tried", "it has never happened"],
+            correctReason: "The fixed order is: subject + has + never + past participle. 'Never' replaces the meaning of 'not' — they don't go together."
+        },
+        // Q6 — pos 2 — Past Simple → ever question
+        {
+            id: 6, topic: "Past Simple → 'ever' question",
+            base: "Sara saw the Eiffel Tower in 2020.",
+            translation: "Sara vio la Torre Eiffel en 2020.",
+            goal: "Question with 'ever' (life experience)",
+            options: [
+                { text: "Did Sara ever see the Eiffel Tower?", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Did' is for Past Simple questions. For life experiences with 'ever', use Present Perfect: 'Has + subject + ever + past participle?'" },
+                { text: "Has Sara ever saw the Eiffel Tower?", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Saw' is the simple past form. After 'has', you need the past participle 'seen'." },
+                { text: "Has Sara ever seen the Eiffel Tower?", correct: true }
+            ],
+            clue: "specific time → life experience",
+            clueExplain: "shifts from Past Simple (in 2020) to Present Perfect with 'ever' (life experience).",
+            rule: "Has + subject + ever + past participle?",
+            examples: ["Has he ever seen?", "Has she ever met?", "Has it ever rained?"],
+            correctReason: "For 'ever' questions about life experience, use Present Perfect: 'Has + subject + ever + past participle?'. 'See' becomes 'seen' (past participle)."
+        },
+        // Q7 — pos 0 — affirm → ever question plural
+        {
+            id: 7, topic: "Affirmative → 'ever' question · plural",
+            base: "They have done yoga.",
+            translation: "Han hecho yoga.",
+            goal: "Question with 'ever'",
+            options: [
+                { text: "Have they ever done yoga?", correct: true },
+                { text: "Has they ever done yoga?", correct: false,
+                  errorType: "Wrong auxiliary",
+                  explanation: "'Has' is for he/she/it. The subject 'they' is plural and uses 'Have'." },
+                { text: "Have they done ever yoga?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Ever' goes between the subject and the past participle, not after the past participle." }
+            ],
+            clue: "they (plural) + ever question",
+            clueExplain: "uses 'Have' (plural) + 'ever' between subject and past participle.",
+            rule: "Have + plural subject + ever + past participle?",
+            examples: ["Have they ever done?", "Have we ever met?", "Have you ever tried?"],
+            correctReason: "Plural subjects in Present Perfect 'ever' questions: 'Have + plural subject + ever + past participle?'. 'Do' becomes 'done' (past participle)."
+        },
+        // Q8 — pos 1 — affirm → never (1st person)
+        {
+            id: 8, topic: "Affirmative → 'never' negative · 1st person",
+            base: "I have read that book.",
+            translation: "He leído ese libro.",
+            goal: "Negative with 'never'",
+            options: [
+                { text: "I never have read that book.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes AFTER the auxiliary 'have', not before. The order is: subject + have + never + past participle." },
+                { text: "I have never read that book.", correct: true },
+                { text: "I haven't never read that book.", correct: false,
+                  errorType: "Double negative",
+                  explanation: "'Haven't never' is a double negative. With 'never', do NOT use 'not'. Just 'have never' is correct." }
+            ],
+            clue: "I + never",
+            clueExplain: "uses 'have never' + past participle in the fixed order.",
+            rule: "Subject + have + never + past participle",
+            examples: ["I have never read", "we have never been", "they have never met"],
+            correctReason: "The fixed order is: subject + have + never + past participle. With 'I', use 'have' (not 'has')."
+        },
+        // Q9 — pos 2 — question → never affirmative
+        {
+            id: 9, topic: "Question → 'never' negative answer",
+            base: "Has Diego ever flown in a plane?",
+            translation: "¿Diego ha volado alguna vez en un avión?",
+            goal: "Negative answer with 'never'",
+            options: [
+                { text: "Diego has flown never in a plane.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes BEFORE the past participle, not after it. The order is: subject + has + never + past participle." },
+                { text: "Diego has not never flown in a plane.", correct: false,
+                  errorType: "Double negative",
+                  explanation: "'Has not never' is a double negative. With 'never', do NOT use 'not'. Just 'has never' is correct." },
+                { text: "Diego has never flown in a plane.", correct: true }
+            ],
+            clue: "negative answer with never",
+            clueExplain: "uses 'has never' + past participle (the past participle of 'fly' is 'flown').",
+            rule: "Subject + has + never + past participle",
+            examples: ["he has never flown", "she has never tried", "it has never happened"],
+            correctReason: "To form a negative answer with 'never', use: subject + have/has + never + past participle. 'Fly' becomes 'flown' (past participle)."
+        },
+        // Q10 — pos 0 — affirm → never (plural)
+        {
+            id: 10, topic: "Affirmative → 'never' negative · plural",
+            base: "We have been to Tokyo.",
+            translation: "Hemos estado en Tokio.",
+            goal: "Negative with 'never'",
+            options: [
+                { text: "We have never been to Tokyo.", correct: true },
+                { text: "We don't have never been to Tokyo.", correct: false,
+                  errorType: "Wrong auxiliary + double negative",
+                  explanation: "Two errors: 'Don't have' is Present Simple (wrong tense), AND 'don't have never' is a double negative. Just 'have never' is correct." },
+                { text: "We have been to Tokyo never.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes BETWEEN the auxiliary 'have' and the past participle, not at the end of the sentence." }
+            ],
+            clue: "we (plural) + never",
+            clueExplain: "uses 'have never' + past participle in the fixed order.",
+            rule: "Plural subject + have + never + past participle",
+            examples: ["we have never been", "they have never tried", "you have never met"],
+            correctReason: "The fixed order is: subject + have + never + past participle. With plural subjects (we/they/you/I), use 'have'."
+        },
+        // Q11 — pos 1 — affirm → ever question 1st
+        {
+            id: 11, topic: "Affirmative → 'ever' question",
+            base: "I have written a poem.",
+            translation: "He escrito un poema.",
+            goal: "Question with 'ever' (asking someone else)",
+            options: [
+                { text: "Do you ever wrote a poem?", correct: false,
+                  errorType: "Wrong tense + form",
+                  explanation: "Two errors: 'Do' is Present Simple (wrong tense), AND 'wrote' is the past form (we need the past participle 'written')." },
+                { text: "Have you ever written a poem?", correct: true },
+                { text: "Have you written a poem ever?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Ever' goes between the subject and the past participle, not at the end of the sentence." }
+            ],
+            clue: "ever question (asking someone)",
+            clueExplain: "uses 'Have you ever' + past participle to ask about a life experience.",
+            rule: "Have + you + ever + past participle?",
+            examples: ["Have you ever written?", "Have you ever been?", "Have you ever tried?"],
+            correctReason: "To ask someone about a life experience, use 'Have you ever + past participle?'. The past participle of 'write' is 'written'."
+        },
+        // Q12 — pos 2 — affirm → ever 3rd person 'see'
+        {
+            id: 12, topic: "Affirmative → 'ever' question · 3rd person",
+            base: "Maria has seen the ocean.",
+            translation: "María ha visto el océano.",
+            goal: "Question with 'ever'",
+            options: [
+                { text: "Has Maria seen ever the ocean?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Ever' goes BETWEEN the subject and the past participle, not after the past participle." },
+                { text: "Did Maria ever see the ocean?", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Did' is for Past Simple. Present Perfect 'ever' questions use 'has' (or 'have') as the auxiliary." },
+                { text: "Has Maria ever seen the ocean?", correct: true }
+            ],
+            clue: "Maria (she) + ever question",
+            clueExplain: "moves 'has' to the start and adds 'ever' between subject and past participle.",
+            rule: "Has + he/she/it + ever + past participle?",
+            examples: ["Has he ever seen?", "Has she ever met?", "Has it ever rained?"],
+            correctReason: "Present Perfect questions with third-person singular and 'ever' use: 'Has + subject + ever + past participle?'."
+        },
+        // Q13 — pos 0 — affirm → never (3rd, take→taken)
+        {
+            id: 13, topic: "Affirmative → 'never' negative",
+            base: "She has taken a flight to Europe.",
+            translation: "Ella ha tomado un vuelo a Europa.",
+            goal: "Negative with 'never'",
+            options: [
+                { text: "She has never taken a flight to Europe.", correct: true },
+                { text: "She never has taken a flight to Europe.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "'Never' goes AFTER the auxiliary 'has', not before. The order is: subject + has + never + past participle." },
+                { text: "She has not never taken a flight to Europe.", correct: false,
+                  errorType: "Double negative",
+                  explanation: "'Has not never' is a double negative. With 'never', do NOT use 'not'." }
+            ],
+            clue: "she + never (3rd person)",
+            clueExplain: "uses 'has never' + past participle in the fixed order.",
+            rule: "He/She/It + has + never + past participle",
+            examples: ["he has never taken", "she has never tried", "it has never been"],
+            correctReason: "The order is: subject + has + never + past participle. The past participle of 'take' is 'taken'."
+        },
+        // Q14 — pos 1 — Past Simple → never
+        {
+            id: 14, topic: "Past Simple → 'never' negative",
+            base: "I drove a sports car last year.",
+            translation: "Conduje un auto deportivo el año pasado.",
+            goal: "Negative life experience with 'never'",
+            options: [
+                { text: "I never drove a sports car.", correct: false,
+                  errorType: "Wrong tense",
+                  explanation: "'Drove' is Past Simple. For a negative life experience with 'never', use Present Perfect: have + never + past participle." },
+                { text: "I have never driven a sports car.", correct: true },
+                { text: "I have never drove a sports car.", correct: false,
+                  errorType: "Wrong form",
+                  explanation: "'Drove' is the simple past form. Present Perfect needs the past participle, which is 'driven'." }
+            ],
+            clue: "specific past → life experience (never)",
+            clueExplain: "shifts from Past Simple (last year) to Present Perfect with 'never' (general life experience).",
+            rule: "Subject + have + never + past participle",
+            examples: ["I have never driven", "she has never been", "they have never tried"],
+            correctReason: "For a negative life experience, use Present Perfect with 'never' + past participle. The past participle of 'drive' is 'driven'."
+        },
+        // Q15 — pos 2 — affirm → ever question (eat→eaten)
+        {
+            id: 15, topic: "Affirmative → 'ever' question",
+            base: "Diego has eaten Indian food.",
+            translation: "Diego ha comido comida india.",
+            goal: "Question with 'ever'",
+            options: [
+                { text: "Did Diego ever ate Indian food?", correct: false,
+                  errorType: "Wrong tense + form",
+                  explanation: "Two errors: 'Did' is Past Simple (wrong tense), AND 'ate' is the past form (Present Perfect needs the past participle 'eaten')." },
+                { text: "Has Diego ate ever Indian food?", correct: false,
+                  errorType: "Wrong form + order",
+                  explanation: "Two errors: 'Ate' is the past form (we need 'eaten'), AND 'ever' goes BEFORE the past participle, not after." },
+                { text: "Has Diego ever eaten Indian food?", correct: true }
+            ],
+            clue: "Diego (he) + ever question",
+            clueExplain: "moves 'has' to the start, adds 'ever' before the past participle 'eaten'.",
+            rule: "Has + he/she/it + ever + past participle?",
+            examples: ["Has he ever eaten?", "Has she ever tried?", "Has it ever happened?"],
+            correctReason: "To form an 'ever' question with 3rd person, use: 'Has + subject + ever + past participle?'. The past participle of 'eat' is 'eaten'."
+        }
+    ];
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge">${q.topic}</span>
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">📝 Original sentence</span>
+                    <div class="transform-sentence">${q.base}</div>
+                </div>
+                <div class="transform-arrow">⬇ Transform ⬇</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence"><span class="goal-chip">${q.goal}</span></div>
+                </div>
+            </div>
+            <div class="translate-bar">
+                <button class="translate-btn" id="trBtn-${index}" onclick="toggleTranslation(${index})">🇪🇸 Ver en español</button>
+            </div>
+            <div class="translation-box" id="trBox-${index}">
+                <span class="tr-label">ES:</span>${q.translation}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi) {
+        const box = document.getElementById(`trBox-${qi}`);
+        const btn = document.getElementById(`trBtn-${qi}`);
+        const open = box.classList.toggle('show');
+        btn.classList.toggle('active', open);
+        btn.innerHTML = open ? '🇬🇧 Hide translation' : '🇪🇸 Ver en español';
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            const opt = q.shuffled[i];
+            if (opt.correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+        const ruleExamples = q.examples.map(e => `<span class="rule-ex">${e}</span>`).join('');
+
+        const baseHL = `<span class="vb-highlight">${q.base}</span>`;
+        const correctHL = `<span class="vb-highlight">${correctOpt.text}</span>`;
+        const wrongHL = !isCorrect ? `<span class="vb-highlight">${selected.text}</span>` : null;
+
+        const transformFlow = `
+            <div class="transform-flow">
+                <div class="tf-step present"><span class="tf-label">Original:</span>${baseHL}</div>
+                <div class="tf-arrow">⬇</div>
+                ${wrongHL ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer:</span>${wrongHL}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct:</span>${correctHL}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct transformation!</div>
+                        <div class="fb-subtitle">You transformed the sentence correctly</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Transformation</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect transformation</div>
+                        <div class="fb-subtitle">Let's compare your answer with the correct one</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Compare</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master Present Perfect. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

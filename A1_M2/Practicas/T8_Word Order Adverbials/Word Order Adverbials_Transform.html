@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Transform - A1 M2 · Word Order with Adverbials | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #29B6F6; --primary-light: #B3E5FC; --primary-dark: #0277BD; --primary-darker: #01579B;
+            --accent: #4FC3F7; --bg-gradient-start: #F0F9FF; --bg-gradient-end: #E1F5FE;
+            --text-dark: #01579B; --text-medium: #0277BD; --text-light: #0288D1;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --orange: #F97316; --orange-light: #FFF7ED; --orange-dark: #C2410C;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(41,182,246,0.18);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#0288D1,#29B6F6,#4FC3F7); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.9); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; }
+        .progress-container { height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; margin-left:auto; background:var(--primary-light); color:var(--primary-darker); }
+        .transform-visual { background:var(--bg-gradient-start); border:1px solid var(--primary-light); border-radius:14px; padding:1rem; margin-bottom:1rem; }
+        .transform-box { padding:0.7rem 0.9rem; border-radius:10px; }
+        .transform-box.base { background:var(--orange-light); border:1px solid #FED7AA; margin-bottom:0.5rem; }
+        .transform-box.goal { background:#F0F9FF; border:1px solid #BAE6FD; }
+        .transform-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; display:block; margin-bottom:0.3rem; }
+        .transform-box.base .transform-label { color:var(--orange-dark); }
+        .transform-box.goal .transform-label { color:var(--info-dark); }
+        .transform-sentence { font-size:0.98rem; font-weight:600; color:var(--text-dark); line-height:1.5; }
+        .word-chips { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.3rem; }
+        .word-chip { background:white; border:1.5px solid var(--orange); color:var(--orange-dark); padding:0.25rem 0.6rem; border-radius:8px; font-weight:700; font-size:0.88rem; font-family:'Fredoka',sans-serif; }
+        .goal-chip { display:inline-block; background:var(--primary); color:white; padding:0.25rem 0.7rem; border-radius:8px; font-weight:800; font-size:0.92rem; font-family:'Fredoka',sans-serif; }
+        .transform-arrow { text-align:center; font-size:1rem; color:var(--text-light); margin:0.2rem 0; }
+        .translate-bar { display:flex; justify-content:flex-end; margin-bottom:0.5rem; }
+        .translate-btn { background:white; border:1.5px dashed var(--primary); color:var(--primary-dark); padding:0.35rem 0.8rem; border-radius:20px; font-family:'Nunito',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem; transition:all .2s; }
+        .translate-btn:hover { background:var(--bg-gradient-start); }
+        .translate-btn.active { background:var(--primary); color:white; border-style:solid; }
+        .translation-box { background:#FFF8E1; border:1px solid #FFE082; border-radius:10px; padding:0.6rem 0.85rem; margin-bottom:0.85rem; font-size:0.88rem; color:#5D4037; font-style:italic; display:none; line-height:1.5; }
+        .translation-box.show { display:block; animation:fadeUp .3s ease; }
+        .translation-box .tr-label { font-weight:800; font-style:normal; color:#E65100; margin-right:0.3rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; }
+        .options-container { display:flex; flex-direction:column; gap:0.65rem; margin-bottom:0.5rem; }
+        .option-btn { border:2.5px solid #E5E7EB; border-radius:13px; padding:0.85rem 1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:center; }
+        .option-btn:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .option-btn.disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-darker); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .option-btn.correct .option-letter { background:var(--success); color:white; }
+        .option-btn.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.96rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-btn.correct .option-text { color:var(--success-dark); }
+        .option-btn.incorrect .option-text { color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.15rem 0.55rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-transform { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-transform .fb-block-title { color:#475569; }
+        .transform-flow { display:flex; flex-direction:column; gap:0.45rem; }
+        .tf-step { padding:0.55rem 0.8rem; border-radius:8px; font-size:0.92rem; font-weight:600; line-height:1.45; }
+        .tf-step.present { background:var(--orange-light); color:var(--orange-dark); border:1px solid #FED7AA; }
+        .tf-step.past-wrong { background:var(--error-light); color:var(--error-dark); border:1px solid #FECACA; }
+        .tf-step.past-correct { background:var(--success-light); color:var(--success-dark); border:1px solid #A7F3D0; }
+        .tf-label { font-size:0.7rem; font-weight:800; text-transform:uppercase; letter-spacing:.4px; display:inline-block; margin-right:0.4rem; opacity:.85; }
+        .tf-arrow { text-align:center; font-size:1rem; color:#94A3B8; }
+        .vb-highlight { background:rgba(255,255,255,0.7); padding:0 4px; border-radius:4px; font-weight:800; }
+        .fb-error { background:var(--error-light); border:1px solid #FECACA; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-text { font-size:0.9rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.55rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">🔄 Transform</div>
+            <div class="header-subtitle">🩵 A1 · Module 2 · Word Order with Adverbials</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔄</div>
+            <div>
+                <div class="instructions-title">Order the words correctly</div>
+                <div class="instructions-text">You have a set of jumbled words/phrases. Choose the option that arranges them in the correct order. Tap <strong>"Ver en español"</strong> if you need a translation.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Quiz Complete!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [
+        // Q1 — pos 0
+        {
+            id: 1, topic: "frequency · main verb",
+            words: ["always", "Carlos", "early", "arrives"],
+            translation: "Carlos siempre llega temprano.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Carlos always arrives early.", correct: true },
+                { text: "Carlos arrives always early.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is placed after the verb. With main verbs, it must come before the verb." },
+                { text: "Always Carlos arrives early.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "Frequency adverbs don't start the sentence in standard English. They go inside the clause, near the verb." }
+            ],
+            clue: "always (frequency) + arrives (main verb)",
+            clueExplain: "needs the adverb before the main verb.",
+            rule: "Subject + adverb + main verb + complement",
+            examples: ["I always work", "She often visits", "They never argue"],
+            correctReason: "Frequency adverbs go before the main verb in Present Simple. The order is: subject + adverb + verb + complement."
+        },
+        // Q2 — pos 1
+        {
+            id: 2, topic: "time expr. at end",
+            words: ["English", "Lucia", "every day", "studies"],
+            translation: "Lucía estudia inglés todos los días.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Lucia studies every day English.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression cuts between the verb and the object. Time expressions must go at the end." },
+                { text: "Lucia studies English every day.", correct: true },
+                { text: "Lucia every day studies English.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression is between the subject and the verb. Time expressions belong at the end of the sentence." }
+            ],
+            clue: "every day (time expression)",
+            clueExplain: "goes at the END of the sentence.",
+            rule: "Subject + verb + object + time expression",
+            examples: ["I work every day", "We meet every Monday", "They run every morning"],
+            correctReason: "Time expressions go at the end of the sentence — after the verb and the object. They never cut between them."
+        },
+        // Q3 — pos 2
+        {
+            id: 3, topic: "frequency · 'be' verb",
+            words: ["always", "early", "is", "Anna", "for work"],
+            translation: "Anna siempre llega temprano al trabajo.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Anna always is early for work.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "With the verb 'be', the frequency adverb goes AFTER the verb, not before." },
+                { text: "Anna is early always for work.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is after the adjective. With 'be', it must go between the verb and the adjective." },
+                { text: "Anna is always early for work.", correct: true }
+            ],
+            clue: "is (verb 'be') + always",
+            clueExplain: "uses 'be' as the verb, so the frequency adverb goes AFTER it.",
+            rule: "Subject + be + adverb + adjective + ...",
+            examples: ["I am always tired", "She is never late", "We are usually busy"],
+            correctReason: "With 'be', frequency adverbs go after the verb and before the adjective. That's the fixed pattern."
+        },
+        // Q4 — pos 0
+        {
+            id: 4, topic: "frequency + time expr.",
+            words: ["at 7 AM", "James", "has", "usually", "breakfast"],
+            translation: "James generalmente desayuna a las 7 AM.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "James usually has breakfast at 7 AM.", correct: true },
+                { text: "James has breakfast usually at 7 AM.", correct: false,
+                  errorType: "Wrong position (frequency)",
+                  explanation: "The frequency adverb is mixed with the time expression. Frequency adverbs go in the middle, before the verb." },
+                { text: "James usually at 7 AM has breakfast.", correct: false,
+                  errorType: "Wrong position (time)",
+                  explanation: "The time expression is between the frequency adverb and the verb. Time expressions belong at the end." }
+            ],
+            clue: "usually (middle) + at 7 AM (end)",
+            clueExplain: "shows the two-position rule: frequency in the middle, time at the end.",
+            rule: "Subject + frequency + verb + object + time expression",
+            examples: ["I always work in the morning", "She usually eats at 7 AM", "We often meet on Sundays"],
+            correctReason: "Frequency adverbs go in the middle. Time expressions go at the end. Each has its own position."
+        },
+        // Q5 — pos 1
+        {
+            id: 5, topic: "time expr. at start",
+            words: ["I", "every morning", "go", "to the gym"],
+            translation: "Todas las mañanas voy al gimnasio.",
+            goal: "Time expression at the start",
+            options: [
+                { text: "I every morning go to the gym.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression cuts between the subject and the verb. It must go at the start (with comma) or at the end." },
+                { text: "Every morning I go to the gym.", correct: true },
+                { text: "I go every morning to the gym.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression cuts between the verb and the place. Time expressions go at the end (after the place) or at the start." }
+            ],
+            clue: "every morning at start",
+            clueExplain: "is moved to the START of the sentence for emphasis.",
+            rule: "Time expr. + subject + verb + ...",
+            examples: ["Every morning I run", "On Sundays we relax", "At night they read"],
+            correctReason: "Time expressions can move to the START of a sentence. The subject and verb follow normally — the time expression doesn't cut between them."
+        },
+        // Q6 — pos 2
+        {
+            id: 6, topic: "negative + frequency",
+            words: ["dinner", "Diego", "always", "have", "doesn't", "at home"],
+            translation: "Diego no siempre cena en casa.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Diego always doesn't have dinner at home.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is before the auxiliary. In negatives, it must go between 'doesn't' and the main verb." },
+                { text: "Diego doesn't have always dinner at home.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is between the verb and the object. In negatives, it must sit between the auxiliary and the base verb." },
+                { text: "Diego doesn't always have dinner at home.", correct: true }
+            ],
+            clue: "negative + always",
+            clueExplain: "is a frequency adverb in a negative — goes between the auxiliary and the main verb.",
+            rule: "Subject + don't/doesn't + adverb + verb + ...",
+            examples: ["I don't always agree", "She doesn't always cook", "They don't always come"],
+            correctReason: "In negatives, the frequency adverb sits between the auxiliary 'doesn't/don't' and the base verb."
+        },
+        // Q7 — pos 0
+        {
+            id: 7, topic: "multi-word frequency",
+            words: ["the cinema", "twice a month", "to", "Sara", "goes"],
+            translation: "Sara va al cine dos veces al mes.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Sara goes to the cinema twice a month.", correct: true },
+                { text: "Sara twice a month goes to the cinema.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "Multi-word frequency phrases like 'twice a month' don't go in the middle. They go at the end." },
+                { text: "Sara goes twice a month to the cinema.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency phrase cuts between the verb and the place. It must go at the end." }
+            ],
+            clue: "twice a month (multi-word frequency)",
+            clueExplain: "is a multi-word frequency phrase that goes at the END of the sentence.",
+            rule: "Subject + verb + object/place + frequency phrase",
+            examples: ["I work three days a week", "We meet twice a month", "She runs five times a week"],
+            correctReason: "Multi-word frequency phrases (twice a week, three times a year) go at the end of the sentence — NOT in the middle."
+        },
+        // Q8 — pos 1
+        {
+            id: 8, topic: "frequency · negative · 3rd person",
+            words: ["meat", "doesn't", "Ana", "rarely", "eat"],
+            translation: "Ana rara vez no come carne.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "Ana rarely doesn't eat meat.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is before the auxiliary. In negatives, it must go between 'doesn't' and the main verb." },
+                { text: "Ana doesn't rarely eat meat.", correct: true },
+                { text: "Ana doesn't eat rarely meat.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is between the verb and the object. In negatives, it must sit between the auxiliary and the base verb." }
+            ],
+            clue: "doesn't (negative) + rarely",
+            clueExplain: "is a frequency adverb in a negative — goes between the auxiliary and the verb.",
+            rule: "Subject + doesn't + adverb + base verb + ...",
+            examples: ["He doesn't often work late", "She doesn't usually drive", "It doesn't rarely happen"],
+            correctReason: "In negatives, frequency adverbs sit between 'doesn't/don't' and the base verb."
+        },
+        // Q9 — pos 2
+        {
+            id: 9, topic: "fixed expression 'at night'",
+            words: ["my father", "the news", "at night", "reads"],
+            translation: "Mi padre lee las noticias por la noche.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "My father at night reads the news.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression cuts between the subject and the verb. It must go at the end." },
+                { text: "My father reads at night the news.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The time expression cuts between the verb and the object. It must go at the end (after the object)." },
+                { text: "My father reads the news at night.", correct: true }
+            ],
+            clue: "at night (time expression)",
+            clueExplain: "is a fixed time expression that goes at the END of the sentence.",
+            rule: "Subject + verb + object + time expression",
+            examples: ["I work at night", "She studies in the morning", "We meet at 7 PM"],
+            correctReason: "Time expressions like 'at night' go at the end of the sentence — after the verb and the object."
+        },
+        // Q10 — pos 0
+        {
+            id: 10, topic: "frequency + place + time",
+            words: ["football", "on Sundays", "play", "in the park", "they"],
+            translation: "Juegan fútbol en el parque los domingos.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "They play football in the park on Sundays.", correct: true },
+                { text: "They on Sundays play football in the park.", correct: false,
+                  errorType: "Wrong position (time)",
+                  explanation: "The time expression is between the subject and the verb. It must go at the end." },
+                { text: "They play in the park football on Sundays.", correct: false,
+                  errorType: "Wrong position (place)",
+                  explanation: "The place expression is between the verb and the object. It must come after the object." }
+            ],
+            clue: "in the park (place) + on Sundays (time)",
+            clueExplain: "shows two adverbials: place comes before time at the end of the sentence.",
+            rule: "Subject + verb + object + place + time",
+            examples: ["I work in an office every day", "She studies at home in the evening"],
+            correctReason: "When you have place AND time at the end, the order is usually: object + place + time."
+        },
+        // Q11 — pos 1
+        {
+            id: 11, topic: "frequency · 'be' · plural",
+            words: ["full", "is", "the bus", "always", "in the morning"],
+            translation: "El autobús siempre está lleno por la mañana.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "The bus always is full in the morning.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "With the verb 'be', the frequency adverb goes AFTER the verb, not before." },
+                { text: "The bus is always full in the morning.", correct: true },
+                { text: "The bus is full always in the morning.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is after the adjective. With 'be', it must go between the verb and the adjective." }
+            ],
+            clue: "is + always + in the morning",
+            clueExplain: "shows: with 'be', frequency goes between the verb and the adjective. Time expression goes at the end.",
+            rule: "Subject + be + adverb + adjective + time expression",
+            examples: ["I am always tired at night", "She is usually busy on Mondays", "It is often hot in summer"],
+            correctReason: "With 'be', frequency adverbs go after the verb and before the adjective. Time expressions go at the end."
+        },
+        // Q12 — pos 2
+        {
+            id: 12, topic: "Wh- question with frequency",
+            words: ["your", "do", "visit", "you", "how often", "grandparents"],
+            translation: "¿Con qué frecuencia visitas a tus abuelos?",
+            goal: "Build a question",
+            options: [
+                { text: "How often you visit your grandparents?", correct: false,
+                  errorType: "Missing auxiliary",
+                  explanation: "Wh- questions need 'do/does' between 'how often' and the subject." },
+                { text: "How visit you often your grandparents?", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "The order is broken. 'How often' must stay together at the start, then 'do' + subject + base verb." },
+                { text: "How often do you visit your grandparents?", correct: true }
+            ],
+            clue: "how often + question",
+            clueExplain: "is a frequency question — uses the standard Wh- question pattern.",
+            rule: "How often + do/does + subject + base verb?",
+            examples: ["How often do you study?", "How often does she run?", "How often do they meet?"],
+            correctReason: "Frequency questions follow the standard Wh- pattern: 'how often' + auxiliary + subject + base verb."
+        },
+        // Q13 — pos 0
+        {
+            id: 13, topic: "complete sentence with all elements",
+            words: ["never", "my father", "on weekends", "works", "at the office"],
+            translation: "Mi padre nunca trabaja en la oficina los fines de semana.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "My father never works at the office on weekends.", correct: true },
+                { text: "My father works never at the office on weekends.", correct: false,
+                  errorType: "Wrong position (frequency)",
+                  explanation: "The frequency adverb is after the verb. With main verbs, it must come before the verb." },
+                { text: "My father never at the office works on weekends.", correct: false,
+                  errorType: "Wrong word order",
+                  explanation: "The place expression is between the frequency adverb and the verb. The verb must come right after the adverb." }
+            ],
+            clue: "never (middle) + at the office (place) + on weekends (time)",
+            clueExplain: "shows the full structure: frequency before the verb, place after the verb, time at the end.",
+            rule: "Subject + frequency + verb + place + time",
+            examples: ["I always study at home in the evening", "She rarely eats at restaurants on weekdays"],
+            correctReason: "The order is: subject + frequency adverb + main verb + place + time. Each adverbial has its position."
+        },
+        // Q14 — pos 1
+        {
+            id: 14, topic: "frequency adv. with 'be' + plural",
+            words: ["the children", "happy", "always", "are", "at the party"],
+            translation: "Los niños siempre están felices en la fiesta.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "The children always are happy at the party.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "With the verb 'be', the frequency adverb goes AFTER the verb, not before." },
+                { text: "The children are always happy at the party.", correct: true },
+                { text: "The children are happy always at the party.", correct: false,
+                  errorType: "Wrong position",
+                  explanation: "The frequency adverb is after the adjective. With 'be', it must sit between the verb and the adjective." }
+            ],
+            clue: "are (verb 'be') + always",
+            clueExplain: "uses 'be' as the verb, so the frequency adverb goes after it.",
+            rule: "Subject + be + adverb + adjective + place expression",
+            examples: ["I am always happy", "She is never late", "They are usually here"],
+            correctReason: "With 'be', frequency adverbs go after the verb. Place/time expressions stay at the end."
+        },
+        // Q15 — pos 2
+        {
+            id: 15, topic: "frequency + multi-word time",
+            words: ["I", "to the supermarket", "always", "go", "on Saturday mornings"],
+            translation: "Siempre voy al supermercado los sábados por la mañana.",
+            goal: "Build a complete sentence",
+            options: [
+                { text: "I go always to the supermarket on Saturday mornings.", correct: false,
+                  errorType: "Wrong position (frequency)",
+                  explanation: "The frequency adverb is after the verb. With main verbs, it must come before the verb." },
+                { text: "I always to the supermarket go on Saturday mornings.", correct: false,
+                  errorType: "Broken word order",
+                  explanation: "The verb is moved out of position. The order should be: frequency adverb + verb + place + time." },
+                { text: "I always go to the supermarket on Saturday mornings.", correct: true }
+            ],
+            clue: "always (middle) + on Saturday mornings (end)",
+            clueExplain: "shows the two-position rule: frequency before the verb, time at the end.",
+            rule: "Subject + frequency + verb + place + time expression",
+            examples: ["I always work on Mondays", "She often shops on weekends", "We never travel in summer"],
+            correctReason: "Frequency adverbs go before the main verb. Time expressions go at the end of the sentence."
+        }
+    ];
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            // Shuffle the displayed word chips so they don't reveal the order
+            q.shuffledWords = shuffle(q.words);
+            q.shuffled = shuffle(q.options);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const letters = ['A','B','C'];
+
+        const wordChips = q.shuffledWords.map(w => `<span class="word-chip">${w}</span>`).join('');
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge">${q.topic}</span>
+            </div>
+            <div class="transform-visual">
+                <div class="transform-box base">
+                    <span class="transform-label">📝 Words to order</span>
+                    <div class="word-chips">${wordChips}</div>
+                </div>
+                <div class="transform-arrow">⬇ Order them ⬇</div>
+                <div class="transform-box goal">
+                    <span class="transform-label">🎯 Goal</span>
+                    <div class="transform-sentence"><span class="goal-chip">${q.goal}</span></div>
+                </div>
+            </div>
+            <div class="translate-bar">
+                <button class="translate-btn" id="trBtn-${index}" onclick="toggleTranslation(${index})">🇪🇸 Ver en español</button>
+            </div>
+            <div class="translation-box" id="trBox-${index}">
+                <span class="tr-label">ES:</span>${q.translation}
+            </div>
+            <div class="options-container" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" onclick="selectOption(${index}, ${i})">
+                        <div class="option-letter">${letters[i]}</div>
+                        <div class="option-text">${opt.text}</div>
+                    </button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi) {
+        const box = document.getElementById(`trBox-${qi}`);
+        const btn = document.getElementById(`trBtn-${qi}`);
+        const open = box.classList.toggle('show');
+        btn.classList.toggle('active', open);
+        btn.innerHTML = open ? '🇬🇧 Hide translation' : '🇪🇸 Ver en español';
+    }
+
+    function selectOption(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.correct;
+        const correctOpt = q.shuffled.find(o => o.correct);
+        if (isCorrect) score++;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((btn, i) => {
+            btn.classList.add('disabled');
+            const opt = q.shuffled[i];
+            if (opt.correct) btn.classList.add('correct');
+            else if (i === optIdx) btn.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+        const ruleExamples = q.examples.map(e => `<span class="rule-ex">${e}</span>`).join('');
+
+        const correctHL = `<span class="vb-highlight">${correctOpt.text}</span>`;
+        const wrongHL = !isCorrect ? `<span class="vb-highlight">${selected.text}</span>` : null;
+
+        const transformFlow = `
+            <div class="transform-flow">
+                ${wrongHL ? `<div class="tf-step past-wrong"><span class="tf-label">Your answer:</span>${wrongHL}</div><div class="tf-arrow">↕</div>` : ''}
+                <div class="tf-step past-correct"><span class="tf-label">Correct order:</span>${correctHL}</div>
+            </div>
+        `;
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct order!</div>
+                        <div class="fb-subtitle">You arranged the words perfectly</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Final sentence</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Wrong order</div>
+                        <div class="fb-subtitle">Let's compare the orders</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-block fb-transform">
+                        <div class="fb-block-title">🔄 Compare</div>
+                        ${transformFlow}
+                    </div>
+                    <div class="fb-block fb-error">
+                        <div class="fb-block-title">⚠️ The error: <span class="error-badge">${selected.errorType}</span></div>
+                        <div class="error-text">${selected.explanation}</div>
+                    </div>
+                    <div class="fb-block fb-rule">
+                        <div class="fb-block-title">📐 The correct rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-block fb-why">
+                        <div class="fb-block-title">💡 Why is the correct option correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master word order. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Fill in the Blanks - A1 M2 · Present Simple Questions | JUCUM English</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #29B6F6; --primary-light: #B3E5FC; --primary-dark: #0277BD; --primary-darker: #01579B;
+            --accent: #4FC3F7; --bg-gradient-start: #F0F9FF; --bg-gradient-end: #E1F5FE;
+            --text-dark: #01579B; --text-medium: #0277BD; --text-light: #0288D1;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(41,182,246,0.18);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start),var(--bg-gradient-end)); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,#0288D1,#29B6F6,#4FC3F7); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .back-btn { width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,0.3); border:none; display:flex; align-items:center; justify-content:center; cursor:pointer; font-size:1.4rem; text-decoration:none; color:white; transition:all .2s; flex-shrink:0; }
+        .back-btn:hover { background:rgba(255,255,255,0.5); transform:scale(1.1); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.9); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:680px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+
+        /* Question word reference panel */
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:0.85rem; flex-wrap:wrap; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:var(--primary-light); color:var(--primary-darker); margin-left:auto; }
+        .question-text { font-size:1.1rem; line-height:1.7; margin-bottom:0.4rem; font-weight:600; color:var(--text-dark); }
+        .blank { display:inline-block; min-width:90px; padding:0.2rem 0.6rem; background:var(--primary-light); border:2px dashed var(--primary-dark); border-radius:8px; text-align:center; font-weight:700; color:var(--primary-darker); transition:all .3s; }
+        .blank.correct { background:var(--success-light); border:2px solid var(--success); color:var(--success-dark); }
+        .blank.incorrect { background:var(--error-light); border:2px solid var(--error); color:var(--error-dark); }
+        .translate-bar { display:flex; justify-content:flex-end; margin-bottom:0.5rem; }
+        .translate-btn { background:white; border:1.5px dashed var(--primary); color:var(--primary-dark); padding:0.35rem 0.8rem; border-radius:20px; font-family:'Nunito',sans-serif; font-size:0.78rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:0.35rem; transition:all .2s; }
+        .translate-btn:hover { background:var(--bg-gradient-start); }
+        .translate-btn.active { background:var(--primary); color:white; border-style:solid; }
+        .translation-box { background:#FFF8E1; border:1px solid #FFE082; border-radius:10px; padding:0.6rem 0.85rem; margin-bottom:0.85rem; font-size:0.88rem; color:#5D4037; font-style:italic; display:none; line-height:1.5; }
+        .translation-box.show { display:block; animation:fadeUp .3s ease; }
+        .translation-box .tr-label { font-weight:800; font-style:normal; color:#E65100; margin-right:0.3rem; font-size:0.75rem; text-transform:uppercase; letter-spacing:.4px; }
+        .options-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0.7rem; margin-top:0.5rem; }
+        .options-grid.col-1 { grid-template-columns:1fr; }
+        .option-btn { padding:0.9rem 0.5rem; border:2.5px solid #E5E7EB; border-radius:12px; background:white; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; color:var(--text-dark); }
+        .option-btn:hover:not(:disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateY(-2px); }
+        .option-btn:disabled { cursor:default; }
+        .option-btn.correct { border-color:var(--success); background:var(--success-light); color:var(--success-dark); }
+        .option-btn.incorrect { border-color:var(--error); background:var(--error-light); color:var(--error-dark); }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); border-radius:12px; padding:0.9rem 1rem; border:1px solid #FECACA; }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.72rem; font-weight:700; margin-left:4px; }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-word-row { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ew-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ew-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ew-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ew-right { background:var(--success); color:white; }
+        .error-rule { font-size:0.88rem; color:var(--text-dark); line-height:1.55; }
+        .fb-rule { background:var(--info-light); border:1px solid #BFDBFE; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-rule .fb-block-title { color:var(--info-dark); }
+        .rule-formula { background:white; border-radius:8px; padding:0.5rem 0.9rem; font-family:'Fredoka',sans-serif; font-size:0.95rem; color:var(--info-dark); font-weight:600; margin-bottom:0.6rem; text-align:center; border:1px solid #BFDBFE; }
+        .rule-examples { display:flex; flex-wrap:wrap; gap:0.4rem; }
+        .rule-ex { font-size:0.82rem; background:white; border:1px solid #BFDBFE; border-radius:6px; padding:0.25rem 0.55rem; color:var(--info-dark); font-weight:600; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; border-radius:12px; padding:0.9rem 1rem; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .fb-why-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; color:var(--text-dark); }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn.secondary { background:#F1F5F9; color:var(--text-dark); }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="back-btn">←</a>
+        <div class="header-info">
+            <div class="header-title">✏️ Fill in the Blanks</div>
+            <div class="header-subtitle">🩵 A1 · Module 2 · Yes/No & Wh- Questions</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">✏️</div>
+            <div>
+                <div class="instructions-title">Complete the question</div>
+                <div class="instructions-text">Choose the option that completes each Present Simple question correctly. Tap <strong>"Ver en español"</strong> if you need a translation.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">Quiz Complete!</div>
+            <div class="results-score" id="finalScore">0/15</div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Try Again</button>
+                <a href="https://jucumenglishcenter.github.io/A1/panel-a1.html" class="result-btn secondary">← Back to Panel</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [
+        // Q1 — pos 0
+        {
+            id: 1, topic: "yes/no · 2nd person",
+            sentence: "_____ play tennis on weekends?",
+            translation: "¿Juegas tenis los fines de semana?",
+            options: ["Do you", "Does you", "Are you"],
+            correctIdx: 0,
+            feedback: {
+                "Does you": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. The subject 'you' uses a different auxiliary in Present Simple questions." },
+                "Are you": { errorType: "Wrong verb type", explanation: "'Are' is the auxiliary for the verb 'be'. The verb here is 'play', a main verb, which uses a different auxiliary." }
+            },
+            clue: "you (2nd person) + main verb",
+            clueExplain: "uses 'do' as the auxiliary in Present Simple questions.",
+            rule: "Do/Does + subject + base verb?",
+            examples: ["Do you work?", "Do you study?", "Do you live here?"],
+            correctReason: "With 'you' (and I/we/they), the auxiliary in Present Simple questions is 'do' followed by the base verb."
+        },
+        // Q2 — pos 1
+        {
+            id: 2, topic: "yes/no · 3rd person",
+            sentence: "_____ live near the school?",
+            translation: "¿Lucía vive cerca de la escuela?",
+            options: ["Do Lucia", "Does Lucia", "Is Lucia"],
+            correctIdx: 1,
+            feedback: {
+                "Do Lucia": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects and I/you. 'Lucia' is third person singular and needs a different auxiliary." },
+                "Is Lucia": { errorType: "Wrong verb type", explanation: "'Is' is the auxiliary for the verb 'be'. The verb 'live' is a main verb and uses a different auxiliary." }
+            },
+            clue: "Lucia (3rd person) + main verb",
+            clueExplain: "is third person singular, which uses 'does' as the question auxiliary.",
+            rule: "Does + he/she/it + base verb?",
+            examples: ["Does she work?", "Does he study?", "Does it rain?"],
+            correctReason: "With third person singular subjects, Present Simple questions start with 'Does' followed by the subject and the base verb."
+        },
+        // Q3 — pos 2
+        {
+            id: 3, topic: "Wh- · 'Where'",
+            sentence: "_____ your parents live?",
+            translation: "¿Dónde viven tus padres?",
+            options: ["Where does", "Where is", "Where do"],
+            correctIdx: 2,
+            feedback: {
+                "Where does": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. The subject 'your parents' is plural and uses a different auxiliary." },
+                "Where is": { errorType: "Wrong verb type", explanation: "'Is' is the auxiliary for the verb 'be'. The verb 'live' is a main verb and needs a different auxiliary." }
+            },
+            clue: "your parents (plural) + place",
+            clueExplain: "is plural and asks about location, so the auxiliary must match a plural subject.",
+            rule: "Where + do + plural subject + base verb?",
+            examples: ["Where do they live?", "Where do you work?", "Where do we meet?"],
+            correctReason: "With plural subjects, Wh- questions use 'do' as the auxiliary. 'Where' asks about place."
+        },
+        // Q4 — pos 0
+        {
+            id: 4, topic: "Wh- · 'What' · 3rd person",
+            sentence: "What _____ for breakfast?",
+            translation: "¿Qué come James en el desayuno?",
+            options: ["does James eat", "does James eats", "do James eat"],
+            correctIdx: 0,
+            feedback: {
+                "does James eats": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already carries the third-person mark." },
+                "do James eat": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects. 'James' is third person singular and needs a different auxiliary." }
+            },
+            clue: "James (3rd person) + question",
+            clueExplain: "needs the right auxiliary for third person AND the base form of the main verb.",
+            rule: "What + does + he/she/it + base verb?",
+            examples: ["What does he eat?", "What does she read?", "What does it cost?"],
+            correctReason: "With third person singular in questions, use 'does' + subject + base verb. The verb does NOT take '-s'."
+        },
+        // Q5 — pos 1
+        {
+            id: 5, topic: "Wh- · 'When'",
+            sentence: "When _____ to bed on weekends?",
+            translation: "¿Cuándo te vas a dormir los fines de semana?",
+            options: ["does you go", "do you go", "do you goes"],
+            correctIdx: 1,
+            feedback: {
+                "does you go": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. The subject 'you' uses a different auxiliary." },
+                "do you goes": { errorType: "Wrong verb form", explanation: "After 'do', the verb stays in base form. The '-s' or '-es' ending is not used in questions." }
+            },
+            clue: "you (2nd person) + question",
+            clueExplain: "uses 'do' + base verb. The verb stays unchanged.",
+            rule: "When + do + you + base verb?",
+            examples: ["When do you go?", "When do you study?", "When do you eat?"],
+            correctReason: "With 'you' in questions, use 'do' + subject + base verb. The verb does not take any ending."
+        },
+        // Q6 — pos 2
+        {
+            id: 6, topic: "Wh- · 'Why' · 3rd person",
+            sentence: "Why _____ that car?",
+            translation: "¿Por qué Carlos quiere ese coche?",
+            options: ["does Carlos wants", "do Carlos want", "does Carlos want"],
+            correctIdx: 2,
+            feedback: {
+                "does Carlos wants": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already carries the third-person mark." },
+                "do Carlos want": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects. 'Carlos' is third person singular and needs 'does'." }
+            },
+            clue: "Carlos (3rd person) + question",
+            clueExplain: "needs 'does' + base verb. The verb does NOT take '-s' inside a question.",
+            rule: "Why + does + he/she/it + base verb?",
+            examples: ["Why does he leave?", "Why does she cry?", "Why does it work?"],
+            correctReason: "In Present Simple questions with third person singular, the auxiliary 'does' takes the third-person mark, and the main verb stays in base form."
+        },
+        // Q7 — pos 0
+        {
+            id: 7, topic: "yes/no · 1st person plural",
+            sentence: "_____ need an umbrella today?",
+            translation: "¿Necesitamos un paraguas hoy?",
+            options: ["Do we", "Does we", "Are we"],
+            correctIdx: 0,
+            feedback: {
+                "Does we": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. The subject 'we' is plural and uses a different auxiliary." },
+                "Are we": { errorType: "Wrong verb type", explanation: "'Are' is the auxiliary for the verb 'be'. The verb 'need' is a main verb and uses a different auxiliary." }
+            },
+            clue: "we (plural) + main verb",
+            clueExplain: "uses 'do' as the auxiliary in Present Simple questions.",
+            rule: "Do + we + base verb?",
+            examples: ["Do we know?", "Do we have time?", "Do we agree?"],
+            correctReason: "With 'we' (plural), Present Simple questions use 'do' + subject + base verb."
+        },
+        // Q8 — pos 1
+        {
+            id: 8, topic: "Wh- · 'Who'",
+            sentence: "Who _____ in the kitchen at home?",
+            translation: "¿Quién cocina en la cocina en casa?",
+            options: ["do you cook", "cooks", "does cook"],
+            correctIdx: 1,
+            feedback: {
+                "do you cook": { errorType: "Wrong subject", explanation: "The question is asking WHO cooks, so 'who' itself is the subject. Adding 'you' creates a different question." },
+                "does cook": { errorType: "Two verbs", explanation: "Adding 'does' before 'cook' creates a question that needs another subject. When 'who' is the subject, no auxiliary is needed." }
+            },
+            clue: "Who as subject",
+            clueExplain: "is the subject of the question. When 'who' is the subject, the verb behaves like a normal third-person verb.",
+            rule: "Who + verb-s? (no 'do/does')",
+            examples: ["Who cooks?", "Who knows?", "Who lives here?"],
+            correctReason: "When 'who' is the SUBJECT of the question, no auxiliary is needed. The verb takes '-s' as in normal third-person singular."
+        },
+        // Q9 — pos 2
+        {
+            id: 9, topic: "yes/no · 3rd person · 'have'",
+            sentence: "_____ a brother or a sister?",
+            translation: "¿Tiene Ana un hermano o una hermana?",
+            options: ["Does Ana has", "Do Ana have", "Does Ana have"],
+            correctIdx: 2,
+            feedback: {
+                "Does Ana has": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already marks the person — the verb 'have' does not change to 'has'." },
+                "Do Ana have": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects. 'Ana' is third person singular and needs 'does'." }
+            },
+            clue: "Ana (3rd person) + have",
+            clueExplain: "needs 'does' + the base form 'have' (not 'has').",
+            rule: "Does + he/she/it + have (base form)?",
+            examples: ["Does he have?", "Does she have?", "Does it have?"],
+            correctReason: "In questions, 'have' stays in its base form after 'does'. The change to 'has' only happens in affirmative third person."
+        },
+        // Q10 — pos 0
+        {
+            id: 10, topic: "Wh- · 'How'",
+            sentence: "How _____ to school every day?",
+            translation: "¿Cómo va Diego a la escuela todos los días?",
+            options: ["does Diego go", "does Diego goes", "do Diego goes"],
+            correctIdx: 0,
+            feedback: {
+                "does Diego goes": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already marks the third person." },
+                "do Diego goes": { errorType: "Multiple errors", explanation: "Two problems: 'do' is for plural subjects (use 'does' for 'Diego'), and the main verb is conjugated when it should stay in base form." }
+            },
+            clue: "Diego (3rd person) + question",
+            clueExplain: "needs 'does' + the base form 'go' (not 'goes' inside the question).",
+            rule: "How + does + he/she/it + base verb?",
+            examples: ["How does he travel?", "How does she cook?", "How does it work?"],
+            correctReason: "In Present Simple questions, the auxiliary 'does' takes the third-person mark, and the main verb stays in base form — even with verbs like 'go' that change spelling in affirmative."
+        },
+        // Q11 — pos 1
+        {
+            id: 11, topic: "yes/no · plural",
+            sentence: "_____ speak English at home?",
+            translation: "¿Tus hermanos hablan inglés en casa?",
+            options: ["Does your brothers", "Do your brothers", "Are your brothers"],
+            correctIdx: 1,
+            feedback: {
+                "Does your brothers": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. 'Your brothers' is plural and uses a different auxiliary." },
+                "Are your brothers": { errorType: "Wrong verb type", explanation: "'Are' is the auxiliary for the verb 'be'. The verb 'speak' is a main verb and uses a different auxiliary." }
+            },
+            clue: "your brothers (plural) + main verb",
+            clueExplain: "is plural, so the auxiliary must match a plural subject.",
+            rule: "Do + plural subject + base verb?",
+            examples: ["Do they speak?", "Do we agree?", "Do you know?"],
+            correctReason: "With plural subjects, Present Simple questions use 'do' + subject + base verb."
+        },
+        // Q12 — pos 2
+        {
+            id: 12, topic: "Wh- · 'What' · 1st person",
+            sentence: "What _____ if I miss the bus?",
+            translation: "¿Qué hago si pierdo el autobús?",
+            options: ["does I do", "do I does", "do I do"],
+            correctIdx: 2,
+            feedback: {
+                "does I do": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it. The subject 'I' uses 'do' as the auxiliary." },
+                "do I does": { errorType: "Double conjugation", explanation: "After 'do', the main verb stays in base form. 'Does' is a conjugated form that doesn't fit here." }
+            },
+            clue: "I (1st person) + question",
+            clueExplain: "uses 'do' + base verb, even when the main verb is also 'do'.",
+            rule: "What + do + I + base verb?",
+            examples: ["What do I do?", "What do I say?", "What do I eat?"],
+            correctReason: "With 'I' in questions, use 'do' as auxiliary + 'do' as base verb. It looks repetitive, but each 'do' has a different role."
+        },
+        // Q13 — pos 0
+        {
+            id: 13, topic: "Wh- · 'When' · 3rd person",
+            sentence: "When _____ work?",
+            translation: "¿Cuándo termina Sara el trabajo?",
+            options: ["does Sara finish", "do Sara finish", "does Sara finishes"],
+            correctIdx: 0,
+            feedback: {
+                "do Sara finish": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects. 'Sara' is third person singular and needs 'does'." },
+                "does Sara finishes": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already carries the third-person mark." }
+            },
+            clue: "Sara (3rd person) + question",
+            clueExplain: "needs 'does' + the base form of the main verb.",
+            rule: "When + does + he/she/it + base verb?",
+            examples: ["When does he start?", "When does she leave?", "When does it close?"],
+            correctReason: "In Present Simple questions with third person singular, use 'does' + subject + base verb. The verb stays unchanged."
+        },
+        // Q14 — pos 1
+        {
+            id: 14, topic: "Wh- · 'Where' · 3rd person",
+            sentence: "Where _____ in summer?",
+            translation: "¿Dónde trabaja tu padre en verano?",
+            options: ["does your father works", "does your father work", "do your father work"],
+            correctIdx: 1,
+            feedback: {
+                "does your father works": { errorType: "Double conjugation", explanation: "After 'does', the main verb stays in base form. The auxiliary already marks the third person." },
+                "do your father work": { errorType: "Wrong auxiliary", explanation: "'Do' is for plural subjects. 'Your father' is third person singular and needs 'does'." }
+            },
+            clue: "your father (he) + question",
+            clueExplain: "needs 'does' + the base form of the verb.",
+            rule: "Where + does + he/she/it + base verb?",
+            examples: ["Where does he work?", "Where does she live?", "Where does it grow?"],
+            correctReason: "With third person singular in questions, the auxiliary 'does' takes the mark, and the main verb stays in base form."
+        },
+        // Q15 — pos 2
+        {
+            id: 15, topic: "yes/no · 'be' contrast",
+            sentence: "_____ from Peru?",
+            translation: "¿Eres de Perú?",
+            options: ["Do you", "Does you", "Are you"],
+            correctIdx: 2,
+            feedback: {
+                "Do you": { errorType: "Wrong verb type", explanation: "'Do' is the auxiliary for main verbs. 'From Peru' uses the verb 'be', which has its own question form." },
+                "Does you": { errorType: "Wrong auxiliary", explanation: "'Does' is for he/she/it AND it's used with main verbs. The verb here is 'be', which uses a different question form." }
+            },
+            clue: "from Peru (origin · 'be')",
+            clueExplain: "describes a state with the verb 'be', not an action. The question form uses the verb 'be' directly.",
+            rule: "Be + subject + complement? (no 'do/does')",
+            examples: ["Are you from Peru?", "Is she happy?", "Are they here?"],
+            correctReason: "Questions with the verb 'be' don't use 'do/does'. The verb 'be' moves to the front of the sentence directly."
+        }
+    ];
+
+    function shuffle(arr) {
+        const a = [...arr];
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
+
+    let currentQuestion = 0, score = 0;
+    let answered = new Array(quizData.length).fill(false);
+
+    function initQuiz() {
+        const container = document.getElementById('questionsContainer');
+        container.innerHTML = '';
+        quizData.forEach((q, i) => {
+            const indexed = q.options.map((text, idx) => ({ text, isCorrect: idx === q.correctIdx }));
+            q.shuffled = shuffle(indexed);
+            container.appendChild(createCard(q, i));
+        });
+        showQuestion(0);
+        updateProgress();
+    }
+
+    function createCard(q, index) {
+        const card = document.createElement('div');
+        card.className = `question-card ${index !== 0 ? 'hidden' : ''}`;
+        card.id = `question-${index}`;
+        const maxLen = Math.max(...q.options.map(o => o.length));
+        const gridClass = maxLen > 14 ? 'col-1' : '';
+
+        card.innerHTML = `
+            <div class="q-header">
+                <div class="question-number">${index + 1}</div>
+                <span class="topic-badge">${q.topic}</span>
+            </div>
+            <p class="question-text">${q.sentence.replace('_____', `<span class="blank" id="blank-${index}">?</span>`)}</p>
+            <div class="translate-bar">
+                <button class="translate-btn" id="trBtn-${index}" onclick="toggleTranslation(${index})">🇪🇸 Ver en español</button>
+            </div>
+            <div class="translation-box" id="trBox-${index}">
+                <span class="tr-label">ES:</span>${q.translation}
+            </div>
+            <div class="options-grid ${gridClass}" id="options-${index}">
+                ${q.shuffled.map((opt, i) => `
+                    <button class="option-btn" data-idx="${i}" onclick="selectAnswer(${index}, ${i})">${opt.text}</button>
+                `).join('')}
+            </div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index === 0 ? 'disabled' : ''}>← Previous</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>
+                    ${index === quizData.length - 1 ? 'See Results 🎉' : 'Next →'}
+                </button>
+            </div>
+        `;
+        return card;
+    }
+
+    function toggleTranslation(qi) {
+        const box = document.getElementById(`trBox-${qi}`);
+        const btn = document.getElementById(`trBtn-${qi}`);
+        const open = box.classList.toggle('show');
+        btn.classList.toggle('active', open);
+        btn.innerHTML = open ? '🇬🇧 Hide translation' : '🇪🇸 Ver en español';
+    }
+
+    function selectAnswer(qi, optIdx) {
+        if (answered[qi]) return;
+        answered[qi] = true;
+        const q = quizData[qi];
+        const selected = q.shuffled[optIdx];
+        const isCorrect = selected.isCorrect;
+        const correctOpt = q.shuffled.find(o => o.isCorrect);
+        if (isCorrect) score++;
+
+        const blank = document.getElementById(`blank-${qi}`);
+        blank.textContent = selected.text;
+        blank.className = `blank ${isCorrect ? 'correct' : 'incorrect'}`;
+
+        document.querySelectorAll(`#options-${qi} .option-btn`).forEach((b, i) => {
+            b.disabled = true;
+            const opt = q.shuffled[i];
+            if (opt.isCorrect) b.classList.add('correct');
+            else if (i === optIdx) b.classList.add('incorrect');
+        });
+
+        buildFeedback(qi, selected, isCorrect, correctOpt, q);
+        document.getElementById(`next-${qi}`).disabled = false;
+        updateProgress();
+    }
+
+    function buildFeedback(qi, selected, isCorrect, correctOpt, q) {
+        const el = document.getElementById(`feedback-${qi}`);
+        el.className = `feedback show ${isCorrect ? 'correct' : 'incorrect'}`;
+        const ruleExamples = q.examples.map(e => `<span class="rule-ex">${e}</span>`).join('');
+
+        if (isCorrect) {
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">✅</span>
+                    <div>
+                        <div class="fb-title">Correct!</div>
+                        <div class="fb-subtitle">You picked the right form</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is it correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        } else {
+            const err = q.feedback[selected.text] || { errorType: "Error", explanation: "Wrong answer." };
+            el.innerHTML = `
+                <div class="fb-header">
+                    <span class="fb-icon">❌</span>
+                    <div>
+                        <div class="fb-title">Incorrect</div>
+                        <div class="fb-subtitle">Let's review what happened</div>
+                    </div>
+                </div>
+                <div class="fb-body">
+                    <div class="fb-compare">
+                        <div class="fb-block-title" style="color:#64748B;">🔄 Your answer vs. the correct one</div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label wrong">You wrote</span>
+                            <span class="compare-text"><span class="word-wrong">${selected.text}</span></span>
+                        </div>
+                        <div class="fb-compare-row">
+                            <span class="compare-label right">Correct</span>
+                            <span class="compare-text"><span class="word-right">${correctOpt.text}</span></span>
+                        </div>
+                    </div>
+                    <div class="fb-error">
+                        <div class="fb-block-title">⚠️ Error type: <span class="error-badge">${err.errorType}</span></div>
+                        <div class="error-word-row">
+                            <span class="ew-box ew-wrong">${selected.text}</span>
+                            <span class="ew-arrow">→</span>
+                            <span class="ew-box ew-right">${correctOpt.text}</span>
+                        </div>
+                        <div class="error-rule">${err.explanation}</div>
+                    </div>
+                    <div class="fb-rule">
+                        <div class="fb-block-title">📐 The correct rule</div>
+                        <div class="rule-formula">${q.rule}</div>
+                        <div class="rule-examples">${ruleExamples}</div>
+                    </div>
+                    <div class="fb-why">
+                        <div class="fb-block-title">💡 Why is the correct answer correct?</div>
+                        <div class="fb-why-text">${q.correctReason}</div>
+                    </div>
+                </div>
+            `;
+        }
+    }
+
+    function showQuestion(i) {
+        document.querySelectorAll('.question-card').forEach((c, idx) => c.classList.toggle('hidden', idx !== i));
+        document.getElementById('currentQ').textContent = i + 1;
+        currentQuestion = i;
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function nextQuestion(i) { i < quizData.length - 1 ? showQuestion(i + 1) : showResults(); }
+    function prevQuestion() { if (currentQuestion > 0) showQuestion(currentQuestion - 1); }
+    function updateProgress() {
+        const done = answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width = (done / quizData.length * 100) + '%';
+    }
+    function showResults() {
+        document.querySelectorAll('.question-card').forEach(c => c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct = score / quizData.length * 100;
+        document.getElementById('finalScore').textContent = `${score}/${quizData.length}`;
+        let stars = pct >= 90 ? 3 : pct >= 70 ? 2 : 1;
+        document.getElementById('resultsMessage').textContent = pct >= 90
+            ? 'Excellent! You master question forms. 🏆'
+            : pct >= 70 ? 'Well done! Keep practicing. 💪'
+            : 'Good effort. Review the rules and try again. 📚';
+        document.querySelectorAll('.star').forEach((s, i) => {
+            if (i < stars) setTimeout(() => s.classList.add('earned'), i * 300);
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+</body>
+</html>
