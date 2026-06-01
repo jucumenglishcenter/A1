@@ -90,7 +90,7 @@ main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
 .ttext{font-family:'Nunito',sans-serif;font-size:12px;font-weight:700;color:var(--text);flex:1;}
 .tchev{font-size:10px;color:var(--ts);transition:transform 0.2s;}
 .titem.open .tchev{transform:rotate(180deg);}
-.tacts{display:none;padding:6px 10px 10px;border-top:1px dashed var(--lm);display:none;gap:5px;flex-wrap:wrap;}
+.tacts{display:none;padding:6px 10px 10px;border-top:1px dashed var(--lm);gap:5px;flex-wrap:wrap;}
 .titem.open .tacts{display:flex;}
 .chip{font-family:'Nunito',sans-serif;font-size:11px;font-weight:800;padding:5px 12px;border-radius:20px;text-decoration:none;cursor:pointer;transition:all 0.15s;display:inline-flex;align-items:center;gap:4px;}
 .chip-fill{background:var(--ll);color:var(--ld);border:1.5px solid var(--lm);}
@@ -106,7 +106,6 @@ main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
 .matitem-ico{width:36px;height:36px;border-radius:8px;background:var(--ll);border:1.5px solid var(--lm);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
 .matitem span{flex:1;}
 .matitem-arr{color:var(--lp);font-size:15px;font-weight:800;}
-
 /* Grammar practice topic blocks */
 .gr-topic{border:1px solid var(--border);border-left:3px solid var(--lp);border-radius:10px;overflow:hidden;background:var(--card);margin-bottom:6px;}
 .gr-topic-head{display:flex;align-items:center;gap:8px;padding:10px 13px;cursor:pointer;user-select:none;transition:background 0.14s;}
@@ -117,7 +116,6 @@ main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
 .gr-topic.open .gr-topic-chev{transform:rotate(180deg);}
 .gr-topic-body{display:none;padding:6px 10px 10px;border-top:1px dashed var(--lm);gap:5px;flex-wrap:wrap;}
 .gr-topic.open .gr-topic-body{display:flex;}
-
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:translateY(0);}}
 .mcard{animation:fadeUp 0.36s ease both;}
 .mcard:nth-child(1){animation-delay:.03s}.mcard:nth-child(2){animation-delay:.07s}
@@ -150,7 +148,10 @@ main{max-width:860px;margin:0 auto;padding:32px 24px 80px;}
 </div>
 <script>
 const GH = 'https://jucumenglishcenter.github.io/A1/';
-
+// --- Módulo 2 ---
+const M2  = 'https://jucumenglishcenter.github.io/A1/A1_M2/';
+const PR2 = M2 + 'Practicas/';
+const RS2 = M2 + 'Resumenes%20de%20Gramatica/';
 const DATA=[
   {
     id:1,
@@ -223,12 +224,70 @@ const DATA=[
       {label:'✍️ Traducir',       url:'https://quizlet.com/pe/1156004062/a1-escritura-traducir-flash-cards/?funnelUUID=02b4c4c4-65fe-41c1-a90b-88ed3b54bc45'}
     ]
   },
-  {id:2,name:'Shopping, Services & Money',ok:false,img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',tags:[],topics:[],grammar:[],summaries:[],quizlet:[]},
+  {
+    id:2,
+    name:'Shopping, Services & Money',
+    ok:true,
+    img:'https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&q=80',
+    tags:['Present Perfect','Present Simple','Prepositions'],
+    summaries:[
+      {label:'T1 · Adverbs of frequency',                  url:RS2+'Adverbs_of_Frequency.html'},
+      {label:'T2 · Prepositions: at / in / on',            url:RS2+'Prepositions_at-in-on.html'},
+      {label:'T3 · Present Continuous',                    url:RS2+'Present_Continuous.html'},
+      {label:'T4 · Present Perfect: ever / never',         url:RS2+'Present_Perfect_ever-never.html'},
+      {label:'T5 · Present Perfect: just / already / yet',  url:RS2+'Present_Perfect_just-already-yet.html'},
+      {label:'T6 · Present Simple: negatives & 3rd person', url:RS2+'Present_Simple_Negative_3rd.html'},
+      {label:'T7 · Present Simple: questions',             url:RS2+'Present_Simple_Questions.html'},
+      {label:'T8 · Word order: adverbials',                url:RS2+'Word_Order_Adverbials.html'},
+    ],
+    grammar:[
+      {label:'Adverbs of frequency',tag:'T1',
+        fill: PR2+'T1_Adverbs%20of%20Frequency/Adverbs%20of%20Frequency_Fill%20in.html',
+        ident:PR2+'T1_Adverbs%20of%20Frequency/Adverbs%20of%20Frequency_Identification.html',
+        trans:PR2+'T1_Adverbs%20of%20Frequency/Adverbs%20of%20Frequency_Transform.html'},
+      {label:'Prepositions: at / in / on',tag:'T2',
+        fill: PR2+'T2_Prepositions%20at-in-on/Prepositions%20at-in-on_Fill%20in.html',
+        ident:PR2+'T2_Prepositions%20at-in-on/Prepositions%20at-in-on_Identification.html',
+        trans:PR2+'T2_Prepositions%20at-in-on/Prepositions%20at-in-on_Transform.html'},
+      {label:'Present Continuous',tag:'T3',
+        fill: PR2+'T3_Present%20Continuous/Present%20Continuous_Fill%20in.html',
+        ident:PR2+'T3_Present%20Continuous/Present%20Continuous_Identification.html',
+        trans:PR2+'T3_Present%20Continuous/Present%20Continuous_Transform.html'},
+      {label:'Present Perfect: ever / never',tag:'T4',
+        fill: PR2+'T4_Present%20Perfect%20ever-never/Present%20Perfect%20ever-never_Fill%20in.html',
+        ident:PR2+'T4_Present%20Perfect%20ever-never/Present%20Perfect%20ever-never_Identification.html',
+        trans:PR2+'T4_Present%20Perfect%20ever-never/Present%20Perfect%20ever-never_Transform.html'},
+      {label:'Present Perfect: just / already / yet',tag:'T5',
+        fill: PR2+'T5_Present%20Perfect%20just-already-yet/Present%20Perfect%20just-already-yet_Fill%20in.html',
+        ident:PR2+'T5_Present%20Perfect%20just-already-yet/Present%20Perfect%20just-already-yet_Identification.html',
+        trans:PR2+'T5_Present%20Perfect%20just-already-yet/Present%20Perfect%20just-already-yet_Transform.html'},
+      {label:'Present Simple: negatives & 3rd person',tag:'T6',
+        fill: PR2+'T6_Present%20Simple%20Negative%203rd/Present%20Simple%20Negative%203rd_Fill%20in.html',
+        ident:PR2+'T6_Present%20Simple%20Negative%203rd/Present%20Simple%20Negative%203rd_Identification.html',
+        trans:PR2+'T6_Present%20Simple%20Negative%203rd/Present%20Simple%20Negative%203rd_Transform.html'},
+      {label:'Present Simple: questions',tag:'T7',
+        fill: PR2+'T7_Present%20Simple%20Questions/Present%20Simple%20Questions_Fill%20in.html',
+        ident:PR2+'T7_Present%20Simple%20Questions/Present%20Simple%20Questions_Identification.html',
+        trans:PR2+'T7_Present%20Simple%20Questions/Present%20Simple%20Questions_Transform.html'},
+      {label:'Word order: adverbials',tag:'T8',
+        fill: PR2+'T8_Word%20Order%20Adverbials/Word%20Order%20Adverbials_Fill%20in.html',
+        ident:PR2+'T8_Word%20Order%20Adverbials/Word%20Order%20Adverbials_Identification.html',
+        trans:PR2+'T8_Word%20Order%20Adverbials/Word%20Order%20Adverbials_Transform.html'},
+    ],
+    reading:  M2+'Reading%20Comprehension_Shopping,%20Services%20%26%20Money.html',
+    listening:M2+'Listening_Shopping,%20Services%20%26%20Money.html',
+    story:    M2+'Story_Shopping,%20Services%20%26%20Money.html',
+    quizlet:[
+      {label:'🔤 Vocabulario 1',  url:'https://quizlet.com/pe/1185967129/vocabulario-1-a1_2026-flash-cards/?funnelUUID=c42af1b5-8ca7-4720-8037-7dc274a356c1'},
+      {label:'🔤 Vocabulario 2',  url:'https://quizlet.com/pe/1185967419/vocabulario-2-a1_2026-flash-cards/?funnelUUID=409d6243-5155-45d4-8633-aaae0a432774'},
+      {label:'🔀 Ordenar',        url:'https://quizlet.com/pe/1185967983/m1-ordenar-a1_2026-flash-cards/?funnelUUID=4a4550bd-e486-4ddd-b5f2-0b88cdc04c9d'},
+      {label:'✍️ Traducir',       url:'https://quizlet.com/pe/1185968216/m2-traducir-a1_2026-flash-cards/?funnelUUID=88347fcd-f19f-4e3e-bde9-7c6c0be1febd'}
+    ]
+  },
   {id:3,name:'Health & Body',ok:false,img:'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80',tags:[],topics:[],grammar:[],summaries:[],quizlet:[]},
   {id:4,name:'Travel & Transport',ok:false,img:'https://images.unsplash.com/photo-1488085061387-422e29b40080?w=600&q=80',tags:[],topics:[],grammar:[],summaries:[],quizlet:[]},
   {id:5,name:'Work & Future Plans',ok:false,img:'https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80',tags:[],topics:[],grammar:[],summaries:[],quizlet:[]},
 ];
-
 function buildGrammarSec(m){
   if(!m.grammar||m.grammar.length===0) return '<p style="font-size:12px;color:var(--ts);padding:10px 0;">Sin ejercicios disponibles aún.</p>';
   return m.grammar.map((g,i)=>{
@@ -246,10 +305,8 @@ function buildGrammarSec(m){
     </div>`;
   }).join('');
 }
-
 function buildDrawer(m){
   let html='';
-
   // Materiales
   html+=`<div class="dsec" id="ds_${m.id}_mt">
     <div class="dsec-trig" onclick="tog('ds_${m.id}_mt')">
@@ -277,7 +334,6 @@ function buildDrawer(m){
       </div>
     </div>
   </div>`;
-
   // Comprensión Lectora
   html+=`<div class="dsec" id="ds_${m.id}_rd">
     <div class="dsec-trig" onclick="tog('ds_${m.id}_rd')">
@@ -291,7 +347,6 @@ function buildDrawer(m){
       </div>
     </div>
   </div>`;
-
   // Comprensión Auditiva
   html+=`<div class="dsec" id="ds_${m.id}_ls">
     <div class="dsec-trig" onclick="tog('ds_${m.id}_ls')">
@@ -305,7 +360,6 @@ function buildDrawer(m){
       </div>
     </div>
   </div>`;
-
   // Quizlet
   html+=`<div class="dsec" id="ds_${m.id}_qu">
     <div class="dsec-trig" onclick="tog('ds_${m.id}_qu')">
@@ -320,7 +374,6 @@ function buildDrawer(m){
       </div>
     </div>
   </div>`;
-
   // Práctica de Gramática
   html+=`<div class="dsec" id="ds_${m.id}_gr">
     <div class="dsec-trig" onclick="tog('ds_${m.id}_gr')">
@@ -334,10 +387,8 @@ function buildDrawer(m){
       ${buildGrammarSec(m)}
     </div>
   </div>`;
-
   return html;
 }
-
 function buildCard(m){
   const tags=m.tags.map(t=>`<span class="mtag">${t}</span>`).join('');
   return `<div class="mcard${m.ok?'':' locked'}" onclick="${m.ok?`openDrawer(${m.id})`:''}">
@@ -351,9 +402,7 @@ function buildCard(m){
     <div class="mcard-cta">${m.ok?'<div class="cta-btn">Ver recursos ›</div>':'<div class="lock-cta">🔒</div>'}</div>
   </div>`;
 }
-
 function tog(id){document.getElementById(id).classList.toggle('open');}
-
 function openDrawer(id){
   const m=DATA.find(x=>x.id===id);
   document.getElementById('d-name').textContent=m.name;
