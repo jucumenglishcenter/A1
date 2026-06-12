@@ -2214,5 +2214,7 @@ function showNote(wordEl,idx){closeAllNotes();const noteHTML=NOTES[idx];if(!note
 function closeAllNotes(){document.querySelectorAll('.note-popup').forEach(n=>n.remove());activeNote=null}
 document.addEventListener('click',(e)=>{if(activeNote&&!e.target.closest('.note-word')&&!e.target.closest('.note-popup'))closeAllNotes()});
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>
