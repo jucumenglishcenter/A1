@@ -1029,6 +1029,7 @@ function showCompletion() {
   document.getElementById('submit-section').style.display = 'none';
   document.getElementById('completion-card').classList.add('show');
   document.getElementById('final-score').textContent = `${score}/${totalQ}`;
+  window.dispatchEvent(new CustomEvent('jucum:done', { detail: { score: Math.round(score / totalQ * 100) } })); // JUCUM seguimiento
 
   const msgs = ['¡Sigue practicando! 💪', 'Buen intento. Lee la historia otra vez. 📖', '¡Muy bien! Tienes buena comprensión. 👍', '¡Excelente comprensión lectora! 🌟'];
   const msgIdx = score <= 2 ? 0 : score <= 4 ? 1 : score <= 6 ? 2 : 3;
@@ -1074,5 +1075,7 @@ function resetQuiz(scrollUp = true) {
 // ════════════════════════════════════════════
 buildQuiz();
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>

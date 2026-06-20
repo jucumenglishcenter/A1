@@ -363,6 +363,7 @@ for(var i=0;i<5;i++)total+=(scores["s"+i]||0);
 var ts=document.getElementById("totalScore");
 if(ts)ts.innerHTML="<div class=\"big\">"+total+"/25</div><div class=\"small\">"+TEXT_TOTAL+"</div>";
 sf.classList.add("show");
+window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:Math.round(total/25*100)}})); // JUCUM seguimiento
 sf.scrollIntoView({behavior:"smooth"});
 },500);
 }
@@ -372,5 +373,7 @@ renderStepTabs();renderCard();
 
 
 </script>
+<!-- JUCUM English Center · seguimiento de progreso -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
 </body>
 </html>
