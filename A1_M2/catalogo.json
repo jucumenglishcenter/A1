@@ -144,6 +144,7 @@
       "type": "grammar",
       "name": "Transform",
       "group": "T4 · Present Perfect (ever/never)",
+      "latent": true,
       "url": "https://jucumenglishcenter.github.io/A1/A1_M2/Practicas/T4_Present%20Perfect%20ever-never/Present%20Perfect%20ever-never_Transform.html"
     },
     {
@@ -172,6 +173,7 @@
       "type": "grammar",
       "name": "Transform",
       "group": "T5 · Present Perfect (just/already/yet)",
+      "latent": true,
       "url": "https://jucumenglishcenter.github.io/A1/A1_M2/Practicas/T5_Present%20Perfect%20just-already-yet/Present%20Perfect%20just-already-yet_Transform.html"
     },
     {
@@ -256,6 +258,7 @@
       "type": "grammar",
       "name": "Transform",
       "group": "T8 · Word Order with Adverbials",
+      "latent": true,
       "url": "https://jucumenglishcenter.github.io/A1/A1_M2/Practicas/T8_Word%20Order%20Adverbials/Word%20Order%20Adverbials_Transform.html"
     }
   ]
