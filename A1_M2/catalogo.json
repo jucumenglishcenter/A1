@@ -34,6 +34,16 @@
       "url": "https://jucumenglishcenter.github.io/A1/A1_M2/Listening_Shopping%2C%20Services%20%26%20Money.html"
     },
     {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Shopping, Services & Money",
+      "open": true,
+      "quizVocabulario": "",
+      "quizVocabulario2": "",
+      "quizTraducir": "",
+      "quizOrdenar": ""
+    },
+    {
       "id": "sum-adverbs-frequency",
       "type": "summary",
       "name": "Resumen · Adverbs of Frequency",
