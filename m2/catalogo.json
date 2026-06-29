@@ -1,0 +1,276 @@
+{
+  "module": "Shopping, Services & Money",
+  "emoji": "🛍️",
+  "level": "a1",
+  "topics": [
+    "Adverbs of Frequency",
+    "Prepositions of Time (at/in/on)",
+    "Present Continuous",
+    "Present Perfect (ever/never)",
+    "Present Perfect (just/already/yet)",
+    "Present Simple Negative (3rd)",
+    "Present Simple Questions",
+    "Word Order with Adverbials"
+  ],
+  "activities": [
+    {
+      "id": "story",
+      "type": "story",
+      "name": "Stories y Diálogos · Shopping, Services & Money",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/story.html"
+    },
+    {
+      "id": "reading",
+      "type": "reading",
+      "name": "Comprensión lectora · Shopping, Services & Money",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/reading.html"
+    },
+    {
+      "id": "listening",
+      "type": "listening",
+      "name": "Comprensión auditiva · Shopping, Services & Money",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/listening.html"
+    },
+    {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Shopping, Services & Money",
+      "open": true,
+      "quizVocabulario": "https://quizlet.com/pe/1185967129/vocabulario-1-a1_2026-flash-cards/?funnelUUID=b12ec622-6e49-4be0-8fb4-5b5c960788d0",
+      "quizVocabulario2": "https://quizlet.com/pe/1185967419/vocabulario-2-a1_2026-flash-cards/?funnelUUID=02586a25-2db5-4870-9f79-977fd75c0fd4",
+      "quizTraducir": "https://quizlet.com/pe/1185968216/m2-traducir-a1_2026-flash-cards/?funnelUUID=56541435-865b-460a-b893-6b190c927ed0",
+      "quizOrdenar": "https://quizlet.com/pe/1185967983/m1-ordenar-a1_2026-flash-cards/?funnelUUID=d54f2812-c21c-42be-bc39-665d5125a62c"
+    },
+    {
+      "id": "sum-adverbs-frequency",
+      "type": "summary",
+      "name": "Resumen · Adverbs of Frequency",
+      "group": "T1 · Adverbs of Frequency",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t1-adverbs-frequency.html"
+    },
+    {
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · Adverbs of Frequency",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t1-adverbs-frequency/fill.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · Adverbs of Frequency",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t1-adverbs-frequency/identify.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · Adverbs of Frequency",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t1-adverbs-frequency/transform.html"
+    },
+    {
+      "id": "sum-prepositions",
+      "type": "summary",
+      "name": "Resumen · Prepositions of Time (at/in/on)",
+      "group": "T2 · Prepositions of Time (at/in/on)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t2-prepositions-at-in-on.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · Prepositions of Time (at/in/on)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t2-prepositions-at-in-on/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · Prepositions of Time (at/in/on)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t2-prepositions-at-in-on/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · Prepositions of Time (at/in/on)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t2-prepositions-at-in-on/transform.html"
+    },
+    {
+      "id": "sum-present-continuous",
+      "type": "summary",
+      "name": "Resumen · Present Continuous",
+      "group": "T3 · Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t3-present-continuous.html"
+    },
+    {
+      "id": "t3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t3-present-continuous/fill.html"
+    },
+    {
+      "id": "t3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t3-present-continuous/identify.html"
+    },
+    {
+      "id": "t3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · Present Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t3-present-continuous/transform.html"
+    },
+    {
+      "id": "sum-present-perfect-ever",
+      "type": "summary",
+      "name": "Resumen · Present Perfect (ever/never)",
+      "group": "T4 · Present Perfect (ever/never)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t4-present-perfect-ever.html"
+    },
+    {
+      "id": "t4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Present Perfect (ever/never)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t4-present-perfect-ever/fill.html"
+    },
+    {
+      "id": "t4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Present Perfect (ever/never)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t4-present-perfect-ever/identify.html"
+    },
+    {
+      "id": "t4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Present Perfect (ever/never)",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t4-present-perfect-ever/transform.html"
+    },
+    {
+      "id": "sum-present-perfect-just",
+      "type": "summary",
+      "name": "Resumen · Present Perfect (just/already/yet)",
+      "group": "T5 · Present Perfect (just/already/yet)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t5-present-perfect-just.html"
+    },
+    {
+      "id": "t5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Present Perfect (just/already/yet)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t5-present-perfect-just/fill.html"
+    },
+    {
+      "id": "t5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Present Perfect (just/already/yet)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t5-present-perfect-just/identify.html"
+    },
+    {
+      "id": "t5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Present Perfect (just/already/yet)",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t5-present-perfect-just/transform.html"
+    },
+    {
+      "id": "sum-present-simple-neg",
+      "type": "summary",
+      "name": "Resumen · Present Simple Negative (3rd)",
+      "group": "T6 · Present Simple Negative (3rd)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t6-present-simple-negative.html"
+    },
+    {
+      "id": "t6-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T6 · Present Simple Negative (3rd)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t6-present-simple-negative/fill.html"
+    },
+    {
+      "id": "t6-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T6 · Present Simple Negative (3rd)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t6-present-simple-negative/identify.html"
+    },
+    {
+      "id": "t6-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T6 · Present Simple Negative (3rd)",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t6-present-simple-negative/transform.html"
+    },
+    {
+      "id": "sum-present-simple-q",
+      "type": "summary",
+      "name": "Resumen · Present Simple Questions",
+      "group": "T7 · Present Simple Questions",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t7-present-simple-questions.html"
+    },
+    {
+      "id": "t7-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T7 · Present Simple Questions",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t7-present-simple-questions/fill.html"
+    },
+    {
+      "id": "t7-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T7 · Present Simple Questions",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t7-present-simple-questions/identify.html"
+    },
+    {
+      "id": "t7-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T7 · Present Simple Questions",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t7-present-simple-questions/transform.html"
+    },
+    {
+      "id": "sum-word-order",
+      "type": "summary",
+      "name": "Resumen · Word Order with Adverbials",
+      "group": "T8 · Word Order with Adverbials",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/gramatica/t8-word-order.html"
+    },
+    {
+      "id": "t8-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T8 · Word Order with Adverbials",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t8-word-order/fill.html"
+    },
+    {
+      "id": "t8-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T8 · Word Order with Adverbials",
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t8-word-order/identify.html"
+    },
+    {
+      "id": "t8-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T8 · Word Order with Adverbials",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m2/practicas/t8-word-order/transform.html"
+    }
+  ]
+}
