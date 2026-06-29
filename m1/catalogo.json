@@ -1,0 +1,236 @@
+{
+  "module": "Daily Life & Personal Routines",
+  "emoji": "🌅",
+  "level": "a1",
+  "topics": [
+    "Imperatives",
+    "Articles",
+    "There is/are + To be",
+    "Wh-questions in the past",
+    "Past Continuous + Past Simple vs Continuous",
+    "Modals + Will / Probably / Might"
+  ],
+  "activities": [
+    {
+      "id": "story",
+      "type": "story",
+      "name": "Stories y Diálogos · Daily Life & Personal Routines",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m1/story.html"
+    },
+    {
+      "id": "reading",
+      "type": "reading",
+      "name": "Comprensión lectora · Daily Life & Personal Routines",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m1/reading.html"
+    },
+    {
+      "id": "listening",
+      "type": "listening",
+      "name": "Comprensión auditiva · Daily Life & Personal Routines",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m1/listening.html"
+    },
+    {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario Daily Life & Personal Routines",
+      "open": true,
+      "quizVocabulario": "https://quizlet.com/pe/1159987427/a1-vocabulario-1-eng-es-flash-cards/?funnelUUID=62937987-8606-4027-9022-6a915d275f0f",
+      "quizVocabulario2": "https://quizlet.com/pe/1156003746/a1-vocabulario-2-eng-es-flash-cards/?funnelUUID=7e1f6a6a-72d1-489e-8626-6d73d0d36f1f",
+      "quizTraducir": "https://quizlet.com/pe/1156004062/a1-escritura-traducir-flash-cards/?funnelUUID=7d886dca-fc1b-4fec-8029-a6318fef4bf3",
+      "quizOrdenar": "https://quizlet.com/pe/1156003850/a1-escritura-ordenar-flash-cards/?funnelUUID=6ad24e8c-9c2d-4055-800b-4ecc1ce39fe6"
+    },
+    {
+      "id": "sum-imperatives",
+      "type": "summary",
+      "name": "Resumen · Imperatives",
+      "group": "T1 · Imperatives",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t1-imperatives.html"
+    },
+    {
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · Imperatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t1-imperatives/fill.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · Imperatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t1-imperatives/identify.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · Imperatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t1-imperatives/transform.html"
+    },
+    {
+      "id": "sum-articles",
+      "type": "summary",
+      "name": "Resumen · Articles",
+      "group": "T2 · Articles",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t2-articles.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · Articles",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t2-articles/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · Articles",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t2-articles/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · Articles",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t2-articles/transform.html"
+    },
+    {
+      "id": "sum-there-is-are",
+      "type": "summary",
+      "name": "Resumen · There is / There are",
+      "group": "T3 · There is/are + To be",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t3-there-is-are-to-be-1.html"
+    },
+    {
+      "id": "sum-to-be",
+      "type": "summary",
+      "name": "Resumen · To be",
+      "group": "T3 · There is/are + To be",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t3-there-is-are-to-be-2.html"
+    },
+    {
+      "id": "t3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · There is/are + To be",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t3-there-is-are-to-be/fill.html"
+    },
+    {
+      "id": "t3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · There is/are + To be",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t3-there-is-are-to-be/identify.html"
+    },
+    {
+      "id": "t3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · There is/are + To be",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t3-there-is-are-to-be/transform.html"
+    },
+    {
+      "id": "sum-wh-questions-past",
+      "type": "summary",
+      "name": "Resumen · WH Questions (Past)",
+      "group": "T4 · Wh-questions in the past",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t4-wh-questions-past.html"
+    },
+    {
+      "id": "t4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Wh-questions in the past",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t4-wh-questions-past/fill.html"
+    },
+    {
+      "id": "t4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Wh-questions in the past",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t4-wh-questions-past/identify.html"
+    },
+    {
+      "id": "t4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Wh-questions in the past",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t4-wh-questions-past/transform.html"
+    },
+    {
+      "id": "sum-past-continuous",
+      "type": "summary",
+      "name": "Resumen · Past Continuous",
+      "group": "T5 · Past Continuous + Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t5-past-continuous-simple-1.html"
+    },
+    {
+      "id": "sum-past-simple-vs-continuous",
+      "type": "summary",
+      "name": "Resumen · Past Simple vs Continuous",
+      "group": "T5 · Past Continuous + Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t5-past-continuous-simple-2.html"
+    },
+    {
+      "id": "t5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Past Continuous + Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t5-past-continuous-simple/fill.html"
+    },
+    {
+      "id": "t5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Past Continuous + Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t5-past-continuous-simple/identify.html"
+    },
+    {
+      "id": "t5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Past Continuous + Past Simple vs Continuous",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t5-past-continuous-simple/transform.html"
+    },
+    {
+      "id": "sum-will-probably-might",
+      "type": "summary",
+      "name": "Resumen · Will / Probably / Might",
+      "group": "T6 · Modals + Will / Probably / Might",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/t6-modals-will-might.html"
+    },
+    {
+      "id": "sum-modals-deduction",
+      "type": "summary",
+      "name": "Resumen · Modals of Deduction",
+      "group": "T6 · Modals + Will / Probably / Might",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/gramatica/_extra-modals-deduction.html"
+    },
+    {
+      "id": "t6-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T6 · Modals + Will / Probably / Might",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t6-modals-will-might/fill.html"
+    },
+    {
+      "id": "t6-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T6 · Modals + Will / Probably / Might",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t6-modals-will-might/identify.html"
+    },
+    {
+      "id": "t6-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T6 · Modals + Will / Probably / Might",
+      "url": "https://jucumenglishcenter.github.io/A1/m1/practicas/t6-modals-will-might/transform.html"
+    }
+  ]
+}
