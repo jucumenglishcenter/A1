@@ -222,14 +222,16 @@ const STEPS = [
         ${ii('⏱️','<b>Tip 1 — just / already:</b> en afirmativas, entre have/has y el participio.')}
         ${ii('❓','<b>Tip 2 — yet:</b> solo en preguntas y negativas, al final de la frase.')}
         ${ii('🔁','<b>Tip 3 — already ↔ yet:</b> «Have you finished yet?» → «Yes, I have already finished».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have finished already my work yet» → ✅ «I have <b>already</b> finished my work».<br>❌ «Have you yet eaten?» → ✅ «Have you eaten <b>yet</b>?»</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I have finished already my work yet» → ✅ «I have <b>already</b> finished my work».<br>❌ «Have you yet eaten?» → ✅ «Have you eaten <b>yet</b>?»</p></div>
+        ${ii('⚡','yet va solo en negativas y preguntas, y al final: «I have not finished yet».')}`,
       en:`<div class="gdesc">Each word in its place:</div>
         <div class="fbox"><div class="frm"><span class="pill s">have</span><span class="plus">+</span><span class="pill v">just/already</span><span class="plus">+</span><span class="pill o">participle</span></div><div class="fex"><span class="s">I have</span> <span class="v">just</span> <span class="o">arrived</span>. — Acabo de llegar.</div></div>
         <div class="fbox"><div class="frm"><span class="pill s">… participle</span><span class="plus">+</span><span class="pill o">yet?</span></div><div class="fex">Have you finished <span class="o">yet</span>? — ¿Ya terminaste?</div></div>
         ${ii('⏱️','<b>Tip 1 — just / already:</b> in affirmatives, between have/has and the participle.')}
         ${ii('❓','<b>Tip 2 — yet:</b> only in questions and negatives, at the end of the sentence.')}
         ${ii('🔁','<b>Tip 3 — already ↔ yet:</b> «Have you finished yet?» → «Yes, I have already finished».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have finished already my work yet» → ✅ «I have <b>already</b> finished my work».<br>❌ «Have you yet eaten?» → ✅ «Have you eaten <b>yet</b>?»</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I have finished already my work yet» → ✅ «I have <b>already</b> finished my work».<br>❌ «Have you yet eaten?» → ✅ «Have you eaten <b>yet</b>?»</p></div>
+        ${ii('⚡','yet appears only in negatives and questions, at the end: «I have not finished yet».')}`
     },
     checks:[
       { q:{es:'«We have ___ booked the tickets.» (ya):',en:'«We have ___ booked the tickets.» (already):'}, opts:{es:['already','yet'],en:['already','yet']}, correct:0, fb:{ why:{es:'Afirmativa → already.',en:'Affirmative → already.'}, ex:{es:'already booked → ya reservamos',en:'already booked'}, tip:{es:'afirmativa → already',en:'affirmative → already'}}, tr:{es:'Ya reservamos los boletos.',en:'We have already booked the tickets.'} },

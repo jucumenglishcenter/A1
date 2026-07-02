@@ -224,14 +224,16 @@ const STEPS = [
         ${ii('❓','<b>Tip 1 — Preguntar:</b> «Have you ever + participio?» → Have you ever flown?')}
         ${ii('🚫','<b>Tip 2 — Negar:</b> «I have never + participio» (never reemplaza al «not»).')}
         ${ii('✅','<b>Tip 3 — Responder:</b> «Yes, I have» / «No, I haven\'t» / «No, never».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Have you ever go?» → ✅ «Have you ever <b>gone</b>?» (participio).<br>❌ «I have never ate sushi» → ✅ «I have never <b>eaten</b> sushi».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Have you ever go?» → ✅ «Have you ever <b>gone</b>?» (participio).<br>❌ «I have never ate sushi» → ✅ «I have never <b>eaten</b> sushi».</p></div>
+        ${ii('⚡','never ya es negativo — no dobles la negación: ✗ «I have not never seen» → ✓ «I have never seen».')}`,
       en:`<div class="gdesc">The two formulas with ever / never:</div>
         <div class="fbox"><div class="frm"><span class="pill v">Have/Has</span><span class="plus">+</span><span class="pill s">subject</span><span class="plus">+</span><span class="pill o">ever + participle?</span></div><div class="fex"><span class="v">Have</span> <span class="s">you</span> <span class="o">ever been</span> abroad?</div></div>
         <div class="fbox"><div class="frm"><span class="pill s">Subject</span><span class="plus">+</span><span class="pill v">have/has never</span><span class="plus">+</span><span class="pill o">participle</span></div><div class="fex"><span class="s">I</span> <span class="v">have never</span> <span class="o">tried</span> it.</div></div>
         ${ii('❓','<b>Tip 1 — Ask:</b> «Have you ever + participle?» → Have you ever flown?')}
         ${ii('🚫','<b>Tip 2 — Negate:</b> «I have never + participle» (never replaces the «not»).')}
         ${ii('✅','<b>Tip 3 — Answer:</b> «Yes, I have» / «No, I haven\'t» / «No, never».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Have you ever go?» → ✅ «Have you ever <b>gone</b>?» (participle).<br>❌ «I have never ate sushi» → ✅ «I have never <b>eaten</b> sushi».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Have you ever go?» → ✅ «Have you ever <b>gone</b>?» (participle).<br>❌ «I have never ate sushi» → ✅ «I have never <b>eaten</b> sushi».</p></div>
+        ${ii('⚡','never is already negative — do not double it: ✗ «I have not never seen» → ✓ «I have never seen».')}`
     },
     checks:[
       { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['Have you ever gone there?','Have you ever go there?'],en:['Have you ever gone there?','Have you ever go there?']}, correct:0, fb:{ why:{es:'Participio de go = gone.',en:'Participle of go = gone.'}, ex:{es:'Have you ever gone there?',en:'Have you ever gone there?'}, tip:{es:'go → gone',en:'go → gone'}} },

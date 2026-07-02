@@ -220,14 +220,16 @@ const STEPS = [
         ${ii('👉','<b>Tip 1 — Elige:</b> He/She/It → does · I/You/We/They → do.')}
         ${ii('✂️','<b>Tip 2 — Verbo base:</b> nunca «Does he plays?».')}
         ${ii('✅','<b>Tip 3 — Respuesta corta:</b> «Yes, I do» / «No, he doesn\'t».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Do she like…?» → ✅ «<b>Does</b> she like…?»<br>❌ «What she does?» → ✅ «What <b>does</b> she do?»</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «Do she like…?» → ✅ «<b>Does</b> she like…?»<br>❌ «What she does?» → ✅ «What <b>does</b> she do?»</p></div>
+        ${ii('⚡','Does ya carga la -s: ✗ «Does he plays?» → ✓ «Does he play?».')}`,
       en:`<div class="gdesc">The two formulas, side by side:</div>
         <div class="fbox"><div class="frm"><span class="pill v">Do/Does</span><span class="plus">+</span><span class="pill s">subject</span><span class="plus">+</span><span class="pill o">base?</span></div><div class="fex"><span class="v">Does</span> <span class="s">he</span> <span class="o">work</span>? — ¿Él trabaja?</div></div>
         <div class="fbox"><div class="frm"><span class="pill p">WH</span><span class="plus">+</span><span class="pill v">do/does</span><span class="plus">+</span><span class="pill s">subject + base?</span></div><div class="fex"><span class="p">What</span> <span class="v">do</span> <span class="s">you do</span>? — ¿A qué te dedicas?</div></div>
         ${ii('👉','<b>Tip 1 — Choose:</b> He/She/It → does · I/You/We/They → do.')}
         ${ii('✂️','<b>Tip 2 — Base verb:</b> never «Does he plays?».')}
         ${ii('✅','<b>Tip 3 — Short answer:</b> «Yes, I do» / «No, he doesn\'t».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Do she like…?» → ✅ «<b>Does</b> she like…?»<br>❌ «What she does?» → ✅ «What <b>does</b> she do?»</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «Do she like…?» → ✅ «<b>Does</b> she like…?»<br>❌ «What she does?» → ✅ «What <b>does</b> she do?»</p></div>
+        ${ii('⚡','Does already carries the -s: ✗ «Does he plays?» → ✓ «Does he play?».')}`
     },
     checks:[
       { q:{es:'«___ they need help?»',en:'«___ they need help?»'}, opts:{es:['Do','Does'],en:['Do','Does']}, correct:0, fb:{ why:{es:'they → Do.',en:'they → Do.'}, ex:{es:'Do they need help? → ¿Necesitan ayuda?',en:'Do they need help?'}, tip:{es:'they → Do',en:'they → Do'}} },

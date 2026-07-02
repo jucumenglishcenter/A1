@@ -219,13 +219,15 @@ const STEPS = [
         ${ii('🧱','<b>Tip 1 — No separes V y O:</b> «I eat pizza quickly» ✅, no «I eat quickly pizza».')}
         ${ii('📍','<b>Tip 2 — Lugar antes que tiempo:</b> «at home in the evening», no al revés.')}
         ${ii('🔁','<b>Tip 3 — Para enfatizar,</b> el tiempo puede ir al inicio: «On Sundays, I play football».')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I go on Sundays to the park» → ✅ «I go <b>to the park on Sundays</b>» (lugar antes que tiempo).</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I go on Sundays to the park» → ✅ «I go <b>to the park on Sundays</b>» (lugar antes que tiempo).</p></div>
+        ${ii('⚡','Orden natural: lugar antes que tiempo: «I study at home in the evening».')}`,
       en:`<div class="gdesc">The golden template:</div>
         <div class="fbox"><div class="frm"><span class="pill s">S</span><span class="plus">+</span><span class="pill v">V</span><span class="plus">+</span><span class="pill o">O</span><span class="plus">+</span><span class="pill p">how · where · when</span></div><div class="fex"><span class="s">I</span> <span class="v">play</span> <span class="o">football</span> <span class="p">in the park on Sundays</span>.</div></div>
         ${ii('🧱','<b>Tip 1 — Don\'t separate V and O:</b> «I eat pizza quickly» ✅, not «I eat quickly pizza».')}
         ${ii('📍','<b>Tip 2 — Place before time:</b> «at home in the evening», not the other way.')}
         ${ii('🔁','<b>Tip 3 — For emphasis,</b> time can go at the start: «On Sundays, I play football».')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I go on Sundays to the park» → ✅ «I go <b>to the park on Sundays</b>» (place before time).</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I go on Sundays to the park» → ✅ «I go <b>to the park on Sundays</b>» (place before time).</p></div>
+        ${ii('⚡','Natural order: place before time: «I study at home in the evening».')}`
     },
     checks:[
       { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['I eat pizza quickly','I eat quickly pizza'],en:['I eat pizza quickly','I eat quickly pizza']}, correct:0, fb:{ why:{es:'V + O juntos.',en:'V + O together.'}, ex:{es:'I eat pizza quickly → Como pizza rápido',en:'I eat pizza quickly'}, tip:{es:'no separes V y O',en:'don\'t split V and O'}} },

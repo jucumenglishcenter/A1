@@ -221,13 +221,15 @@ const STEPS = [
         ${ii('🧠','<b>Tip 1 — No olvides el «be»:</b> «I am eating», no «I eating».')}
         ${ii('🔤','<b>Tip 2 — Ortografía:</b> +ing · quita la «e» (make→making) · dobla (run→running).')}
         ${ii('🚫','<b>Tip 3 — Verbos de estado</b> (like, want, know, have=tener) casi no van en -ing: «I want» (no «I am wanting»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «She reading» → ✅ «She <b>is</b> reading».<br>❌ «I am liking it» → ✅ «I <b>like</b> it».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «She reading» → ✅ «She <b>is</b> reading».<br>❌ «I am liking it» → ✅ «I <b>like</b> it».</p></div>
+        ${ii('⚡','Nunca sueltes el to be: ✗ «I working» → ✓ «I am working».')}`,
       en:`<div class="gdesc">The full structure:</div>
         <div class="fbox"><div class="frm"><span class="pill s">Subject</span><span class="plus">+</span><span class="pill v">am/is/are</span><span class="plus">+</span><span class="pill o">verb-ing</span></div><div class="fex"><span class="s">She</span> <span class="v">is</span> <span class="o">reading</span>. — Ella está leyendo.</div></div>
         ${ii('🧠','<b>Tip 1 — Don\'t forget the «be»:</b> «I am eating», not «I eating».')}
         ${ii('🔤','<b>Tip 2 — Spelling:</b> +ing · drop the «e» (make→making) · double (run→running).')}
         ${ii('🚫','<b>Tip 3 — State verbs</b> (like, want, know, have=own) rarely go in -ing: «I want» (not «I am wanting»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «She reading» → ✅ «She <b>is</b> reading».<br>❌ «I am liking it» → ✅ «I <b>like</b> it».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «She reading» → ✅ «She <b>is</b> reading».<br>❌ «I am liking it» → ✅ «I <b>like</b> it».</p></div>
+        ${ii('⚡','Never drop to be: ✗ «I working» → ✓ «I am working».')}`
     },
     checks:[
       { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['She is working','She working'],en:['She is working','She working']}, correct:0, fb:{ why:{es:'Necesita «is».',en:'It needs «is».'}, ex:{es:'She is working → Está trabajando',en:'She is working'}, tip:{es:'be + -ing',en:'be + -ing'}} },

@@ -219,13 +219,15 @@ const STEPS = [
         ${ii('👉','<b>Tip 1 — Solo he/she/it usan «doesn\'t»:</b> las demás personas usan «don\'t».')}
         ${ii('✂️','<b>Tip 2 — Verbo base:</b> después de «doesn\'t», nunca pongas «-s».')}
         ${ii('🔄','<b>Tip 3 — Afirmativo ↔ negativo:</b> «He eats» → «He doesn\'t eat» (la «-s» salta a «does»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>`,
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>
+        ${ii('⚡','La -s se muda a does y el verbo queda base: ✗ «She does not likes» → ✓ «She does not like».')}`,
       en:`<div class="gdesc">The structure for 3rd person:</div>
         <div class="fbox"><div class="frm"><span class="pill s">He/She/It</span><span class="plus">+</span><span class="pill v">doesn't</span><span class="plus">+</span><span class="pill o">base verb</span></div><div class="fex"><span class="s">She</span> <span class="v">doesn't</span> <span class="o">eat</span> meat. — Ella no come carne.</div></div>
         ${ii('👉','<b>Tip 1 — Only he/she/it use «doesn\'t»:</b> the other persons use «don\'t».')}
         ${ii('✂️','<b>Tip 2 — Base verb:</b> after «doesn\'t», never add «-s».')}
         ${ii('🔄','<b>Tip 3 — Affirmative ↔ negative:</b> «He eats» → «He doesn\'t eat» (the «-s» jumps to «does»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>`
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>
+        ${ii('⚡','The -s moves to does and the verb stays base: ✗ «She does not likes» → ✓ «She does not like».')}`
     },
     checks:[
       { q:{es:'«He ___ like vegetables.»',en:'«He ___ like vegetables.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'he → doesn\'t.',en:'he → doesn\'t.'}, ex:{es:'He doesn\'t like vegetables → No le gustan las verduras',en:'He doesn\'t like vegetables'}, tip:{es:'he → doesn\'t',en:'he → doesn\'t'}} },
