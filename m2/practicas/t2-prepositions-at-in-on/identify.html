@@ -124,21 +124,905 @@
 const MAT = { title:'Identification', subtitle:'A1 · M2 · Preposiciones (at/in/on)', langDefault:'es', reportId:'A1_M2_t2-id' };
 const PASS = 78;
 const QS = [
- { clue:"in", target:3, tap:[3,4,5], reinf:{es:"hora · at",en:"hora · at"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["The","class","starts","in","8","AM."], tr:"La clase empieza a las 8 AM.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«in 8 AM» está mal: con horas exactas → <b>at</b> 8 AM.",en:"«in 8 AM» is wrong: clock times use <b>at</b> 8 AM."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"on", target:3, tap:[3,4], reinf:{es:"mes · in",en:"mes · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["Her","birthday","is","on","September."], tr:"Su cumpleaños es en septiembre.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«on September» está mal: los meses usan <b>in</b> September.",en:"«on September» is wrong: months use <b>in</b> September."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"at", target:2, tap:[2,3], reinf:{es:"día · on",en:"día · on"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["We","meet","at","Monday."], tr:"Nos vemos el lunes.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«at Monday» está mal: los días usan <b>on</b> Monday.",en:"«at Monday» is wrong: days use <b>on</b> Monday."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"at", target:2, tap:[2,3], reinf:{es:"ciudad · in",en:"ciudad · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["James","lives","at","Lima."], tr:"James vive en Lima.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«at Lima» está mal: las ciudades usan <b>in</b> Lima.",en:"«at Lima» is wrong: cities use <b>in</b> Lima."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"at", target:3, tap:[3,4,5], reinf:{es:"superficie · on",en:"superficie · on"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["The","book","is","at","the","table."], tr:"El libro está sobre la mesa.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«at the table» está mal: sobre una superficie → <b>on</b> the table.",en:"«at the table» is wrong: on a surface → <b>on</b> the table."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"on", target:2, tap:[2,3], reinf:{es:"at night (fijo)",en:"at night (fijo)"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["I","read","on","night."], tr:"Leo de noche.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«on night» está mal: es una expresión fija → <b>at</b> night.",en:"«on night» is wrong: fixed phrase → <b>at</b> night."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"on", target:3, tap:[3,4], reinf:{es:"año · in",en:"año · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["He","was","born","on","2010."], tr:"Nació en 2010.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«on 2010» está mal: los años usan <b>in</b> 2010.",en:"«on 2010» is wrong: years use <b>in</b> 2010."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"in", target:3, tap:[3,4,5], reinf:{es:"fecha · on",en:"fecha · on"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["The","party","is","in","July","15th."], tr:"La fiesta es el 15 de julio.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«in July 15th» está mal: las fechas usan <b>on</b> July 15th.",en:"«in July 15th» is wrong: dates use <b>on</b> July 15th."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"in", target:2, tap:[2,3], reinf:{es:"at home (fijo)",en:"at home (fijo)"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["Sara","studies","in","home."], tr:"Sara estudia en casa.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«in home» está mal: expresión fija → <b>at</b> home.",en:"«in home» is wrong: fixed phrase → <b>at</b> home."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"on", target:3, tap:[3,4], reinf:{es:"estación · in",en:"estación · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["It's","very","hot","on","summer."], tr:"Hace mucho calor en verano.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«on summer» está mal: las estaciones usan <b>in</b> summer.",en:"«on summer» is wrong: seasons use <b>in</b> summer."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"in", target:3, tap:[3,4,5], reinf:{es:"punto · at",en:"punto · at"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["There","is","someone","in","the","door."], tr:"Hay alguien en la puerta.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«in the door» está mal: un punto específico → <b>at</b> the door.",en:"«in the door» is wrong: a specific point → <b>at</b> the door."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"at", target:2, tap:[2,3,4], reinf:{es:"espacio cerrado · in",en:"espacio cerrado · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["Mom","cooks","at","the","kitchen."], tr:"Mamá cocina en la cocina.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«at the kitchen» está mal: un espacio cerrado → <b>in</b> the kitchen.",en:"«at the kitchen» is wrong: enclosed space → <b>in</b> the kitchen."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"in", target:2, tap:[2,3], reinf:{es:"weekends · on",en:"weekends · on"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["Diego","rests","in","weekends."], tr:"Diego descansa los fines de semana.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«in weekends» está mal: → <b>on</b> weekends.",en:"«in weekends» is wrong: → <b>on</b> weekends."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"at", target:3, tap:[3,4,5], reinf:{es:"parte del día · in",en:"parte del día · in"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["The","bus","comes","at","the","morning."], tr:"El bus llega en la mañana.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«at the morning» está mal: → <b>in</b> the morning.",en:"«at the morning» is wrong: → <b>in</b> the morning."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} },
- { clue:"on", target:2, tap:[2,3], reinf:{es:"at noon (fijo)",en:"at noon (fijo)"}, task:{"es":"Toca la palabra con el <b>error</b> (la preposición incorrecta).","en":"Tap the word with the <b>error</b> (the wrong preposition)."}, words:["We","arrive","on","noon."], tr:"Llegamos al mediodía.", hint:{es:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."},en:{"es":"Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.","en":"Remember: clock → at · months/years/seasons → in · days/dates → on."}}, story:null, why:{es:"«on noon» está mal: expresión fija → <b>at</b> noon.",en:"«on noon» is wrong: fixed phrase → <b>at</b> noon."}, others:{es:"",en:""}, rule:{es:"horas→at · meses/años/estaciones→in · días/fechas→on",en:"clock→at · months/years/seasons→in · days/dates→on"}, examples:{es:[],en:[]}, es:{es:"",en:""}, lit:{es:"",en:""} }
+ {
+  "clue": "in",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "hora · at",
+   "en": "hora · at"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "The",
+   "class",
+   "starts",
+   "in",
+   "8",
+   "AM."
+  ],
+  "tr": "La clase empieza a las 8 AM.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«in 8 AM» está mal: con horas exactas → <b>at</b> 8 AM.",
+   "en": "«in 8 AM» is wrong: clock times use <b>at</b> 8 AM."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "on",
+  "target": 3,
+  "tap": [
+   0,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "mes · in",
+   "en": "mes · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "Her",
+   "birthday",
+   "is",
+   "on",
+   "September."
+  ],
+  "tr": "Su cumpleaños es en septiembre.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«on September» está mal: los meses usan <b>in</b> September.",
+   "en": "«on September» is wrong: months use <b>in</b> September."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "at",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "día · on",
+   "en": "día · on"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "We",
+   "meet",
+   "at",
+   "Monday."
+  ],
+  "tr": "Nos vemos el lunes.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«at Monday» está mal: los días usan <b>on</b> Monday.",
+   "en": "«at Monday» is wrong: days use <b>on</b> Monday."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "at",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "ciudad · in",
+   "en": "ciudad · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "James",
+   "lives",
+   "at",
+   "Lima."
+  ],
+  "tr": "James vive en Lima.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«at Lima» está mal: las ciudades usan <b>in</b> Lima.",
+   "en": "«at Lima» is wrong: cities use <b>in</b> Lima."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "at",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "superficie · on",
+   "en": "superficie · on"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "The",
+   "book",
+   "is",
+   "at",
+   "the",
+   "table."
+  ],
+  "tr": "El libro está sobre la mesa.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«at the table» está mal: sobre una superficie → <b>on</b> the table.",
+   "en": "«at the table» is wrong: on a surface → <b>on</b> the table."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "on",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "at night (fijo)",
+   "en": "at night (fijo)"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "I",
+   "read",
+   "on",
+   "night."
+  ],
+  "tr": "Leo de noche.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«on night» está mal: es una expresión fija → <b>at</b> night.",
+   "en": "«on night» is wrong: fixed phrase → <b>at</b> night."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "on",
+  "target": 3,
+  "tap": [
+   0,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "año · in",
+   "en": "año · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "He",
+   "was",
+   "born",
+   "on",
+   "2010."
+  ],
+  "tr": "Nació en 2010.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«on 2010» está mal: los años usan <b>in</b> 2010.",
+   "en": "«on 2010» is wrong: years use <b>in</b> 2010."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "in",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "fecha · on",
+   "en": "fecha · on"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "The",
+   "party",
+   "is",
+   "in",
+   "July",
+   "15th."
+  ],
+  "tr": "La fiesta es el 15 de julio.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«in July 15th» está mal: las fechas usan <b>on</b> July 15th.",
+   "en": "«in July 15th» is wrong: dates use <b>on</b> July 15th."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "in",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "at home (fijo)",
+   "en": "at home (fijo)"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "Sara",
+   "studies",
+   "in",
+   "home."
+  ],
+  "tr": "Sara estudia en casa.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«in home» está mal: expresión fija → <b>at</b> home.",
+   "en": "«in home» is wrong: fixed phrase → <b>at</b> home."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "on",
+  "target": 3,
+  "tap": [
+   0,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "estación · in",
+   "en": "estación · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "It's",
+   "very",
+   "hot",
+   "on",
+   "summer."
+  ],
+  "tr": "Hace mucho calor en verano.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«on summer» está mal: las estaciones usan <b>in</b> summer.",
+   "en": "«on summer» is wrong: seasons use <b>in</b> summer."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "in",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "punto · at",
+   "en": "punto · at"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "There",
+   "is",
+   "someone",
+   "in",
+   "the",
+   "door."
+  ],
+  "tr": "Hay alguien en la puerta.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«in the door» está mal: un punto específico → <b>at</b> the door.",
+   "en": "«in the door» is wrong: a specific point → <b>at</b> the door."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "at",
+  "target": 2,
+  "tap": [
+   2,
+   3,
+   4
+  ],
+  "reinf": {
+   "es": "espacio cerrado · in",
+   "en": "espacio cerrado · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "Mom",
+   "cooks",
+   "at",
+   "the",
+   "kitchen."
+  ],
+  "tr": "Mamá cocina en la cocina.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«at the kitchen» está mal: un espacio cerrado → <b>in</b> the kitchen.",
+   "en": "«at the kitchen» is wrong: enclosed space → <b>in</b> the kitchen."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "in",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "weekends · on",
+   "en": "weekends · on"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "Diego",
+   "rests",
+   "in",
+   "weekends."
+  ],
+  "tr": "Diego descansa los fines de semana.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«in weekends» está mal: → <b>on</b> weekends.",
+   "en": "«in weekends» is wrong: → <b>on</b> weekends."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "at",
+  "target": 3,
+  "tap": [
+   3,
+   4,
+   5
+  ],
+  "reinf": {
+   "es": "parte del día · in",
+   "en": "parte del día · in"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "The",
+   "bus",
+   "comes",
+   "at",
+   "the",
+   "morning."
+  ],
+  "tr": "El bus llega en la mañana.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«at the morning» está mal: → <b>in</b> the morning.",
+   "en": "«at the morning» is wrong: → <b>in</b> the morning."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ },
+ {
+  "clue": "on",
+  "target": 2,
+  "tap": [
+   0,
+   2,
+   3
+  ],
+  "reinf": {
+   "es": "at noon (fijo)",
+   "en": "at noon (fijo)"
+  },
+  "task": {
+   "es": "Toca la palabra con el <b>error</b> (la preposición incorrecta).",
+   "en": "Tap the word with the <b>error</b> (the wrong preposition)."
+  },
+  "words": [
+   "We",
+   "arrive",
+   "on",
+   "noon."
+  ],
+  "tr": "Llegamos al mediodía.",
+  "hint": {
+   "es": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   },
+   "en": {
+    "es": "Recuerda: horas → at · meses/años/estaciones → in · días/fechas → on.",
+    "en": "Remember: clock → at · months/years/seasons → in · days/dates → on."
+   }
+  },
+  "story": null,
+  "why": {
+   "es": "«on noon» está mal: expresión fija → <b>at</b> noon.",
+   "en": "«on noon» is wrong: fixed phrase → <b>at</b> noon."
+  },
+  "others": {
+   "es": "",
+   "en": ""
+  },
+  "rule": {
+   "es": "horas→at · meses/años/estaciones→in · días/fechas→on",
+   "en": "clock→at · months/years/seasons→in · days/dates→on"
+  },
+  "examples": {
+   "es": [],
+   "en": []
+  },
+  "es": {
+   "es": "",
+   "en": ""
+  },
+  "lit": {
+   "es": "",
+   "en": ""
+  }
+ }
 ];
 
 /* ════ FIN DE LO EDITABLE — debajo es el motor (no tocar) ════ */
