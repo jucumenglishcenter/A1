@@ -129,144 +129,148 @@
   <div class="toast" id="toast"></div>
 <script>
 /* ═══ METADATOS ═══ */
-const MAT = { title:{es:'Resumen de Gramática',en:'Grammar Summary'}, subtitle:{es:'Present Simple — Negativo (3ª persona)',en:'Present Simple — Negative (3rd person)'}, reportId:'sum-present-simple-neg' };
+const MAT = { title:{es:'Resumen de Gramática',en:'Grammar Summary'}, subtitle:{es:'Modales de Deducción (must / might / can\'t)',en:'Modals of Deduction (must / might / can\'t)'}, reportId:'sum-modals-deduction' };
 const PASS = 75;
 const STEPS = [
   { icon:'🇪🇸', title:{es:'Repaso en Español',en:'Spanish Recap'},
     html:{
-      es:`<div class="gdesc">En español, negar lo que hace «él» o «ella» es muy fácil: solo pones un «<b>no</b>» antes del verbo. «<b>No come</b>», «<b>no trabaja</b>».</div>
-        <div class="art-hero"><div class="art-box"><div class="word">come</div><div class="role">Afirma ✅</div><div class="desc">«Ella come carne.»</div></div><div class="art-box"><div class="word">no come</div><div class="role">Niega ❌</div><div class="desc">«Ella no come carne.»</div></div></div>
-        ${ii('🚫','El verbo no cambia: solo le agregas «no» delante.')}
-        <div class="gnote life">🌎 <b>De tu vida:</b> «Mi hermano no estudia los domingos», «Ella no toma café». En inglés, esta persona (he/she/it) usa «doesn\'t».</div>`,
-      en:`<div class="gdesc">In Spanish, negating what «he» or «she» does is very easy: just put a «<b>no</b>» before the verb. «<b>No come</b>», «<b>no trabaja</b>».</div>
-        <div class="art-hero"><div class="art-box"><div class="word">come</div><div class="role">Affirm ✅</div><div class="desc">«Ella come carne.»</div></div><div class="art-box"><div class="word">no come</div><div class="role">Deny ❌</div><div class="desc">«Ella no come carne.»</div></div></div>
-        ${ii('🚫','The verb doesn\'t change: you just add «no» in front.')}
-        <div class="gnote life">🌎 <b>From your life:</b> «Mi hermano no estudia los domingos», «Ella no toma café». In English, this person (he/she/it) uses «doesn\'t».</div>`
+      es:`<div class="gdesc">Cuando no estás 100% seguro pero <b>deduces</b> algo por las pistas, en español usas frases como «<b>debe de</b> estar», «<b>puede que</b> esté», «<b>no puede</b> estar».</div>
+        <div class="art-hero three"><div class="art-box"><div class="word">debe de</div><div class="role">Casi seguro ✅</div><div class="desc">«Las luces están: debe de estar en casa.»</div></div><div class="art-box"><div class="word">puede que</div><div class="role">Posible 🤔</div><div class="desc">«No contesta: puede que esté dormido.»</div></div><div class="art-box"><div class="word">no puede</div><div class="role">Imposible ❌</div><div class="desc">«Su carro no está: no puede estar aquí.»</div></div></div>
+        ${ii('🕵️','No es un hecho confirmado: es una <b>conclusión lógica</b> a partir de pistas.')}
+        <div class="gnote life">🌎 <b>De tu vida:</b> ves un plato vacío y dices «debe de tener hambre». Nadie te lo confirmó; lo dedujiste.</div>`,
+      en:`<div class="gdesc">When you're not 100% sure but you <b>deduce</b> something from clues, Spanish uses phrases like «<b>debe de</b> estar», «<b>puede que</b> esté», «<b>no puede</b> estar».</div>
+        <div class="art-hero three"><div class="art-box"><div class="word">debe de</div><div class="role">Almost sure ✅</div><div class="desc">«Las luces están: debe de estar en casa.»</div></div><div class="art-box"><div class="word">puede que</div><div class="role">Possible 🤔</div><div class="desc">«No contesta: puede que esté dormido.»</div></div><div class="art-box"><div class="word">no puede</div><div class="role">Impossible ❌</div><div class="desc">«Su carro no está: no puede estar aquí.»</div></div></div>
+        ${ii('🕵️',"It's not a confirmed fact: it's a <b>logical conclusion</b> from clues.")}
+        <div class="gnote life">🌎 <b>From your life:</b> you see an empty plate and say «debe de tener hambre». Nobody confirmed it; you deduced it.</div>`
     },
     checks:[
-      { q:{es:'Para negar en español pones:',en:'To negate in Spanish you put:'}, opts:{es:['«no» antes del verbo','«no» al final'],en:['«no» before the verb','«no» at the end']}, correct:0, fb:{ why:{es:'«No come».',en:'«No come».'}, tip:{es:'no + verbo',en:'no + verb'}} },
-      { q:{es:'«Ella no come carne» es:',en:'«Ella no come carne» is:'}, opts:{es:['Negativa','Pregunta'],en:['Negative','Question']}, correct:0, fb:{ why:{es:'Niegas algo.',en:'You deny something.'}, tip:{es:'negar',en:'deny'}} },
-      { q:{es:'«he / she / it» se refiere a:',en:'«he / she / it» refers to:'}, opts:{es:['Una sola persona o cosa (3ª)','Varias personas'],en:['One person or thing (3rd)','Many people']}, correct:0, fb:{ why:{es:'Tercera persona singular.',en:'Third person singular.'}, tip:{es:'él/ella/eso',en:'he/she/it'}} },
-      { q:{es:'Al negar en español, el verbo:',en:'When negating in Spanish, the verb:'}, opts:{es:['No cambia','Cambia mucho'],en:['Doesn\'t change','Changes a lot']}, correct:0, fb:{ why:{es:'Solo agregas «no».',en:'You only add «no».'}, tip:{es:'igual',en:'same'}} },
-      { q:{es:'Lo contrario de «Él trabaja» es:',en:'The opposite of «Él trabaja» is:'}, opts:{es:['Él no trabaja','Él trabaja mucho'],en:['Él no trabaja','Él trabaja mucho']}, correct:0, fb:{ why:{es:'Le pones «no».',en:'You add «no».'}, tip:{es:'+ no',en:'+ no'}} }
+      { q:{es:'«Debe de estar en casa» expresa:',en:'«Debe de estar en casa» expresses:'}, opts:{es:['Una deducción casi segura','Una orden'],en:['An almost-sure deduction','An order']}, correct:0, fb:{ why:{es:'Es una conclusión lógica, casi segura.',en:'A logical, almost-sure conclusion.'}, tip:{es:'debe de = deducción',en:'debe de = deduction'}} },
+      { q:{es:'«Puede que esté dormido» expresa:',en:'«Puede que esté dormido» expresses:'}, opts:{es:['Posibilidad','Certeza total'],en:['Possibility','Total certainty']}, correct:0, fb:{ why:{es:'Es solo una opción posible.',en:'Just a possible option.'}, tip:{es:'puede que = posible',en:'puede que = possible'}} },
+      { q:{es:'«No puede estar aquí» expresa:',en:'«No puede estar aquí» expresses:'}, opts:{es:['Imposibilidad lógica','Permiso'],en:['Logical impossibility','Permission']}, correct:0, fb:{ why:{es:'Concluyes que es imposible.',en:'You conclude it is impossible.'}, tip:{es:'no puede = imposible',en:'no puede = impossible'}} },
+      { q:{es:'Una deducción es…',en:'A deduction is…'}, opts:{es:['Una conclusión a partir de pistas','Un hecho confirmado'],en:['A conclusion from clues','A confirmed fact']}, correct:0, fb:{ why:{es:'Razonas con la información que ves.',en:'You reason from the info you see.'}, tip:{es:'pistas → conclusión',en:'clues → conclusion'}} },
+      { q:{es:'Ordena de más seguro a imposible:',en:'Order from most sure to impossible:'}, opts:{es:['debe de → puede que → no puede','no puede → debe de → puede que'],en:['debe de → puede que → no puede','no puede → debe de → puede que']}, correct:0, fb:{ why:{es:'Certeza positiva → posibilidad → imposible.',en:'Positive certainty → possibility → impossible.'}, tip:{es:'✅ → 🤔 → ❌',en:'✅ → 🤔 → ❌'}} }
     ] },
   { icon:'🤝', title:{es:'Similitudes',en:'Similarities'},
     html:{
-      es:`<div class="gdesc">El inglés también niega lo que hace «él/ella/eso», con la palabra ayudante <b>doesn\'t</b> (= does not).</div>
+      es:`<div class="gdesc">El inglés tiene un modal para cada nivel de certeza, y todos van con el verbo en <b>forma base</b>.</div>
         <div class="vs-grid">
-          <div class="vs-row"><div class="vs-side es"><span class="flag">no come</span>Ella no come carne</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">doesn't</span>She <b>doesn't eat</b> meat</div></div>
-          <div class="vs-row"><div class="vs-side es"><span class="flag">no trabaja</span>Él no trabaja aquí</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">doesn't</span>He <b>doesn't work</b> here</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">debe de</span>Debe de estar cansada</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">must</span>She <b>must be</b> tired</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">puede que</span>Puede que esté en casa</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">might/may/could</span>She <b>might be</b> at home</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">no puede</span>No puede ser verdad</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">can't</span>It <b>can't be</b> true</div></div>
         </div>
-        ${eg('He <span class="tag s">doesn\'t like</span> fish.','A él no le gusta el pescado.','ok')}
-        ${eg('It <span class="tag s">doesn\'t work</span>.','No funciona.','ok')}
+        ${eg('He <span class="tag s">must be</span> rich; look at his car.','Debe de ser rico; mira su carro. (deducción segura)','ok')}
+        ${eg('She <span class="tag s">might be</span> at work.','Puede que esté en el trabajo. (posible)','ok')}
         <div class="sec-label">Lo igual en los dos idiomas</div>
-        <ul class="simlist"><li>Los dos niegan el hábito de una sola persona/cosa.</li><li>La negación va antes del verbo principal.</li><li>El verbo principal queda igual (eat, work, like).</li></ul>
-        <div class="gnote">👍 he/she/it + doesn\'t + verbo. Lo nuevo: ese «doesn\'t» se lleva la «-s» (siguiente paso).</div>`,
-      en:`<div class="gdesc">English also negates what «he/she/it» does, with the helper word <b>doesn\'t</b> (= does not).</div>
+        <ul class="simlist"><li>Los dos tienen niveles: casi seguro · posible · imposible.</li><li>Los dos se basan en <b>pistas</b>, no en hechos confirmados.</li><li>Después del modal va el verbo en <b>base</b> (be, know, have): must <b>be</b>, might <b>be</b>.</li></ul>
+        <div class="gnote">👍 must = debe de · might/may/could = puede que · can't = no puede. Solo memoriza el reparto.</div>`,
+      en:`<div class="gdesc">English has one modal for each certainty level, and they all take the verb in its <b>base form</b>.</div>
         <div class="vs-grid">
-          <div class="vs-row"><div class="vs-side es"><span class="flag">no come</span>Ella no come carne</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">doesn't</span>She <b>doesn't eat</b> meat</div></div>
-          <div class="vs-row"><div class="vs-side es"><span class="flag">no trabaja</span>Él no trabaja aquí</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">doesn't</span>He <b>doesn't work</b> here</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">debe de</span>Debe de estar cansada</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">must</span>She <b>must be</b> tired</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">puede que</span>Puede que esté en casa</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">might/may/could</span>She <b>might be</b> at home</div></div>
+          <div class="vs-row"><div class="vs-side es"><span class="flag">no puede</span>No puede ser verdad</div><div class="vs-mid">=</div><div class="vs-side en"><span class="flag">can't</span>It <b>can't be</b> true</div></div>
         </div>
-        ${eg('He <span class="tag s">doesn\'t like</span> fish.','He doesn\'t like fish.','ok')}
-        ${eg('It <span class="tag s">doesn\'t work</span>.','It doesn\'t work.','ok')}
+        ${eg('He <span class="tag s">must be</span> rich; look at his car.','He must be rich; look at his car. (sure deduction)','ok')}
+        ${eg('She <span class="tag s">might be</span> at work.','She might be at work. (possible)','ok')}
         <div class="sec-label">What is the same in both languages</div>
-        <ul class="simlist"><li>Both negate the habit of one person/thing.</li><li>The negation goes before the main verb.</li><li>The main verb stays the same (eat, work, like).</li></ul>
-        <div class="gnote">👍 he/she/it + doesn\'t + verb. The new part: that «doesn\'t» takes the «-s» (next step).</div>`
+        <ul class="simlist"><li>Both have levels: almost sure · possible · impossible.</li><li>Both are based on <b>clues</b>, not confirmed facts.</li><li>After the modal comes the <b>base</b> verb (be, know, have): must <b>be</b>, might <b>be</b>.</li></ul>
+        <div class="gnote">👍 must = debe de · might/may/could = puede que · can't = no puede. Just memorize the split.</div>`
     },
     checks:[
-      { q:{es:'«Ella no come carne» en inglés:',en:'«Ella no come carne» in English:'}, opts:{es:['She doesn\'t eat meat','She don\'t eat meat'],en:['She doesn\'t eat meat','She don\'t eat meat']}, correct:0, fb:{ why:{es:'she → doesn\'t.',en:'she → doesn\'t.'}, ex:{es:'She doesn\'t eat meat',en:'She doesn\'t eat meat'}, tip:{es:'she → doesn\'t',en:'she → doesn\'t'}}, tr:{es:'Ella no come carne.',en:'She doesn\'t eat meat.'} },
-      { q:{es:'«doesn\'t» es la contracción de:',en:'«doesn\'t» is the contraction of:'}, opts:{es:['does not','do not'],en:['does not','do not']}, correct:0, fb:{ why:{es:'does not → doesn\'t.',en:'does not → doesn\'t.'}, tip:{es:'does not = doesn\'t',en:'does not = doesn\'t'}} },
-      { q:{es:'¿Con qué personas va «doesn\'t»?',en:'Which persons use «doesn\'t»?'}, opts:{es:['He / She / It','I / You / We / They'],en:['He / She / It','I / You / We / They']}, correct:0, fb:{ why:{es:'3ª persona singular.',en:'3rd person singular.'}, tip:{es:'he/she/it',en:'he/she/it'}} },
-      { q:{es:'La negación va:',en:'The negation goes:'}, opts:{es:['Antes del verbo principal','Al final'],en:['Before the main verb','At the end']}, correct:0, fb:{ why:{es:'He doesn\'t eat...',en:'He doesn\'t eat...'}, tip:{es:'antes del verbo',en:'before the verb'}} },
-      { q:{es:'«It ___ work.» (no funciona):',en:'«It ___ work.»:'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'it → doesn\'t.',en:'it → doesn\'t.'}, ex:{es:'It doesn\'t work → No funciona',en:'It doesn\'t work'}, tip:{es:'it → doesn\'t',en:'it → doesn\'t'}} }
+      { q:{es:'«Debe de estar cansada» en inglés:',en:'«Debe de estar cansada» in English:'}, opts:{es:['She must be tired','She might be tired'],en:['She must be tired','She might be tired']}, correct:0, fb:{ why:{es:'«must» = deducción casi segura.',en:'«must» = almost-sure deduction.'}, ex:{es:'She must be tired → Debe de estar cansada',en:'She must be tired'}, tip:{es:'debe de → must',en:'debe de → must'}}, tr:{es:'Debe de estar cansada.',en:'She must be tired.'} },
+      { q:{es:'«Puede que esté en casa» en inglés:',en:'«Puede que esté en casa» in English:'}, opts:{es:['She might be at home','She must be at home'],en:['She might be at home','She must be at home']}, correct:0, fb:{ why:{es:'«might» = posibilidad.',en:'«might» = possibility.'}, ex:{es:'She might be at home → Puede que esté en casa',en:'She might be at home'}, tip:{es:'puede que → might/may/could',en:'puede que → might/may/could'}}, tr:{es:'Puede que esté en casa.',en:'She might be at home.'} },
+      { q:{es:'Después del modal, el verbo va en:',en:'After the modal, the verb is in:'}, opts:{es:['Forma base (be, know)','Pasado (was, knew)'],en:['Base form (be, know)','Past (was, knew)']}, correct:0, fb:{ why:{es:'Modal + base: must be, might know.',en:'Modal + base: must be, might know.'}, ex:{es:'must be, might know',en:'must be, might know'}, tip:{es:'modal + verbo base',en:'modal + base verb'}} },
+      { q:{es:'«No puede ser verdad» en inglés:',en:'«No puede ser verdad» in English:'}, opts:{es:['It can\'t be true','It mustn\'t be true'],en:['It can\'t be true','It mustn\'t be true']}, correct:0, fb:{ why:{es:'La deducción negativa usa «can\'t».',en:'Negative deduction uses «can\'t».'}, ex:{es:'It can\'t be true → No puede ser verdad',en:'It can\'t be true'}, tip:{es:'no puede → can\'t',en:'no puede → can\'t'}}, tr:{es:'No puede ser verdad.',en:'It can\'t be true.'} },
+      { q:{es:'«might», «may» y «could» (para deducir) significan:',en:'«might», «may» and «could» (for deduction) mean:'}, opts:{es:['Casi lo mismo: posibilidad','Cosas opuestas'],en:['Almost the same: possibility','Opposite things']}, correct:0, fb:{ why:{es:'Los tres expresan posibilidad.',en:'All three express possibility.'}, ex:{es:'might/may/could be → puede que esté',en:'might/may/could be'}, tip:{es:'los 3 = puede que',en:'all 3 = puede que'}} }
     ] },
   { icon:'⚡', title:{es:'Diferencias',en:'Differences'},
     html:{
-      es:`<div class="gdesc">El detalle clave: con «doesn\'t», el verbo principal va <b>SIN la «-s»</b>. La «-s» de he/she/it ya está en «does».</div>
-        <table class="dtab"><tr><th>Afirmativo</th><th>Negativo</th></tr>
-          <tr><td class="en">He eats</td><td>He <b>doesn't eat</b></td></tr>
-          <tr><td class="en">She plays</td><td>She <b>doesn't play</b></td></tr>
-          <tr><td class="en">It goes</td><td>It <b>doesn't go</b></td></tr>
+      es:`<div class="gdesc">El error más peligroso: confundir <b>must de deducción</b> con <b>must de obligación</b>, y usar «mustn't» para negar una deducción.</div>
+        <table class="dtab"><tr><th>Inglés</th><th>NO significa</th><th>Sí significa</th></tr>
+          <tr><td class="en">She must be sick</td><td>Tiene que (obligación)</td><td>Debe de estar enferma (deducción)</td></tr>
+          <tr><td class="en">It can't be true</td><td>No es capaz</td><td>No puede ser (imposible)</td></tr>
         </table>
-        <div class="sec-label">⚠️ La «-s» salta a «does»</div>
-        ${ii('✂️','En «He eats» la «-s» está en el verbo. Al negar, esa «-s» pasa a «does» (doe<b>s</b>n\'t) y el verbo vuelve a la base.')}
-        ${eg('She <span class="tag s">doesn\'t play</span> tennis.','Ella no juega tenis. (doesn\'t + base)','ok')}
-        ${eg('She doesn\'t plays tennis.','Sin «-s»: «She doesn\'t <b>play</b>».','bad')}
-        <div class="gnote">📍 Regla de oro: He/She/It → <b>doesn\'t + verbo base</b> (nunca «doesn\'t plays»).</div>`,
-      en:`<div class="gdesc">The key detail: with «doesn\'t», the main verb goes <b>WITHOUT the «-s»</b>. The «-s» of he/she/it is already on «does».</div>
-        <table class="dtab"><tr><th>Affirmative</th><th>Negative</th></tr>
-          <tr><td class="en">He eats</td><td>He <b>doesn't eat</b></td></tr>
-          <tr><td class="en">She plays</td><td>She <b>doesn't play</b></td></tr>
-          <tr><td class="en">It goes</td><td>It <b>doesn't go</b></td></tr>
+        <div class="sec-label">⚠️ La negativa de la deducción es «can't», NO «mustn't»</div>
+        ${ii('🚫','«mustn\'t» = prohibición (no debes). Para decir «no puede ser» (deducción negativa) se usa <b>can\'t</b>.')}
+        <div class="vs-grid">
+          <div class="vs-row"><div class="vs-side en"><span class="flag">Deducción ✅</span>He can\'t be at home.</div><div class="vs-mid">≠</div><div class="vs-side es"><span class="flag">Prohibición</span>You mustn\'t smoke here.</div></div>
+        </div>
+        ${eg('Her car is gone; she <span class="tag s">can\'t be</span> here.','Su carro no está; no puede estar aquí. (imposible)','ok')}
+        ${eg('He can\'t be at home... wait, he mustn\'t be home.','«mustn\'t» = prohibición, no deducción.','bad')}
+        <div class="gnote">📍 Deducción: <b>must</b> (✅ casi seguro) · <b>might/may/could</b> (🤔 posible) · <b>can\'t</b> (❌ imposible).</div>`,
+      en:`<div class="gdesc">The most dangerous error: confusing <b>must of deduction</b> with <b>must of obligation</b>, and using «mustn't» to negate a deduction.</div>
+        <table class="dtab"><tr><th>English</th><th>Does NOT mean</th><th>Does mean</th></tr>
+          <tr><td class="en">She must be sick</td><td>Tiene que (obligation)</td><td>Debe de estar enferma (deduction)</td></tr>
+          <tr><td class="en">It can't be true</td><td>No es capaz</td><td>No puede ser (impossible)</td></tr>
         </table>
-        <div class="sec-label">⚠️ The «-s» jumps to «does»</div>
-        ${ii('✂️','In «He eats» the «-s» is on the verb. When you negate, that «-s» moves to «does» (doe<b>s</b>n\'t) and the verb goes back to base.')}
-        ${eg('She <span class="tag s">doesn\'t play</span> tennis.','She doesn\'t play tennis. (doesn\'t + base)','ok')}
-        ${eg('She doesn\'t plays tennis.','No «-s»: «She doesn\'t <b>play</b>».','bad')}
-        <div class="gnote">📍 Golden rule: He/She/It → <b>doesn\'t + base verb</b> (never «doesn\'t plays»).</div>`
+        <div class="sec-label">⚠️ The negative of deduction is «can't», NOT «mustn't»</div>
+        ${ii('🚫','«mustn\'t» = prohibition (you must not). To say «no puede ser» (negative deduction) use <b>can\'t</b>.')}
+        <div class="vs-grid">
+          <div class="vs-row"><div class="vs-side en"><span class="flag">Deduction ✅</span>He can\'t be at home.</div><div class="vs-mid">≠</div><div class="vs-side es"><span class="flag">Prohibition</span>You mustn\'t smoke here.</div></div>
+        </div>
+        ${eg('Her car is gone; she <span class="tag s">can\'t be</span> here.','Her car is gone; she can\'t be here. (impossible)','ok')}
+        ${eg('He can\'t be at home... wait, he mustn\'t be home.','«mustn\'t» = prohibition, not deduction.','bad')}
+        <div class="gnote">📍 Deduction: <b>must</b> (✅ almost sure) · <b>might/may/could</b> (🤔 possible) · <b>can\'t</b> (❌ impossible).</div>`
     },
     checks:[
-      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['He doesn\'t play','He doesn\'t plays'],en:['He doesn\'t play','He doesn\'t plays']}, correct:0, fb:{ why:{es:'Tras «doesn\'t» → verbo base.',en:'After «doesn\'t» → base verb.'}, ex:{es:'He doesn\'t play → Él no juega',en:'He doesn\'t play'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'Negativo de «She works»:',en:'Negative of «She works»:'}, opts:{es:['She doesn\'t work','She doesn\'t works'],en:['She doesn\'t work','She doesn\'t works']}, correct:0, fb:{ why:{es:'La «-s» pasa a «does».',en:'The «-s» moves to «does».'}, ex:{es:'She doesn\'t work → Ella no trabaja',en:'She doesn\'t work'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'«My dad ___ drink coffee.»',en:'«My dad ___ drink coffee.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'he (my dad) → doesn\'t.',en:'he (my dad) → doesn\'t.'}, ex:{es:'My dad doesn\'t drink coffee → Mi papá no toma café',en:'My dad doesn\'t drink coffee'}, tip:{es:'he → doesn\'t',en:'he → doesn\'t'}} },
-      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['It doesn\'t rain here','It doesn\'t rains here'],en:['It doesn\'t rain here','It doesn\'t rains here']}, correct:0, fb:{ why:{es:'Tras «doesn\'t» → base.',en:'After «doesn\'t» → base.'}, ex:{es:'It doesn\'t rain → No llueve',en:'It doesn\'t rain'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'Negativo de «He goes»:',en:'Negative of «He goes»:'}, opts:{es:['He doesn\'t go','He doesn\'t goes'],en:['He doesn\'t go','He doesn\'t goes']}, correct:0, fb:{ why:{es:'La «-s» va en «does».',en:'The «-s» is on «does».'}, ex:{es:'He doesn\'t go → Él no va',en:'He doesn\'t go'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} }
+      { q:{es:'Para negar una deducción («no puede ser») usas:',en:'To negate a deduction («it can\'t be») you use:'}, opts:{es:['can\'t','mustn\'t'],en:['can\'t','mustn\'t']}, correct:0, fb:{ why:{es:'«mustn\'t» es prohibición, no deducción.',en:'«mustn\'t» is prohibition, not deduction.'}, contrast:{es:'mustn\'t = no debes (prohibido).',en:'mustn\'t = you must not (forbidden).'}, ex:{es:'It can\'t be true → No puede ser',en:'It can\'t be true'}, tip:{es:'deducción negativa → can\'t',en:'negative deduction → can\'t'}} },
+      { q:{es:'«She must be sick» (por las pistas) significa:',en:'«She must be sick» (from the clues) means:'}, opts:{es:['Debe de estar enferma','Tiene la obligación de enfermarse'],en:['She is probably sick','She is forced to be sick']}, correct:0, fb:{ why:{es:'Aquí «must» es deducción casi segura.',en:'Here «must» is an almost-sure deduction.'}, ex:{es:'must be sick → debe de estar enferma',en:'must be sick'}, tip:{es:'must (deducción) = debe de',en:'must (deduction) = probably'}}, tr:{es:'Debe de estar enferma.',en:'She must be sick.'} },
+      { q:{es:'«You ___ smoke here» (prohibido):',en:'«You ___ smoke here» (forbidden):'}, opts:{es:['mustn\'t','can\'t be'],en:['mustn\'t','can\'t be']}, correct:0, fb:{ why:{es:'Prohibición → mustn\'t.',en:'Prohibition → mustn\'t.'}, ex:{es:'mustn\'t smoke → no debes fumar',en:'mustn\'t smoke'}, tip:{es:'prohibición → mustn\'t',en:'prohibition → mustn\'t'}} },
+      { q:{es:'«The lights are on; he ___ be home.» (deducción ✅):',en:'«The lights are on; he ___ be home.» (deduction ✅):'}, opts:{es:['must','can\'t'],en:['must','can\'t']}, correct:0, fb:{ why:{es:'La pista apoya que SÍ está → must.',en:'The clue supports he IS home → must.'}, ex:{es:'must be home → debe de estar en casa',en:'must be home'}, tip:{es:'pista a favor → must',en:'clue in favor → must'}}, tr:{es:'Las luces están encendidas; debe de estar en casa.',en:'The lights are on; he must be home.'} },
+      { q:{es:'«His car is gone; he ___ be here.» (imposible ❌):',en:'«His car is gone; he ___ be here.» (impossible ❌):'}, opts:{es:['can\'t','must'],en:['can\'t','must']}, correct:0, fb:{ why:{es:'La pista lo hace imposible → can\'t.',en:'The clue makes it impossible → can\'t.'}, ex:{es:'can\'t be here → no puede estar aquí',en:'can\'t be here'}, tip:{es:'pista en contra → can\'t',en:'clue against → can\'t'}}, tr:{es:'Su carro no está; no puede estar aquí.',en:'His car is gone; he can\'t be here.'} }
     ] },
   { icon:'💡', title:{es:'Tips Prácticos',en:'Practical Tips'},
     html:{
-      es:`<div class="gdesc">La estructura para 3ª persona:</div>
-        <div class="fbox"><div class="frm"><span class="pill s">He/She/It</span><span class="plus">+</span><span class="pill v">doesn't</span><span class="plus">+</span><span class="pill o">verbo base</span></div><div class="fex"><span class="s">She</span> <span class="v">doesn't</span> <span class="o">eat</span> meat. — Ella no come carne.</div></div>
-        ${ii('👉','<b>Tip 1 — Solo he/she/it usan «doesn\'t»:</b> las demás personas usan «don\'t».')}
-        ${ii('✂️','<b>Tip 2 — Verbo base:</b> después de «doesn\'t», nunca pongas «-s».')}
-        ${ii('🔄','<b>Tip 3 — Afirmativo ↔ negativo:</b> «He eats» → «He doesn\'t eat» (la «-s» salta a «does»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>
-        ${ii('⚡','La -s se muda a does y el verbo queda base: ✗ «She does not likes» → ✓ «She does not like».')}`,
-      en:`<div class="gdesc">The structure for 3rd person:</div>
-        <div class="fbox"><div class="frm"><span class="pill s">He/She/It</span><span class="plus">+</span><span class="pill v">doesn't</span><span class="plus">+</span><span class="pill o">base verb</span></div><div class="fex"><span class="s">She</span> <span class="v">doesn't</span> <span class="o">eat</span> meat. — Ella no come carne.</div></div>
-        ${ii('👉','<b>Tip 1 — Only he/she/it use «doesn\'t»:</b> the other persons use «don\'t».')}
-        ${ii('✂️','<b>Tip 2 — Base verb:</b> after «doesn\'t», never add «-s».')}
-        ${ii('🔄','<b>Tip 3 — Affirmative ↔ negative:</b> «He eats» → «He doesn\'t eat» (the «-s» jumps to «does»).')}
-        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «He don\'t like» → ✅ «He <b>doesn\'t</b> like».<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>».</p></div>
-        ${ii('⚡','The -s moves to does and the verb stays base: ✗ «She does not likes» → ✓ «She does not like».')}`
+      es:`<div class="gdesc">El termómetro de la certeza, de arriba (seguro) a abajo (imposible):</div>
+        <div class="fbox"><div class="frm"><span class="pill s">must</span><span class="plus">✅</span><span class="pill v">might/may/could</span><span class="plus">🤔</span><span class="pill o">can\'t</span><span class="plus">❌</span></div><div class="fex">+ <span class="s">be</span> / <span class="v">know</span> / <span class="o">have</span> (verbo base)</div></div>
+        ${ii('🌡️','<b>Tip 1 — El termómetro:</b> ¿estoy casi seguro de que SÍ? → must. ¿quizá? → might/may/could. ¿casi seguro de que NO? → can\'t.')}
+        ${ii('🧱','<b>Tip 2 — Estructura fija:</b> sujeto + modal + <b>verbo base</b>. Nunca «must to be» ni «must is».')}
+        ${ii('🔁','<b>Tip 3 — La negativa cambia de palabra:</b> must ↔ can\'t (no «mustn\'t»).')}
+        <div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «She must to be tired» → ✅ «She <b>must be</b> tired» (sin «to»).<br>❌ «It mustn\'t be true» → ✅ «It <b>can\'t be</b> true».</p></div>`,
+      en:`<div class="gdesc">The certainty thermometer, from top (sure) to bottom (impossible):</div>
+        <div class="fbox"><div class="frm"><span class="pill s">must</span><span class="plus">✅</span><span class="pill v">might/may/could</span><span class="plus">🤔</span><span class="pill o">can\'t</span><span class="plus">❌</span></div><div class="fex">+ <span class="s">be</span> / <span class="v">know</span> / <span class="o">have</span> (base verb)</div></div>
+        ${ii('🌡️','<b>Tip 1 — The thermometer:</b> almost sure it IS? → must. maybe? → might/may/could. almost sure it is NOT? → can\'t.')}
+        ${ii('🧱','<b>Tip 2 — Fixed structure:</b> subject + modal + <b>base verb</b>. Never «must to be» or «must is».')}
+        ${ii('🔁','<b>Tip 3 — The negative swaps the word:</b> must ↔ can\'t (not «mustn\'t»).')}
+        <div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «She must to be tired» → ✅ «She <b>must be</b> tired» (no «to»).<br>❌ «It mustn\'t be true» → ✅ «It <b>can\'t be</b> true».</p></div>`
     },
     checks:[
-      { q:{es:'«He ___ like vegetables.»',en:'«He ___ like vegetables.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'he → doesn\'t.',en:'he → doesn\'t.'}, ex:{es:'He doesn\'t like vegetables → No le gustan las verduras',en:'He doesn\'t like vegetables'}, tip:{es:'he → doesn\'t',en:'he → doesn\'t'}} },
-      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['She doesn\'t speak French','She doesn\'t speaks French'],en:['She doesn\'t speak French','She doesn\'t speaks French']}, correct:0, fb:{ why:{es:'Tras «doesn\'t» → base.',en:'After «doesn\'t» → base.'}, ex:{es:'She doesn\'t speak French → No habla francés',en:'She doesn\'t speak French'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'Negativo de «It costs a lot»:',en:'Negative of «It costs a lot»:'}, opts:{es:['It doesn\'t cost a lot','It doesn\'t costs a lot'],en:['It doesn\'t cost a lot','It doesn\'t costs a lot']}, correct:0, fb:{ why:{es:'La «-s» salta a «does».',en:'The «-s» jumps to «does».'}, ex:{es:'It doesn\'t cost a lot → No cuesta mucho',en:'It doesn\'t cost a lot'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'«My sister ___ have a car.»',en:'«My sister ___ have a car.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'she → doesn\'t + have.',en:'she → doesn\'t + have.'}, ex:{es:'She doesn\'t have a car → No tiene carro',en:'She doesn\'t have a car'}, tip:{es:'doesn\'t have',en:'doesn\'t have'}} },
-      { q:{es:'¿Cuál es 3ª persona con «doesn\'t»?',en:'Which is 3rd person with «doesn\'t»?'}, opts:{es:['The dog doesn\'t bark','The dogs don\'t bark'],en:['The dog doesn\'t bark','The dogs don\'t bark']}, correct:0, fb:{ why:{es:'«The dog» (it) → doesn\'t.',en:'«The dog» (it) → doesn\'t.'}, ex:{es:'The dog doesn\'t bark → El perro no ladra',en:'The dog doesn\'t bark'}, tip:{es:'singular → doesn\'t',en:'singular → doesn\'t'}} }
+      { q:{es:'«She ___ be the new teacher.» (casi seguro):',en:'«She ___ be the new teacher.» (almost sure):'}, opts:{es:['must','can\'t'],en:['must','can\'t']}, correct:0, fb:{ why:{es:'Deducción positiva segura → must.',en:'Sure positive deduction → must.'}, ex:{es:'must be → debe de ser',en:'must be'}, tip:{es:'casi seguro → must',en:'almost sure → must'}}, tr:{es:'Debe de ser la nueva profesora.',en:'She must be the new teacher.'} },
+      { q:{es:'¿Cuál es correcto?',en:'Which one is correct?'}, opts:{es:['He must be tired','He must to be tired'],en:['He must be tired','He must to be tired']}, correct:0, fb:{ why:{es:'Modal + verbo base, sin «to».',en:'Modal + base verb, no «to».'}, contrast:{es:'«must to» no existe.',en:'«must to» does not exist.'}, ex:{es:'must be tired',en:'must be tired'}, tip:{es:'sin «to»',en:'no «to»'}} },
+      { q:{es:'«They ___ be at the party; I\'m not sure.» (posible):',en:'«They ___ be at the party; I\'m not sure.» (possible):'}, opts:{es:['might','must'],en:['might','must']}, correct:0, fb:{ why:{es:'Duda → posibilidad → might.',en:'Doubt → possibility → might.'}, ex:{es:'might be → puede que estén',en:'might be'}, tip:{es:'quizá → might/may/could',en:'maybe → might/may/could'}}, tr:{es:'Puede que estén en la fiesta; no estoy seguro.',en:'They might be at the party; I\'m not sure.'} },
+      { q:{es:'Negativa de «must be» (deducción):',en:'Negative of «must be» (deduction):'}, opts:{es:['can\'t be','mustn\'t be'],en:['can\'t be','mustn\'t be']}, correct:0, fb:{ why:{es:'must ↔ can\'t para deducir.',en:'must ↔ can\'t for deduction.'}, ex:{es:'can\'t be → no puede ser',en:'can\'t be'}, tip:{es:'deducción negativa → can\'t',en:'negative deduction → can\'t'}} },
+      { q:{es:'«This ___ be the right address; the number matches.» (seguro):',en:'«This ___ be the right address; the number matches.» (sure):'}, opts:{es:['must','might'],en:['must','might']}, correct:0, fb:{ why:{es:'La pista lo confirma → must.',en:'The clue confirms it → must.'}, ex:{es:'must be → debe de ser',en:'must be'}, tip:{es:'pista fuerte → must',en:'strong clue → must'}}, tr:{es:'Esta debe de ser la dirección correcta; el número coincide.',en:'This must be the right address; the number matches.'} }
     ] },
   { icon:'✨', title:{es:'Práctica Final',en:'Final Practice'}, builder:true,
     html:{
-      es:`<div class="gdesc">Junta todo: he/she/it + doesn\'t + verbo base. Arma la oración.</div>
-        <div class="cboxes"><div class="cbox s"><span class="cl">He/She/It</span><span class="cv">3ª persona singular</span></div><div class="cbox o"><span class="cl">doesn't</span><span class="cv">= does not</span></div><div class="cbox p"><span class="cl">+ verbo</span><span class="cv">siempre BASE (sin -s)</span></div></div>
+      es:`<div class="gdesc">Junta todo: elige el modal según la certeza y pon el verbo en base.</div>
+        <div class="cboxes"><div class="cbox s"><span class="cl">must</span><span class="cv">✅ casi seguro (debe de)</span></div><div class="cbox o"><span class="cl">might/may/could</span><span class="cv">🤔 posible (puede que)</span></div><div class="cbox p"><span class="cl">can\'t</span><span class="cv">❌ imposible (no puede)</span></div></div>
         <div class="sec-label">Las reglas en una oración</div>
-        ${eg('He <span class="tag s">doesn\'t like</span> coffee.','A él no le gusta el café.','ok')}
-        ${eg('She <span class="tag s">doesn\'t work</span> on Sundays.','Ella no trabaja los domingos.','ok')}
-        ${eg('It <b style="color:#7B1FA2">doesn\'t open</b> early.','No abre temprano.','ok')}
-        <div class="alert-card"><div class="atitle">⚠️ Los 3 errores más comunes</div><p>❌ «He don\'t» → ✅ «He <b>doesn\'t</b>»<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>»<br>❌ «He no like» → ✅ «He <b>doesn\'t</b> like»</p></div>`,
-      en:`<div class="gdesc">Put it together: he/she/it + doesn\'t + base verb. Build the sentence.</div>
-        <div class="cboxes"><div class="cbox s"><span class="cl">He/She/It</span><span class="cv">3rd person singular</span></div><div class="cbox o"><span class="cl">doesn't</span><span class="cv">= does not</span></div><div class="cbox p"><span class="cl">+ verb</span><span class="cv">always BASE (no -s)</span></div></div>
+        ${eg('She\'s yawning; she <span class="tag s">must be</span> tired.','Está bostezando; debe de estar cansada. (✅)','ok')}
+        ${eg('He <span class="tag s">might be</span> stuck in traffic.','Puede que esté atascado en el tráfico. (🤔)','ok')}
+        ${eg('That <b style="color:#7B1FA2">can\'t be</b> right.','Eso no puede estar bien. (❌)','ok')}
+        <div class="alert-card"><div class="atitle">⚠️ Los 3 errores más comunes</div><p>❌ «must to be» → ✅ «<b>must be</b>»<br>❌ «It mustn\'t be true» → ✅ «It <b>can\'t be</b> true»<br>❌ «She must is tired» → ✅ «She <b>must be</b> tired»</p></div>`,
+      en:`<div class="gdesc">Put it together: pick the modal by certainty and use the base verb.</div>
+        <div class="cboxes"><div class="cbox s"><span class="cl">must</span><span class="cv">✅ almost sure (debe de)</span></div><div class="cbox o"><span class="cl">might/may/could</span><span class="cv">🤔 possible (puede que)</span></div><div class="cbox p"><span class="cl">can\'t</span><span class="cv">❌ impossible (no puede)</span></div></div>
         <div class="sec-label">The rules in one sentence</div>
-        ${eg('He <span class="tag s">doesn\'t like</span> coffee.','He doesn\'t like coffee.','ok')}
-        ${eg('She <span class="tag s">doesn\'t work</span> on Sundays.','She doesn\'t work on Sundays.','ok')}
-        ${eg('It <b style="color:#7B1FA2">doesn\'t open</b> early.','It doesn\'t open early.','ok')}
-        <div class="alert-card"><div class="atitle">⚠️ The 3 most common mistakes</div><p>❌ «He don\'t» → ✅ «He <b>doesn\'t</b>»<br>❌ «She doesn\'t works» → ✅ «She doesn\'t <b>work</b>»<br>❌ «He no like» → ✅ «He <b>doesn\'t</b> like»</p></div>`
+        ${eg('She\'s yawning; she <span class="tag s">must be</span> tired.','She\'s yawning; she must be tired. (✅)','ok')}
+        ${eg('He <span class="tag s">might be</span> stuck in traffic.','He might be stuck in traffic. (🤔)','ok')}
+        ${eg('That <b style="color:#7B1FA2">can\'t be</b> right.','That can\'t be right. (❌)','ok')}
+        <div class="alert-card"><div class="atitle">⚠️ The 3 most common mistakes</div><p>❌ «must to be» → ✅ «<b>must be</b>»<br>❌ «It mustn\'t be true» → ✅ «It <b>can\'t be</b> true»<br>❌ «She must is tired» → ✅ «She <b>must be</b> tired»</p></div>`
     },
     checks:[
-      { q:{es:'«She ___ watch TV.»',en:'«She ___ watch TV.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'she → doesn\'t.',en:'she → doesn\'t.'}, ex:{es:'She doesn\'t watch TV → No ve tele',en:'She doesn\'t watch TV'}, tip:{es:'she → doesn\'t',en:'she → doesn\'t'}} },
-      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:['He doesn\'t study','He doesn\'t studies'],en:['He doesn\'t study','He doesn\'t studies']}, correct:0, fb:{ why:{es:'Tras «doesn\'t» → base.',en:'After «doesn\'t» → base.'}, ex:{es:'He doesn\'t study → No estudia',en:'He doesn\'t study'}, tip:{es:'doesn\'t + base',en:'doesn\'t + base'}} },
-      { q:{es:'«The shop ___ open on Mondays.»',en:'«The shop ___ open on Mondays.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'«The shop» (it) → doesn\'t.',en:'«The shop» (it) → doesn\'t.'}, ex:{es:'The shop doesn\'t open → La tienda no abre',en:'The shop doesn\'t open'}, tip:{es:'singular → doesn\'t',en:'singular → doesn\'t'}} },
-      { q:{es:'Negativo de «She has a dog»:',en:'Negative of «She has a dog»:'}, opts:{es:['She doesn\'t have a dog','She doesn\'t has a dog'],en:['She doesn\'t have a dog','She doesn\'t has a dog']}, correct:0, fb:{ why:{es:'Tras «doesn\'t» → have (base).',en:'After «doesn\'t» → have (base).'}, ex:{es:'She doesn\'t have a dog → No tiene perro',en:'She doesn\'t have a dog'}, tip:{es:'doesn\'t have',en:'doesn\'t have'}} },
-      { q:{es:'«He ___ eat breakfast.»',en:'«He ___ eat breakfast.»'}, opts:{es:['doesn\'t','don\'t'],en:['doesn\'t','don\'t']}, correct:0, fb:{ why:{es:'he → doesn\'t.',en:'he → doesn\'t.'}, ex:{es:'He doesn\'t eat breakfast → No desayuna',en:'He doesn\'t eat breakfast'}, tip:{es:'he → doesn\'t',en:'he → doesn\'t'}} }
+      { q:{es:'«The floor is wet; it ___ be raining.» (✅):',en:'«The floor is wet; it ___ be raining.» (✅):'}, opts:{es:['must','can\'t'],en:['must','can\'t']}, correct:0, fb:{ why:{es:'La pista apoya que llueve → must.',en:'The clue supports rain → must.'}, ex:{es:'must be raining → debe de estar lloviendo',en:'must be raining'}, tip:{es:'pista a favor → must',en:'clue in favor → must'}}, tr:{es:'El piso está mojado; debe de estar lloviendo.',en:'The floor is wet; it must be raining.'} },
+      { q:{es:'«I\'m not sure, but she ___ know the answer.» (🤔):',en:'«I\'m not sure, but she ___ know the answer.» (🤔):'}, opts:{es:['might','can\'t'],en:['might','can\'t']}, correct:0, fb:{ why:{es:'Duda → posibilidad → might.',en:'Doubt → possibility → might.'}, ex:{es:'might know → puede que sepa',en:'might know'}, tip:{es:'quizá → might',en:'maybe → might'}}, tr:{es:'No estoy seguro, pero puede que sepa la respuesta.',en:'I\'m not sure, but she might know the answer.'} },
+      { q:{es:'«You just ate; you ___ be hungry.» (❌):',en:'«You just ate; you ___ be hungry.» (❌):'}, opts:{es:['can\'t','must'],en:['can\'t','must']}, correct:0, fb:{ why:{es:'La pista lo hace imposible → can\'t.',en:'The clue makes it impossible → can\'t.'}, ex:{es:'can\'t be hungry → no puedes tener hambre',en:'can\'t be hungry'}, tip:{es:'pista en contra → can\'t',en:'clue against → can\'t'}}, tr:{es:'Acabas de comer; no puedes tener hambre.',en:'You just ate; you can\'t be hungry.'} },
+      { q:{es:'¿Cuál está bien escrito?',en:'Which is written correctly?'}, opts:{es:['He must be at work','He must to be at work'],en:['He must be at work','He must to be at work']}, correct:0, fb:{ why:{es:'Modal + base, sin «to».',en:'Modal + base, no «to».'}, ex:{es:'must be at work',en:'must be at work'}, tip:{es:'sin «to»',en:'no «to»'}} },
+      { q:{es:'«That story ___ be true; it makes no sense.» (❌):',en:'«That story ___ be true; it makes no sense.» (❌):'}, opts:{es:['can\'t','must'],en:['can\'t','must']}, correct:0, fb:{ why:{es:'Imposible → can\'t.',en:'Impossible → can\'t.'}, ex:{es:'can\'t be true → no puede ser verdad',en:'can\'t be true'}, tip:{es:'imposible → can\'t',en:'impossible → can\'t'}}, tr:{es:'Esa historia no puede ser verdad; no tiene sentido.',en:'That story can\'t be true; it makes no sense.'} }
     ] }
 ];
-const BUILD = { answer:[{w:'He',c:'s'},{w:'doesn\'t like',c:'v'},{w:'coffee',c:'c'}], say:'He doesn\'t like coffee', tr:{es:'A él no le gusta el café.',en:'He doesn\'t like coffee.'} };
+const BUILD = { answer:[{w:'She',c:'s'},{w:'must be',c:'v'},{w:'tired',c:'c'}], say:'She must be tired', tr:{es:'Debe de estar cansada.',en:'She must be tired.'} };
 const SUMMARY = {
-  es:['He / She / It → <b>doesn\'t</b> + verbo base (= does not)','Tras «doesn\'t» el verbo va SIN «-s»: «doesn\'t play», no «doesn\'t plays»','La «-s» de he/she/it salta a «does»: He eats → He doesn\'t eat','Las demás personas usan «don\'t»','Nunca uses «no» solo: «He no like» es error → «He doesn\'t like»'],
-  en:['He / She / It → <b>doesn\'t</b> + base verb (= does not)','After «doesn\'t» the verb has NO «-s»: «doesn\'t play», not «doesn\'t plays»','The «-s» of he/she/it jumps to «does»: He eats → He doesn\'t eat','The other persons use «don\'t»','Never use «no» alone: «He no like» is wrong → «He doesn\'t like»']
+  es:['<b>must</b> + base = deducción casi segura (debe de)','<b>might / may / could</b> + base = posibilidad (puede que)','<b>can\'t</b> + base = deducción imposible (no puede)','Modal + VERBO BASE: must be, might know (nunca «must to»)','La negativa de «must» (deducción) es <b>can\'t</b>, NO «mustn\'t»'],
+  en:['<b>must</b> + base = almost-sure deduction (debe de)','<b>might / may / could</b> + base = possibility (puede que)','<b>can\'t</b> + base = impossible deduction (no puede)','Modal + BASE VERB: must be, might know (never «must to»)','The negative of «must» (deduction) is <b>can\'t</b>, NOT «mustn\'t»']
 };
-const BADGE = { emoji:'🙅', name:{es:'Maestro del Negativo (3ª)',en:'Negative (3rd) Master'}, xp:20 };
+const BADGE = { emoji:'🕵️', name:{es:'Detective de la Deducción',en:'Deduction Detective'}, xp:20 };
 
 /* helpers de contenido (bilingües por separado) */
 function eg(en,gloss,lab){ const t=en.replace(/<[^>]+>/g,'').replace(/"/g,''); return `<div class="eg-card${lab?' '+lab:''}" data-lab="${lab==='ok'?'✅ BIEN':lab==='bad'?'❌ MAL':'📝 '+(typeof curLab!=='undefined'?curLab:'')}"><span class="emo">💬</span><div><div class="en">${en}</div><div class="es">${gloss}</div><div class="audio-row"><button class="audio-btn" onclick="say('${t}','US')">🇺🇸 US</button><button class="audio-btn" onclick="say('${t}','UK')">🇬🇧 UK</button></div></div></div>`; }

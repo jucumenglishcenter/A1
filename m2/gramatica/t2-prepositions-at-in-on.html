@@ -211,9 +211,9 @@ const STEPS = [
     },
     checks:[
       { q:{es:'«___ Monday» (el lunes):',en:'«___ Monday»:'}, opts:{es:['on','at'],en:['on','at']}, correct:0, fb:{ why:{es:'Día → on.',en:'Day → on.'}, ex:{es:'on Monday → el lunes',en:'on Monday'}, tip:{es:'día → on',en:'day → on'}} },
-      { q:{es:'«___ night» (de noche):',en:'«___ night» (at night):'}, opts:{es:['at','in'],en:['at','in']}, correct:0, fb:{ why:{es:'«night» es excepción → at.',en:'«night» is an exception → at.'}, ex:{es:'at night → de noche',en:'at night'}, tip:{es:'at night',en:'at night'}}, tr:{es:'de noche',en:'at night'} },
-      { q:{es:'«___ the morning» (en la mañana):',en:'«___ the morning» (in the morning):'}, opts:{es:['in','at'],en:['in','at']}, correct:0, fb:{ why:{es:'Partes del día → in (excepto night).',en:'Parts of the day → in (except night).'}, ex:{es:'in the morning → en la mañana',en:'in the morning'}, tip:{es:'morning → in',en:'morning → in'}}, tr:{es:'en la mañana',en:'in the morning'} },
-      { q:{es:'«___ 2021» (en 2021):',en:'«___ 2021» (in 2021):'}, opts:{es:['in','on'],en:['in','on']}, correct:0, fb:{ why:{es:'Año → in.',en:'Year → in.'}, ex:{es:'in 2021 → en 2021',en:'in 2021'}, tip:{es:'año → in',en:'year → in'}} },
+      { q:{es:'«___ night» (de noche):',en:'«___ night»:'}, opts:{es:['at','in'],en:['at','in']}, correct:0, fb:{ why:{es:'«night» es excepción → at.',en:'«night» is an exception → at.'}, ex:{es:'at night → de noche',en:'at night'}, tip:{es:'at night',en:'at night'}}, tr:{es:'de noche',en:'at night'} },
+      { q:{es:'«___ the morning» (en la mañana):',en:'«___ the morning»:'}, opts:{es:['in','at'],en:['in','at']}, correct:0, fb:{ why:{es:'Partes del día → in (excepto night).',en:'Parts of the day → in (except night).'}, ex:{es:'in the morning → en la mañana',en:'in the morning'}, tip:{es:'morning → in',en:'morning → in'}}, tr:{es:'en la mañana',en:'in the morning'} },
+      { q:{es:'«___ 2021» (en 2021):',en:'«___ 2021»:'}, opts:{es:['in','on'],en:['in','on']}, correct:0, fb:{ why:{es:'Año → in.',en:'Year → in.'}, ex:{es:'in 2021 → en 2021',en:'in 2021'}, tip:{es:'año → in',en:'year → in'}} },
       { q:{es:'«___ my birthday» (en mi cumpleaños):',en:'«___ my birthday»:'}, opts:{es:['on','in'],en:['on','in']}, correct:0, fb:{ why:{es:'Fecha/cumpleaños → on.',en:'Date/birthday → on.'}, ex:{es:'on my birthday → en mi cumpleaños',en:'on my birthday'}, tip:{es:'fecha → on',en:'date → on'}} }
     ] },
   { icon:'💡', title:{es:'Tips Prácticos',en:'Practical Tips'},
@@ -234,11 +234,11 @@ const STEPS = [
         ${ii('⚡','For time: at + clock time, on + day, in + month or year: «at 5, on Monday, in May».')}`
     },
     checks:[
-      { q:{es:'«___ noon» (al mediodía):',en:'«___ noon» (at noon):'}, opts:{es:['at','in'],en:['at','in']}, correct:0, fb:{ why:{es:'Momento puntual → at.',en:'Exact moment → at.'}, ex:{es:'at noon → al mediodía',en:'at noon'}, tip:{es:'at noon',en:'at noon'}} },
-      { q:{es:'«___ summer» (en verano):',en:'«___ summer» (in summer):'}, opts:{es:['in','on'],en:['in','on']}, correct:0, fb:{ why:{es:'Estación → in.',en:'Season → in.'}, ex:{es:'in summer → en verano',en:'in summer'}, tip:{es:'estación → in',en:'season → in'}} },
+      { q:{es:'«___ noon» (al mediodía):',en:'«___ noon»:'}, opts:{es:['at','in'],en:['at','in']}, correct:0, fb:{ why:{es:'Momento puntual → at.',en:'Exact moment → at.'}, ex:{es:'at noon → al mediodía',en:'at noon'}, tip:{es:'at noon',en:'at noon'}} },
+      { q:{es:'«___ summer» (en verano):',en:'«___ summer»:'}, opts:{es:['in','on'],en:['in','on']}, correct:0, fb:{ why:{es:'Estación → in.',en:'Season → in.'}, ex:{es:'in summer → en verano',en:'in summer'}, tip:{es:'estación → in',en:'season → in'}} },
       { q:{es:'«___ December 25th» (el 25 de diciembre):',en:'«___ December 25th»:'}, opts:{es:['on','in'],en:['on','in']}, correct:0, fb:{ why:{es:'Fecha → on.',en:'Date → on.'}, ex:{es:'on December 25th → el 25 de diciembre',en:'on December 25th'}, tip:{es:'fecha → on',en:'date → on'}} },
-      { q:{es:'«___ the evening» (en la tarde/noche):',en:'«___ the evening» (in the evening):'}, opts:{es:['in','at'],en:['in','at']}, correct:0, fb:{ why:{es:'Parte del día → in.',en:'Part of the day → in.'}, ex:{es:'in the evening → en la tarde',en:'in the evening'}, tip:{es:'evening → in',en:'evening → in'}}, tr:{es:'en la tarde/noche',en:'in the evening'} },
-      { q:{es:'«___ 9 o\'clock» (a las 9):',en:'«___ 9 o\'clock» (at 9):'}, opts:{es:['at','on'],en:['at','on']}, correct:0, fb:{ why:{es:'Hora → at.',en:'Hour → at.'}, ex:{es:'at 9 o\'clock → a las 9',en:'at 9 o\'clock'}, tip:{es:'hora → at',en:'hour → at'}} }
+      { q:{es:'«___ the evening» (en la tarde/noche):',en:'«___ the evening»:'}, opts:{es:['in','at'],en:['in','at']}, correct:0, fb:{ why:{es:'Parte del día → in.',en:'Part of the day → in.'}, ex:{es:'in the evening → en la tarde',en:'in the evening'}, tip:{es:'evening → in',en:'evening → in'}}, tr:{es:'en la tarde/noche',en:'in the evening'} },
+      { q:{es:'«___ 9 o\'clock» (a las 9):',en:'«___ 9 o\'clock»:'}, opts:{es:['at','on'],en:['at','on']}, correct:0, fb:{ why:{es:'Hora → at.',en:'Hour → at.'}, ex:{es:'at 9 o\'clock → a las 9',en:'at 9 o\'clock'}, tip:{es:'hora → at',en:'hour → at'}} }
     ] },
   { icon:'✨', title:{es:'Práctica Final',en:'Final Practice'}, builder:true,
     html:{
