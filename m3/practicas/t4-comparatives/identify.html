@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification · Comparativos con «than» · JUCUM English Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3; --primary-light: #BBDEFB; --primary-dark: #1565C0;
+            --accent: #64B5F6; --bg-gradient-start: #F1F7FE; --bg-gradient-end: #E3F2FD;
+            --text-dark: #0D47A1; --text-medium: #1565C0; --text-light: #1E88E5;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange-light: #FFEDD5; --orange-dark: #C2410C;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --shadow-strong: 0 8px 30px rgba(33,150,243,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#E3F2FD; color:var(--text-medium); margin-left:auto; }
+        .toggle-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; }
+        .toggle-btn { border:2px solid var(--primary-light); background:#F1F7FE; color:var(--text-medium); border-radius:20px; padding:0.4rem 0.9rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .toggle-btn:hover { background:var(--primary-light); }
+        .toggle-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+        .hint-box { background:#EFF6FF; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:#0D47A1; line-height:1.5; display:none; }
+        .hint-box.show { display:block; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.88rem; margin:0.5rem 0 1rem; padding:0.6rem 0.9rem; background:#F1F7FE; border-radius:10px; display:none; }
+        .translation.show { display:block; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border:1px solid #FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-status { font-size:1.1rem; flex-shrink:0; display:none; }
+        .sent-option.disabled .option-status { display:block; }
+        .error-highlight { color:var(--error); font-weight:800; text-decoration:underline wavy; }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+    </style>
+</head><body>
+    <header class="header">
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">💙 A1 · Módulo 3 · Comparativos con «than»</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que esté gramaticalmente correcta. Usa los botones para una pista o la traducción si las necesitas.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore"></div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [{"badge":"🏍️ Moto vs bus","options":[{"text":"A moto passes faster than a bus.","correct":true,"es":"Una moto pasa más rápido que un bus."},{"text":"A moto passes more faster than a bus.","correct":false,"es":"Una moto pasa más rápido que un bus.","errorWord":"more faster","correctWord":"faster","errorType":"Doble comparativo","explanation":"“Faster” ya es comparativo: no se le agrega “more”."},{"text":"A moto passes faster that a bus.","correct":false,"es":"Una moto pasa más rápido que un bus.","errorWord":"that","correctWord":"than","errorType":"than / that","explanation":"La palabra de comparación es “than”."}],"clue":"una sola marca + than","clueExplain":"o “-er” o “more”, nunca los dos; y la comparación cierra con “than”.","correctReason":"“Faster than a bus”: comparativo simple y “than” correcto.","hint":"Busca una marca repetida o una palabra parecida a “than”."},{"badge":"💰 Las tarifas","options":[{"text":"Children pay less than adults.","correct":true,"es":"Los niños pagan menos que los adultos."},{"text":"Children pay less that adults.","correct":false,"es":"Los niños pagan menos que los adultos.","errorWord":"that","correctWord":"than","errorType":"than / that","explanation":"Para comparar se usa “than”."},{"text":"Children pay lesser than adults.","correct":false,"es":"Los niños pagan menos que los adultos.","errorWord":"lesser","correctWord":"less","errorType":"Forma equivocada","explanation":"Con verbos se usa “less than”, no “lesser than”."}],"clue":"less than","clueExplain":"“less than” compara cantidades con un verbo.","correctReason":"“Pay less than adults”: comparación de cantidad correcta.","hint":"Una opción cambia “than”; la otra inventa una forma."},{"badge":"🛣️ La avenida","options":[{"text":"The main avenue is slower than the small streets.","correct":true,"es":"La avenida principal es más lenta que las calles pequeñas."},{"text":"The main avenue is more slow than the small streets.","correct":false,"es":"La avenida principal es más lenta que las calles pequeñas.","errorWord":"more slow","correctWord":"slower","errorType":"more con adjetivo corto","explanation":"“Slow” es corto: slower."},{"text":"The main avenue is slowest than the small streets.","correct":false,"es":"La avenida principal es más lenta que las calles pequeñas.","errorWord":"slowest","correctWord":"slower","errorType":"Superlativo con than","explanation":"“Slowest” es superlativo; con “than” va el comparativo."}],"clue":"corto → -er","clueExplain":"los adjetivos de una sílaba forman el comparativo con -er.","correctReason":"“Slower than”: comparativo corto correcto.","hint":"Piensa si el adjetivo es corto o largo."},{"badge":"🏠 El cuarto cálido","options":[{"text":"This room is warmer than my old one.","correct":true,"es":"Este cuarto es más cálido que el mío viejo."},{"text":"This room is more warmer than my old one.","correct":false,"es":"Este cuarto es más cálido que el mío viejo.","errorWord":"more warmer","correctWord":"warmer","errorType":"Doble comparativo","explanation":"Una sola marca: warmer."},{"text":"This room is warm than my old one.","correct":false,"es":"Este cuarto es más cálido que el mío viejo.","errorWord":"warm","correctWord":"warmer","errorType":"Falta el comparativo","explanation":"Sin -er no hay comparación."}],"clue":"warm → warmer","clueExplain":"la comparación necesita exactamente una marca.","correctReason":"“Warmer than my old one”: marca única y clara.","hint":"Una opción tiene dos marcas; otra, ninguna."},{"badge":"🤫 El patio tranquilo","options":[{"text":"That is quieter than the main avenue.","correct":true,"es":"Eso es más tranquilo que la avenida principal."},{"text":"That is more quiet than the main avenue.","correct":false,"es":"Eso es más tranquilo que la avenida principal.","errorWord":"more quiet","correctWord":"quieter","errorType":"more innecesario","explanation":"“Quiet” admite -er: quieter."},{"text":"That is quieter that the main avenue.","correct":false,"es":"Eso es más tranquilo que la avenida principal.","errorWord":"that","correctWord":"than","errorType":"than / that","explanation":"La comparación cierra con “than”."}],"clue":"quiet → quieter","clueExplain":"quieter + than es la forma natural.","correctReason":"“Quieter than the main avenue”: forma correcta.","hint":"Revisa la marca del adjetivo y la palabra final."},{"badge":"📏 El cuarto grande","options":[{"text":"That room is bigger than this one.","correct":true,"es":"Ese cuarto es más grande que este."},{"text":"That room is biger than this one.","correct":false,"es":"Ese cuarto es más grande que este.","errorWord":"biger","correctWord":"bigger","errorType":"Ortografía","explanation":"“Big” dobla la g: bigger."},{"text":"That room is more big than this one.","correct":false,"es":"Ese cuarto es más grande que este.","errorWord":"more big","correctWord":"bigger","errorType":"more con adjetivo corto","explanation":"“Big” es corto: bigger."}],"clue":"big → bigger","clueExplain":"consonante-vocal-consonante: se dobla la última letra.","correctReason":"“Bigger than this one”: ortografía y marca correctas.","hint":"Cuenta las g."},{"badge":"👍 Mejor que","options":[{"text":"A quiet yard is better than a big window.","correct":true,"es":"Un patio tranquilo es mejor que una ventana grande."},{"text":"A quiet yard is gooder than a big window.","correct":false,"es":"Un patio tranquilo es mejor que una ventana grande.","errorWord":"gooder","correctWord":"better","errorType":"Irregular","explanation":"“Good” no toma -er: better."},{"text":"A quiet yard is more better than a big window.","correct":false,"es":"Un patio tranquilo es mejor que una ventana grande.","errorWord":"more better","correctWord":"better","errorType":"Doble comparativo","explanation":"“Better” ya es comparativo."}],"clue":"good → better","clueExplain":"irregular, y sin “more”.","correctReason":"“Better than a big window”: irregular bien usado.","hint":"Este adjetivo no sigue la regla del -er."},{"badge":"🎉 Más emocionante","options":[{"text":"This is more exciting than television.","correct":true,"es":"Esto es más emocionante que la televisión."},{"text":"This is excitinger than television.","correct":false,"es":"Esto es más emocionante que la televisión.","errorWord":"excitinger","correctWord":"more exciting","errorType":"-er con adjetivo largo","explanation":"Los adjetivos largos usan “more”."},{"text":"This is more exciting that television.","correct":false,"es":"Esto es más emocionante que la televisión.","errorWord":"that","correctWord":"than","errorType":"than / that","explanation":"La comparación cierra con “than”."}],"clue":"largo → more","clueExplain":"tres sílabas piden “more”, no “-er”.","correctReason":"“More exciting than television”: forma larga correcta.","hint":"Cuenta las sílabas del adjetivo."},{"badge":"🔇 Mucho más tranquilo","options":[{"text":"Much quieter than the avenue.","correct":true,"es":"Mucho más tranquilo que la avenida."},{"text":"Very quieter than the avenue.","correct":false,"es":"Mucho más tranquilo que la avenida.","errorWord":"Very","correctWord":"Much","errorType":"very con comparativo","explanation":"Los comparativos se refuerzan con “much”, no con “very”."},{"text":"Much more quieter than the avenue.","correct":false,"es":"Mucho más tranquilo que la avenida.","errorWord":"more quieter","correctWord":"quieter","errorType":"Doble comparativo","explanation":"“Quieter” ya lleva la marca."}],"clue":"much + comparativo","clueExplain":"“much” refuerza; “very” no se usa con comparativos.","correctReason":"“Much quieter”: refuerzo correcto.","hint":"Piensa qué palabra refuerza un comparativo."},{"badge":"🚶 Caminar vs bus","options":[{"text":"Is walking better than the bus?","correct":true,"es":"¿Caminar es mejor que el bus?"},{"text":"Is walking better then the bus?","correct":false,"es":"¿Caminar es mejor que el bus?","errorWord":"then","correctWord":"than","errorType":"then / than","explanation":"“Then” significa “luego”; comparar es “than”."},{"text":"Is walking more better than the bus?","correct":false,"es":"¿Caminar es mejor que el bus?","errorWord":"more better","correctWord":"better","errorType":"Doble comparativo","explanation":"“Better” no admite “more”."}],"clue":"than ≠ then","clueExplain":"than compara; then ordena en el tiempo.","correctReason":"“Better than the bus”: comparación correcta.","hint":"Dos palabras suenan casi igual: than y then."},{"badge":"🎫 Más barato","options":[{"text":"The bus is cheaper than the moto.","correct":true,"es":"El bus es más barato que la moto."},{"text":"The bus is more cheap than the moto.","correct":false,"es":"El bus es más barato que la moto.","errorWord":"more cheap","correctWord":"cheaper","errorType":"more con adjetivo corto","explanation":"“Cheap” es corto: cheaper."},{"text":"The bus is cheap than the moto.","correct":false,"es":"El bus es más barato que la moto.","errorWord":"cheap","correctWord":"cheaper","errorType":"Falta el comparativo","explanation":"Sin -er no hay comparación."}],"clue":"cheap → cheaper","clueExplain":"una sílaba: -er.","correctReason":"“Cheaper than the moto”: comparativo corto.","hint":"¿Está la marca -er donde debe?"},{"badge":"🌧️ Peor con lluvia","options":[{"text":"Traffic in the rain is worse than in the sun.","correct":true,"es":"El tráfico con lluvia es peor que con sol."},{"text":"Traffic in the rain is badder than in the sun.","correct":false,"es":"El tráfico con lluvia es peor que con sol.","errorWord":"badder","correctWord":"worse","errorType":"Irregular","explanation":"“Bad” hace worse."},{"text":"Traffic in the rain is more worse than in the sun.","correct":false,"es":"El tráfico con lluvia es peor que con sol.","errorWord":"more worse","correctWord":"worse","errorType":"Doble comparativo","explanation":"“Worse” ya es comparativo."}],"clue":"bad → worse","clueExplain":"otro irregular, y sin “more”.","correctReason":"“Worse than in the sun”: irregular correcto.","hint":"No existe “badder” en inglés estándar."},{"badge":"💵 Más caro","options":[{"text":"A moto is more expensive than a bus ticket.","correct":true,"es":"Una moto es más cara que un boleto de bus."},{"text":"A moto is expensiver than a bus ticket.","correct":false,"es":"Una moto es más cara que un boleto de bus.","errorWord":"expensiver","correctWord":"more expensive","errorType":"-er con adjetivo largo","explanation":"“Expensive” es largo: more expensive."},{"text":"A moto is most expensive than a bus ticket.","correct":false,"es":"Una moto es más cara que un boleto de bus.","errorWord":"most","correctWord":"more","errorType":"Superlativo con than","explanation":"Con “than” va “more”, no “most”."}],"clue":"more + largo","clueExplain":"comparativo largo = more + adjetivo.","correctReason":"“More expensive than”: forma larga correcta.","hint":"“Most” pertenece a otro tema (superlativos)."},{"badge":"📢 Más ruidosa","options":[{"text":"The main avenue is noisier than Narrow Street.","correct":true,"es":"La avenida principal es más ruidosa que la Calle Angosta."},{"text":"The main avenue is noisyer than Narrow Street.","correct":false,"es":"La avenida principal es más ruidosa que la Calle Angosta.","errorWord":"noisyer","correctWord":"noisier","errorType":"Ortografía y → i","explanation":"Con -y final: noisy → noisier."},{"text":"The main avenue is more noisier than Narrow Street.","correct":false,"es":"La avenida principal es más ruidosa que la Calle Angosta.","errorWord":"more noisier","correctWord":"noisier","errorType":"Doble comparativo","explanation":"“Noisier” ya lleva la marca."}],"clue":"y → i + er","clueExplain":"los adjetivos en -y cambian la y por i.","correctReason":"“Noisier than”: ortografía correcta.","hint":"Mira cómo termina la palabra."},{"badge":"📍 Más lejos","options":[{"text":"The port is farther than the clinic.","correct":true,"es":"El puerto está más lejos que la clínica."},{"text":"The port is farer than the clinic.","correct":false,"es":"El puerto está más lejos que la clínica.","errorWord":"farer","correctWord":"farther","errorType":"Irregular","explanation":"“Far” hace farther (o further)."},{"text":"The port is more far than the clinic.","correct":false,"es":"El puerto está más lejos que la clínica.","errorWord":"more far","correctWord":"farther","errorType":"more con irregular","explanation":"“Far” tiene su propia forma: farther."}],"clue":"far → farther","clueExplain":"tercer irregular de la lista.","correctReason":"“Farther than the clinic”: irregular correcto.","hint":"Este adjetivo no acepta ni -er simple ni more."}];
+    let currentQuestion=0, score=0;
+    let answered=new Array(quizData.length).fill(false);
+
+    function initQuiz(){
+        const c=document.getElementById('questionsContainer'); c.innerHTML='';
+        quizData.forEach((q,i)=>{ q.shuffled=shuffle(q.options); c.appendChild(card(q,i)); });
+        showQuestion(0); updateProgress();
+    }
+    function card(q,index){
+        const d=document.createElement('div'); const L=['A','B','C'];
+        d.className='question-card'+(index!==0?' hidden':''); d.id='question-'+index;
+        const opts=q.shuffled.map((opt,oi)=>`
+            <button class="sent-option" data-idx="${oi}" onclick="selectOption(${index},${oi})">
+                <div class="option-letter">${L[oi]}</div>
+                <div class="option-text" id="opttext-${index}-${oi}">${opt.text}</div>
+                <div class="option-status"></div>
+            </button>`).join('');
+        const transRows=q.shuffled.map((opt,oi)=>`<div style="margin-bottom:0.3rem;"><strong>${L[oi]}.</strong> ${opt.es||''}</div>`).join('');
+        d.innerHTML=`
+            <div class="q-header">
+                <div class="question-number">${index+1}</div>
+                <span class="q-label">Elige la oración correcta:</span>
+                <span class="topic-badge">${q.badge}</span>
+            </div>
+            <div class="toggle-row">
+                <button class="toggle-btn" id="hintbtn-${index}" onclick="toggleHint(${index})">💡 Ver pista</button>
+                <button class="toggle-btn" id="transbtn-${index}" onclick="toggleTrans(${index})">Ver en español</button>
+            </div>
+            <div class="hint-box" id="hint-${index}"><div class="hint-label">💡 Pista</div>${q.hint}</div>
+            <div class="translation" id="trans-${index}">🇪🇸 Compara el sentido de cada opción:<br>${transRows||'(traducción no disponible)'}</div>
+            <div class="sentence-options" id="options-${index}">${opts}</div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index===0?'disabled':''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>${index===quizData.length-1?'Ver Resultados 🎉':'Siguiente →'}</button>
+            </div>`;
+        return d;
+    }
+    function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    function selectOption(qi,oi){
+        if(answered[qi])return; answered[qi]=true;
+        const q=quizData[qi]; const sel=q.shuffled[oi]; const ok=sel.correct;
+        const correctOpt=q.shuffled.find(o=>o.correct); if(ok)score++;
+        document.querySelectorAll('#options-'+qi+' .sent-option').forEach((b,i)=>{
+            b.classList.add('disabled'); const o=q.shuffled[i];
+            const st=b.querySelector('.option-status');
+            if(o.correct){ b.classList.add('correct'); st.textContent='✅'; }
+            else if(i===oi){ b.classList.add('incorrect'); st.textContent='❌'; }
+            else { st.textContent=''; }
+            const tx=document.getElementById('opttext-'+qi+'-'+i);
+            if(o.correct){ tx.innerHTML=o.text; }
+            else { tx.innerHTML=o.text.replace(new RegExp('(^|[^A-Za-z0-9_])('+escReg(o.errorWord)+')(?=$|[^A-Za-z0-9_])'),'$1<span class="error-highlight">'+o.errorWord+'</span>'); }
+        });
+        feedback(qi,sel,ok,correctOpt,q);
+        document.getElementById('next-'+qi).disabled=false; updateProgress();
+    }
+    function feedback(qi,sel,ok,correctOpt,q){
+        const el=document.getElementById('feedback-'+qi);
+        el.className='feedback show '+(ok?'correct':'incorrect');
+        const errs=q.shuffled.filter(o=>!o.correct);
+        const errBlocks=errs.map(e=>`
+            <div class="fb-block fb-error"><div class="fb-block-title">⚠️ Error: <span class="error-badge">${e.errorType}</span></div>
+                <div class="word-swap"><span class="ws-box ws-wrong">${e.errorWord}</span><span class="ws-arrow">→</span><span class="ws-box ws-right">${e.correctWord}</span></div>
+                <div class="error-text">${e.explanation}</div></div>`).join('');
+        if(ok){
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">✅</span><div><div class="fb-title">¡Correcto!</div><div class="fb-subtitle">Veamos por qué las otras estaban mal</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag">${q.clue}</span> ${q.clueExplain}</div></div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        } else {
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">❌</span><div><div class="fb-title">Incorrecto</div><div class="fb-subtitle">Revisemos juntos</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag red">${q.clue}</span> ${q.clueExplain}</div></div>
+                    <div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">🔄 Tu elección vs. la correcta</div>
+                        <div class="fb-compare-row"><span class="compare-label wrong">Tú elegiste</span><span class="compare-text"><span class="word-wrong">${sel.text}</span></span></div>
+                        <div class="fb-compare-row"><span class="compare-label right">Correcta</span><span class="compare-text"><span class="word-right">${correctOpt.text}</span></span></div>
+                    </div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta la oración correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        }
+    }
+    function showQuestion(i){
+        document.querySelectorAll('.question-card').forEach((c,idx)=>c.classList.toggle('hidden',idx!==i));
+        document.getElementById('currentQ').textContent=i+1;
+        currentQuestion=i;
+    }
+    function nextQuestion(i){ if(i<quizData.length-1) showQuestion(i+1); else showResults(); }
+    function prevQuestion(){ if(currentQuestion>0) showQuestion(currentQuestion-1); }
+    function updateProgress(){
+        const done=answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width=(done/quizData.length*100)+'%';
+    }
+    function toggleHint(i){
+        const b=document.getElementById('hint-'+i), btn=document.getElementById('hintbtn-'+i);
+        b.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=b.classList.contains('show')?'💡 Ocultar pista':'💡 Ver pista';
+    }
+    function toggleTrans(i){
+        const t=document.getElementById('trans-'+i), btn=document.getElementById('transbtn-'+i);
+        t.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=t.classList.contains('show')?'Ocultar español':'Ver en español';
+    }
+    function showResults(){
+        document.querySelectorAll('.question-card').forEach(c=>c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct=score/quizData.length*100;
+        window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:Math.round(pct)}}));
+        document.getElementById('finalScore').textContent=score+'/'+quizData.length;
+        let stars=pct>=90?3:pct>=78?2:1;
+        document.getElementById('resultsMessage').textContent=pct>=90
+            ?'¡Excelente trabajo! 🏆':pct>=78?'¡Muy bien! Aprobaste esta práctica. 💪'
+            :'Aún no llegas al 78%. Repasa e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s,i)=>{ if(i<stars) setTimeout(()=>s.classList.add('earned'),i*300); });
+    }
+    function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:10.5px;color:#B0A99A;padding:16px 16px 24px;font-weight:700;font-family:Nunito,system-ui,sans-serif"><img src="https://jucum-english-center.netlify.app/assets/jucum-logo.png" alt="JUCUM English Center" style="height:20px;opacity:.5" onerror="this.style.display='none'">· Material protegido © JUCUM English Center</div>
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
+</body>
+</html>

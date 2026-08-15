@@ -1,0 +1,207 @@
+{
+  "module": "Transportation & Directions",
+  "emoji": "🚌",
+  "level": "a1",
+  "topics": [
+    "Prepositions of Place",
+    "Prepositions of Movement",
+    "Imperatives for Directions",
+    "Comparatives with «than»",
+    "Superlatives",
+    "Questions with How"
+  ],
+  "activities": [
+    {
+      "id": "story",
+      "type": "story",
+      "name": "Stories y Diálogos · Transportation & Directions",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/story.html"
+    },
+    {
+      "id": "reading",
+      "type": "reading",
+      "name": "Comprensión lectora · Transportation & Directions",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/reading.html"
+    },
+    {
+      "id": "listening",
+      "type": "listening",
+      "name": "Comprensión auditiva · Transportation & Directions",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/listening.html"
+    },
+    {
+      "id": "sum-prepositions-place",
+      "type": "summary",
+      "name": "Resumen · Prepositions of Place",
+      "group": "T1 · Prepositions of Place",
+      "open": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t1-prepositions-place.html"
+    },
+    {
+      "id": "t1-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T1 · Prepositions of Place",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/fill.html"
+    },
+    {
+      "id": "t1-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T1 · Prepositions of Place",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/identify.html"
+    },
+    {
+      "id": "t1-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T1 · Prepositions of Place",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/transform.html"
+    },
+    {
+      "id": "sum-prepositions-movement",
+      "type": "summary",
+      "name": "Resumen · Prepositions of Movement",
+      "group": "T2 · Prepositions of Movement",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t2-prepositions-movement.html"
+    },
+    {
+      "id": "t2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · Prepositions of Movement",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/fill.html"
+    },
+    {
+      "id": "t2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · Prepositions of Movement",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/identify.html"
+    },
+    {
+      "id": "t2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · Prepositions of Movement",
+      "latent": true,
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/transform.html"
+    },
+    {
+      "id": "sum-imperatives-directions",
+      "type": "summary",
+      "name": "Resumen · Imperatives for Directions",
+      "group": "T3 · Imperatives for Directions",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t3-imperatives-directions.html"
+    },
+    {
+      "id": "t3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · Imperatives for Directions",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/fill.html"
+    },
+    {
+      "id": "t3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · Imperatives for Directions",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/identify.html"
+    },
+    {
+      "id": "t3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · Imperatives for Directions",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/transform.html"
+    },
+    {
+      "id": "sum-comparatives",
+      "type": "summary",
+      "name": "Resumen · Comparatives with «than»",
+      "group": "T4 · Comparatives with «than»",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t4-comparatives.html"
+    },
+    {
+      "id": "t4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Comparatives with «than»",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/fill.html"
+    },
+    {
+      "id": "t4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Comparatives with «than»",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/identify.html"
+    },
+    {
+      "id": "t4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Comparatives with «than»",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/transform.html"
+    },
+    {
+      "id": "sum-superlatives",
+      "type": "summary",
+      "name": "Resumen · Superlatives",
+      "group": "T5 · Superlatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t5-superlatives.html"
+    },
+    {
+      "id": "t5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Superlatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/fill.html"
+    },
+    {
+      "id": "t5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Superlatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/identify.html"
+    },
+    {
+      "id": "t5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Superlatives",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/transform.html"
+    },
+    {
+      "id": "sum-questions-how",
+      "type": "summary",
+      "name": "Resumen · Questions with How",
+      "group": "T6 · Questions with How",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t6-questions-how.html"
+    },
+    {
+      "id": "t6-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T6 · Questions with How",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/fill.html"
+    },
+    {
+      "id": "t6-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T6 · Questions with How",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/identify.html"
+    },
+    {
+      "id": "t6-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T6 · Questions with How",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/transform.html"
+    }
+  ]
+}

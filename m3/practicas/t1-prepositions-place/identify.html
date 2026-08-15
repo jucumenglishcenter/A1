@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Identification · Preposiciones de Lugar · JUCUM English Center</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fredoka:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2196F3; --primary-light: #BBDEFB; --primary-dark: #1565C0;
+            --accent: #64B5F6; --bg-gradient-start: #F1F7FE; --bg-gradient-end: #E3F2FD;
+            --text-dark: #0D47A1; --text-medium: #1565C0; --text-light: #1E88E5;
+            --success: #10B981; --success-light: #D1FAE5; --success-dark: #059669;
+            --error: #EF4444; --error-light: #FEE2E2; --error-dark: #DC2626;
+            --info: #3B82F6; --info-light: #DBEAFE; --info-dark: #1D4ED8;
+            --purple: #8B5CF6; --purple-light: #EDE9FE; --purple-dark: #6D28D9;
+            --orange-light: #FFEDD5; --orange-dark: #C2410C;
+            --white: #FFFFFF;
+            --shadow-soft: 0 4px 20px rgba(33,150,243,0.15);
+            --shadow-strong: 0 8px 30px rgba(33,150,243,0.25);
+            --border-radius: 20px;
+        }
+        * { margin:0; padding:0; box-sizing:border-box; -webkit-tap-highlight-color:transparent; }
+        body { font-family:'Nunito',sans-serif; background:linear-gradient(135deg,var(--bg-gradient-start) 0%,var(--bg-gradient-end) 100%); min-height:100vh; color:var(--text-dark); }
+        .header { background:linear-gradient(135deg,var(--primary) 0%,var(--primary-dark) 100%); padding:1rem 1.5rem; display:flex; align-items:center; gap:1rem; position:sticky; top:0; z-index:100; box-shadow:var(--shadow-soft); }
+        .header-info { flex:1; }
+        .header-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; font-weight:600; color:white; }
+        .header-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:2px; }
+        .progress-indicator { background:rgba(255,255,255,0.3); padding:0.4rem 0.9rem; border-radius:20px; font-weight:700; color:white; font-size:0.9rem; white-space:nowrap; }
+        .progress-container { padding:0; height:6px; background:rgba(255,255,255,0.3); }
+        .progress-fill { height:100%; background:white; border-radius:0 3px 3px 0; transition:width .5s ease; width:0%; }
+        main { padding:1.5rem; max-width:650px; margin:0 auto; }
+        .instructions { background:white; border-radius:16px; padding:1rem 1.25rem; margin-bottom:1.25rem; box-shadow:var(--shadow-soft); border-left:5px solid var(--primary); display:flex; gap:0.75rem; align-items:flex-start; }
+        .instructions-icon { font-size:1.6rem; flex-shrink:0; }
+        .instructions-title { font-family:'Fredoka',sans-serif; font-size:1rem; font-weight:600; color:var(--text-dark); margin-bottom:0.2rem; }
+        .instructions-text { font-size:0.85rem; color:var(--text-medium); line-height:1.5; }
+        .question-card { background:white; border-radius:var(--border-radius); box-shadow:var(--shadow-soft); padding:1.5rem; margin-bottom:1rem; animation:slideIn .4s ease; }
+        .question-card.hidden { display:none; }
+        @keyframes slideIn { from{opacity:0;transform:translateX(20px)} to{opacity:1;transform:translateX(0)} }
+        .q-header { display:flex; align-items:center; gap:0.75rem; margin-bottom:1rem; }
+        .question-number { width:32px; height:32px; border-radius:50%; background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; display:flex; align-items:center; justify-content:center; font-family:'Fredoka',sans-serif; font-weight:700; font-size:0.95rem; flex-shrink:0; }
+        .topic-badge { display:inline-flex; align-items:center; gap:0.3rem; padding:0.2rem 0.7rem; border-radius:20px; font-size:0.72rem; font-weight:700; background:#E3F2FD; color:var(--text-medium); margin-left:auto; }
+        .toggle-row { display:flex; flex-wrap:wrap; gap:0.5rem; margin-bottom:1rem; }
+        .toggle-btn { border:2px solid var(--primary-light); background:#F1F7FE; color:var(--text-medium); border-radius:20px; padding:0.4rem 0.9rem; font-family:'Nunito',sans-serif; font-size:0.8rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .toggle-btn:hover { background:var(--primary-light); }
+        .toggle-btn.active { background:var(--primary); color:white; border-color:var(--primary); }
+        .hint-box { background:#EFF6FF; border-left:4px solid var(--primary); padding:0.7rem 1rem; border-radius:0 10px 10px 0; margin-bottom:1rem; font-size:0.88rem; color:#0D47A1; line-height:1.5; display:none; }
+        .hint-box.show { display:block; }
+        .hint-label { font-weight:700; color:var(--primary-dark); display:flex; align-items:center; gap:0.4rem; margin-bottom:0.2rem; font-size:0.82rem; text-transform:uppercase; letter-spacing:.5px; }
+        .translation { color:var(--text-light); font-style:italic; font-size:0.88rem; margin:0.5rem 0 1rem; padding:0.6rem 0.9rem; background:#F1F7FE; border-radius:10px; display:none; }
+        .translation.show { display:block; }
+        .feedback { margin-top:1.25rem; border-radius:16px; overflow:hidden; display:none; box-shadow:0 4px 16px rgba(0,0,0,0.1); }
+        .feedback.show { display:block; animation:fadeUp .35s ease; }
+        @keyframes fadeUp { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+        .fb-header { padding:0.9rem 1.25rem; display:flex; align-items:center; gap:0.75rem; }
+        .feedback.correct .fb-header { background:linear-gradient(135deg,var(--success),var(--success-dark)); }
+        .feedback.incorrect .fb-header { background:linear-gradient(135deg,var(--error),var(--error-dark)); }
+        .fb-icon { font-size:1.6rem; }
+        .fb-title { font-family:'Fredoka',sans-serif; font-size:1.1rem; color:white; font-weight:600; }
+        .fb-subtitle { font-size:0.8rem; color:rgba(255,255,255,0.85); margin-top:1px; }
+        .fb-body { background:white; border:2px solid; border-top:none; border-radius:0 0 16px 16px; padding:1.25rem; display:flex; flex-direction:column; gap:0.9rem; }
+        .feedback.correct .fb-body { border-color:var(--success); }
+        .feedback.incorrect .fb-body { border-color:var(--error); }
+        .fb-block { border-radius:12px; padding:0.9rem 1rem; }
+        .fb-block-title { font-weight:800; font-size:0.78rem; text-transform:uppercase; letter-spacing:.6px; margin-bottom:0.5rem; display:flex; align-items:center; gap:0.4rem; flex-wrap:wrap; }
+        .fb-signal { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-signal.wrong { background:#FFF1F2; border:1px solid #FECDD3; }
+        .fb-signal .fb-block-title { color:var(--success-dark); }
+        .fb-signal.wrong .fb-block-title { color:var(--error-dark); }
+        .fb-text { font-size:0.92rem; color:var(--text-dark); line-height:1.55; }
+        .signal-tag { display:inline-block; background:var(--success); color:white; border-radius:6px; padding:0.1rem 0.5rem; font-size:0.8rem; font-weight:700; margin:0 2px; }
+        .signal-tag.red { background:var(--error); }
+        .fb-compare { background:#F8FAFC; border:1px solid #E2E8F0; }
+        .fb-compare-row { display:flex; align-items:baseline; gap:0.6rem; padding:0.35rem 0; border-bottom:1px dashed #E2E8F0; }
+        .fb-compare-row:last-child { border-bottom:none; }
+        .compare-label { font-size:0.72rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; white-space:nowrap; padding:0.15rem 0.5rem; border-radius:6px; flex-shrink:0; }
+        .compare-label.wrong { background:var(--error-light); color:var(--error-dark); }
+        .compare-label.right { background:var(--success-light); color:var(--success-dark); }
+        .compare-text { font-size:0.95rem; color:var(--text-dark); line-height:1.5; }
+        .word-wrong { color:var(--error); font-weight:700; text-decoration:line-through; }
+        .word-right { color:var(--success-dark); font-weight:700; }
+        .fb-error { background:var(--error-light); }
+        .fb-error .fb-block-title { color:var(--error-dark); }
+        .error-badge { display:inline-block; background:var(--error); color:white; padding:0.2rem 0.6rem; border-radius:6px; font-size:0.75rem; font-weight:700; }
+        .word-swap { display:flex; align-items:center; justify-content:center; gap:0.75rem; margin:0.6rem 0; flex-wrap:wrap; }
+        .ws-box { padding:0.4rem 1rem; border-radius:8px; font-weight:700; font-size:1rem; }
+        .ws-wrong { background:white; color:var(--error); border:2px solid var(--error); text-decoration:line-through; }
+        .ws-arrow { font-size:1.3rem; color:var(--text-medium); }
+        .ws-right { background:var(--success); color:white; }
+        .error-text { font-size:0.88rem; color:var(--error-dark); line-height:1.5; }
+        .fb-why { background:#F0FDF4; border:1px solid #BBF7D0; }
+        .fb-why .fb-block-title { color:var(--success-dark); }
+        .nav-buttons { display:flex; gap:0.75rem; margin-top:1.25rem; }
+        .nav-btn { padding:0.8rem 1.2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:0.95rem; font-weight:700; cursor:pointer; transition:all .2s; }
+        .nav-btn.next { background:linear-gradient(135deg,var(--primary),var(--primary-dark)); color:white; flex:1; }
+        .nav-btn.prev { background:#F1F5F9; color:var(--text-dark); }
+        .nav-btn:disabled { opacity:.4; cursor:default; }
+        .nav-btn:not(:disabled):hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .results-screen { display:none; text-align:center; padding:2rem 1.5rem; }
+        .results-screen.show { display:block; animation:fadeUp .5s ease; }
+        .results-emoji { font-size:4rem; margin-bottom:1rem; }
+        .results-title { font-family:'Fredoka',sans-serif; font-size:2rem; margin-bottom:0.5rem; }
+        .results-score { font-size:3rem; font-weight:800; color:var(--purple); margin:1rem 0; }
+        .results-message { font-size:1.05rem; color:var(--text-medium); margin-bottom:1.5rem; }
+        .stars-container { display:flex; justify-content:center; gap:0.5rem; margin:1.5rem 0; }
+        .star { font-size:2.5rem; opacity:.3; transition:all .5s ease; }
+        .star.earned { opacity:1; animation:starPop .5s ease; }
+        @keyframes starPop { 0%{transform:scale(0)} 50%{transform:scale(1.3)} 100%{transform:scale(1)} }
+        .results-buttons { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+        .result-btn { padding:1rem 2rem; border:none; border-radius:12px; font-family:'Nunito',sans-serif; font-size:1rem; font-weight:700; cursor:pointer; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem; transition:all .2s; }
+        .result-btn.primary { background:linear-gradient(135deg,var(--purple),var(--purple-dark)); color:white; }
+        .result-btn:hover { transform:translateY(-2px); box-shadow:var(--shadow-soft); }
+        .q-label { font-size:0.88rem; color:var(--text-medium); font-weight:600; }
+        .sentence-options { display:flex; flex-direction:column; gap:0.7rem; margin-bottom:0.5rem; }
+        .sent-option { border:2.5px solid #E5E7EB; border-radius:14px; padding:1rem 1.1rem; cursor:pointer; transition:all .2s; background:white; text-align:left; font-family:'Nunito',sans-serif; display:flex; gap:0.75rem; align-items:flex-start; width:100%; }
+        .sent-option:hover:not(.disabled) { border-color:var(--primary); background:var(--bg-gradient-start); transform:translateX(4px); }
+        .sent-option.disabled { cursor:default; }
+        .sent-option.correct { border-color:var(--success); background:var(--success-light); }
+        .sent-option.incorrect { border-color:var(--error); background:var(--error-light); }
+        .option-letter { width:26px; height:26px; border-radius:50%; background:var(--primary-light); color:var(--primary-dark); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:0.8rem; flex-shrink:0; font-family:'Fredoka',sans-serif; }
+        .sent-option.correct .option-letter { background:var(--success); color:white; }
+        .sent-option.incorrect .option-letter { background:var(--error); color:white; }
+        .option-text { font-size:0.97rem; color:var(--text-dark); line-height:1.5; font-weight:600; flex:1; }
+        .option-status { font-size:1.1rem; flex-shrink:0; display:none; }
+        .sent-option.disabled .option-status { display:block; }
+        .error-highlight { color:var(--error); font-weight:800; text-decoration:underline wavy; }
+        .correct-highlight { color:var(--success-dark); font-weight:800; }
+    </style>
+</head><body>
+    <header class="header">
+        <div class="header-info">
+            <div class="header-title">🔍 Identification</div>
+            <div class="header-subtitle">💙 A1 · Módulo 3 · Preposiciones de Lugar</div>
+        </div>
+        <div class="progress-indicator"><span id="currentQ">1</span>/15</div>
+    </header>
+    <div class="progress-container"><div class="progress-fill" id="progressFill"></div></div>
+
+    <main>
+        <div class="instructions">
+            <div class="instructions-icon">🔍</div>
+            <div>
+                <div class="instructions-title">Identifica la oración correcta</div>
+                <div class="instructions-text">Lee las tres oraciones y elige la que esté gramaticalmente correcta. Usa los botones para una pista o la traducción si las necesitas.</div>
+            </div>
+        </div>
+        <div id="questionsContainer"></div>
+
+        <div class="results-screen" id="resultsScreen">
+            <div class="results-emoji">🎉</div>
+            <div class="results-title">¡Completado!</div>
+            <div class="results-score" id="finalScore"></div>
+            <div class="stars-container">
+                <span class="star">⭐</span><span class="star">⭐</span><span class="star">⭐</span>
+            </div>
+            <div class="results-message" id="resultsMessage"></div>
+            <div class="results-buttons">
+                <button class="result-btn primary" onclick="location.reload()">🔄 Intentar de Nuevo</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+    const quizData = [{"badge":"🏥 La clínica","options":[{"text":"The clinic is across from a blue kiosk.","correct":true,"es":"La clínica está frente a un kiosco azul."},{"text":"The clinic is across to a blue kiosk.","correct":false,"es":"La clínica está frente a un kiosco azul.","errorWord":"to","correctWord":"from","errorType":"Preposición fija","explanation":"La forma fija es “across from”, nunca “across to”."},{"text":"The clinic is across of a blue kiosk.","correct":false,"es":"La clínica está frente a un kiosco azul.","errorWord":"of","correctWord":"from","errorType":"Palabra equivocada","explanation":"“Across” se acompaña de “from”, no de “of”."}],"clue":"across + from","clueExplain":"para decir “frente a” el inglés usa siempre la pareja “across from”.","correctReason":"“Across from a blue kiosk”: la pareja fija está completa.","hint":"Fíjate en la palabra que sigue a “across”: solo una es posible."},{"badge":"🐕 El perro","options":[{"text":"The dog sleeps behind the green gate.","correct":true,"es":"El perro duerme detrás de la puerta verde."},{"text":"The dog sleeps behind of the green gate.","correct":false,"es":"El perro duerme detrás de la puerta verde.","errorWord":"of","correctWord":"(sin of)","errorType":"«of» de más","explanation":"“Behind” va directo al lugar: behind the gate."},{"text":"The dog sleeps behind to the green gate.","correct":false,"es":"El perro duerme detrás de la puerta verde.","errorWord":"to","correctWord":"(sin to)","errorType":"Palabra de más","explanation":"“Behind” no lleva “to”: behind the gate."}],"clue":"behind solo","clueExplain":"“behind” no necesita ninguna palabra extra, aunque el español diga “detrás DE”.","correctReason":"“Behind the green gate”: preposición + lugar, nada más.","hint":"El español agrega «de»; el inglés aquí no agrega nada."},{"badge":"🪑 Los asientos","options":[{"text":"Seat ten is next to seat nine.","correct":true,"es":"El asiento diez está junto al asiento nueve."},{"text":"Seat ten is next of seat nine.","correct":false,"es":"El asiento diez está junto al asiento nueve.","errorWord":"of","correctWord":"to","errorType":"Preposición equivocada","explanation":"“Next” se acompaña de “to”: next to."},{"text":"Seat ten is next seat nine.","correct":false,"es":"El asiento diez está junto al asiento nueve.","errorWord":"next","correctWord":"next to","errorType":"Falta «to»","explanation":"Sin “to”, “next” significa “siguiente”, no “junto a”."}],"clue":"next + to","clueExplain":"“junto a” es “next to”; sin “to” cambia de significado.","correctReason":"“Next to seat nine”: la pareja next + to está completa.","hint":"Una opción convierte «junto a» en «siguiente»."},{"badge":"🌳 El kiosco","options":[{"text":"The kiosk is between the park and the church.","correct":true,"es":"El kiosco está entre el parque y la iglesia."},{"text":"The kiosk is between the park with the church.","correct":false,"es":"El kiosco está entre el parque y la iglesia.","errorWord":"with","correctWord":"and","errorType":"Conector equivocado","explanation":"La estructura es “between A and B”."},{"text":"The kiosk is among the park and the church.","correct":false,"es":"El kiosco está entre el parque y la iglesia.","errorWord":"among","correctWord":"between","errorType":"between vs among","explanation":"Con DOS lugares se usa “between”; “among” es para un grupo."}],"clue":"between A and B","clueExplain":"dos referencias exactas piden “between … and …”.","correctReason":"“Between the park and the church”: dos lugares unidos con “and”.","hint":"Cuenta los lugares: son dos."},{"badge":"🏠 El piso","options":[{"text":"The room is on the second floor.","correct":true,"es":"El cuarto está en el segundo piso."},{"text":"The room is in the second floor.","correct":false,"es":"El cuarto está en el segundo piso.","errorWord":"in","correctWord":"on","errorType":"in / on","explanation":"Los pisos de un edificio van con “on”."},{"text":"The room is at the second floor.","correct":false,"es":"El cuarto está en el segundo piso.","errorWord":"at","correctWord":"on","errorType":"at / on","explanation":"“At” es para un punto exacto, no para un piso."}],"clue":"on + floor","clueExplain":"first / second / third floor siempre con “on”.","correctReason":"“On the second floor”: la preposición de los pisos.","hint":"El español dice «en» para todo; en inglés el piso elige una sola."},{"badge":"🛏️ Al fondo","options":[{"text":"The room is at the back of the house.","correct":true,"es":"El cuarto está al fondo de la casa."},{"text":"The room is at back of the house.","correct":false,"es":"El cuarto está al fondo de la casa.","errorWord":"at back","correctWord":"at the back","errorType":"Falta el artículo","explanation":"La expresión lleva “the”: at THE back of."},{"text":"The room is on the back from the house.","correct":false,"es":"El cuarto está al fondo de la casa.","errorWord":"from","correctWord":"of","errorType":"Expresión mezclada","explanation":"Es “at the back OF”, no “on the back from”."}],"clue":"at the back of","clueExplain":"tres piezas fijas: at + the back + of.","correctReason":"“At the back of the house”: la expresión completa.","hint":"Revisa si falta un artículo o si cambió una palabra final."},{"badge":"🛣️ La avenida","options":[{"text":"There is another room on the main avenue.","correct":true,"es":"Hay otro cuarto en la avenida principal."},{"text":"There is another room in the main avenue.","correct":false,"es":"Hay otro cuarto en la avenida principal.","errorWord":"in","correctWord":"on","errorType":"in / on","explanation":"Calles y avenidas van con “on”."},{"text":"There is another room at the main avenue.","correct":false,"es":"Hay otro cuarto en la avenida principal.","errorWord":"at","correctWord":"on","errorType":"at / on","explanation":"“At” marca un punto; una avenida entera lleva “on”."}],"clue":"on + street","clueExplain":"on the main avenue · on Narrow Street.","correctReason":"“On the main avenue”: la preposición de las calles.","hint":"¿Es un punto exacto o una calle completa?"},{"badge":"🚏 El paradero","options":[{"text":"They meet at the bus stop at seven.","correct":true,"es":"Se encuentran en el paradero a las siete."},{"text":"They meet in the bus stop at seven.","correct":false,"es":"Se encuentran en el paradero a las siete.","errorWord":"in","correctWord":"at","errorType":"in / at","explanation":"Un punto de encuentro lleva “at”."},{"text":"They meet on the bus stop at seven.","correct":false,"es":"Se encuentran en el paradero a las siete.","errorWord":"on","correctWord":"at","errorType":"on / at","explanation":"“On” sería encima del paradero; el punto de encuentro es “at”."}],"clue":"at + punto","clueExplain":"paradero, kiosco, puerta: puntos exactos con “at”.","correctReason":"“At the bus stop”: punto exacto de encuentro.","hint":"Piensa si es una zona, una superficie o un punto."},{"badge":"🚌 El bus para","options":[{"text":"The bus stops in front of them.","correct":true,"es":"El bus se detiene delante de ellos."},{"text":"The bus stops in front them.","correct":false,"es":"El bus se detiene delante de ellos.","errorWord":"front them","correctWord":"front of them","errorType":"Falta «of»","explanation":"“In front” siempre lleva “of” antes del lugar o persona."},{"text":"The bus stops in front to them.","correct":false,"es":"El bus se detiene delante de ellos.","errorWord":"to","correctWord":"of","errorType":"Palabra equivocada","explanation":"La expresión es “in front of”, no “in front to”."}],"clue":"in front OF","clueExplain":"la expresión no funciona sin “of”.","correctReason":"“In front of them”: expresión completa.","hint":"Busca la palabra de dos letras que falta o cambió."},{"badge":"🌿 El césped","options":[{"text":"Green grass grows near a low wall.","correct":true,"es":"Crece césped verde cerca de un muro bajo."},{"text":"Green grass grows near of a low wall.","correct":false,"es":"Crece césped verde cerca de un muro bajo.","errorWord":"of","correctWord":"(sin of)","errorType":"«of» de más","explanation":"“Near” va directo al lugar: near a low wall."},{"text":"Green grass grows nearly a low wall.","correct":false,"es":"Crece césped verde cerca de un muro bajo.","errorWord":"nearly","correctWord":"near","errorType":"near / nearly","explanation":"“Nearly” significa “casi”, no “cerca”."}],"clue":"near ≠ nearly","clueExplain":"“near” = cerca (lugar); “nearly” = casi (cantidad).","correctReason":"“Near a low wall”: cerca del muro, sin palabras extra.","hint":"Una opción cambia el significado a «casi»."},{"badge":"🏘️ Otro cuarto","options":[{"text":"There is another room nearby.","correct":true,"es":"Hay otro cuarto cerca."},{"text":"There is another room near.","correct":false,"es":"Hay otro cuarto cerca.","errorWord":"near","correctWord":"nearby","errorType":"Falta el lugar","explanation":"“Near” necesita un lugar después; si va solo, se usa “nearby”."},{"text":"There is another room nearby of.","correct":false,"es":"Hay otro cuarto cerca.","errorWord":"nearby of","correctWord":"nearby","errorType":"«of» de más","explanation":"“Nearby” va solo, sin “of”."}],"clue":"nearby va solo","clueExplain":"si no dices cerca de QUÉ, la palabra es “nearby”.","correctReason":"“Another room nearby”: cerca, sin mencionar de qué.","hint":"Mira si la frase dice cerca de algo o solo «cerca»."},{"badge":"🏪 La esquina","options":[{"text":"The kiosk is on the corner of my street.","correct":true,"es":"El kiosco está en la esquina de mi calle."},{"text":"The kiosk is in the corner of my street.","correct":false,"es":"El kiosco está en la esquina de mi calle.","errorWord":"in","correctWord":"on","errorType":"in / on","explanation":"La esquina de una calle va con “on”; “in the corner” es el rincón de un cuarto."},{"text":"The kiosk is on the corner in my street.","correct":false,"es":"El kiosco está en la esquina de mi calle.","errorWord":"in","correctWord":"of","errorType":"Expresión mezclada","explanation":"Es “on the corner OF my street”."}],"clue":"on the corner of","clueExplain":"calle → on the corner of; cuarto → in the corner.","correctReason":"“On the corner of my street”: esquina de calle.","hint":"Piensa si es la esquina de una calle o el rincón de un cuarto."},{"badge":"🗺️ El mapa","options":[{"text":"Sara puts her map upon the wall.","correct":true,"es":"Sara pone su mapa sobre la pared."},{"text":"Sara puts her map upon of the wall.","correct":false,"es":"Sara pone su mapa sobre la pared.","errorWord":"of","correctWord":"(sin of)","errorType":"«of» de más","explanation":"“Upon” va directo al lugar: upon the wall."},{"text":"Sara puts her map out of the wall.","correct":false,"es":"Sara pone su mapa sobre la pared.","errorWord":"out of","correctWord":"upon","errorType":"Lugar vs movimiento","explanation":"“Out of” es movimiento hacia fuera; aquí el mapa queda quieto."}],"clue":"upon = sobre","clueExplain":"“upon / on” dicen posición; “out of” dice movimiento.","correctReason":"“Upon the wall”: el mapa queda en su lugar.","hint":"¿Algo se mueve en esta frase? No."},{"badge":"⛴️ El puerto","options":[{"text":"The old port is in the south section.","correct":true,"es":"El puerto viejo está en la sección sur."},{"text":"The old port is at the south section.","correct":false,"es":"El puerto viejo está en la sección sur.","errorWord":"at","correctWord":"in","errorType":"at / in","explanation":"Una sección es una zona: lleva “in”."},{"text":"The old port is on the south section.","correct":false,"es":"El puerto viejo está en la sección sur.","errorWord":"on","correctWord":"in","errorType":"on / in","explanation":"“On” es para calles o superficies, no para zonas."}],"clue":"in + zona","clueExplain":"secciones, ciudades y barrios llevan “in”.","correctReason":"“In the south section”: dentro de esa zona.","hint":"Zona → in · calle → on · punto → at."},{"badge":"⛪ La iglesia","options":[{"text":"The square is behind the church.","correct":true,"es":"La placita está detrás de la iglesia."},{"text":"The square is behind from the church.","correct":false,"es":"La placita está detrás de la iglesia.","errorWord":"from","correctWord":"(sin from)","errorType":"Palabra de más","explanation":"“Behind” no lleva “from”: behind the church."},{"text":"The square is back of the church.","correct":false,"es":"La placita está detrás de la iglesia.","errorWord":"back of","correctWord":"behind","errorType":"Expresión inexistente","explanation":"Para “detrás de” se usa “behind”, no “back of”."}],"clue":"behind the church","clueExplain":"una sola palabra basta para “detrás de”.","correctReason":"“Behind the church”: forma correcta y completa.","hint":"Dos opciones agregan o cambian palabras innecesarias."}];
+    let currentQuestion=0, score=0;
+    let answered=new Array(quizData.length).fill(false);
+
+    function initQuiz(){
+        const c=document.getElementById('questionsContainer'); c.innerHTML='';
+        quizData.forEach((q,i)=>{ q.shuffled=shuffle(q.options); c.appendChild(card(q,i)); });
+        showQuestion(0); updateProgress();
+    }
+    function card(q,index){
+        const d=document.createElement('div'); const L=['A','B','C'];
+        d.className='question-card'+(index!==0?' hidden':''); d.id='question-'+index;
+        const opts=q.shuffled.map((opt,oi)=>`
+            <button class="sent-option" data-idx="${oi}" onclick="selectOption(${index},${oi})">
+                <div class="option-letter">${L[oi]}</div>
+                <div class="option-text" id="opttext-${index}-${oi}">${opt.text}</div>
+                <div class="option-status"></div>
+            </button>`).join('');
+        const transRows=q.shuffled.map((opt,oi)=>`<div style="margin-bottom:0.3rem;"><strong>${L[oi]}.</strong> ${opt.es||''}</div>`).join('');
+        d.innerHTML=`
+            <div class="q-header">
+                <div class="question-number">${index+1}</div>
+                <span class="q-label">Elige la oración correcta:</span>
+                <span class="topic-badge">${q.badge}</span>
+            </div>
+            <div class="toggle-row">
+                <button class="toggle-btn" id="hintbtn-${index}" onclick="toggleHint(${index})">💡 Ver pista</button>
+                <button class="toggle-btn" id="transbtn-${index}" onclick="toggleTrans(${index})">Ver en español</button>
+            </div>
+            <div class="hint-box" id="hint-${index}"><div class="hint-label">💡 Pista</div>${q.hint}</div>
+            <div class="translation" id="trans-${index}">🇪🇸 Compara el sentido de cada opción:<br>${transRows||'(traducción no disponible)'}</div>
+            <div class="sentence-options" id="options-${index}">${opts}</div>
+            <div class="feedback" id="feedback-${index}"></div>
+            <div class="nav-buttons">
+                <button class="nav-btn prev" onclick="prevQuestion()" ${index===0?'disabled':''}>← Anterior</button>
+                <button class="nav-btn next" id="next-${index}" onclick="nextQuestion(${index})" disabled>${index===quizData.length-1?'Ver Resultados 🎉':'Siguiente →'}</button>
+            </div>`;
+        return d;
+    }
+    function escReg(s){ return s.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'); }
+    function selectOption(qi,oi){
+        if(answered[qi])return; answered[qi]=true;
+        const q=quizData[qi]; const sel=q.shuffled[oi]; const ok=sel.correct;
+        const correctOpt=q.shuffled.find(o=>o.correct); if(ok)score++;
+        document.querySelectorAll('#options-'+qi+' .sent-option').forEach((b,i)=>{
+            b.classList.add('disabled'); const o=q.shuffled[i];
+            const st=b.querySelector('.option-status');
+            if(o.correct){ b.classList.add('correct'); st.textContent='✅'; }
+            else if(i===oi){ b.classList.add('incorrect'); st.textContent='❌'; }
+            else { st.textContent=''; }
+            const tx=document.getElementById('opttext-'+qi+'-'+i);
+            if(o.correct){ tx.innerHTML=o.text; }
+            else { tx.innerHTML=o.text.replace(new RegExp('(^|[^A-Za-z0-9_])('+escReg(o.errorWord)+')(?=$|[^A-Za-z0-9_])'),'$1<span class="error-highlight">'+o.errorWord+'</span>'); }
+        });
+        feedback(qi,sel,ok,correctOpt,q);
+        document.getElementById('next-'+qi).disabled=false; updateProgress();
+    }
+    function feedback(qi,sel,ok,correctOpt,q){
+        const el=document.getElementById('feedback-'+qi);
+        el.className='feedback show '+(ok?'correct':'incorrect');
+        const errs=q.shuffled.filter(o=>!o.correct);
+        const errBlocks=errs.map(e=>`
+            <div class="fb-block fb-error"><div class="fb-block-title">⚠️ Error: <span class="error-badge">${e.errorType}</span></div>
+                <div class="word-swap"><span class="ws-box ws-wrong">${e.errorWord}</span><span class="ws-arrow">→</span><span class="ws-box ws-right">${e.correctWord}</span></div>
+                <div class="error-text">${e.explanation}</div></div>`).join('');
+        if(ok){
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">✅</span><div><div class="fb-title">¡Correcto!</div><div class="fb-subtitle">Veamos por qué las otras estaban mal</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag">${q.clue}</span> ${q.clueExplain}</div></div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        } else {
+            el.innerHTML=`
+                <div class="fb-header"><span class="fb-icon">❌</span><div><div class="fb-title">Incorrecto</div><div class="fb-subtitle">Revisemos juntos</div></div></div>
+                <div class="fb-body">
+                    <div class="fb-block fb-signal wrong"><div class="fb-block-title">🔍 La señal clave</div><div class="fb-text"><span class="signal-tag red">${q.clue}</span> ${q.clueExplain}</div></div>
+                    <div class="fb-block fb-compare"><div class="fb-block-title" style="color:#64748B;">🔄 Tu elección vs. la correcta</div>
+                        <div class="fb-compare-row"><span class="compare-label wrong">Tú elegiste</span><span class="compare-text"><span class="word-wrong">${sel.text}</span></span></div>
+                        <div class="fb-compare-row"><span class="compare-label right">Correcta</span><span class="compare-text"><span class="word-right">${correctOpt.text}</span></span></div>
+                    </div>
+                    ${errBlocks}
+                    <div class="fb-block fb-why"><div class="fb-block-title">💡 ¿Por qué es correcta la oración correcta?</div><div class="fb-text">${q.correctReason}</div></div>
+                </div>`;
+        }
+    }
+    function showQuestion(i){
+        document.querySelectorAll('.question-card').forEach((c,idx)=>c.classList.toggle('hidden',idx!==i));
+        document.getElementById('currentQ').textContent=i+1;
+        currentQuestion=i;
+    }
+    function nextQuestion(i){ if(i<quizData.length-1) showQuestion(i+1); else showResults(); }
+    function prevQuestion(){ if(currentQuestion>0) showQuestion(currentQuestion-1); }
+    function updateProgress(){
+        const done=answered.filter(Boolean).length;
+        document.getElementById('progressFill').style.width=(done/quizData.length*100)+'%';
+    }
+    function toggleHint(i){
+        const b=document.getElementById('hint-'+i), btn=document.getElementById('hintbtn-'+i);
+        b.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=b.classList.contains('show')?'💡 Ocultar pista':'💡 Ver pista';
+    }
+    function toggleTrans(i){
+        const t=document.getElementById('trans-'+i), btn=document.getElementById('transbtn-'+i);
+        t.classList.toggle('show'); btn.classList.toggle('active');
+        btn.textContent=t.classList.contains('show')?'Ocultar español':'Ver en español';
+    }
+    function showResults(){
+        document.querySelectorAll('.question-card').forEach(c=>c.classList.add('hidden'));
+        document.getElementById('resultsScreen').classList.add('show');
+        const pct=score/quizData.length*100;
+        window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:Math.round(pct)}}));
+        document.getElementById('finalScore').textContent=score+'/'+quizData.length;
+        let stars=pct>=90?3:pct>=78?2:1;
+        document.getElementById('resultsMessage').textContent=pct>=90
+            ?'¡Excelente trabajo! 🏆':pct>=78?'¡Muy bien! Aprobaste esta práctica. 💪'
+            :'Aún no llegas al 78%. Repasa e inténtalo de nuevo. 📚';
+        document.querySelectorAll('.star').forEach((s,i)=>{ if(i<stars) setTimeout(()=>s.classList.add('earned'),i*300); });
+    }
+    function shuffle(a){ a=[...a]; for(let i=a.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]]; } return a; }
+    document.addEventListener('DOMContentLoaded', initQuiz);
+    </script>
+<div style="display:flex;align-items:center;justify-content:center;gap:8px;font-size:10.5px;color:#B0A99A;padding:16px 16px 24px;font-weight:700;font-family:Nunito,system-ui,sans-serif"><img src="https://jucum-english-center.netlify.app/assets/jucum-logo.png" alt="JUCUM English Center" style="height:20px;opacity:.5" onerror="this.style.display='none'">· Material protegido © JUCUM English Center</div>
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
+</body>
+</html>
