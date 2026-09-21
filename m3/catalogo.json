@@ -33,6 +33,16 @@
       "url": "https://jucumenglishcenter.github.io/A1/m3/listening.html"
     },
     {
+      "id": "quizlet",
+      "type": "quizlet",
+      "name": "Quizlet · Vocabulario y escritura",
+      "open": true,
+      "quizVocabulario": "https://quizlet.com/pe/1211358770/a1m3-vocabulario-parte-1-flash-cards/?funnelUUID=c4c0b755-523d-4dcb-b48a-2e671534596d",
+      "quizVocabulario2": "https://quizlet.com/pe/1211363529/a1m3-vocabulario-parte-2-flash-cards/",
+      "quizOrdenar": "https://quizlet.com/pe/1211358937/m3-ordenar-a1_2026-flash-cards/?funnelUUID=70dcc6ee-0ece-413f-858d-93b368f130a2",
+      "quizTraducir": "https://quizlet.com/pe/1211359160/m3-traducir-a1_2026-flash-cards/?funnelUUID=edc18289-a7ce-4e48-9d52-5a01c12c986e"
+    },
+    {
       "id": "sum-prepositions-place",
       "type": "summary",
       "name": "Resumen · Prepositions of Place",
