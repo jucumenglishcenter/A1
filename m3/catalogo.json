@@ -3,12 +3,17 @@
   "emoji": "🚌",
   "level": "a1",
   "topics": [
-    "Prepositions of Place",
-    "Prepositions of Movement",
-    "Imperatives for Directions",
-    "Comparatives with «than»",
-    "Superlatives",
-    "Questions with How"
+    "Countable vs Uncountable",
+    "How much / How many",
+    "Some / Any",
+    "Future: going to",
+    "Future: will",
+    "Have to",
+    "Should",
+    "Present Perfect (since / for)",
+    "Been vs Gone",
+    "First Conditional",
+    "Zero Conditional"
   ],
   "activities": [
     {
@@ -43,175 +48,209 @@
       "quizTraducir": "https://quizlet.com/pe/1211359160/m3-traducir-a1_2026-flash-cards/?funnelUUID=edc18289-a7ce-4e48-9d52-5a01c12c986e"
     },
     {
-      "id": "sum-prepositions-place",
+      "id": "sum-countable-uncountable",
       "type": "summary",
-      "name": "Resumen · Prepositions of Place",
-      "group": "T1 · Prepositions of Place",
+      "name": "Resumen · Countable vs Uncountable",
+      "group": "T1 · Countable vs Uncountable + How much / How many",
       "open": true,
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t1-prepositions-place.html"
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t1-countable-uncountable.html"
     },
     {
-      "id": "t1-fill",
+      "id": "sum-how-much-how-many",
+      "type": "summary",
+      "name": "Resumen · How much / How many",
+      "group": "T1 · Countable vs Uncountable + How much / How many",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t1-how-much-how-many.html"
+    },
+    {
+      "id": "g1-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T1 · Prepositions of Place",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/fill.html"
+      "group": "T1 · Countable vs Uncountable + How much / How many",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-countable-how-much/fill.html"
     },
     {
-      "id": "t1-id",
+      "id": "g1-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T1 · Prepositions of Place",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/identify.html"
+      "group": "T1 · Countable vs Uncountable + How much / How many",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-countable-how-much/identify.html"
     },
     {
-      "id": "t1-tr",
+      "id": "g1-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T1 · Prepositions of Place",
+      "group": "T1 · Countable vs Uncountable + How much / How many",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-countable-how-much/transform.html"
+    },
+    {
+      "id": "sum-some-any",
+      "type": "summary",
+      "name": "Resumen · Some / Any",
+      "group": "T2 · Some / Any",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t2-some-any.html"
+    },
+    {
+      "id": "g2-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T2 · Some / Any",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-some-any/fill.html"
+    },
+    {
+      "id": "g2-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T2 · Some / Any",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-some-any/identify.html"
+    },
+    {
+      "id": "g2-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T2 · Some / Any",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-some-any/transform.html"
+    },
+    {
+      "id": "sum-going-to",
+      "type": "summary",
+      "name": "Resumen · Future: going to (plans)",
+      "group": "T3 · Future: going to + will",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t3-going-to.html"
+    },
+    {
+      "id": "sum-will",
+      "type": "summary",
+      "name": "Resumen · Future: will (decisions & promises)",
+      "group": "T3 · Future: going to + will",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t3-will.html"
+    },
+    {
+      "id": "g3-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T3 · Future: going to + will",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-going-to-will/fill.html"
+    },
+    {
+      "id": "g3-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T3 · Future: going to + will",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-going-to-will/identify.html"
+    },
+    {
+      "id": "g3-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T3 · Future: going to + will",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-going-to-will/transform.html"
+    },
+    {
+      "id": "sum-have-to",
+      "type": "summary",
+      "name": "Resumen · Have to (obligation)",
+      "group": "T4 · Have to + Should",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t4-have-to.html"
+    },
+    {
+      "id": "sum-should",
+      "type": "summary",
+      "name": "Resumen · Should (advice)",
+      "group": "T4 · Have to + Should",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t4-should.html"
+    },
+    {
+      "id": "g4-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T4 · Have to + Should",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-have-to-should/fill.html"
+    },
+    {
+      "id": "g4-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T4 · Have to + Should",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-have-to-should/identify.html"
+    },
+    {
+      "id": "g4-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T4 · Have to + Should",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-have-to-should/transform.html"
+    },
+    {
+      "id": "sum-since-for",
+      "type": "summary",
+      "name": "Resumen · Present Perfect (since / for)",
+      "group": "T5 · Present Perfect (since / for) + Been vs Gone",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t5-since-for.html"
+    },
+    {
+      "id": "sum-been-gone",
+      "type": "summary",
+      "name": "Resumen · Been vs Gone",
+      "group": "T5 · Present Perfect (since / for) + Been vs Gone",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t5-been-gone.html"
+    },
+    {
+      "id": "g5-fill",
+      "type": "grammar",
+      "name": "Fill in",
+      "group": "T5 · Present Perfect (since / for) + Been vs Gone",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-since-for-been-gone/fill.html"
+    },
+    {
+      "id": "g5-id",
+      "type": "grammar",
+      "name": "Identification",
+      "group": "T5 · Present Perfect (since / for) + Been vs Gone",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-since-for-been-gone/identify.html"
+    },
+    {
+      "id": "g5-tr",
+      "type": "grammar",
+      "name": "Transform",
+      "group": "T5 · Present Perfect (since / for) + Been vs Gone",
       "latent": true,
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t1-prepositions-place/transform.html"
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-since-for-been-gone/transform.html"
     },
     {
-      "id": "sum-prepositions-movement",
+      "id": "sum-first-conditional",
       "type": "summary",
-      "name": "Resumen · Prepositions of Movement",
-      "group": "T2 · Prepositions of Movement",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t2-prepositions-movement.html"
+      "name": "Resumen · First Conditional",
+      "group": "T6 · First Conditional + Zero Conditional",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t6-first-conditional.html"
     },
     {
-      "id": "t2-fill",
+      "id": "sum-zero-conditional",
+      "type": "summary",
+      "name": "Resumen · Zero Conditional (review)",
+      "group": "T6 · First Conditional + Zero Conditional",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t6-zero-conditional.html"
+    },
+    {
+      "id": "g6-fill",
       "type": "grammar",
       "name": "Fill in",
-      "group": "T2 · Prepositions of Movement",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/fill.html"
+      "group": "T6 · First Conditional + Zero Conditional",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-conditionals/fill.html"
     },
     {
-      "id": "t2-id",
+      "id": "g6-id",
       "type": "grammar",
       "name": "Identification",
-      "group": "T2 · Prepositions of Movement",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/identify.html"
+      "group": "T6 · First Conditional + Zero Conditional",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-conditionals/identify.html"
     },
     {
-      "id": "t2-tr",
+      "id": "g6-tr",
       "type": "grammar",
       "name": "Transform",
-      "group": "T2 · Prepositions of Movement",
-      "latent": true,
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t2-prepositions-movement/transform.html"
-    },
-    {
-      "id": "sum-imperatives-directions",
-      "type": "summary",
-      "name": "Resumen · Imperatives for Directions",
-      "group": "T3 · Imperatives for Directions",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t3-imperatives-directions.html"
-    },
-    {
-      "id": "t3-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T3 · Imperatives for Directions",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/fill.html"
-    },
-    {
-      "id": "t3-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T3 · Imperatives for Directions",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/identify.html"
-    },
-    {
-      "id": "t3-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T3 · Imperatives for Directions",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t3-imperatives-directions/transform.html"
-    },
-    {
-      "id": "sum-comparatives",
-      "type": "summary",
-      "name": "Resumen · Comparatives with «than»",
-      "group": "T4 · Comparatives with «than»",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t4-comparatives.html"
-    },
-    {
-      "id": "t4-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T4 · Comparatives with «than»",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/fill.html"
-    },
-    {
-      "id": "t4-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T4 · Comparatives with «than»",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/identify.html"
-    },
-    {
-      "id": "t4-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T4 · Comparatives with «than»",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t4-comparatives/transform.html"
-    },
-    {
-      "id": "sum-superlatives",
-      "type": "summary",
-      "name": "Resumen · Superlatives",
-      "group": "T5 · Superlatives",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t5-superlatives.html"
-    },
-    {
-      "id": "t5-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T5 · Superlatives",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/fill.html"
-    },
-    {
-      "id": "t5-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T5 · Superlatives",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/identify.html"
-    },
-    {
-      "id": "t5-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T5 · Superlatives",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t5-superlatives/transform.html"
-    },
-    {
-      "id": "sum-questions-how",
-      "type": "summary",
-      "name": "Resumen · Questions with How",
-      "group": "T6 · Questions with How",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/gramatica/t6-questions-how.html"
-    },
-    {
-      "id": "t6-fill",
-      "type": "grammar",
-      "name": "Fill in",
-      "group": "T6 · Questions with How",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/fill.html"
-    },
-    {
-      "id": "t6-id",
-      "type": "grammar",
-      "name": "Identification",
-      "group": "T6 · Questions with How",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/identify.html"
-    },
-    {
-      "id": "t6-tr",
-      "type": "grammar",
-      "name": "Transform",
-      "group": "T6 · Questions with How",
-      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-questions-how/transform.html"
+      "group": "T6 · First Conditional + Zero Conditional",
+      "url": "https://jucumenglishcenter.github.io/A1/m3/practicas/t6-conditionals/transform.html"
     }
   ]
 }

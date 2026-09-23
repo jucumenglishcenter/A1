@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Resumen de Gramática · JUCUM English Center</title>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800&family=Atkinson+Hyperlegible:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{ --text:#2A2A2A; --text-soft:#777; --border:#E8E5DC;
+    --fd:'Fredoka','Nunito',system-ui,sans-serif; --fb:'Nunito',system-ui,sans-serif; --fs:'Atkinson Hyperlegible',Georgia,serif;
+    --subj:#1565C0; --subj-bg:#E3F2FD; --verb:#E53935; --verb-bg:#FFEBEE; --comp:#00897B; --comp-bg:#E0F2F1; --obj:#6D4C41; --obj-bg:#EFEBE9; --poss:#7B1FA2; --poss-bg:#F3E5F5;
+    --correct:#2E7D32; --correct-bg:#E8F5E9; --correct-bd:#A5D6A7; --wrong:#C62828; --wrong-bg:#FFEBEE; --wrong-bd:#EF9A9A;
+    --shadow:0 2px 4px rgba(0,0,0,.07),0 10px 30px rgba(0,0,0,.14); --shadow-sm:0 1px 2px rgba(0,0,0,.06),0 3px 10px rgba(0,0,0,.09); }
+  [data-level="pre-a1"]{ --lp:#F9A825; --ld:#E65100; --ll:#FFF9C4; --lm:#FFECB3; --lg:linear-gradient(135deg,#F9A825,#FF8F00); --tint:#FAF7EE; }
+  [data-level="a1"]{ --lp:#2196F3; --ld:#0D47A1; --ll:#E3F2FD; --lm:#BBDEFB; --lg:linear-gradient(135deg,#1565C0,#2196F3 60%,#64B5F6); --tint:#F1F7FE; }
+  [data-level="a2"]{ --lp:#2EA84B; --ld:#1B5E20; --ll:#DFF5E3; --lm:#9FD3A2; --lg:linear-gradient(135deg,#43C062,#1F7A33); --tint:#F0F8F2; }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;background:var(--tint);color:var(--text);font-family:var(--fb);}
+  .mat{max-width:680px;margin:0 auto;min-height:100vh;position:relative;}
+  .mhead{background:var(--lg);padding:16px 16px 13px;display:flex;align-items:center;gap:10px;color:#fff;position:sticky;top:0;z-index:20;}
+  .mback{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.22);border:none;color:#fff;font-size:18px;cursor:pointer;flex-shrink:0;}
+  .mbadge{width:32px;height:32px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,.2);} .mbadge img{width:24px;height:24px;object-fit:contain;}
+  .mh-info{flex:1;min-width:0;} .mh-info b{font-family:var(--fd);font-weight:600;font-size:15px;display:block;} .mh-info span{font-size:10.5px;opacity:.9;font-weight:700;}
+  .langsw{display:flex;background:rgba(255,255,255,.2);border-radius:9px;padding:2px;gap:2px;} .langsw button{border:none;background:transparent;color:#fff;font-weight:800;font-size:10.5px;padding:4px 9px;border-radius:6px;cursor:pointer;opacity:.7;} .langsw button.on{background:#fff;color:var(--ld);opacity:1;}
+  .pbar{height:5px;background:rgba(0,0,0,.06);} .pfill{height:100%;background:var(--lp);width:0;transition:width .5s;}
+  .mbody{padding:14px 15px 26px;}
+  .unlocknote{background:#fff;border:1px solid var(--lm);border-left:4px solid var(--correct);border-radius:12px;padding:10px 12px;margin-bottom:13px;display:flex;gap:8px;} .unlocknote .em{font-size:18px;} .unlocknote b{font-family:var(--fd);font-weight:600;font-size:12.5px;color:var(--correct);display:block;} .unlocknote p{margin:1px 0 0;font-size:11.5px;color:var(--text-soft);line-height:1.4;}
+  .steptabs{display:flex;gap:5px;margin-bottom:13px;flex-wrap:wrap;}
+  .stab{font-size:11px;font-weight:800;padding:7px 9px;border-radius:9px;background:#fff;border:1.5px solid var(--border);color:var(--text-soft);cursor:pointer;display:flex;align-items:center;gap:4px;}
+  .stab.on{background:var(--lg);color:#fff;border-color:transparent;} .stab.done{border-color:var(--correct-bd);color:var(--correct);}
+  .gcard{background:#fff;border-radius:16px;box-shadow:var(--shadow-sm);padding:15px;margin-bottom:12px;border-top:3px solid var(--lp);}
+  .sec-label{font-size:9.5px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--ld);display:flex;align-items:center;gap:7px;margin:11px 0 4px;} .sec-label:first-child{margin-top:0;} .sec-label::before{content:'';width:18px;height:3px;background:var(--lp);border-radius:2px;}
+  .gdesc{font-size:13px;color:var(--text-soft);margin:0 0 6px;line-height:1.6;} .gdesc b{color:var(--text);}
+  .tag{display:inline-block;border-radius:5px;padding:1px 7px;font-weight:800;border-bottom:2px solid;} .tag.s{background:var(--subj-bg);color:var(--subj);border-color:var(--subj);} .tag.o{background:var(--obj-bg);color:var(--obj);border-color:var(--obj);} .tag.p{background:var(--poss-bg);color:var(--poss);border-color:var(--poss);}
+  .info-illus{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:9px 11px;margin:7px 0;} .info-illus .emo{font-size:26px;line-height:1;flex-shrink:0;} .info-illus .txt{font-size:12.5px;line-height:1.5;} .info-illus .txt b{color:var(--ld);}
+  .eg-card{position:relative;display:flex;align-items:center;gap:10px;background:var(--subj-bg);border:2px solid #90CAF9;border-radius:13px;padding:15px 11px 11px;margin:6px 0 14px;} .eg-card .emo{font-size:26px;flex-shrink:0;} .eg-card .en{font-weight:800;color:#0D47A1;font-size:14.5px;line-height:1.4;} .eg-card .es{font-family:var(--fs);font-style:italic;color:#1565C0;font-size:12px;margin-top:2px;} .eg-card::before{content:attr(data-lab);position:absolute;top:-10px;left:13px;background:#1565C0;color:#fff;font-family:var(--fd);font-weight:600;font-size:9px;letter-spacing:.05em;padding:2px 9px;border-radius:20px;}
+  .eg-card.ok{background:var(--correct-bg);border-color:#81C784;} .eg-card.ok .en{color:#1B5E20;} .eg-card.ok::before{background:#2E7D32;}
+  .eg-card.bad{background:var(--wrong-bg);border-color:#EF9A9A;} .eg-card.bad .en{color:#B71C1C;text-decoration:line-through;text-decoration-color:rgba(183,28,28,.4);} .eg-card.bad::before{background:#C62828;}
+  .audio-row{display:flex;gap:6px;margin-top:7px;flex-wrap:wrap;} .audio-btn{display:inline-flex;align-items:center;gap:4px;font-family:var(--fb);font-size:10.5px;font-weight:800;border:1.5px solid #90CAF9;background:#fff;color:#0D47A1;padding:3px 11px;border-radius:8px;cursor:pointer;} .eg-card.ok .audio-btn{border-color:#81C784;color:#1B5E20;}
+  .art-hero{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:9px 0;} .art-hero.three{grid-template-columns:1fr 1fr 1fr;} .art-box{background:#fff;border:2px solid var(--lm);border-radius:14px;padding:11px 8px;text-align:center;} .art-box .word{font-family:var(--fd);font-size:28px;font-weight:700;color:var(--ld);line-height:1;background:var(--ll);border-radius:10px;padding:7px 0;margin-bottom:6px;} .art-box.eng .word{background:var(--subj-bg);color:#0D47A1;} .art-box .role{font-family:var(--fd);font-size:10px;color:var(--lp);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px;} .art-box.eng .role{color:#1976D2;} .art-box .desc{font-size:10.5px;color:var(--text-soft);line-height:1.45;}
+  .viz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:9px 0;} .viz-item{padding:8px 4px;border-radius:10px;text-align:center;background:#fff;border:1.5px solid var(--lm);font-size:11px;} .viz-item .ico{font-size:22px;display:block;margin-bottom:2px;} .viz-item .lbl{font-family:var(--fd);color:var(--ld);font-size:13px;font-weight:600;display:block;} .viz-item .es{font-style:italic;color:var(--text-soft);font-size:10px;display:block;}
+  .vs-grid{margin:9px 0;} .vs-row{display:grid;grid-template-columns:1fr auto 1fr;align-items:stretch;gap:6px;margin:6px 0;} .vs-side{border-radius:11px;padding:9px 10px;font-size:11.5px;line-height:1.4;} .vs-side .flag{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.05em;display:block;margin-bottom:2px;opacity:.85;} .vs-side.es{background:var(--ll);border:1.5px solid var(--lm);} .vs-side.es .flag{color:var(--ld);} .vs-side.en{background:var(--subj-bg);border:1.5px solid #90CAF9;} .vs-side.en .flag{color:#1565C0;} .vs-mid{display:flex;align-items:center;justify-content:center;font-size:16px;color:var(--lp);}
+  .alert-card{background:var(--wrong-bg);border:2px solid #EF5350;border-radius:11px;padding:10px 12px;margin:9px 0;} .alert-card .atitle{font-family:var(--fd);font-weight:600;color:var(--wrong);font-size:12px;margin-bottom:3px;} .alert-card p{font-size:11.5px;color:#555;line-height:1.7;}
+  .gnote{background:var(--ll);border:1px solid var(--lm);border-left:3px solid var(--lp);border-radius:10px;padding:9px 11px;font-size:12px;color:var(--ld);margin:9px 0;line-height:1.55;} .gnote.life{background:#FFFDE7;border-color:#FBC02D;color:#6D4C00;} .gnote b{color:var(--ld);}
+  .cboxes{display:flex;flex-direction:column;gap:7px;margin:9px 0;} .cbox{border:1.5px solid;border-radius:11px;padding:9px 12px;display:flex;gap:9px;align-items:center;flex-wrap:wrap;} .cbox .cl{font-family:var(--fd);font-weight:600;font-size:11.5px;flex-shrink:0;border-radius:7px;padding:3px 10px;color:#fff;} .cbox .cv{font-weight:800;font-size:13px;} .cbox.s{border-color:#90CAF9;background:var(--subj-bg);} .cbox.s .cl{background:var(--subj);} .cbox.s .cv{color:var(--subj);} .cbox.o{border-color:#BCAAA4;background:var(--obj-bg);} .cbox.o .cl{background:var(--obj);} .cbox.o .cv{color:var(--obj);} .cbox.p{border-color:#CE93D8;background:var(--poss-bg);} .cbox.p .cl{background:var(--poss);} .cbox.p .cv{color:var(--poss);}
+  .builder{background:var(--tint);border:1.5px dashed var(--lm);border-radius:14px;padding:13px;margin:10px 0;}
+  .bh{font-family:var(--fd);font-weight:600;font-size:13px;color:var(--ld);margin-bottom:3px;display:flex;align-items:center;gap:6px;} .bsub{font-size:11px;color:var(--text-soft);font-weight:700;margin-bottom:10px;}
+  .tray{min-height:46px;background:#fff;border:2px dashed var(--lm);border-radius:11px;padding:8px;display:flex;flex-wrap:wrap;gap:6px;margin-bottom:9px;} .tray:empty::before{content:attr(data-ph);color:#BBB;font-size:12px;font-style:italic;font-weight:700;}
+  .bank{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px;} .tile{font-family:var(--fb);font-weight:800;font-size:14px;padding:8px 13px;border-radius:10px;border:2px solid var(--lm);background:#fff;cursor:pointer;box-shadow:var(--shadow-sm);} .tile.s{color:var(--subj);border-color:#90CAF9;background:var(--subj-bg);} .tile.v{color:var(--verb);border-color:#EF9A9A;background:var(--verb-bg);} .tile.c{color:var(--comp);border-color:#80CBC4;background:var(--comp-bg);} .tile.placed{opacity:.25;pointer-events:none;}
+  .bcheck{width:100%;padding:11px;border:none;border-radius:11px;background:var(--lg);color:#fff;font-family:var(--fb);font-weight:800;font-size:13.5px;cursor:pointer;} .bcheck:disabled{opacity:.4;cursor:default;}
+  .bres{margin-top:9px;border-radius:11px;padding:10px 12px;font-size:12.5px;display:none;} .bres.show{display:block;} .bres.ok{background:var(--correct-bg);border:1.5px solid var(--correct-bd);color:var(--correct);} .bres.no{background:var(--wrong-bg);border:1.5px solid var(--wrong-bd);color:var(--wrong);}
+  .bex{display:flex;align-items:center;gap:8px;margin-top:8px;background:#fff;border:1px solid var(--lm);border-radius:10px;padding:8px 10px;} .bex .tr{flex:1;font-family:var(--fs);font-style:italic;color:var(--text-soft);font-size:12px;}
+  .check{background:#FBFBF8;border:1.5px dashed var(--lm);border-radius:14px;padding:13px;margin-bottom:12px;}
+  .check-h{display:flex;align-items:center;gap:7px;font-family:var(--fd);font-weight:600;font-size:13px;color:var(--ld);} .check-sub{font-size:11px;color:var(--text-soft);font-weight:700;margin:1px 0 11px;} .cprog{font-size:10.5px;font-weight:800;color:var(--lp);margin-left:auto;}
+  .citem{background:#fff;border:1px solid var(--border);border-radius:11px;padding:11px;margin-bottom:9px;} .citem:last-child{margin-bottom:0;}
+  .cq{font-size:13px;font-weight:700;line-height:1.45;margin:0 0 7px;} .cq .n{color:var(--lp);}
+  .ctransbtn{margin:0 0 8px;font-size:10.5px;font-weight:800;border:1.5px solid var(--lm);background:var(--ll);color:var(--ld);border-radius:8px;padding:5px 10px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;} .ctrans{display:none;margin:0 0 9px;font-family:var(--fs);font-style:italic;color:#5A2A66;font-size:11.5px;background:#F3E5F5;border:1px solid #CE93D8;border-radius:8px;padding:6px 9px;line-height:1.45;} .ctrans.show{display:block;}
+  .copts{display:flex;flex-wrap:wrap;gap:6px;} .copt{padding:8px 12px;border:2px solid #E5E7EB;border-radius:9px;background:#fff;font-family:var(--fb);font-weight:800;font-size:12.5px;cursor:pointer;color:var(--text);} .copt:hover:not(:disabled){border-color:var(--lp);background:var(--tint);} .copt:disabled{cursor:default;}
+  .copt.ok{border-color:var(--correct);background:var(--correct-bg);color:var(--correct);} .copt.no{border-color:var(--wrong);background:var(--wrong-bg);color:var(--wrong);}
+  .cfb{margin-top:9px;border-radius:11px;overflow:hidden;display:none;} .cfb.show{display:block;}
+  .cfbh{padding:7px 11px;color:#fff;font-weight:800;font-size:12px;display:flex;gap:6px;align-items:center;} .cfb.ok .cfbh{background:linear-gradient(135deg,var(--correct),#1B5E20);} .cfb.no .cfbh{background:linear-gradient(135deg,var(--wrong),#922);}
+  .cfbb{background:#fff;border:1.5px solid;border-top:none;border-radius:0 0 11px 11px;padding:10px;display:flex;flex-direction:column;gap:7px;} .cfb.ok .cfbb{border-color:var(--correct-bd);} .cfb.no .cfbb{border-color:var(--wrong-bd);}
+  .fblk{font-size:11.5px;line-height:1.5;border-radius:8px;padding:7px 9px;} .fblk b{font-size:10px;text-transform:uppercase;letter-spacing:.04em;display:flex;gap:4px;margin-bottom:2px;}
+  .fblk.ans{background:var(--correct-bg);border:1px solid var(--correct-bd);color:#1B5E20;} .fblk.ans .a{font-weight:800;}
+  .fblk.why{background:var(--tint);border:1px solid var(--lm);color:#444;} .fblk.contrast{background:var(--wrong-bg);border:1px solid var(--wrong-bd);color:#922;} .fblk.tip{background:#FFFDE7;border:1px solid #FBC02D;color:#6D4C00;} .fblk.ex{background:#fff;border:1px dashed var(--lm);color:var(--ld);font-weight:800;}
+  .stepnav{display:flex;gap:8px;} .snb{padding:11px 14px;border:none;border-radius:11px;font-family:var(--fb);font-weight:800;font-size:13px;cursor:pointer;} .snb.next{background:var(--lg);color:#fff;flex:1;} .snb.prev{background:#F1F0EA;color:var(--text);} .snb:disabled{opacity:.4;cursor:default;}
+  .msbanner{background:var(--correct-bg);border:1.5px solid var(--correct-bd);border-radius:12px;padding:10px 12px;font-size:12px;font-weight:800;color:var(--correct);margin-bottom:11px;line-height:1.4;}
+  .results{display:none;padding:18px 16px 40px;text-align:center;} .results.show{display:block;animation:up .45s ease;}
+  @keyframes up{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:translateY(0);}}
+  .donebar{background:var(--correct-bg);border:1.5px solid var(--correct-bd);border-radius:13px;padding:10px;font-weight:800;font-size:13px;color:var(--correct);margin-bottom:14px;} .donebar.fail{background:#FFF7E8;border-color:#F0C66B;color:#92510F;}
+  .hero{background:var(--lg);border-radius:20px;padding:20px 18px;color:#fff;box-shadow:var(--shadow-sm);} .hero .em{font-size:42px;line-height:1;} .hero .score{font-family:var(--fd);font-weight:600;font-size:38px;line-height:1;margin-top:4px;} .hero .score small{font-size:16px;opacity:.8;} .hero .phrase{font-size:13px;font-weight:700;margin-top:6px;opacity:.96;}
+  .keypts{background:#fff;border:1px solid var(--border);border-radius:14px;padding:13px 15px;text-align:left;margin:13px 0;box-shadow:var(--shadow-sm);} .keypts b{font-size:11px;color:var(--ld);text-transform:uppercase;letter-spacing:.05em;display:flex;gap:6px;align-items:center;margin-bottom:8px;}
+  .keypts li{list-style:none;padding:5px 0 5px 22px;position:relative;font-size:12.5px;color:#444;border-bottom:1px solid var(--ll);line-height:1.45;} .keypts li:last-child{border-bottom:none;} .keypts li::before{content:'✓';position:absolute;left:0;color:var(--lp);font-weight:800;}
+  .surprise{background:linear-gradient(135deg,#FFF3D6,#FFFBF0);border:1.5px dashed var(--lp);border-radius:16px;padding:16px;text-align:center;margin-bottom:13px;}
+  .medal{width:74px;height:74px;border-radius:50%;margin:0 auto 8px;background:var(--lg);display:flex;align-items:center;justify-content:center;font-size:38px;box-shadow:0 4px 14px rgba(0,0,0,.18);border:3px solid #fff;animation:pop .6s ease;}
+  @keyframes pop{0%{transform:scale(0) rotate(-20deg);}60%{transform:scale(1.15);}100%{transform:scale(1);}}
+  .surprise h4{font-family:var(--fd);font-weight:600;font-size:16px;color:var(--ld);margin:0 0 2px;} .surprise .bn{font-size:12.5px;font-weight:800;color:var(--lp);margin-bottom:6px;} .surprise p{font-size:11.5px;color:var(--text-soft);font-weight:700;margin:0;line-height:1.4;}
+  .xpwin{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1.5px solid var(--lm);border-radius:20px;padding:5px 13px;font-weight:800;font-size:13px;color:var(--ld);margin-top:9px;}
+  .rbtns{display:flex;flex-direction:column;gap:9px;} .rbtn{padding:13px;border:none;border-radius:13px;font-family:var(--fb);font-weight:800;font-size:13.5px;cursor:pointer;} .rbtn.back{background:var(--lg);color:#fff;} .rbtn.retry{background:#F1F0EA;color:var(--text);}
+  .mfoot{display:flex;align-items:center;justify-content:center;gap:7px;font-size:10px;color:#B0A99A;padding:14px;font-weight:700;} .mfoot img{height:18px;opacity:.5;}
+  .helpfab{position:fixed;right:16px;bottom:16px;z-index:40;width:44px;height:44px;border-radius:50%;background:var(--lg);color:#fff;border:none;font-size:22px;font-weight:800;cursor:pointer;box-shadow:var(--shadow);}
+  .helpov{position:fixed;inset:0;z-index:70;background:rgba(20,20,25,.5);display:none;align-items:center;justify-content:center;padding:18px;} .helpov.show{display:flex;}
+  .helpcard{background:#fff;border-radius:18px;max-width:360px;width:100%;max-height:86%;overflow-y:auto;box-shadow:var(--shadow);padding:16px 18px;position:relative;} .helpcard h3{font-family:var(--fd);font-weight:600;font-size:16px;color:var(--ld);margin:0 0 8px;} .helpcard .hx{position:absolute;top:10px;right:12px;border:none;background:none;font-size:19px;color:#bbb;cursor:pointer;}
+  .helptip{display:flex;gap:6px;font-size:12px;color:#555;padding:4px 0;line-height:1.45;} .helptip b{color:var(--ld);}
+  .simlist{list-style:none;padding:0;margin:9px 0;display:flex;flex-direction:column;gap:6px;} .simlist li{background:var(--ll);border:1px solid var(--lm);border-radius:9px;padding:7px 10px;font-size:12px;color:var(--ld);line-height:1.5;display:flex;gap:7px;} .simlist li::before{content:'✔';color:var(--correct);font-weight:800;flex-shrink:0;}
+  .dtab{width:100%;border-collapse:collapse;margin:9px 0;font-size:11.5px;} .dtab th{background:var(--lg);color:#fff;font-family:var(--fd);font-weight:600;padding:6px 8px;text-align:left;} .dtab td{border:1px solid var(--lm);padding:6px 8px;vertical-align:top;line-height:1.45;} .dtab td.en{font-weight:800;color:var(--ld);}
+  .fbox{background:#fff;border:2px solid var(--lp);border-radius:13px;padding:11px;margin:10px 0;text-align:center;} .fbox .frm{font-family:var(--fd);font-weight:600;font-size:14px;display:flex;flex-wrap:wrap;gap:6px;justify-content:center;align-items:center;} .fbox .pill{padding:3px 9px;border-radius:8px;font-size:12.5px;color:#fff;} .fbox .pill.s{background:#2E7D32;} .fbox .pill.v{background:#1565C0;} .fbox .pill.o{background:#C62828;} .fbox .pill.p{background:#7B1FA2;} .fbox .plus{color:var(--text-soft);font-weight:800;} .fbox .fex{margin-top:8px;font-size:13px;color:#444;} .fbox .fex .s{color:#2E7D32;font-weight:800;} .fbox .fex .v{color:#1565C0;font-weight:800;} .fbox .fex .o{color:#C62828;font-weight:800;} .fbox .fex .p{color:#7B1FA2;font-weight:800;}
+  .toast{position:fixed;bottom:74px;left:50%;transform:translateX(-50%) translateY(20px);background:#222;color:#fff;padding:11px 20px;border-radius:24px;font-weight:800;font-size:13px;box-shadow:var(--shadow);z-index:200;opacity:0;transition:.3s;pointer-events:none;max-width:90vw;text-align:center;} .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<!-- ═══ PLANTILLA RESUMEN DE GRAMÁTICA (con nota · repaso) — JUCUM English Center ═══
+     1) Nivel en <div id="screen" data-level="pre-a1|a1|a2"> (A2 arranca en inglés).
+     2) Edita MAT + el bloque CONTENIDO (STEPS / BUILD / SUMMARY / BADGE). Todo es BILINGÜE {es,en}.
+        · El botón ES/EN cambia TODO el material (explicación + indicaciones + auto-chequeos).
+        · REGLA «el español se queda en español»: cuando el texto MENCIONA una palabra española o da un
+          EJEMPLO en español (p. ej. el paso 1 «Repaso en Español»: «Él», «Ella», «Nosotros», «Juan… Él…»),
+          en el lado en:'' repite esas palabras/ejemplos TAL CUAL en español; solo traduce la prosa que los rodea.
+        · 'tr' (botón 🌐 traducción por pregunta): ponlo SOLO en auto-chequeos donde una oración en inglés
+          tenga vocabulario que pueda frenar al alumno Y la traducción NO delate la respuesta. En drills de
+          pronombres la pista ya está en la pregunta y se infiere por el verbo be → NO lleva 'tr' (por eso aquí
+          no hay ninguno). Sí aplica en temas como To be / There is_are con frases más largas. Sintaxis:
+          { q:{...}, opts:{...}, correct:0, fb:{...}, tr:{es:'significado en español',en:'meaning in English'} }
+     3) Deja el conector antes de </body>. catalogo.json → type:"summary".
+     El motor (debajo de "FIN DEL MOTOR") no se toca. ═══ -->
+<body>
+  <div class="mat screen" id="screen" data-level="a1">
+    <div class="mhead"><button class="mback" onclick="volver()">‹</button>
+      <div class="mbadge"><img src="https://jucum-english-center.netlify.app/assets/jucum-figure.png" alt="JUCUM" onerror="this.style.display='none'"></div>
+      <div class="mh-info"><b id="mhtitle"></b><span id="mhsub"></span></div>
+      <div class="langsw"><button id="lsEs" onclick="setInfo('es')">ES</button><button id="lsEn" onclick="setInfo('en')">EN</button></div></div>
+    <div class="pbar"><div class="pfill" id="pfill"></div></div>
+    <div class="mbody" id="mbody">
+      <div class="unlocknote"><div class="em">📚</div><div><b id="unT"></b><p id="unP"></p></div></div>
+      <div class="steptabs" id="steptabs"></div>
+      <div id="stepArea"></div>
+      <div class="msbanner" id="msbanner" style="display:none"></div>
+      <div class="stepnav"><button class="snb prev" id="navPrev" onclick="navStep(-1)"></button><button class="snb next" id="navNext" onclick="navStep(1)"></button></div>
+    </div>
+    <div class="results" id="results">
+      <div class="donebar" id="doneBar"></div>
+      <div class="hero"><div class="em">📚</div><div class="score"><span id="fscore">0</span><small>%</small></div><div class="phrase" id="fphrase"></div></div>
+      <div class="keypts" id="keypts"><b id="kpT"></b><ul id="kpList"></ul></div>
+      <div class="surprise" id="surprise"><div class="medal" id="medalEm">🏅</div><h4 id="surT"></h4><div class="bn" id="surBadge"></div><p id="surP"></p><div class="xpwin" id="xpWin"></div></div>
+      <div class="rbtns"><button class="rbtn back" id="lBack" onclick="volver()"></button><button class="rbtn retry" id="lRetry" onclick="restart()"></button></div>
+    </div>
+    <div class="mfoot"><img src="https://jucum-english-center.netlify.app/assets/jucum-logo.png" alt="JUCUM English Center" onerror="this.style.display='none'">· Material protegido © JUCUM English Center</div>
+  </div>
+  <button class="helpfab" onclick="openHelp()" title="?">?</button>
+  <div class="helpov" id="helpov"><div class="helpcard"><button class="hx" onclick="closeHelp()">✕</button><h3>🧭 <span id="helpT"></span></h3><div id="helpTips"></div></div></div>
+  <div class="toast" id="toast"></div>
+<script>
+/* ═══ METADATOS ═══ */
+const MAT = { title:{es:'Resumen de Gramática',en:'Grammar Summary'}, subtitle:{es:'Present Perfect con since / for',en:'Present Perfect (since / for)'}, reportId:'sum-since-for' };
+const PASS = 75;
+const STEPS = [
+  { icon:'🇪🇸', title:{es:'Repaso en Español',en:'Spanish Recap'},
+    html:{
+      es:`<div class="gdesc">Para algo que <b>empezó en el pasado y sigue hoy</b>, en español usamos el presente: «Vivo aquí <b>desde</b> 2015», «Vende agua <b>hace</b> muchos años».</div>
+<div class="art-hero three"><div class="art-box"><div class="word">desde</div><div class="role">punto de inicio</div><div class="desc">«desde el lunes», «desde 2015»</div></div><div class="art-box"><div class="word">hace / durante</div><div class="role">cuánto tiempo</div><div class="desc">«hace diez minutos», «durante dos años»</div></div><div class="art-box"><div class="word">¿cuánto tiempo?</div><div class="role">preguntar</div><div class="desc">«¿Cuánto tiempo llevas aquí?»</div></div></div>
+${ii('⏳','La acción <b>empezó antes</b> y <b>todavía continúa</b>: Don Beto vendía agua antes y hoy sigue vendiendo.')}
+<div class="gnote life">🌎 <b>De tu vida:</b> «Estudio inglés desde marzo». En inglés NO se dice con presente: «I <b>have studied</b> English <b>since</b> March».</div>`,
+      en:`<div class="gdesc">For something that <b>started in the past and continues today</b>, Spanish uses the present: «Vivo aquí <b>desde</b> 2015», «Vende agua <b>hace</b> muchos años».</div>
+<div class="art-hero three"><div class="art-box"><div class="word">desde</div><div class="role">starting point</div><div class="desc">«since Monday», «since 2015»</div></div><div class="art-box"><div class="word">hace / durante</div><div class="role">how much time</div><div class="desc">«for ten minutes», «for two years»</div></div><div class="art-box"><div class="word">¿cuánto tiempo?</div><div class="role">asking</div><div class="desc">«How long have you been here?»</div></div></div>
+${ii('⏳','The action <b>started before</b> and <b>still continues</b>: Don Beto sold water before and he still sells it today.')}
+<div class="gnote life">🌎 <b>From your life:</b> «Estudio inglés desde marzo». In English we do NOT use the present: «I <b>have studied</b> English <b>since</b> March».</div>`
+    },
+    checks:[
+      { q:{es:'«Vivo aquí desde 2015» — ¿sigue viviendo aquí?',en:'«Vivo aquí desde 2015» — does the person still live here?'}, opts:{es:["Sí","No"],en:["Yes","No"]}, correct:0, fb:{ why:{es:'Empezó en 2015 y continúa hoy.',en:'It started in 2015 and continues today.'}, tip:{es:'desde = sigue',en:'desde = continues'}} },
+      { q:{es:'«Desde» marca:',en:'«Desde» marks:'}, opts:{es:["el punto de inicio","la cantidad de tiempo"],en:["the starting point","the amount of time"]}, correct:0, fb:{ why:{es:'«desde el lunes»: un momento concreto.',en:'«since Monday»: a specific moment.'}, tip:{es:'desde = punto',en:'desde = point'}} },
+      { q:{es:'«Hace diez minutos que espero» marca:',en:'«Hace diez minutos que espero» marks:'}, opts:{es:["cuánto tiempo","un punto de inicio"],en:["how much time","a starting point"]}, correct:0, fb:{ why:{es:'Diez minutos es una duración.',en:'Ten minutes is a length of time.'}, tip:{es:'hace = duración',en:'hace = length'}} },
+      { q:{es:'En español, «vivo aquí desde…» usa el verbo en:',en:'In Spanish, «vivo aquí desde…» uses the verb in the:'}, opts:{es:["presente","futuro"],en:["present","future"]}, correct:0, fb:{ why:{es:'«Vivo» está en presente.',en:'«Vivo» is in the present.'}, tip:{es:'español = presente',en:'Spanish = present'}} },
+      { q:{es:'«¿Cuánto tiempo llevas aquí?» pregunta por:',en:'«¿Cuánto tiempo llevas aquí?» asks about:'}, opts:{es:["una duración","un lugar"],en:["a length of time","a place"]}, correct:0, fb:{ why:{es:'Pregunta cuánto tiempo.',en:'It asks how long.'}, tip:{es:'¿cuánto tiempo? = duración',en:'how long = length'}} }
+    ] },
+  { icon:'🤝', title:{es:'Similitudes',en:'Similarities'},
+    html:{
+      es:`<div class="gdesc">Las ideas son las mismas: una palabra para el <b>punto de inicio</b> y otra para la <b>duración</b>.</div>
+<div class="viz-grid"><div class="viz-item"><span class="ico">📍</span><span class="lbl">since Monday</span><span class="es">desde el lunes</span></div><div class="viz-item"><span class="ico">📍</span><span class="lbl">since 2015</span><span class="es">desde 2015</span></div><div class="viz-item"><span class="ico">📍</span><span class="lbl">since nine o’clock</span><span class="es">desde las nueve</span></div><div class="viz-item"><span class="ico">⏱️</span><span class="lbl">for ten minutes</span><span class="es">(hace / durante) diez minutos</span></div><div class="viz-item"><span class="ico">⏱️</span><span class="lbl">for eleven years</span><span class="es">(hace) once años</span></div><div class="viz-item"><span class="ico">❓</span><span class="lbl">How long…?</span><span class="es">¿Cuánto tiempo…?</span></div></div>
+${eg('Don Beto has sold water <span class="tag s">for</span> many years.','Don Beto vende agua desde hace muchos años.','ok')}
+${eg('Nina has lived in the city <span class="tag s">since</span> Monday.','Nina vive en la ciudad desde el lunes.','ok')}
+<div class="sec-label">Lo igual en los dos idiomas</div>
+<ul class="simlist"><li><b>since</b> = desde → un momento: Monday, 2015, nine o’clock.</li><li><b>for</b> = durante / hace → una cantidad: ten minutes, two years.</li><li>Se pregunta con <b>How long…?</b> / ¿Cuánto tiempo…?</li></ul>`,
+      en:`<div class="gdesc">The ideas are the same: one word for the <b>starting point</b> and one for the <b>length of time</b>.</div>
+<div class="viz-grid"><div class="viz-item"><span class="ico">📍</span><span class="lbl">since Monday</span><span class="es">desde el lunes</span></div><div class="viz-item"><span class="ico">📍</span><span class="lbl">since 2015</span><span class="es">desde 2015</span></div><div class="viz-item"><span class="ico">📍</span><span class="lbl">since nine o’clock</span><span class="es">desde las nueve</span></div><div class="viz-item"><span class="ico">⏱️</span><span class="lbl">for ten minutes</span><span class="es">(hace / durante) diez minutos</span></div><div class="viz-item"><span class="ico">⏱️</span><span class="lbl">for eleven years</span><span class="es">(hace) once años</span></div><div class="viz-item"><span class="ico">❓</span><span class="lbl">How long…?</span><span class="es">¿Cuánto tiempo…?</span></div></div>
+${eg('Don Beto has sold water <span class="tag s">for</span> many years.','Don Beto has sold water for many years.','ok')}
+${eg('Nina has lived in the city <span class="tag s">since</span> Monday.','Nina has lived in the city since Monday.','ok')}
+<div class="sec-label">What is the same in both languages</div>
+<ul class="simlist"><li><b>since</b> → a moment: Monday, 2015, nine o’clock.</li><li><b>for</b> → an amount: ten minutes, two years.</li><li>You ask with <b>How long…?</b></li></ul>`
+    },
+    checks:[
+      { q:{es:'«Desde el lunes» =',en:'«Desde el lunes» ='}, opts:{es:["since Monday","for Monday"],en:["since Monday","for Monday"]}, correct:0, fb:{ why:{es:'El lunes es un momento → since.',en:'Monday is a moment → since.'}, tip:{es:'since + momento',en:'since + moment'}} },
+      { q:{es:'«Diez minutos» (duración) va con:',en:'«Ten minutes» (length) goes with:'}, opts:{es:["for","since"],en:["for","since"]}, correct:0, fb:{ why:{es:'Cantidad de tiempo → for.',en:'Amount of time → for.'}, tip:{es:'for + cantidad',en:'for + amount'}} },
+      { q:{es:'«Desde 2015» =',en:'«Desde 2015» ='}, opts:{es:["since 2015","for 2015"],en:["since 2015","for 2015"]}, correct:0, fb:{ why:{es:'Un año concreto → since.',en:'A specific year → since.'}, tip:{es:'since + año',en:'since + year'}} },
+      { q:{es:'«¿Cuánto tiempo…?» =',en:'«¿Cuánto tiempo…?» ='}, opts:{es:["How long…?","How much…?"],en:["How long…?","How much…?"]}, correct:0, fb:{ why:{es:'Para duración: How long.',en:'For length of time: How long.'}, tip:{es:'How long',en:'How long'}} },
+      { q:{es:'«Once años» va con:',en:'«Eleven years» goes with:'}, opts:{es:["for","since"],en:["for","since"]}, correct:0, fb:{ why:{es:'Es una cantidad de años.',en:'It is an amount of years.'}, tip:{es:'for + años',en:'for + years'}} }
+    ] },
+  { icon:'⚡', title:{es:'Diferencias',en:'Differences'},
+    html:{
+      es:`<div class="gdesc">La gran diferencia: el español usa el <b>presente</b> («vivo aquí desde…»), pero el inglés usa el <b>Present Perfect</b>: <b>have / has + participio</b>.</div>
+<table class="dtab"><tr><th>Español</th><th>Inglés ✅</th><th>Error típico ❌</th></tr>
+<tr><td>Vivo aquí desde 2015.</td><td class="en">I have lived here since 2015.</td><td>I live here since 2015.</td></tr>
+<tr><td>Espero hace diez minutos.</td><td class="en">I have waited for ten minutes.</td><td>I wait since ten minutes.</td></tr>
+<tr><td>Tiene el perro hace once años.</td><td class="en">She has had the dog for eleven years.</td><td>She has the dog since eleven years.</td></tr></table>
+${ii('🔧','Participios comunes: live → <b>lived</b> · work → <b>worked</b> · wait → <b>waited</b> · have → <b>had</b> · sell → <b>sold</b> · be → <b>been</b> · know → <b>known</b> · teach → <b>taught</b>.')}
+${ii('🚫','«Hace diez años» NO se traduce con «ago» aquí: «for ten years» (sigue) ≠ «ten years ago» (terminó).')}`,
+      en:`<div class="gdesc">The big difference: Spanish uses the <b>present</b> («vivo aquí desde…»), but English uses the <b>Present Perfect</b>: <b>have / has + past participle</b>.</div>
+<table class="dtab"><tr><th>Spanish</th><th>English ✅</th><th>Common mistake ❌</th></tr>
+<tr><td>Vivo aquí desde 2015.</td><td class="en">I have lived here since 2015.</td><td>I live here since 2015.</td></tr>
+<tr><td>Espero hace diez minutos.</td><td class="en">I have waited for ten minutes.</td><td>I wait since ten minutes.</td></tr>
+<tr><td>Tiene el perro hace once años.</td><td class="en">She has had the dog for eleven years.</td><td>She has the dog since eleven years.</td></tr></table>
+${ii('🔧','Common participles: live → <b>lived</b> · work → <b>worked</b> · wait → <b>waited</b> · have → <b>had</b> · sell → <b>sold</b> · be → <b>been</b> · know → <b>known</b> · teach → <b>taught</b>.')}
+${ii('🚫','«Hace diez años» is NOT «ago» here: «for ten years» (it continues) ≠ «ten years ago» (it finished).')}`
+    },
+    checks:[
+      { q:{es:'«Vivo aquí desde 2015» =',en:'«Vivo aquí desde 2015» ='}, opts:{es:["I have lived here since 2015.","I live here since 2015."],en:["I have lived here since 2015.","I live here since 2015."]}, correct:0, fb:{ why:{es:'Sigue hasta hoy → Present Perfect.',en:'It continues to today → Present Perfect.'}, tip:{es:'have + participio',en:'have + participle'}} },
+      { q:{es:'Participio de «sell»:',en:'Past participle of «sell»:'}, opts:{es:["sold","selled"],en:["sold","selled"]}, correct:0, fb:{ why:{es:'Sell es irregular: sold.',en:'Sell is irregular: sold.'}, tip:{es:'sell → sold',en:'sell → sold'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["She has had the dog for eleven years.","She has the dog since eleven years."],en:["She has had the dog for eleven years.","She has the dog since eleven years."]}, correct:0, fb:{ why:{es:'Present Perfect + for + cantidad.',en:'Present Perfect + for + amount.'}, tip:{es:'for + años',en:'for + years'}} },
+      { q:{es:'«For ten years» significa que la acción:',en:'«For ten years» means the action:'}, opts:{es:["sigue hoy","terminó hace diez años"],en:["continues today","ended ten years ago"]}, correct:0, fb:{ why:{es:'Con Present Perfect, sigue.',en:'With the Present Perfect, it continues.'}, tip:{es:'for = sigue',en:'for = continues'}} },
+      { q:{es:'Participio de «teach»:',en:'Past participle of «teach»:'}, opts:{es:["taught","teached"],en:["taught","teached"]}, correct:0, fb:{ why:{es:'Teach es irregular: taught.',en:'Teach is irregular: taught.'}, tip:{es:'teach → taught',en:'teach → taught'}} }
+    ] },
+  { icon:'💡', title:{es:'Tips Prácticos',en:'Practical Tips'},
+    html:{
+      es:`<div class="gdesc">Tres fórmulas para contar cuánto tiempo:</div>
+<div class="fbox"><div class="frm"><span class="pill s">sujeto</span><span class="plus">+</span><span class="pill v">have / has + participio</span><span class="plus">+</span><span class="pill o">since + momento</span></div><div class="fex"><span class="en">The family has lived here since 2015.</span><span class="es">La familia vive aquí desde 2015.</span></div></div>
+<div class="fbox"><div class="frm"><span class="pill s">sujeto</span><span class="plus">+</span><span class="pill v">have / has + participio</span><span class="plus">+</span><span class="pill o">for + cantidad</span></div><div class="fex"><span class="en">They have waited for ten minutes.</span><span class="es">Esperan hace diez minutos.</span></div></div>
+<div class="fbox"><div class="frm"><span class="pill s">How long</span><span class="plus">+</span><span class="pill v">have / has</span><span class="plus">+</span><span class="pill o">sujeto + participio?</span></div><div class="fex"><span class="en">How long have you lived here?</span><span class="es">¿Cuánto tiempo llevas viviendo aquí?</span></div></div>
+${ii('🧠','<b>Tip 1:</b> ¿puedes contar el tiempo (5 minutos, 2 años)? → <b>for</b>. ¿Es una fecha u hora? → <b>since</b>.')}
+${ii('✂️','<b>Tip 2:</b> contracciones: I’ve · she’s · they’ve · haven’t · hasn’t.')}
+<div class="alert-card"><div class="atitle">⚠️ Error típico</div><p>❌ «I live here since 2015» → ✅ «I <b>have lived</b> here since 2015».</p></div>`,
+      en:`<div class="gdesc">Three formulas to say how long:</div>
+<div class="fbox"><div class="frm"><span class="pill s">subject</span><span class="plus">+</span><span class="pill v">have / has + participle</span><span class="plus">+</span><span class="pill o">since + moment</span></div><div class="fex"><span class="en">The family has lived here since 2015.</span><span class="es">The family has lived here since 2015.</span></div></div>
+<div class="fbox"><div class="frm"><span class="pill s">subject</span><span class="plus">+</span><span class="pill v">have / has + participle</span><span class="plus">+</span><span class="pill o">for + amount</span></div><div class="fex"><span class="en">They have waited for ten minutes.</span><span class="es">They have waited for ten minutes.</span></div></div>
+<div class="fbox"><div class="frm"><span class="pill s">How long</span><span class="plus">+</span><span class="pill v">have / has</span><span class="plus">+</span><span class="pill o">subject + participle?</span></div><div class="fex"><span class="en">How long have you lived here?</span><span class="es">How long have you lived here?</span></div></div>
+${ii('🧠','<b>Tip 1:</b> can you count the time (5 minutes, 2 years)? → <b>for</b>. Is it a date or a time? → <b>since</b>.')}
+${ii('✂️','<b>Tip 2:</b> contractions: I’ve · she’s · they’ve · haven’t · hasn’t.')}
+<div class="alert-card"><div class="atitle">⚠️ Common mistake</div><p>❌ «I live here since 2015» → ✅ «I <b>have lived</b> here since 2015».</p></div>`
+    },
+    checks:[
+      { q:{es:'«since» o «for»: ___ nine o’clock',en:'«since» or «for»: ___ nine o’clock'}, opts:{es:["since","for"],en:["since","for"]}, correct:0, fb:{ why:{es:'Una hora concreta → since.',en:'A specific time → since.'}, tip:{es:'hora = since',en:'time = since'}} },
+      { q:{es:'«since» o «for»: ___ two years',en:'«since» or «for»: ___ two years'}, opts:{es:["for","since"],en:["for","since"]}, correct:0, fb:{ why:{es:'Se cuenta → for.',en:'It is counted → for.'}, tip:{es:'cantidad = for',en:'amount = for'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["How long have you lived here?","How long do you live here since?"],en:["How long have you lived here?","How long do you live here since?"]}, correct:0, fb:{ why:{es:'How long + have + sujeto + participio.',en:'How long + have + subject + participle.'}, tip:{es:'How long have…?',en:'How long have…?'}} },
+      { q:{es:'«She has» contraído:',en:'«She has» contracted:'}, opts:{es:["she’s","she’ve"],en:["she’s","she’ve"]}, correct:0, fb:{ why:{es:'has → ’s.',en:'has → ’s.'}, tip:{es:'she’s',en:'she’s'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["They have waited for ten minutes.","They have waited since ten minutes."],en:["They have waited for ten minutes.","They have waited since ten minutes."]}, correct:0, fb:{ why:{es:'Diez minutos = cantidad → for.',en:'Ten minutes = amount → for.'}, tip:{es:'for + minutos',en:'for + minutes'}} }
+    ] },
+  { icon:'✨', title:{es:'Práctica Final',en:'Final Practice'}, builder:true,
+    html:{
+      es:`<div class="gdesc">Junta todo: have / has + participio + since / for. Arma la oración.</div>
+<div class="cboxes"><div class="cbox s"><span class="cl">since (momento)</span><span class="cv">Monday · 2015 · March · nine o’clock · last week</span></div><div class="cbox o"><span class="cl">for (cantidad)</span><span class="cv">ten minutes · two years · many years · a long time</span></div></div>
+<div class="sec-label">Las reglas en tres oraciones</div>
+${eg('Don Beto <span class="tag s">has sold</span> water <span class="tag s">for</span> many years.','Don Beto vende agua desde hace muchos años.','ok')}
+${eg('The family <span class="tag s">has lived</span> here <span class="tag s">since</span> 2015.','La familia vive aquí desde 2015.','ok')}
+${eg('<span class="tag s">How long have</span> you <span class="tag s">lived</span> here?','¿Cuánto tiempo llevas viviendo aquí?','ok')}
+<div class="alert-card"><div class="atitle">⚠️ Los 3 errores más comunes</div><p>❌ «I live here since 2015» → ✅ «I <b>have lived</b> here since 2015»<br>❌ «since ten years» → ✅ «<b>for</b> ten years»<br>❌ «She have lived» → ✅ «She <b>has</b> lived»</p></div>`,
+      en:`<div class="gdesc">Put it together: have / has + participle + since / for. Build the sentence.</div>
+<div class="cboxes"><div class="cbox s"><span class="cl">since (moment)</span><span class="cv">Monday · 2015 · March · nine o’clock · last week</span></div><div class="cbox o"><span class="cl">for (amount)</span><span class="cv">ten minutes · two years · many years · a long time</span></div></div>
+<div class="sec-label">The rules in three sentences</div>
+${eg('Don Beto <span class="tag s">has sold</span> water <span class="tag s">for</span> many years.','Don Beto has sold water for many years.','ok')}
+${eg('The family <span class="tag s">has lived</span> here <span class="tag s">since</span> 2015.','The family has lived here since 2015.','ok')}
+${eg('<span class="tag s">How long have</span> you <span class="tag s">lived</span> here?','How long have you lived here?','ok')}
+<div class="alert-card"><div class="atitle">⚠️ The 3 most common mistakes</div><p>❌ «I live here since 2015» → ✅ «I <b>have lived</b> here since 2015»<br>❌ «since ten years» → ✅ «<b>for</b> ten years»<br>❌ «She have lived» → ✅ «She <b>has</b> lived»</p></div>`
+    },
+    checks:[
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["Nina has lived here since Monday.","Nina lives here since Monday."],en:["Nina has lived here since Monday.","Nina lives here since Monday."]}, correct:0, fb:{ why:{es:'Sigue hasta hoy → Present Perfect.',en:'It continues to today → Present Perfect.'}, tip:{es:'has + lived',en:'has + lived'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["for many years","since many years"],en:["for many years","since many years"]}, correct:0, fb:{ why:{es:'Cantidad → for.',en:'Amount → for.'}, tip:{es:'for + cantidad',en:'for + amount'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["She has lived here since March.","She have lived here since March."],en:["She has lived here since March.","She have lived here since March."]}, correct:0, fb:{ why:{es:'She → has.',en:'She → has.'}, tip:{es:'she + has',en:'she + has'}} },
+      { q:{es:'¿Cuál está bien?',en:'Which one is right?'}, opts:{es:["since nine o’clock","for nine o’clock"],en:["since nine o’clock","for nine o’clock"]}, correct:0, fb:{ why:{es:'Una hora → since.',en:'A time → since.'}, tip:{es:'since + hora',en:'since + time'}} },
+      { q:{es:'Participio de «have»:',en:'Past participle of «have»:'}, opts:{es:["had","haved"],en:["had","haved"]}, correct:0, fb:{ why:{es:'have → had.',en:'have → had.'}, tip:{es:'have → had',en:'have → had'}} }
+    ] }
+];
+const BUILD = { answer:[{"w":"Don Beto","c":"s"},{"w":"has sold","c":"v"},{"w":"water for many years","c":"c"}], say:'Don Beto has sold water for many years', tr:{es:'Don Beto vende agua desde hace muchos años.',en:'Don Beto has sold water for many years.'} };
+const SUMMARY = {
+  es:["Para algo que <b>empezó antes y sigue hoy</b> el inglés usa <b>Present Perfect</b>: have / has + participio.","El español usa presente («vivo aquí desde…»); en inglés eso es un error: «I <b>have lived</b> here since…».","<b>since</b> = desde → un momento (Monday, 2015, nine o’clock).","<b>for</b> = durante / hace → una cantidad (ten minutes, two years).","Pregunta: <b>How long have / has</b> + sujeto + participio?","Participios irregulares: had · sold · been · known · taught."],
+  en:["For something that <b>started before and continues today</b>, English uses the <b>Present Perfect</b>: have / has + participle.","Spanish uses the present («vivo aquí desde…»); in English that is a mistake: «I <b>have lived</b> here since…».","<b>since</b> → a moment (Monday, 2015, nine o’clock).","<b>for</b> → an amount (ten minutes, two years).","Question: <b>How long have / has</b> + subject + participle?","Irregular participles: had · sold · been · known · taught."]
+};
+const BADGE = { emoji:'⏳', name:{es:'Guardián del Tiempo',en:'Time Keeper'}, xp:20 };
+
+/* helpers de contenido (bilingües por separado) */
+function eg(en,gloss,lab){ const t=en.replace(/<[^>]+>/g,'').replace(/"/g,''); return `<div class="eg-card${lab?' '+lab:''}" data-lab="${lab==='ok'?'✅ BIEN':lab==='bad'?'❌ MAL':'📝 '+(typeof curLab!=='undefined'?curLab:'')}"><span class="emo">💬</span><div><div class="en">${en}</div><div class="es">${gloss}</div><div class="audio-row"><button class="audio-btn" onclick="say('${t}','US')">🇺🇸 US</button><button class="audio-btn" onclick="say('${t}','UK')">🇬🇧 UK</button></div></div></div>`; }
+function ii(emo,txt){ return `<div class="info-illus"><span class="emo">${emo}</span><span class="txt">${txt}</span></div>`; }
+/* ═══ CONTENIDO EDITABLE · 5 pasos · todo {es,en} ═══ */
+
+/* ═══ FIN DEL CONTENIDO EDITABLE ═══ */
+/*SHUFFLE-V1*/(function(){try{if(typeof STEPS==='undefined')return;for(var si=0;si<STEPS.length;si++){var s=STEPS[si];if(!s.checks)continue;for(var ci=0;ci<s.checks.length;ci++){var c=s.checks[ci];if(!c.opts||!c.opts.es)continue;var n=c.opts.es.length;if(n<2)continue;var idx=[];for(var i=0;i<n;i++)idx.push(i);for(var i=n-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var tmp=idx[i];idx[i]=idx[j];idx[j]=tmp;}var nes=idx.map(function(k){return c.opts.es[k];});var nen=c.opts.en?idx.map(function(k){return c.opts.en[k];}):null;c.opts.es=nes;if(nen)c.opts.en=nen;c.correct=idx.indexOf(c.correct);}}}catch(e){console.warn('shuffle skipped',e);}})();
+
+const T = {
+  es:{ unT:'Repaso del tema — opcional 📚', unP:'El desbloqueo lo dan tus prácticas (P1·P2·P3). Completa este repaso para reforzar y llévate una sorpresa 🎁',
+       checkH:'Auto-chequeo', checkSub:'Para ti · cuentan como ✓ sin nota mínima', seeTr:'Ver traducción', finishNeed:'Completa los auto-chequeos de cada paso para reclamar tu sorpresa 🎁',
+       prev:'← Anterior', next:'Siguiente →', finish:'Terminar y reclamar sorpresa 🎁', bH:'Arma la estructura', bSub:'Toca: Sujeto + Verbo + Complemento', trayPh:'Toca las fichas en orden…', bcheck:'Comprobar', bOk:'¡Perfecto! Así se arma.', bNo:'Casi — Sujeto + Verbo + Complemento.',
+       fWhy:'Por qué', fNo:'Ojo', fEx:'Ejemplo', fTip:'Recuerda', cOk:'¡Correcto!', cBad:'Revisemos',
+       msCore:'✅ ¡Completaste lo principal (pasos 1-3)! Sigue hasta el final y reclama tu sorpresa 🎁', msToast:'✅ Pasos 1-3 completados · ¡sigue por tu sorpresa! 🎁',
+       done:'📚 ¡Resumen aprobado!', phrase:'Buen repaso. Tu gramática se fortalece con cada vuelta. 💪', failBar:'🔁 Necesitas '+PASS+'% para reclamar la sorpresa. ¡Inténtalo de nuevo!', phraseFail:'Casi. Repasa los pasos y vuelve para superar el '+PASS+'%. 🌱', kpT:'📝 Patrón maestro — cópialo en tu cuaderno',
+       surT:'¡Sorpresa desbloqueada!', surBadge:b=>'🏅 Insignia: '+b, surP:'Se suma a tu colección de la Liga Semanal. ¡Reúnelas todas!', xp:n=>'⭐ +'+n+' XP de repaso', back:'↩ Volver a la plataforma', retry:'🔁 Repasar de nuevo',
+       helpT:'¿Cómo uso este material?', tipsT:'Para qué sirve cada parte:', tips:['<b>🔓 Aviso:</b> las prácticas desbloquean; esto es repaso.','<b>ES/EN:</b> cambia TODO el material de idioma.','<b>🌐 Ver traducción:</b> debajo de un auto-chequeo con oración en inglés (no cambia el resto).','<b>🔊 US/UK:</b> escucha los ejemplos.','<b>Armar:</b> en Práctica Final construyes la oración.','<b>🎁 Sorpresa:</b> responde bien al menos el 75% de los auto-chequeos y gana insignia + XP.'] },
+  en:{ unT:'Topic review — optional 📚', unP:'Unlocking comes from your practices (P1·P2·P3). Finish this review to reinforce and get a surprise 🎁',
+       checkH:'Self-check', checkSub:'For you · counts as ✓ with no minimum grade', seeTr:'See translation', finishNeed:'Answer the self-checks in every step to claim your surprise 🎁',
+       prev:'← Back', next:'Next →', finish:'Finish and claim surprise 🎁', bH:'Build the structure', bSub:'Tap: Subject + Verb + Complement', trayPh:'Tap the tiles in order…', bcheck:'Check', bOk:'Perfect! That\'s how it\'s built.', bNo:'Almost — Subject + Verb + Complement.',
+       fWhy:'Why', fNo:'Careful', fEx:'Example', fTip:'Remember', cOk:'Correct!', cBad:'Let\'s review',
+       msCore:'✅ You finished the core (steps 1-3)! Keep going to the end and claim your surprise 🎁', msToast:'✅ Steps 1-3 done · keep going for your surprise! 🎁',
+       done:'📚 Summary passed!', phrase:'Great review. Your grammar gets stronger each pass. 💪', failBar:'🔁 You need '+PASS+'% to claim the surprise. Try again!', phraseFail:'Almost. Review the steps and come back to pass '+PASS+'%. 🌱', kpT:'📝 Master pattern — copy it in your notebook',
+       surT:'Surprise unlocked!', surBadge:b=>'🏅 Badge: '+b, surP:'Added to your Weekly League collection. Collect them all!', xp:n=>'⭐ +'+n+' review XP', back:'↩ Back to the platform', retry:'🔁 Review again',
+       helpT:'How do I use this material?', tipsT:'What each part is for:', tips:['<b>🔓 Notice:</b> practices unlock; this is review.','<b>ES/EN:</b> switches the WHOLE material\'s language.','<b>🌐 See translation:</b> under a self-check with an English sentence (doesn\'t change the rest).','<b>🔊 US/UK:</b> hear the examples.','<b>Build:</b> in Final Practice you build the sentence.','<b>🎁 Surprise:</b> score at least 75% of the self-checks to earn a badge + XP.'] }
+};
+let info='es', cur=0, doneSteps=[], answers=[], coreDone=false, bState={order:[],locked:false}, curLab='';
+function L(){ return T[info]; }
+function say(text,acc){ try{ speechSynthesis.cancel(); const u=new SpeechSynthesisUtterance(text); u.rate=.82; const vs=speechSynthesis.getVoices()||[]; const want=acc==='US'?'en-US':'en-GB'; const v=vs.find(x=>x.lang===want)||vs.find(x=>x.lang&&x.lang.indexOf('en')===0); if(v){u.voice=v;u.lang=v.lang;}else u.lang=want; speechSynthesis.speak(u); }catch(e){} }
+function render(){ cur=0; coreDone=false; doneSteps=new Array(STEPS.length).fill(false); answers=STEPS.map(s=>new Array(s.checks.length).fill(null)); bState={order:[],locked:false};
+  document.getElementById('results').classList.remove('show'); document.getElementById('mbody').style.display='block'; document.getElementById('msbanner').style.display='none';
+  renderTabs(); applyLang(); showStep(0); }
+function renderTabs(){ document.getElementById('steptabs').innerHTML=STEPS.map((s,i)=>`<button class="stab${i===0?' on':''}${doneSteps[i]?' done':''}" id="stab${i}" onclick="goStep(${i})">${s.icon} ${i+1}</button>`).join(''); }
+function applyLang(){ const t=L();
+  document.getElementById('lsEs').classList.toggle('on',info==='es'); document.getElementById('lsEn').classList.toggle('on',info==='en');
+  document.getElementById('mhtitle').textContent=MAT.title[info]; document.getElementById('mhsub').textContent=document.getElementById('screen').getAttribute('data-level').toUpperCase().replace('-',' · ')+' · '+MAT.subtitle[info];
+  document.getElementById('unT').textContent=t.unT; document.getElementById('unP').textContent=t.unP;
+  document.getElementById('helpT').textContent=t.helpT; document.getElementById('helpTips').innerHTML='<div style="font-size:11.5px;color:var(--text-soft);font-weight:700;margin-bottom:6px">'+t.tipsT+'</div>'+t.tips.map(x=>'<div class="helptip">• <span>'+x+'</span></div>').join('');
+  document.getElementById('kpT').textContent=t.kpT; document.getElementById('lBack').textContent=t.back; document.getElementById('lRetry').textContent=t.retry;
+  updateMilestone(); renderStep(); }
+function renderStep(){ const t=L(), s=STEPS[cur]; curLab= info==='es'?'EJEMPLO':'EXAMPLE';
+  let html=`<div class="gcard"><div class="sec-label">${cur+1}. ${s.icon} ${s.title[info]}</div>${s.html[info]}`;
+  if(s.builder) html+=builderHtml(); html+=`</div>`;
+  const ansd=answers[cur].filter(x=>x!==null).length;
+  html+=`<div class="check"><div class="check-h">🧠 ${t.checkH}<span class="cprog">${ansd}/${s.checks.length}</span></div><div class="check-sub">${t.checkSub}</div>`;
+  s.checks.forEach((c,ci)=>{ const sel=answers[cur][ci]; const done=sel!==null; const ok=sel===c.correct;
+    let fb='';
+    if(done){ const f=c.fb; fb=`<div class="cfb show ${ok?'ok':'no'}"><div class="cfbh">${ok?'✅ '+t.cOk:'❌ '+t.cBad}</div><div class="cfbb">`+
+      `<div class="fblk why"><b>🔍 ${t.fWhy}</b>${f.why[info]}</div>`+
+      (f.contrast?`<div class="fblk contrast"><b>⚠ ${t.fNo}</b>${f.contrast[info]}</div>`:'')+
+      (f.ex?`<div class="fblk ex"><b>📝 ${t.fEx}</b>${f.ex[info]}</div>`:'')+
+      (f.tip?`<div class="fblk tip"><b>💡 ${t.fTip}</b>${f.tip[info]}</div>`:'')+`</div></div>`; }
+    const trBtn = (c.tr && info==='es') ? `<button class="ctransbtn" onclick="this.nextElementSibling.classList.toggle('show')">🌐 ${t.seeTr}</button><div class="ctrans">${c.tr.es}</div>` : '';
+    html+=`<div class="citem"><p class="cq"><span class="n">${ci+1}.</span> ${c.q[info]}</p>${trBtn}<div class="copts">`+
+      c.opts[info].map((o,k)=>{ let cl='copt'; if(done){ if(k===c.correct)cl+=' ok'; else if(k===sel)cl+=' no'; } return `<button class="${cl}" ${done?'disabled':''} onclick="checkAns(${ci},${k})">${o}</button>`; }).join('')+
+      `</div>${fb}</div>`;
+  });
+  html+=`</div>`;
+  document.getElementById('stepArea').innerHTML=html;
+  if(s.builder) initBuilder();
+  document.getElementById('navPrev').textContent=t.prev; document.getElementById('navPrev').disabled=cur===0;
+  document.getElementById('navNext').textContent= cur===STEPS.length-1? t.finish : t.next;
+  document.getElementById('pfill').style.width=(doneSteps.filter(Boolean).length/STEPS.length*100)+'%';
+}
+function checkAns(ci,k){ if(answers[cur][ci]!==null) return; answers[cur][ci]=k;
+  if(answers[cur].every(x=>x!==null)){ doneSteps[cur]=true; document.getElementById('stab'+cur).classList.add('done'); }
+  if([0,1,2].every(i=>doneSteps[i]) && !coreDone){ coreDone=true; try{ window.dispatchEvent(new CustomEvent('jucum:done',{detail:{type:'summary', core:true, mat:MAT.reportId}})); }catch(e){} toast(L().msToast); }
+  updateMilestone(); renderStep(); }
+function updateMilestone(){ const b=document.getElementById('msbanner'); if([0,1,2].every(i=>doneSteps[i])){ b.style.display='block'; b.textContent=L().msCore; } else b.style.display='none'; }
+function builderHtml(){ const t=L(); return `<div class="builder"><div class="bh">🧩 ${t.bH}</div><div class="bsub">${t.bSub}</div><div class="tray" id="tray" data-ph="${t.trayPh}"></div><div class="bank" id="bank"></div><button class="bcheck" id="bchk" onclick="checkBuild()" disabled>${t.bcheck}</button><div class="bres" id="bres"></div></div>`; }
+function initBuilder(){ bState={order:[],locked:false}; const sh=[...BUILD.answer.keys()].sort(()=>Math.random()-.5);
+  document.getElementById('bank').innerHTML=sh.map(idx=>`<button class="tile ${BUILD.answer[idx].c}" id="tile${idx}" onclick="placeTile(${idx})">${BUILD.answer[idx].w}</button>`).join(''); document.getElementById('tray').innerHTML=''; }
+function placeTile(idx){ if(bState.locked)return; bState.order.push(idx); document.getElementById('tile'+idx).classList.add('placed'); const tr=document.getElementById('tray'); const b=document.createElement('button'); b.className='tile '+BUILD.answer[idx].c; b.textContent=BUILD.answer[idx].w; b.onclick=()=>removeTile(idx,b); tr.appendChild(b); document.getElementById('bchk').disabled=bState.order.length!==BUILD.answer.length; }
+function removeTile(idx,el){ if(bState.locked)return; bState.order=bState.order.filter(x=>x!==idx); el.remove(); document.getElementById('tile'+idx).classList.remove('placed'); document.getElementById('bchk').disabled=bState.order.length!==BUILD.answer.length; }
+function checkBuild(){ const t=L(); bState.locked=true; const ok=bState.order.join(',')===BUILD.answer.map((_,i)=>i).join(','); document.querySelectorAll('#tray .tile').forEach(x=>x.style.pointerEvents='none');
+  const r=document.getElementById('bres'); r.className='bres show '+(ok?'ok':'no'); r.innerHTML=(ok?'✅ '+t.bOk:'❌ '+t.bNo)+`<div class="bex"><div class="tr">${BUILD.answer.map(a=>a.w).join(' ')} — <i>${BUILD.tr[info]}</i></div><button class="audio-btn" onclick="say('${BUILD.say}','US')">🇺🇸 US</button><button class="audio-btn" onclick="say('${BUILD.say}','UK')">🇬🇧 UK</button></div>`; }
+function showStep(i){ cur=i; document.querySelectorAll('.stab').forEach((b,x)=>b.classList.toggle('on',x===i)); renderStep(); window.scrollTo({top:0,behavior:'smooth'}); }
+function goStep(i){ showStep(i); }
+function navStep(d){ if(d<0){ if(cur>0) showStep(cur-1); return; } if(cur<STEPS.length-1){ showStep(cur+1); return; } const inc=answers.findIndex(a=>a.some(x=>x===null)); if(inc>=0){ toast(L().finishNeed); showStep(inc); } else finish(); }
+function finish(){ const t=L(); document.getElementById('mbody').style.display='none'; document.getElementById('results').classList.add('show');
+  let tot=0,corr=0; answers.forEach((arr,si)=>arr.forEach((k,ci)=>{ if(k!==null){tot++; if(k===STEPS[si].checks[ci].correct)corr++;} })); const pct=tot?Math.round(corr/tot*100):0; const pass=pct>=PASS;
+  const db=document.getElementById('doneBar'); db.classList.toggle('fail',!pass); db.textContent= pass? t.done : t.failBar; document.getElementById('fscore').textContent=pct; document.getElementById('fphrase').textContent= pass? t.phrase : t.phraseFail;
+  document.getElementById('kpList').innerHTML=SUMMARY[info].map(s=>`<li>${s}</li>`).join('');
+  document.getElementById('surprise').style.display= pass? 'block':'none';
+  if(pass){ document.getElementById('medalEm').textContent=BADGE.emoji; document.getElementById('surT').textContent=t.surT; document.getElementById('surBadge').textContent=t.surBadge(BADGE.name[info]); document.getElementById('surP').textContent=t.surP; document.getElementById('xpWin').textContent=t.xp(BADGE.xp); }
+  try{ window.dispatchEvent(new CustomEvent('jucum:done',{detail:{score:pct, pass:pass, type:'summary', badge:BADGE.name.en, xp:BADGE.xp, mat:MAT.reportId, final:true}})); }catch(e){}
+  window.scrollTo({top:0,behavior:'smooth'}); }
+function restart(){ render(); }
+function openHelp(){document.getElementById('helpov').classList.add('show');} function closeHelp(){document.getElementById('helpov').classList.remove('show');}
+function setInfo(l){ info=l; applyLang(); }
+function setLevel(lv){ document.getElementById('screen').setAttribute('data-level',lv); info= lv==='a2'?'en':'es'; render(); }
+function volver(){ if(document.referrer){ location.href=document.referrer; } else if(history.length>1){ history.back(); } else { toast(info==='es'?'Vuelve a tu práctica en la plataforma':'Go back to your practice'); } }
+function toast(m){ const t=document.getElementById('toast'); t.textContent=m; t.classList.add('show'); clearTimeout(t._t); t._t=setTimeout(()=>t.classList.remove('show'),2600); }
+document.addEventListener('contextmenu',e=>{ if(e.target.closest('.mat')){ e.preventDefault(); toast(info==='es'?'Material protegido © JUCUM EC':'Protected material © JUCUM EC'); }});
+try{ speechSynthesis.getVoices(); speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices(); }catch(e){}
+/* FIN DEL MOTOR */
+setLevel(document.getElementById('screen').getAttribute('data-level')||'pre-a1');
+</script>
+<!-- JUCUM English Center · seguimiento (NO QUITAR) -->
+<script src="https://jucum-english-center.netlify.app/jucum-connect.js"></script>
+</body>
+</html>
